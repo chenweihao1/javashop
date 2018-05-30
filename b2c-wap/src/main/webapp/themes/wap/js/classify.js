@@ -2,7 +2,6 @@
  * Created by Andste on 2016/11/17.
  */
 $(function () {
-    var docHeight = document.body.scrollHeight - 44;
     var module = new Module();
     var catScroll;
     var conScroll;
@@ -17,7 +16,6 @@ $(function () {
 
     //  初始化方法
     function init() {
-        $('#classify').css({height: docHeight})
         $('#con-wrapper').css({width: document.body.offsetWidth-80})
         $('#con-wrapper').find('.inner-content').html($('#conts').find('.item-0').clone())
         initIscroll();
