@@ -1,0 +1,47 @@
+.idea
+.classpath
+.project
+*.iml
+*.eml
+target
+*.log
+*.log.*
+/javashop-web/src/main/webapp/config/*.properties
+/javashop-consumer/src/main/resources/*.properties
+.classpath
+.project
+.settings
+.idea
+*/.idea/
+*.iml
+##filter databfile、sln file##
+*.mdb
+*.ldb
+*.sln
+##class file##
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+# compression file
+*.7z
+*.dmg
+*.gz
+*.iso
+*.rar
+*.tar
+*.zip
+*.via
+*.tmp
+*.err
+# OS generated files #  
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
