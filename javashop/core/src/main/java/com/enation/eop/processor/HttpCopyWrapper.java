@@ -21,11 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletInputStream;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
 
 /**
  * @author kingapex
@@ -190,6 +186,10 @@ public class HttpCopyWrapper implements HttpServletRequest {
 	@Override
 	public int getContentLength() {
 		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	public long getContentLengthLong() {
 		return 0;
 	}
 
@@ -576,6 +576,10 @@ public class HttpCopyWrapper implements HttpServletRequest {
 		return null;
 	}
 
+	public <T extends HttpUpgradeHandler> T upgrade(Class<T> aClass) throws IOException, ServletException {
+		return null;
+	}
+
 
 	/* (non-Javadoc)
 	 * @see javax.servlet.http.HttpServletRequest#getParts()
@@ -625,6 +629,10 @@ public class HttpCopyWrapper implements HttpServletRequest {
 	public HttpSession getSession() {
 		// TODO Auto-generated method stub
 		return session;
+	}
+
+	public String changeSessionId() {
+		return null;
 	}
 
 

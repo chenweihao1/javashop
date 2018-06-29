@@ -24,7 +24,7 @@ $(function () {
             style: 'light'
         },
         right: {
-            text     : '邮箱注册',
+            text     : '手机注册',
             textColor: '#fff',
             click    : function () {
                 location.href = 'register.html'
