@@ -3,7 +3,7 @@
  */
 $(function () {
     var module      = new Module();
-    var canRegister = {username: false, email: false, password: false, validcode: false}
+    var canRegister = {username: false, password: false, mobile: false, validcode: false, validcodemobile: false}
     var registerBtn = $('#register-btn');
 
     init();
@@ -16,7 +16,7 @@ $(function () {
 
     //  初始化导航栏
     module.navigator.init({
-        title          : '邮箱注册',
+        title          : '手机注册',
         titleColor     : '#fff',
         backgroundColor: '#ff6700',
         left : {
@@ -27,6 +27,31 @@ $(function () {
 
     //  事件绑定
     function bindEvent() {
+
+        //  获取手机验证码
+        $('.get-validcode-mobile').on('click', function () {
+            var mobileVal = $('#input-mobile').val();
+            if(!module.regExp.mobile.test(mobileVal)){
+                module.message.error('请确认手机号是否正确！');
+                return false;
+            }
+
+            $.ajax({
+                url: ctx + '/api/shop/sms/send-sms-code.do?key=check&mobile=' + mobileVal,
+                success: function (res) {
+                    if(res.result == 1){
+                        module.countDown($('.get-validcode-mobile'));
+                        module.message.success(res.message);
+                    }else {
+                        module.message.error(res.message);
+                    }
+                },
+                error: function () {
+                    module.message.error('出现错误，请重试！');
+                }
+            })
+        })
+
         //  密码输入框显示隐藏切换
         module.switchControl.init({
             element: $('.operate.pwd'),
@@ -44,20 +69,15 @@ $(function () {
         $('.register-form').on('input propertychange', checkRegister)
 
         var username  = $('#input-username'),
-            email     = $('#input-email'),
             password  = $('#input-password'),
             _password = $('#input-password-again'),
-            validcode = $('#input-validcode');
+            mobile = $('#input-mobile'),
+            validcode = $('#input-validcode'),
+            validcodemobile = $('#validcode-mobile');
         username.on('input propertychange', function () {
             var $this            = $(this),
                 _val             = $this.val();
             canRegister.username = _val.length > 3 && _val.length < 20;
-        })
-
-        email.on('input propertychange', function () {
-            var $this         = $(this),
-                _val          = $this.val();
-            canRegister.email = module.regExp.email.test(_val);
         })
 
         password.on('input propertychange', function () {
@@ -74,10 +94,22 @@ $(function () {
             canRegister.password = _val == pwd && module.regExp.password.test(_val);
         })
 
+        mobile.on('input propertychange', function () {
+            var $this         = $(this),
+                _val          = $this.val();
+            canRegister.mobile = _val.length == 11 && module.regExp.mobile.test(_val);
+        })
+
         validcode.on('input propertychange', function () {
             var $this = $(this),
                 _val  = $this.val();
             canRegister.validcode = _val.length == 4;
+        })
+
+        validcodemobile.on('input propertychange', function () {
+            var $this = $(this),
+                _val  = $this.val();
+            canRegister.validcodemobile = _val.length == 6;
         })
 
         //  注册
@@ -87,9 +119,10 @@ $(function () {
                 url : ctx + '/api/shop/member/register.do',
                 data: {
                     username : username.val(),
-                    email    : email.val(),
                     password : password.val(),
+                    mobile: mobile.val(),
                     validcode: validcode.val(),
+                    validcodemobile: validcodemobile.val(),
                     license  : 'agree'
                 },
                 type   : 'POST',
@@ -125,6 +158,6 @@ $(function () {
 
     //  是否禁用注册按钮
     function checkRegister() {
-        (canRegister.username && canRegister.email && canRegister.password && canRegister.validcode) ? registerBtn[0].disabled = false : registerBtn[0].disabled = true;
+        (canRegister.username && canRegister.password && canRegister.mobile && canRegister.validcode && canRegister.validcodemobile) ? registerBtn[0].disabled = false : registerBtn[0].disabled = true;
     }
 })

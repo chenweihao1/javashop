@@ -674,30 +674,30 @@ public class MemberApiController  {
 		if (StringUtil.isEmpty(username)) {
 			return JsonResultUtil.getErrorJson("用户名不能为空！");				
 		}
-//		if (StringUtil.isEmpty(mobile)) {
-//			return JsonResultUtil.getErrorJson("手机号码不能为空！");				
-//		}
+		if (StringUtil.isEmpty(mobile)) {
+			return JsonResultUtil.getErrorJson("手机号码不能为空！");
+		}
 		if (username.length() < 4 || username.length() > 20) {
 			return JsonResultUtil.getErrorJson("用户名的长度为4-20个字符！");				
 		}
 		if (username.contains("@")) {
 			return JsonResultUtil.getErrorJson("用户名中不能包含@等特殊字符！");				
 		}
-		if (StringUtil.isEmpty(email)) {
+		/*if (StringUtil.isEmpty(email)) {
 			return JsonResultUtil.getErrorJson("注册邮箱不能为空！");				
 		}
 		if (!StringUtil.validEmail(email)) {
 			return JsonResultUtil.getErrorJson("注册邮箱格式不正确！");
-		}
+		}*/
 		if (StringUtil.isEmpty(password)) {
 			return JsonResultUtil.getErrorJson("密码不能为空！");
 		}
 		if (memberManager.checkname(username) > 0) {
 			return JsonResultUtil.getErrorJson("此用户名已经存在，请您选择另外的用户名!");
 		}
-		if (memberManager.checkemail(email) > 0) {
+		/*if (memberManager.checkemail(email) > 0) {
 			return JsonResultUtil.getErrorJson("此邮箱已经注册过，请您选择另外的邮箱!");
-		}
+		}*/
 
 		member.setMobile(mobile);
 		member.setUname(username);
