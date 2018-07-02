@@ -6,7 +6,7 @@
 		<groupId>com.enation.app.javashop</groupId>
 		<artifactId>javashop</artifactId>
 		<version>6.3.1</version>
-		<relativePath>../javashop</relativePath>
+		<relativePath>../</relativePath>
   </parent>
   <artifactId>zt-sms</artifactId>
   <name>zt-sms</name>

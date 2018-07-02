@@ -79,7 +79,8 @@
 		<module>cms-core</module>
 		<module>weixin</module>
 		<module>zt-sms</module>
-	</modules>
+        <module>weixin-applet</module>
+    </modules>
 	<build>
 		<plugins>
 			<plugin>
