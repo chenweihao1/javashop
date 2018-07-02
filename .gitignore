@@ -6,9 +6,8 @@
 target
 *.log
 *.log.*
-/javashop-web/src/main/webapp/config/*.properties
-/javashop-web/src/main/webapp/install/intall.lock
-/javashop-consumer/src/main/resources/*.properties
+/javashop/b2c/src/main/webapp/config/*.properties
+/javashop/b2c/src/main/webapp/install/intall.lock
 .classpath
 .project
 .settings
