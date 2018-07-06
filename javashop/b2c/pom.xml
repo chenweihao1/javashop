@@ -5,34 +5,16 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>com.enation.app.javashop</groupId>
-		<artifactId>javashop</artifactId>
+		<artifactId>javashop-parent</artifactId>
 		<version>6.3.1</version>
-		<relativePath>../</relativePath>
 	</parent>
 	<artifactId>b2c</artifactId>
 	<packaging>war</packaging>
 	<name>b2c Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
-
-		</plugins>
-
-		<defaultGoal>compile</defaultGoal>
-		<finalName>b2c</finalName>
-	</build>
 
 	<dependencies>
-
 
 		<!-- Javashop 工程依赖 -->
 		<dependency>
@@ -50,7 +32,7 @@
 			<artifactId>cms-core</artifactId>
 			<version>6.3.1</version>
 		</dependency>
-		
+
 		<!-- 短信网关 -->
 		<dependency>
 			<groupId>com.enation.app.javashop</groupId>

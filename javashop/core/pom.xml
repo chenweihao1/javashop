@@ -3,55 +3,31 @@
         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
         xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <parent>
-        <groupId>com.enation.app.javashop</groupId>
-        <artifactId>javashop</artifactId>
-        <version>6.3.1</version>
-        <relativePath>../</relativePath>
-    </parent>
-    <artifactId>b2c</artifactId>
-    <packaging>war</packaging>
-    <name>b2c Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+	<parent>
+		<groupId>com.enation.app.javashop</groupId>
+		<artifactId>javashop-parent</artifactId>
+		<version>6.3.1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+	<artifactId>core</artifactId>
+	<name>core</name>
+	<url>http://maven.apache.org</url>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
-<<<<<<< HEAD
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-resources-plugin</artifactId>
-			</plugin>
+	<repositories>
+		<repository>
+			<id>maven-repository</id>
+			<url>file:///${project.basedir}/maven-repository</url>
+		</repository>
+	</repositories>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-			</plugin>
 
-		</plugins>
-
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-				<includes>
-					<include>**/*.xml</include>
-					<include>**/*.css</include>
-					<include>**/*.html</include>
-				</includes>
-			</resource>
-		</resources>
-		<defaultGoal>compile</defaultGoal>
-	</build>
 	<dependencies>
 
 
+		<dependency>
+			<groupId>xml-apis</groupId>
+			<artifactId>xml-apis</artifactId>
+		</dependency>
 
 		<dependency>
 			<groupId>xml-apis</groupId>
@@ -63,6 +39,8 @@
 			<groupId>dom4j</groupId>
 			<artifactId>dom4j</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>jmagick</groupId>
 			<artifactId>jmagick</artifactId>
@@ -78,7 +56,6 @@
 			<artifactId>javax.servlet-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
-
 
 
 		<dependency>
@@ -293,10 +270,7 @@
 			<artifactId>quartz</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
+
 		<dependency>
 			<groupId>com.yahoo.platform.yui</groupId>
 			<artifactId>yuicompressor</artifactId>
@@ -326,179 +300,42 @@
 		<dependency>
 			<groupId>org.apache</groupId>
 			<artifactId>template</artifactId>
-			<scope>system</scope>
 			<version>1.0</version>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/apache-template.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>org.mysql</groupId>
 			<artifactId>ojdbc</artifactId>
-			<scope>system</scope>
 			<version>1.0</version>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/ojdbc14.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>sqljdbc</artifactId>
-			<scope>system</scope>
 			<version>1.0</version>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/sqljdbc4.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.show.api</groupId>
 			<artifactId>showapi-sdk</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/showapi_sdk20150701.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.hitrust.trustpay</groupId>
 			<artifactId>client</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/TrustPayClient-V2.0.12.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.netpay</groupId>
 			<artifactId>client</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/netpayclient.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.tenpay</groupId>
 			<artifactId>client</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/tenpay.jar</systemPath>
 		</dependency>
 		<dependency>
 			<groupId>com.alipay</groupId>
 			<artifactId>sdk-java</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/../b2c/src/main/webapp/WEB-INF/lib/alipay-sdk-java20170615110434.jar</systemPath>
 		</dependency>
-=======
->>>>>>> f7c3d27055830b7d0948bb50effd689f5616630d
-
-        </plugins>
-        <testResources>
-            <testResource>
-                <directory>src/test/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                    <include>**/*.css</include>
-                    <include>**/*.html</include>
-                </includes>
-            </testResource>
-        </testResources>
-        <defaultGoal>compile</defaultGoal>
-        <finalName>b2c</finalName>
-    </build>
-
-    <dependencies>
-
-        <!-- 测试框架依赖 -->
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.hamcrest</groupId>
-            <artifactId>hamcrest-core</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>com.jayway.jsonpath</groupId>
-            <artifactId>json-path</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-all</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-junit4</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-api-mockito</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-module-junit4-rule-agent</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.powermock</groupId>
-            <artifactId>powermock-classloading-objenesis</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jmock</groupId>
-            <artifactId>jmock-junit4</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.jmockit</groupId>
-            <artifactId>jmockit</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.skyscreamer</groupId>
-            <artifactId>jsonassert</artifactId>
-        </dependency>
-
-        <!-- Javashop 工程依赖 -->
-        <dependency>
-            <groupId>com.enation.app.javashop</groupId>
-            <artifactId>core</artifactId>
-            <version>6.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.enation.app.javashop</groupId>
-            <artifactId>shop-core</artifactId>
-            <version>6.3.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.enation.app.javashop</groupId>
-            <artifactId>cms-core</artifactId>
-            <version>6.3.1</version>
-        </dependency>
-
-        <!-- 短信网关 -->
-        <dependency>
-            <groupId>com.enation.app.javashop</groupId>
-            <artifactId>zt-sms</artifactId>
-            <version>6.3.1</version>
-        </dependency>
-        <!-- 微信组件 -->
-        <dependency>
-            <groupId>com.enation.app.javashop</groupId>
-            <artifactId>weixin</artifactId>
-            <version>6.3.1</version>
-        </dependency>
-
-        <!-- servlet -->
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+	</dependencies>
 </project>
