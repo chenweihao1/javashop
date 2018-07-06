@@ -1,7 +1,6 @@
 package com.enation.framework.gzip;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.WriteListener;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -37,12 +36,7 @@ public class GZIPResponseStream extends ServletOutputStream {
 		closed = true;
 	}
 
-	public void flush() throws IOException {
-		if (closed) {
-			return;
-		}
-		gzipstream.flush();
-	}
+
 
 	public void write(int b) throws IOException {
 		if (closed) {
@@ -75,7 +69,5 @@ public class GZIPResponseStream extends ServletOutputStream {
 		return false;
 	}
 
-	public void setWriteListener(WriteListener writeListener) {
 
-	}
 }

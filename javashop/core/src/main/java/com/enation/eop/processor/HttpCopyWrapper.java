@@ -576,11 +576,6 @@ public class HttpCopyWrapper implements HttpServletRequest {
 		return null;
 	}
 
-	public <T extends HttpUpgradeHandler> T upgrade(Class<T> aClass) throws IOException, ServletException {
-		return null;
-	}
-
-
 	/* (non-Javadoc)
 	 * @see javax.servlet.http.HttpServletRequest#getParts()
 	 */
