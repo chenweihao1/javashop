@@ -47,6 +47,7 @@
 				</includes>
 			</resource>
 		</resources>
+		<defaultGoal>compile</defaultGoal>
 	</build>
 	<dependencies>
 
