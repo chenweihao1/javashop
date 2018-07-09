@@ -1,0 +1,6 @@
+#jdbc.properties
+#Wed Jan 18 23:54:54 CST 2017
+jdbc.url=jdbc\:mysql\://localhost\:3306/b2c_test?useUnicode\=true&characterEncoding\=utf8&autoReconnect\=true
+jdbc.username=root
+jdbc.password=123
+jdbc.driverClassName=com.mysql.jdbc.Driver
