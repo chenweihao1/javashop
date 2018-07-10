@@ -21,7 +21,21 @@ public class Tag implements java.io.Serializable{
 	 * 区分标签商品 还是 标签 品牌
 	 */
 	private Integer type;
-	
+	/**
+	 * 判断商品类型，英文字段
+	 * 热门商品	--	hot-goods
+	 * 新增商品	--	new-goods
+	 */
+	private String goods_keyword;
+
+	public String getGoods_keyword() {
+		return goods_keyword;
+	}
+
+	public void setGoods_keyword(String goods_keyword) {
+		this.goods_keyword = goods_keyword;
+	}
+
 	@PrimaryKeyField
 	public Integer getTag_id() {
 		return tag_id;

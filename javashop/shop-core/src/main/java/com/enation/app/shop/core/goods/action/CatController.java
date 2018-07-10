@@ -1,6 +1,7 @@
 package com.enation.app.shop.core.goods.action;
 
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -156,6 +157,15 @@ public class CatController {
 		view.addObject("typeList",goodsTypeManager.listAll());
 		view.addObject("catList",goodsCatManager.listAllChildren(0));
 		view.addObject("cat",cat);
+		//将字符串切割并放到list集合中
+		String path = cat.getCat_path();
+		String[] split = path.split("\\|");
+		ArrayList<Object> pathList = new ArrayList();
+		for (String s : split) {
+			pathList.add(s);
+		}
+		view.addObject("pathList", pathList);
+
 		view.setViewName("/shop/admin/cat/cat_edit");
 		return view;
 	}

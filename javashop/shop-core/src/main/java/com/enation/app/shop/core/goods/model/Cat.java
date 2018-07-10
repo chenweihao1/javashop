@@ -27,9 +27,26 @@ public class Cat implements Serializable   {
      protected Integer type_id;
      protected String list_show;
      protected String image;
- 
+     protected Integer index_show;
+     protected List goodsList;
 
-     /************以下为非数据库字段*************/
+	public List getGoodsList() {
+		return goodsList;
+	}
+
+	public void setGoodsList(List goodsList) {
+		this.goodsList = goodsList;
+	}
+
+	public Integer getIndex_show() {
+		return index_show;
+	}
+
+	public void setIndex_show(Integer index_show) {
+		this.index_show = index_show;
+	}
+
+	/************以下为非数据库字段*************/
      private boolean hasChildren ;
      private List<Cat> children;  //子类别
      private String type_name; //类型名称      

@@ -183,4 +183,15 @@ public class GoodsCatCacheProxy  implements
 	public List<Cat> getGoodsParentsType(Integer cat_id) {
 		return goodsCatManager.getGoodsParentsType(cat_id);
 	}
+
+	@Override
+	public List<Cat> queryAllList(Integer index_show) {
+		return null;
+	}
+
+	@Override
+	public List<Cat> queryField(Integer index_show) {
+		return null;
+	}
+
 }

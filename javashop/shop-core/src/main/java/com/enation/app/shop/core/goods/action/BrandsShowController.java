@@ -1,6 +1,7 @@
 package com.enation.app.shop.core.goods.action;
  
 
+import com.enation.app.shop.core.goods.model.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -89,7 +90,7 @@ public class BrandsShowController extends GridController {
 	@RequestMapping(value="/del")
 	public JsonResult del( int id,int tag_id){
 		try {
-			brandsTagManager.del(tag_id, id); 
+			brandsTagManager.del(tag_id, id);
 			return JsonResultUtil.getSuccessJson("删除成功");
 		} catch (Exception e) {
 			return JsonResultUtil.getErrorJson("删除失败");
@@ -115,7 +116,8 @@ public class BrandsShowController extends GridController {
 	@RequestMapping(value="/add")
 	public JsonResult add(int tag_id,int[] brand_id){
 		try {
-			brandsTagManager.add(tag_id, brand_id);
+			Tag tag = tagManager.getById(tag_id);
+			brandsTagManager.add(tag_id, brand_id, tag.getGoods_keyword());
 			return JsonResultUtil.getSuccessJson("操作成功");
 		} catch (Exception e) {  
 			return JsonResultUtil.getErrorJson("操作失败");

@@ -191,7 +191,7 @@ public class GoodsCatManager  implements IGoodsCatManager {
 			cat.setParent_id(0);
 		}
 
-		sql = "update es_goods_cat set  cat_path=?,parent_id=?  where  cat_id=?";
+		sql = "update es_goods_cat set  cat_path=?,parent_id=?,index_show=0  where  cat_id=?";
 		daoSupport.execute(sql, new Object[] { cat.getCat_path(),cat.getParent_id(), cat_id });
 
 	}
@@ -225,6 +225,7 @@ public class GoodsCatManager  implements IGoodsCatManager {
 		map.put("cat_path", cat.getCat_path());
 		map.put("list_show", cat.getList_show());
 		map.put("image", StringUtil.isEmpty(cat.getImage())?null:cat.getImage());
+		map.put("index_show", cat.getIndex_show());
 		daoSupport.update("es_goods_cat", map, "cat_id=" + cat.getCat_id());
 		
 		//修改子分类的cat_path
@@ -335,6 +336,18 @@ public class GoodsCatManager  implements IGoodsCatManager {
 		}else{
 			return listChildren(cat_id);
 		}
+	}
+
+	@Override
+	public List<Cat> queryAllList(Integer index_show) {
+		String sql = "select * from es_goods_cat where index_show=?";
+		return this.daoSupport.queryForList(sql, Cat.class, index_show);
+	}
+
+	@Override
+	public List<Cat> queryField(Integer index_show) {
+		String sql = "select * from es_goods_cat where index_show=?";
+		return this.daoSupport.queryForList(sql, Cat.class, index_show);
 	}
 
 }

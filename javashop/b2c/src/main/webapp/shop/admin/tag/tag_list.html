@@ -33,6 +33,7 @@
           <tr>
             <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
             <th>标签id</th>
+            <th>search_keyword</th>
             <th>标签</th>
             <th>标签类型</th>
             <th>操作</th>
@@ -68,6 +69,7 @@ $(function(){
                 return '<input type="checkbox" name="tag_id" class="fly-checkbox" value=' + obj.tag_id + '>';
             		}},
 	        {data: "tag_id"},
+	        {data: "goods_keyword"},
 	        {data: "tag_name"},
 	        {"data": function (obj) {
 	    		if(obj.type==1){
@@ -105,7 +107,7 @@ function editTag(tag_id){
         shade: [0.3, '#000'],//黑色背景
         shadeClose:false,//黑色背景是否可以点击关闭
         content:'${ctx}/shop/admin/tag/edit.do?tagId='+tag_id,//内容的URL
-        area:['450px','150px'],//弹框大小
+        area:['450px','200px'],//弹框大小
         scrollbar: false//是否允许浏览器出现滚动条
     });
 }

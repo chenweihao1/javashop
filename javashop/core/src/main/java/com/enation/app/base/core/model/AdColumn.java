@@ -24,6 +24,15 @@ public class AdColumn {
 	private Integer userid;
 	private Integer siteid;
 	private String disabled;	//是否删除
+	private String keyword;		//wx搜索关键字
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 
 	@PrimaryKeyField
 	public Integer getAcid() {

@@ -160,4 +160,11 @@ public interface IBrandManager {
 	 * @param ids
 	 */
 	public void saveOrder(int[] ordernums,int[] ids);
+
+	/**
+	 * 根据关键字获取标签下的品牌列表
+	 * @param goods_keyword
+	 * @return
+	 */
+	public List listBrandsByKeyword(String goods_keyword);
 }

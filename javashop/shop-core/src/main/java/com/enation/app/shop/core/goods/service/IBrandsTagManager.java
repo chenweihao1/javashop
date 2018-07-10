@@ -22,7 +22,7 @@ public interface IBrandsTagManager {
 	 * @param tag_id
 	 * @param brand_id
 	 */
-	public void add(int tag_id,int[] brand_id);
+	public void add(int tag_id,int[] brand_id, String goods_keyword);
 	
 	
 	/**

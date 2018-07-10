@@ -30,6 +30,15 @@ public class Adv {
 	private String linkman;	//联系人
 	private String company;	//所属单位
 	private String contact;	//联系方式
+	private String keyword;	//wx搜索关键字
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 
 	/**
 	 * 所属广告位名

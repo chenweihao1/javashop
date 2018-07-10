@@ -34,7 +34,7 @@ public interface IGoodsTagManager {
 	 * @param tagId
 	 * @param goodsId
 	 */
-	public void addTag(int tagId, int goodsId);
+	public void addTag(int tagId, int goodsId, String goods_keyword);
 	
 	/**
 	 * 移除商品的tag
@@ -50,4 +50,11 @@ public interface IGoodsTagManager {
 	 * @param ordernum
 	 */
 	public void updateOrderNum(Integer[] goodsId,Integer[] tagids, Integer[] ordernum);
+
+	/**
+	 * 根据商品关键字获取商品列表
+	 * @param goods_keyword
+	 * @return
+	 */
+	public List getForKeyword(String goods_keyword);
 }

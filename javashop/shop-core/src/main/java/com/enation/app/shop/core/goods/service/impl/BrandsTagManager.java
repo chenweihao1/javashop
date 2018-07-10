@@ -30,9 +30,9 @@ public class BrandsTagManager implements IBrandsTagManager {
 	 */
 	@Override
 	@Log(type=LogType.GOODS,detail="添加品牌")
-	public void add(int tag_id, int[] brand_id) {
+	public void add(int tag_id, int[] brand_id, String goods_keyword) {
 		for (int i : brand_id) { 
-			this.daoSupport.execute("insert into es_tag_relb values(?,?,0)", tag_id,i);
+			this.daoSupport.execute("insert into es_tag_relb values(?,?,0,?)", tag_id,i, goods_keyword);
 		}
 	}
 	/*

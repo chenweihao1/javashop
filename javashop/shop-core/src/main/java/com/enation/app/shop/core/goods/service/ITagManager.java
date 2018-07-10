@@ -91,8 +91,5 @@ public interface ITagManager {
 	 * @param tagids
 	 */
 	public void saveRels(Integer relid,Integer[] tagids);
-	
- 
-	
-	
+
 }

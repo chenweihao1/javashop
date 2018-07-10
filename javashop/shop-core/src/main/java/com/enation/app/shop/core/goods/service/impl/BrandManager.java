@@ -392,11 +392,18 @@ public class BrandManager  implements IBrandManager {
 			this.daoSupport.execute("update es_brand set ordernum = ? where brand_id = ?", ordernums[i],ids[i]);
 		}
 	}
-	
+
 	private void deleteOldLogo(String logo){
 		if(!logo.equals("http://static.enationsfot.com")){
 			logo  =StaticResourcesUtil.convertToUrl(logo);
 			FileUtil.delete(logo);
 		}
-	}  
+	}
+
+	@Override
+	public List listBrandsByKeyword(String goods_keyword) {
+		String sql = "select * from es_brand b inner join es_tag_relb r on b.brand_id = r.rel_id where r.goods_keyword = ? order by r.ordernum desc ";
+		List list = this.daoSupport.queryForList(sql, goods_keyword);
+		return list;
+	}
 }

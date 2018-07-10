@@ -133,6 +133,9 @@ public class AdvController extends GridController{
 		}
 
 		adv.setDisabled("false");
+		Long acid = Long.valueOf(adv.getAcid());
+		AdColumn adColumn = adColumnManager.getADcolumnDetail(acid);
+		adv.setKeyword(adColumn.getKeyword());
 
 		try {
 			this.advManager.addAdv(adv);
