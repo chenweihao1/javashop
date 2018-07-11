@@ -124,4 +124,18 @@ public interface IGoodsCatManager {
 	 * @return
 	 */
 	public List<Cat> getGoodsParentsType(Integer cat_id);
+
+	/**
+	 * 根据是否显示在首页判断 获取商品
+	 * @param index_show
+	 * @return
+	 */
+	public List<Cat> queryAllList(Integer index_show);
+
+	/**
+	 * 根据是否显示在首页判断 获取商品（获取指定字段）
+	 * @param index_show
+	 * @return
+	 */
+	public List<Cat> queryField(Integer index_show);
 }

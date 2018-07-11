@@ -67,6 +67,13 @@ public interface IAdvManager {
 	 * @return
 	 */
 	public Page search(String advname,Integer acid,int pageNo,int pageSize,String order);
+
+	/**
+	 * 获取对应keyword的所有广告列表
+	 * @param keyword
+	 * @return
+	 */
+	public List listKeywordAdv(String keyword);
 	
 	
 }

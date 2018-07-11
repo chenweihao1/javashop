@@ -841,6 +841,7 @@ public class GoodsManager  implements IGoodsManager {
 		if(market_enable!=null && market_enable >= 0){
 			sql+=" and market_enable="+market_enable;
 		}
+//		sql += " limit 10";
 		//System.out.println(sql);
 		return sql;
 	}
