@@ -37,7 +37,7 @@ public class WxClassifyController {
     public JsonResult index() {
 
 
-        //this.goodsCatCacheProxy.get
+        this.goodsCatCacheProxy.getListChildren(0);
 
         return null;
     }
