@@ -82,7 +82,7 @@ extension=do
 
 
 
-Javashop 官网网站：http://www.javashop.cn
+Javashop 官网网站：http://www.javashop.cn、http://www.javamall.com.cn
 
 
 
