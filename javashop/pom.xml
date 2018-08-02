@@ -165,6 +165,16 @@
 
             </plugins>
         </pluginManagement>
+        <resources>
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                    <include>**/*.css</include>
+                    <include>**/*.html</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
     <dependencyManagement>
         <dependencies>
