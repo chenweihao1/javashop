@@ -46,6 +46,13 @@
       			<input type="text" id="acheight" name="height" maxlength="4"  lay-verify="height" value="${adColumn.height_num!''}" autocomplete="off" class="layui-input" style="display:inline;">&nbsp;px
     		</div>
   		</div>
+
+		<div class="layui-form-item">
+			<label class="layui-form-label">keyword：</label>
+			<div class="layui-input-block">
+				<input type="text" name="keyword" maxlength="20" lay-verify="keyword" autocomplete="off" class="layui-input">
+			</div>
+		</div>
   		
   		<div class="layui-layer-btn layui-layer-btn-" style="padding:8px 12px;z-index:1000;position: fixed;left: 1px;width: 98%;height: 40px; background:rgba(230,230,230,0.8)"> 
   			<a class="layui-layer-btn0" type="button" id="savebtn"  lay-submit="" lay-filter="editgadc">保存</a>
@@ -79,7 +86,12 @@ layui.use(['form', 'layedit', 'laydate'], function(){
     		if($.trim(value) == ""){
     			return "请输入高度";
     		}
-    	}
+    	},
+        keyword:function(value){
+            if($.trim(value) == ""){
+                return "请输入keyword";
+            }
+        }
     });
     //取消按钮
 	$(".layui-layer-btn1").click(function(){

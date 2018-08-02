@@ -71,9 +71,9 @@ public class GoodsTagManager  implements IGoodsTagManager {
 	 */
 	@Override
 	@Log(type=LogType.GOODS,detail="批量添加标签")
-	public void addTag(int tagId, int goodsId) {
+	public void addTag(int tagId, int goodsId, String goods_keyword) {
 		if (this.daoSupport.queryForInt("SELECT COUNT(0) FROM es_tag_rel WHERE tag_id=? AND rel_id=?",tagId, goodsId) <= 0) {
-			this.daoSupport.execute("INSERT INTO es_tag_rel(tag_id,rel_id,ordernum) VALUES(?,?,0)",tagId, goodsId);
+			this.daoSupport.execute("INSERT INTO es_tag_rel(tag_id,rel_id,ordernum,goods_keyword) VALUES(?,?,0,?)",tagId, goodsId, goods_keyword);
 
 		}
 	}
@@ -121,6 +121,16 @@ public class GoodsTagManager  implements IGoodsTagManager {
 		sql.append(" and r.tag_id = ?");
 		sql.append(" order by r.ordernum desc");
 		List list = this.daoSupport.queryForList(sql.toString(), tagid);
+		return list;
+	}
+
+	@Override
+	public List getForKeyword(String goods_keyword) {
+		StringBuffer sql = new StringBuffer();
+		sql.append("select g.goods_id,g.name,r.tag_id,r.ordernum,g.thumbnail,g.price from es_tag_rel r LEFT JOIN es_goods g ON g.goods_id=r.rel_id where g.disabled=0 and g.market_enable=1");
+		sql.append(" and r.goods_keyword=?");
+		sql.append(" order by r.ordernum desc");
+		List list = this.daoSupport.queryForList(sql.toString(), goods_keyword);
 		return list;
 	}
 

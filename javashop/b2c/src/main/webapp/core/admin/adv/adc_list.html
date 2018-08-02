@@ -40,6 +40,7 @@ background:#1E9FFF;
           <tr>
             <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
             <th>ID</th>
+            <th>keyword</th>
             <th>标题</th>
             <th>广告类型</th>
             <th>宽度</th>
@@ -77,6 +78,7 @@ $(function(){
                 return '<input type="checkbox" name="acid" class="fly-checkbox" value=' + obj.acid + '>';
             		}},
 	        {data: "acid"},
+	        {data: "keyword"},
 	        {data: "cname"},
 	        {"data": function (obj) {
 	        	if(obj.atype==0){

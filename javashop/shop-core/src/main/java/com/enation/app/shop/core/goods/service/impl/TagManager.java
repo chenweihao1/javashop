@@ -1,6 +1,7 @@
 package com.enation.app.shop.core.goods.service.impl;
 
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -58,7 +59,7 @@ public class TagManager implements ITagManager {
 	public void add(Tag tag) {
 		tag.setRel_count(0);
 		this.daoSupport.insert("es_tags", tag);
-		
+
 	}
 
 	/*
@@ -117,6 +118,8 @@ public class TagManager implements ITagManager {
 	@Log(type=LogType.GOODS,detail="修改${tag.tag_name}的标签")
 	public void update(Tag tag) {
 		this.daoSupport.update("es_tags", tag, "tag_id="+tag.getTag_id());
+		this.daoSupport.execute("update es_tag_rel set goods_keyword = ? where tag_id = ?", tag.getGoods_keyword(), tag.getTag_id());
+		this.daoSupport.execute("update es_tag_relb set goods_keyword = ? where tag_id = ?", tag.getGoods_keyword(), tag.getTag_id());
 		
 	}
 
@@ -160,7 +163,7 @@ public class TagManager implements ITagManager {
 			}
 		}
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see com.enation.app.shop.core.goods.service.ITagManager#list(java.lang.Integer)

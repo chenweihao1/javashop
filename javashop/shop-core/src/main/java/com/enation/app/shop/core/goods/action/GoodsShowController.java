@@ -1,5 +1,6 @@
 package com.enation.app.shop.core.goods.action;
 
+import com.enation.app.shop.core.goods.model.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -110,7 +111,8 @@ public class GoodsShowController extends GridController {
 		try {
 			if (goods_id != null && goods_id.length > 0) {
 				for (Integer goodsId : goods_id) {
-					goodsTagManager.addTag(tagid, goodsId);
+					Tag tag = tagManager.getById(tagid);
+					goodsTagManager.addTag(tagid, goodsId, tag.getGoods_keyword());
 				}
 			}
 			return JsonResultUtil.getSuccessJson("添加成功");

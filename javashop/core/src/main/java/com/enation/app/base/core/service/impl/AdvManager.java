@@ -136,7 +136,12 @@ public class AdvManager implements IAdvManager {
 		Page page = this.daoSupport.queryForPage(sql.toString(), pageNo, pageSize,Adv.class);
 		return page;
 	}
-	
-	 
+
+	@Override
+	public List listKeywordAdv(String keyword) {
+		List list = this.daoSupport.queryForList("select a.*,'' cname from es_adv a where keyword = ? and isclose = 0", keyword);
+		return list;
+	}
+
 
 }
