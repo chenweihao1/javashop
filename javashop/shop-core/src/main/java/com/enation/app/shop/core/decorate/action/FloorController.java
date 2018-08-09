@@ -209,26 +209,26 @@ public class FloorController extends GridController{
 				}
 			}
 			//判断时候选择主分类
-			if(floor.getCat_id()==null){
-				return JsonResultUtil.getErrorJson("请选择主分类");
-			}
+//			if(floor.getCat_id()==null){
+//				return JsonResultUtil.getErrorJson("请选择主分类");
+//			}
 			this.floorManager.save(floor);
 			
-			List<Map> catList= this.goodsCatManager.getListChildren(Integer.parseInt(floor.getCat_id()));
-			int totleSize = catList.size()<5?catList.size():5;
-			for (int i = 0; i < totleSize; i++) {
-				Floor childFloor = new Floor();
-				Map map = catList.get(i);
-				String name = (String) map.get("name");
-				childFloor.setTitle(name);
-				childFloor.setSort(i);
-				childFloor.setParent_id(floor.getId());
-				childFloor.setPage_id(floor.getPage_id());
-				childFloor.setStyle("style1");
-				childFloor.setIs_display(0);
-				
-				this.floorManager.save(childFloor);
-			}
+//			List<Map> catList= this.goodsCatManager.getListChildren(Integer.parseInt(floor.getCat_id()));
+//			int totleSize = catList.size()<5?catList.size():5;
+//			for (int i = 0; i < totleSize; i++) {
+//				Floor childFloor = new Floor();
+//				Map map = catList.get(i);
+//				String name = (String) map.get("name");
+//				childFloor.setTitle(name);
+//				childFloor.setSort(i);
+//				childFloor.setParent_id(floor.getId());
+//				childFloor.setPage_id(floor.getPage_id());
+//				childFloor.setStyle("style1");
+//				childFloor.setIs_display(0);
+//
+//				this.floorManager.save(childFloor);
+//			}
 			
 			
 			return JsonResultUtil.getSuccessJson("楼层添加成功");

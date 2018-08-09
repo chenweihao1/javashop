@@ -11,7 +11,7 @@
 }
 
 </style>
-<script type="text/javascript" src="${ctx}/floor/admin/js/newfloor.js"></script>
+<script type="text/javascript" src="${ctx}/floor/admin/js/newfloor.js?v=20180809"></script>
 <div class="admin-main">
     <div>
     	<!-- 提示区 -->
@@ -88,7 +88,9 @@ $(function(){
            	 return val;
 	 	       	}},
 	       	{data: null,"render": function(obj) {
-	        	return "<a class='layui-btn layui-btn-small layui-btn-normal _aa' onclick='editFloor("+obj.id+")' >编辑</a>";		
+	       	    var val = "<a class='layui-btn layui-btn-small layui-btn-normal _aa' onclick='editFloor("+obj.id+")' >编辑</a>";
+	       	    val += "<a class='layui-btn layui-btn-small layui-btn-normal _aa' onclick='append(" + obj.id + ",1)' >新增子楼层</a>"
+	        	return val;
 	       	}},
 	       	{data: null,"render": function(obj) {
 	        	return "<a class='layui-btn layui-btn-small layui-btn-danger' onclick='del("+obj.id+")' >删除</a>";		

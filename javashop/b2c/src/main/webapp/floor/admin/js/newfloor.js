@@ -24,6 +24,20 @@ $(function () {
     });
 })
 
+function append(id,pageid) {
+    layer.open({
+        title:"添加子楼层",//标题
+        maxmin :true,//右上角可否放大缩小
+        offset: '100px',//弹框位置
+        type:2,//弹框的类型
+        shade: [0.3, '#000'],//黑色背景
+        shadeClose:false,//黑色背景是否可以点击关闭
+        content:ctx+"/core/admin/floor/add-children.do?floorid="+id,
+        area:['726px','363px'],//弹框大小
+        scrollbar: false,//是否允许浏览器出现滚动条
+    });
+}
+
 
 /**
  * 删除楼层
