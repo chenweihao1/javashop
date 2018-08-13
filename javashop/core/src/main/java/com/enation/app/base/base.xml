@@ -33,6 +33,7 @@
 		<field><name>company</name><type>varchar</type><size>255</size><option>00</option></field>
 		<field><name>contact</name><type>varchar</type><size>255</size><option>00</option></field>
 		<field><name>disabled</name><type>varchar</type><size>5</size><option>00</option><default>'false'</default></field>
+		<field><name>keyword</name><type>varchar</type><size>255</size><option>00</option></field>
 	</action>
 	<action>
 		<command>create</command>
@@ -46,6 +47,7 @@
 		<field><name>atype</name><type>int</type><size>11</size><option>00</option></field>
 		<field><name>arule</name><type>long</type><size>20</size><option>00</option></field>
 		<field><name>disabled</name><type>varchar</type><size>5</size><option>00</option><default>'false'</default></field>
+		<field><name>keyword</name><type>varchar</type><size>255</size><option>00</option></field>
 	</action>
 	<action>
 		<command>create</command>

@@ -95,6 +95,8 @@
 		<field><name>type_id</name><type>int</type><size>8</size><option>00</option></field>
 		<field><name>list_show</name><type>varchar</type><size>1</size><option>00</option><default>'1'</default></field>
 		<field><name>image</name><type>varchar</type><size>255</size><option>00</option></field>
+		<field><name>index_show</name><type>int</type><size>1</size><option>00</option><default>0</default></field>
+
 	</action>
 	<action>
 		<command>create</command>
@@ -168,6 +170,7 @@
 		<field><name>tag_name</name><type>varchar</type><size>255</size><option>00</option></field>
 		<field><name>rel_count</name><type>int</type><size>8</size><option>00</option></field>
 		<field><name>type</name><type>int</type><size>8</size><option>00</option><default>0</default></field>
+		<field><name>goods_keyword</name><type>varchar</type><size>255</size><option>00</option></field>
 	</action>
 	<action>
 		<command>create</command>
@@ -175,6 +178,7 @@
 		<field><name>tag_id</name><type>int</type><size>8</size><option>00</option></field>
 		<field><name>rel_id</name><type>int</type><size>8</size><option>00</option></field>
 		<field><name>ordernum</name><type>int</type><size>10</size><option>00</option></field>
+		<field><name>goods_keyword</name><type>varchar</type><size>255</size><option>00</option></field>
 	</action>
 	<action>
 		<command>create</command>
@@ -182,6 +186,7 @@
 		<field><name>tag_id</name><type>int</type><size>8</size><option>00</option></field>
 		<field><name>rel_id</name><type>int</type><size>8</size><option>00</option></field>
 		<field><name>ordernum</name><type>int</type><size>10</size><option>00</option></field>
+		<field><name>goods_keyword</name><type>varchar</type><size>255</size><option>00</option></field>
 	</action>
 	<action>
 		<command>create</command>
