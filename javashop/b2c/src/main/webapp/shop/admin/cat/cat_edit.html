@@ -45,7 +45,7 @@ width:77%
         <div class="layui-form-item discode" <#if (pathList?size!=4) >style="display: none"</#if> >
             <label style="width: 25%"  class="layui-form-label ">是否显示在首页</label>
             <div class="layui-input-block">
-                <#assign y = cat.index_show />
+                <#assign y = cat.index_show!0 />
                 <input type="radio" name="index_show" value="1" <#if (y==1) >checked</#if> title="是">
                 <input type="radio" name="index_show" value="0" <#if (y!=1) >checked</#if> title="否">
             </div>
