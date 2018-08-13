@@ -89,15 +89,18 @@ $(function(){
 	 	       	}},
 	       	{data: null,"render": function(obj) {
 	       	    var val = "<a class='layui-btn layui-btn-small layui-btn-normal _aa' onclick='editFloor("+obj.id+")' >编辑</a>";
-	       	    val += "<a class='layui-btn layui-btn-small layui-btn-normal _aa' onclick='append(" + obj.id + ",1)' >新增子楼层</a>"
+	       	    val += "<a class='layui-btn layui-btn-small layui-btn-danger _aa' onclick='append(" + obj.id + ",1)' >新增子楼层</a>"
 	        	return val;
 	       	}},
 	       	{data: null,"render": function(obj) {
 	        	return "<a class='layui-btn layui-btn-small layui-btn-danger' onclick='del("+obj.id+")' >删除</a>";		
 	       	}},
 	       	{data: null,"render": function(obj) {
-	        	return "<a class='layui-btn layui-btn-small layui-btn-normal' onclick='newTab(\""+obj.title+"编辑\",\"${ctx}/core/admin/floor/edit-template.do?floor_id="+obj.id+"&page_id=${pageid}\");' >模板编辑</a>";		
-	       	}}
+	       	    var val = "<a class='layui-btn layui-btn-small layui-btn-normal' onclick='newTab(\""+obj.title+"编辑\",\"${ctx}/core/admin/floor/edit-template.do?floor_id="+obj.id+"&page_id=${pageid}\");' >模板编辑</a>";
+                val += "<a class='layui-btn layui-btn-small layui-btn-danger' onclick='newTab(\""+obj.title+"的子楼层\",\"${ctx}/core/admin/floor/children-list.do?floor_id="+obj.id+"&page_id=${pageid}\");' >查看子楼层</a>";
+
+                return val;
+}}
 	     ]
 	});
 });

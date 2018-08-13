@@ -173,6 +173,21 @@ public class FloorController extends GridController{
 
 
 	/**
+	 * 查看子楼层
+	 * @param floor_id
+	 * @return
+	 */
+	@RequestMapping(value="/children-list")
+	public ModelAndView childrenList(Integer floor_id,Integer page_id){
+		ModelAndView view=new ModelAndView();
+		view.addObject("pageid", page_id);
+		view.addObject("floorid",floor_id);
+		view.setViewName("/floor/admin/indexpage/children-list");
+		return view;
+	}
+
+
+	/**
 	 * 获取分类列表
 	 * @param pageid 页面id 
 	 * @return 符合combotree格式的json串
@@ -274,8 +289,8 @@ public class FloorController extends GridController{
 
 	/**
 	 * 保存排序
-	 * @param floor_id 楼层id
-	 * @param sort 楼层的排序
+	 * @param floor_ids 楼层id
+	 * @param floor_sorts 楼层的排序
 	 * @return 处理结果JsonResult
 	 */
 	@ResponseBody
