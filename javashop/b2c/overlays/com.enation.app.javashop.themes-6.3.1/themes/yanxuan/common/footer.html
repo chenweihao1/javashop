@@ -1,0 +1,45 @@
+<div class="footer" id="footer">
+    <div class="footer-content">
+        <a class="<#if page_name == 'index'>footer-icon-selected</#if> footer-item" href="${ctx}/index.html">
+            <p class="footer-icon-p">
+                <i class="index-icon"></i>
+            </p>
+            <p class="footer-text selected-font">首页</p>
+        </a>
+        <a class="<#if page_name == 'classify'>footer-icon-selected</#if> footer-item" href="${ctx}/classify.html">
+            <p class="footer-icon-p">
+                <i class="classify-icon"></i>
+            </p>
+            <p class="footer-text">分类</p>
+        </a>
+        <a class="<#if page_name == 'cart'>footer-icon-selected</#if> footer-item" href="${ctx}/cart.html">
+            <p class="footer-icon-p">
+                <i class="cart-icon"></i>
+            </p>
+            <p class="footer-text">购物车</p>
+        </a>
+        <a class="<#if page_name == 'member'>footer-icon-selected</#if> footer-item" href="${ctx}/member.html">
+            <p class="footer-icon-p">
+                <i class="member-icon"></i>
+            </p>
+            <p class="footer-text">个人</p>
+        </a>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#footer').on('tap', 'a', function () {location.href = $(this).attr('data-href')});
+		/* var cartNum = $('#cart-num');
+		$.get(ctx + '/api/shop/order-create/count.do', function (response) {
+			if(response < 1) {
+				cartNum.text('')
+			}else if(response > 99) {
+				cartNum.text('99+')
+			}else {
+				cartNum.text(response || '')
+			}
+		}) */
+    })
+</script>
+</body>
+</html>

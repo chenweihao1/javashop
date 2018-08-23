@@ -1,0 +1,219 @@
+<#assign title="商品详情页" />
+<#include '/common/header.html'/>
+ <link rel="stylesheet" href="${ctx}${themes_path}/css/goods.css">
+<style>
+        .swiper-pagination-bullet-active{
+            background: #333;
+        }
+        .swiper-pagination{
+            text-align: right;
+        }
+    </style>
+<div class="head-title">
+    <i class="return-icon-left" onclick="window.history.go(-1);"></i> 商品详情
+</div>
+<div class="goods-content">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="${ctx}${themes_path}/images/index/index_banner1.jpg" width="100%"  >
+                </div>
+                <div class="swiper-slide">
+                    <img src="${ctx}${themes_path}/images/index/index_banner2.jpg" width="100%">
+                </div>
+                <div class="swiper-slide">
+                    <img src="${ctx}${themes_path}/images/index/index_banner3.jpg" width="100%">
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    <div class="goods-img-box">
+        <div class="goods-name-box">
+            <div class="goods-name-left dis-in-bl">
+                <p class="goods-name ">板栗仁 80克</p>
+                <p class="gray-font">承德铁矿石上的板栗</p>
+            </div>
+            <div class="praise-rate fl-r">
+                <p class="red-font">98.7%</p>
+                <p class="gray-font">好评率 ></p>
+            </div>
+        </div>
+        <div class="goods-price-box">
+            <p class="goods-price dis-in-bl">
+                <span class="lit-red">￥</span>11
+            </p>
+            <span class="gray-font fl-r">购买最高得1积分</span>
+            <div class="sign-box">
+                <a class="full-subtraction" href="javascript:;">满件减 <i class="right-yellow"></i> </a>
+                <a class="full-subtraction" href="javascript:;">全场加价购 <i class="right-yellow"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="goods-spec-box">
+        <div class="selcted-spec">
+            <p class="selected-spec-p dis-in-bl">已选择：1袋装；x1</p>
+            <i class="icon-right fl-r"> </i>
+        </div>
+        <div class="goods-service">
+            <p class="servie-title fl-l">服务：</p>
+            <div class="service-items dis-in-bl">
+                <p class="line-1">
+                    <span class="service-span"><i class="red-point"></i> 48小时快速退款</span>
+                    <span class="service-span"><i class="red-point"></i> 满88元免邮费</span>
+                </p>
+                <p class="line-1">
+                    <span class="service-span"><i class="red-point"></i> 网易自营品牌</span>
+                    <span class="service-span"><i class="red-point"></i> 部分地区无法配送</span>
+                </p>
+            </div>
+            <i class="icon-right fl-r" style="line-height: 40px;"> </i>
+        </div>
+    </div>
+    <div class="user-evaluation">
+        <div class="evaluation-title">
+            <p class="evaluation-p dis-in-bl">用户评价(27975)</p>
+            <i class="icon-right"> </i>
+            <span class="evaluation-praise fl-r">98.7% 好评 </span>
+        </div>
+        <div class="evaluation-content">
+            <div class="evaluation-member">
+                <img class="member-img fl-l" src="http://yanxuan.nosdn.127.net/8945ae63d940cc42406c3f67019c5cb6.png">
+                <p class="evaluat-member-name"> g*****0</p>
+            </div>
+            <p class="evaluation-time fl-l">2018.06.300:35</p>
+            <span class="evaluation-stars">*****</span>
+            <p class="evaluation-text">
+                就爱吃板栗
+            </p>
+            <div class="evaluat-goods-img">
+                <img src="" class="goods-img">
+            </div>
+            <p class="goods-spec-span">1袋装</p>
+            <div class="evaluation-return-box">
+                <p class="return-title">小选回复：</p>
+                <p class="return-text">
+                    感谢您对我们的支持，祝您每天都能拥有阳光般的好心情~
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="all-follow-box">
+        <div class="all-follow-title">
+            <a href="javascript:;" class="all-follw-btn active-follow">大家都在看</a>
+            <a href="javascript:;" class="all-follw-btn">24小时热销</a>
+        </div>
+        <div class="overflow">
+        <div class="recommendings-box">
+            <div class="recommending-item">
+                <img src="" class="recommend-img">
+                <div class="goods-intro">
+                    <span class="sign-red">满件减</span>
+                    <p class="recommend-name">鲜果冻180可（6粒装）</p>
+                    <p class="recommend-price">￥14</p>
+                </div>
+            </div>
+            <div class="recommending-item">
+                <img src="" class="recommend-img">
+                <div class="goods-intro">
+                    <span class="sign-red">满件减</span>
+                    <p class="recommend-name">鲜果冻180可（6粒装）</p>
+                    <p class="recommend-price">￥14</p>
+                </div>
+            </div>
+            <div class="recommending-item">
+                <img src="" class="recommend-img">
+                <div class="goods-intro">
+                    <span class="sign-red">满件减</span>
+                    <p class="recommend-name">鲜果冻180可（6粒装）</p>
+                    <p class="recommend-price">￥14</p>
+                </div>
+            </div>
+            <div class="recommending-item">
+                <img src="" class="recommend-img">
+                <div class="goods-intro">
+                    <span class="sign-red">满件减</span>
+                    <p class="recommend-name">鲜果冻180可（6粒装）</p>
+                    <p class="recommend-price">￥14</p>
+                </div>
+            </div>
+            <div class="recommending-item">
+                <img src="" class="recommend-img">
+                <div class="goods-intro">
+                    <span class="sign-red">满件减</span>
+                    <p class="recommend-name">鲜果冻180可（6粒装）</p>
+                    <p class="recommend-price">￥14</p>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="goods-parameters">
+        <p class="goods-parameters-title">商品参数</p>
+        <div class="parameters-item">
+            <span class="parameters-name">品名</span>
+            <p class="parameters-date dis-in-bl">板栗仁</p>
+        </div>
+        <div class="parameters-item">
+            <span class="parameters-name">产地</span>
+            <p class="parameters-date dis-in-bl">河北承德</p>
+        </div>
+        <div class="parameters-item">
+            <span class="parameters-name">配料</span>
+            <p class="parameters-date dis-in-bl">板栗</p>
+        </div>
+        <div class="parameters-item">
+            <span class="parameters-name">净含量</span>
+            <p class="parameters-date dis-in-bl">80克/袋</p>
+        </div>
+        <div class="parameters-item">
+            <span class="parameters-name">保质期</span>
+            <p class="parameters-date dis-in-bl">18个月</p>
+        </div>
+    </div>
+    <div class="bottom-btn">
+        <div class="bottom-btn-left">
+            <ul class="goods-bottom-ul">
+                <li class="goods-bottom-li tap" data-href="index.html">
+                    <i class="cart-bottom-index"></i>
+                </li>
+                <li class="goods-bottom-li tap" data-href="">
+                    <i class="cart-bottom-service"></i>
+                </li>
+                <li class="goods-bottom-li tap" data-href="cart.html">
+                    <i class="cart-bottom-icon"></i>
+                    <span class="red-circle">2</span>
+                </li>
+            </ul>
+        </div>
+        <div class="cart-bottom-right">
+            <a href="checkout.html" class="buy-now-btn">立即购买</a>
+            <a href="javascript:;" class="buy-cart-btn">加入购物车</a>
+        </div>
+    </div>
+</div>
+<!--返回顶部-->
+<div id="back-to-top">
+    <i class="back-top-icon"></i>
+</div>
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: true,//可选选项，自动滑动
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+    })
+    $(function () {
+        $(document).on('click','.all-follw-btn',function () {
+            $(this).siblings().removeClass('active-follow');
+            $(this).toggleClass('active-follow');
+        })
+    })
+</script>
+</body>
+</html>

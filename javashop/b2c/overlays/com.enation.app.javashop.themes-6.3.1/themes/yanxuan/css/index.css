@@ -1,0 +1,411 @@
+
+.swiper-container{
+    width: 100%;
+    height: 178px;
+    display: inline-block;
+}
+
+.m-menu {
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fff;
+}
+
+.m-menu .item {
+    flex: 1;
+    display: block;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.item img{
+    display: inline-block;
+    width: 85%;
+
+}
+
+.m-menu text {
+    display: block;
+    font-size: 24px;
+    text-align: center;
+    margin: 0 auto;
+    line-height: 1;
+    color: #333;
+}
+
+.a-section {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background: #fff;
+    color: #333;
+    margin-top: 10px;
+}
+
+.a-section .h {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+}
+
+.a-section .h .txt {
+    font-size: 18px;
+}
+
+.a-brand .b {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.a-brand .wrap {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.a-brand .mt {
+    position: absolute;
+    z-index: 2;
+    left: 10px;
+    top: 10px;
+    font-weight: normal;
+}
+
+.a-brand .mt .brand {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+.a-brand .mt .price, .a-brand .mt .unit {
+    font-size: 12px;
+    color: #999;
+    float: left;
+}
+
+.a-brand .item-1 {
+    height: 252px;
+    overflow: hidden;
+    border-top: 1px solid #fff;
+    margin-left: 1px;
+}
+
+.a-brand .item-1:nth-child(2n+1){
+    margin-left: 0;
+    width: 100%;
+    text-align: justify;
+}
+
+.item-1 a{
+    display: inline-block;
+    position: relative;
+    width: 49.3%;
+}
+
+.a-brand .item-1 .img {
+    width: 100%;
+    display: inline-block;
+}
+
+.a-new .b {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.a-new .b .item {
+    width: 100%;
+    padding: 0 10px;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: justify;
+}
+
+.new-goods-a{
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.a-new .b .item-b {
+    margin-left: 42px;
+}
+
+.a-new .b .img {
+    width: 95%;
+}
+
+.a-new .b .name {
+    text-align: center;
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+}
+
+.price {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    color: #b4282d;
+    font-weight: normal;
+}
+
+.a-popular {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.top-goods-box .item{
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.a-popular .item .top-goods-a{
+    border-top: 1px solid #d9d9d9;
+    width: 100%;
+    display: inline-block;
+}
+
+.a-popular .img {
+    margin-top: 5px;
+    margin-right: 10px;
+    float: left;
+    display: inline-block;
+    width: 32%;
+}
+
+.a-popular .right {
+    float: left;
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.hotGoods-p{
+    margin-top: 35px;
+}
+
+.a-popular  .text {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    height: 264px;
+    width: 100%;
+}
+
+.a-popular .name {
+    color: #333;
+    font-size: 14px;
+}
+
+.a-popular  .desc {
+    color: #999;
+    font-size: 14px;
+}
+
+.top-goods-box .price{
+    text-align: left;
+}
+
+.a-topic  {
+    width: 100%;
+    padding: 0 0 10px 0;
+    margin-bottom: 10px;
+}
+
+.best-goods-box{
+    height: 230px;
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.a-topic .item {
+    display: inline-block;
+    overflow-y: hidden;
+    padding-left: 10px;
+    width: 900px;
+}
+
+/*
+.a-topic  .item:last-child {
+    margin-right: 30px;
+}
+*/
+
+.dest-goods-a{
+    width: 290px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    margin-right: 10px;
+}
+
+.img-bg{
+    width: 100%;
+    height: 162px;
+    overflow-y: hidden;
+}
+
+.a-topic .img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.a-topic .np {
+    margin: 10px 0 5px 0;
+    color: #333;
+    font-size: 16px;
+}
+
+.a-topic .np .price {
+    margin-left: 10px;
+    color: #b4282d;
+    display: inline;
+}
+
+.a-topic .desc {
+    display: block;
+    color: #999;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow:ellipsis;
+}
+
+.good-grid {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.list-content-a{
+    width: 49.3%;
+    display:inline-block;
+    background: #fff;
+    text-align: center;
+    margin-bottom:3px;
+    padding-top: 10px;
+}
+
+.list-content-a .txt{
+    padding-top: 22px;
+}
+
+.list-content-a img{
+    width: 85%;
+}
+
+.list-content-a .more-btn-icon{
+    width: 20%;
+    padding: 50px;
+}
+
+.good-grid .h {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 65px;
+    font-size: 18px;
+    color: #333;
+}
+
+.goods-list-content{
+    width: 100%;
+}
+
+.good-grid .best-goods-boxb {
+    width: 100%;
+    padding: 0 6.25px;
+    height: auto;
+    overflow: hidden;
+}
+
+.good-grid  .item {
+    float: left;
+    background: #fff;
+    width: 365px;
+    margin-bottom: 6.25px;
+    height: 452px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.good-grid .best-goods-box .item .a{
+    height: 452px;
+    width: 100%;
+}
+
+.good-grid .best-goods-box .item-b {
+    margin-left: 6.25px;
+}
+
+.good-grid .item .img {
+    margin-top: 20px;
+    width: 302px;
+    height: 302px;
+}
+
+.good-grid .item .name {
+    display: block;
+    width: 365.625px;
+    padding: 0 20px;
+    overflow: hidden;
+    height: 35px;
+    margin: 11.5px 0 22px 0;
+    text-align: center;
+    font-size: 30px;
+    color: #333;
+}
+
+.good-grid .item .price {
+    display: block;
+    width: 365.625px;
+    height: 30px;
+    text-align: center;
+    font-size: 30px;
+    color: #b4282d;
+}
+
+.good-grid .more-item{
+    height: 100%;
+    width: 100%;
+}
+
+.more-a{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.good-grid .more-a .txt{
+    height: 33px;
+    width: 100%;
+    line-height: 33px;
+    color: #333;
+    font-size: 33px;
+}
+
+.good-grid .more-a .icon{
+    margin: 60px auto 0 auto;
+    width: 70px;
+    height: 70px;
+}
+

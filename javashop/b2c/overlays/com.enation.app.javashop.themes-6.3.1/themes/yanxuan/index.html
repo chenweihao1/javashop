@@ -1,0 +1,333 @@
+<#assign title="网易严选" />
+<#include '/common/header.html'/>
+<#assign page_name = "index"/>
+<link rel="stylesheet" href="${ctx}${themes_path}/css/index.css">
+<style>
+.swiper-pagination-bullet-active {
+	background: #333;
+}
+</style>
+<div class="head-title">
+   网易严选
+</div>
+
+<div class="container">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="${ctx}${themes_path}/images/index/index_banner1.jpg" width="100%">
+                </div>
+                <div class="swiper-slide">
+                    <img src="${ctx}${themes_path}/images/index/index_banner2.jpg" width="100%">
+                </div>
+                <div class="swiper-slide">
+                    <img src="${ctx}${themes_path}/images/index/index_banner3.jpg" width="100%">
+                </div>
+            </div>
+            <!-- 如果需要分页器 -->
+            <div class="swiper-pagination"></div>
+
+        </div>
+    <div class="m-menu">
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel1.png" background-size="cover">
+            <p>居家</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel2.png" background-size="cover">
+            <p>餐厨</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel3.png" background-size="cover">
+            <p>饮食</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel4.png" background-size="cover">
+            <p>配件</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel5.png" background-size="cover">
+            <p>服装</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel1.png" background-size="cover">
+            <p>婴童</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel2.png" background-size="cover">
+            <p>杂货</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel3.png" background-size="cover">
+            <p>洗护</p>
+        </a>
+        <a class="item" href="javascript:;" >
+            <img src="${ctx}${themes_path}/images/index/index_channel4.png" background-size="cover">
+            <p>志趣</p>
+        </a>
+
+    </div>
+    <div class="a-section a-brand">
+        <div class="h">
+            <a href="javascript:;">
+                <p class="txt">品牌制造商直供</p>
+            </a>
+        </div>
+        <div class="b">
+            <div class="item item-1" >
+                <a href="javascript:;">
+                    <div class="wrap">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_picUrl1.jpg" mode="aspectFill">
+                        <div class="mt">
+                            <p class="brand">MUJI制造商</p>
+                            <p class="price">12.9</p>
+                            <p class="unit">元起</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:;">
+                    <div class="wrap">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_picUrl2.jpg" mode="aspectFill">
+                        <div class="mt">
+                            <p class="brand">Adidas制造商</p>
+                            <p class="price">49</p>
+                            <p class="unit">元起</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:;">
+                    <div class="wrap">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_picUrl3.png" mode="aspectFill">
+                        <div class="mt">
+                            <p class="brand">优衣库制造商</p>
+                            <p class="price">29</p>
+                            <p class="unit">元起</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="javascript:;">
+                    <div class="wrap">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_picUrl4.jpg" mode="aspectFill">
+                        <div class="mt">
+                            <p class="brand">内野制造商</p>
+                            <p class="price">10</p>
+                            <p class="unit">元起</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="a-section a-new" >
+        <div class="h">
+            <div>
+                <a href="javascript:;">
+                    <p class="txt">周一周四 · 新品首发</p>
+                </a>
+            </div>
+        </div>
+        <div class="new-goods-box">
+            <div class="item" >
+                <a href="${ctx}/goods.html" class="new-goods-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_newGoods1.jpg" background-size="cover">
+                    <p class="name">蔓越莓曲奇 200克</p>
+                    <p class="price">￥36</p>
+                </a>
+                <a href="${ctx}/goods.html" class="new-goods-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_newGoods2.jpg" background-size="cover">
+                    <p class="name">趣味粉彩系列笔记本</p>
+                    <p class="price">￥29</p>
+                </a>
+            </div>
+            <div class="item" >
+                <a href="${ctx}/goods.html" class="new-goods-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_newGoods3.jpg" background-size="cover">
+                    <p class="name">简约知性记忆棉坐垫</p>
+                    <p class="price">￥46</p>
+                </a>
+                <a href="${ctx}/goods.html" class="new-goods-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_newGoods4.jpg" background-size="cover">
+                    <p class="name">趣味粉彩系列记忆棉坐垫</p>
+                    <p class="price">￥49</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="a-section a-popular" >
+        <div class="h">
+            <div>
+                <a href="javascript:;">
+                    <p class="txt">人气推荐</p>
+                </a>
+            </div>
+        </div>
+        <div class="top-goods-box">
+            <div class="item" >
+                <a href="${ctx}/goods.html" class="top-goods-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_hotGood1.jpg" background-size="cover">
+                    <div class="right">
+                        <div class="hotGoods-p">
+                            <p class="name">双宫茧桑蚕丝被 空调被</p>
+                            <p class="price">￥699元起</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="${ctx}/goods.html" class="top-goods-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_hotGood2.jpg" background-size="cover">
+                    <div class="right">
+                        <div class="hotGoods-p">
+                            <p class="name">双宫茧桑蚕丝被 空调被</p>
+                            <p class="price">￥699元起</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="${ctx}/goods.html" class="top-goods-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_hotGood3.jpg" background-size="cover">
+                    <div class="right">
+                        <div class="hotGoods-p">
+                            <p class="name">双宫茧桑蚕丝被 空调被</p>
+                            <p class="price">￥699元起</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </div>
+    <div class="a-section a-topic" >
+        <div class="h">
+            <div>
+                <a href="javascript:;">
+                    <p class="txt">专题精选</p>
+                </a>
+            </div>
+        </div>
+        <div class="best-goods-box">
+                <div class="item" >
+                    <a href="javascript:;" class="dest-goods-a">
+                        <p class="img-bg"> <img class="img" src="${ctx}${themes_path}/images/index/index_selected1.jpg" background-size="cover"></p>
+                        <div class="np">
+                            <span class="name">设计师们推荐的应季好物</span>
+                            <span class="price">￥29.9元起</span>
+                        </div>
+                        <p class="desc">原创设计春款系列上新</p>
+                    </a>
+                    <a href="javascript:;"  class="dest-goods-a">
+                        <p class="img-bg"><img class="img" src="${ctx}${themes_path}/images/index/index_selected2.jpg" background-size="cover"></p>
+                        <div class="np">
+                            <span class="name">一条丝巾就能提升时髦度</span>
+                            <span class="price">￥268元起</span>
+                        </div>
+                        <p class="desc">不知道大家对去年G20时，严选与国礼制造商一起推出的《凤凰于飞》等几款丝巾是否还...</p>
+                    </a>
+                    <a href="javascript:;"  class="dest-goods-a">
+                        <p class="img-bg"><img class="img" src="${ctx}${themes_path}/images/index/index_selected3.jpg" background-size="cover"></p>
+                        <div class="np">
+                            <span class="name">米饭好吃的秘诀：会呼吸的锅</span>
+                            <span class="price">￥59元起</span>
+                        </div>
+                        <p class="desc">今年1月份，我们联系到了日本伊贺地区的长谷园，那里有着180年伊贺烧历史的窑厂。...</p>
+                    </a>
+                </div>
+        </div>
+    </div>
+    <div class="good-grid">
+        <div class="h">
+            <div>
+                <p>餐厨</p>
+            </div>
+        </div>
+        <div class="goods-list-content">
+                <div class="goods-list-box">
+                    <a href="${ctx}/goods.html" class="list-content-a">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_cook1.jpg" background-size="cover">
+                        <p class="name">100年传世珐琅锅 全家</p>
+                        <p class="price">￥398</p>
+                    </a>
+                    <a href="${ctx}/goods.html" class="list-content-a">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_cook2.jpg" background-size="cover">
+                        <p class="name">100年传世珐琅锅 全家</p>
+                        <p class="price">￥398</p>
+                    </a>
+                    <a href="${ctx}/goods.html" class="list-content-a">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_cook3.jpg" background-size="cover">
+                        <p class="name">100年传世珐琅锅 全家</p>
+                        <p class="price">￥398</p>
+                    </a>
+                    <a href="${ctx}/goods.html" class="list-content-a">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_cook4.png" background-size="cover">
+                        <p class="name">100年传世珐琅锅 全家</p>
+                        <p class="price">￥398</p>
+                    </a>
+                    <a href="${ctx}/goods.html" class="list-content-a">
+                        <img class="img" src="${ctx}${themes_path}/images/index/index_cook5.png" background-size="cover">
+                        <p class="name">100年传世珐琅锅 全家</p>
+                        <p class="price">￥398</p>
+                    </a>
+                    <a href="${ctx}/category.html" class="list-content-a">
+                        <div class="txt">更多餐厨好物</div>
+                        <img class="more-btn-icon" src="${ctx}${themes_path}/images/icon_go_more.png" background-size="cover">
+                    </a>
+                </div>
+        </div>
+    </div>
+    <div class="good-grid">
+        <div class="h">
+            <div>
+                <p>饮食</p>
+            </div>
+        </div>
+        <div class="goods-list-content">
+            <div class="goods-list-box">
+                <a href="${ctx}/goods.html" class="list-content-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_food1.jpg" background-size="cover">
+                    <p class="name">100年传世珐琅锅 全家</p>
+                    <p class="price">￥398</p>
+                </a>
+                <a href="${ctx}/goods.html" class="list-content-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_food2.jpg" background-size="cover">
+                    <p class="name">100年传世珐琅锅 全家</p>
+                    <p class="price">￥398</p>
+                </a>
+                <a href="${ctx}/goods.html" class="list-content-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_food3.png" background-size="cover">
+                    <p class="name">100年传世珐琅锅 全家</p>
+                    <p class="price">￥398</p>
+                </a>
+                <a href="${ctx}/goods.html" class="list-content-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_food4.jpg" background-size="cover">
+                    <p class="name">100年传世珐琅锅 全家</p>
+                    <p class="price">￥398</p>
+                </a>
+                <a href="${ctx}/goods.html" class="list-content-a">
+                    <img class="img" src="${ctx}${themes_path}/images/index/index_food5.png" background-size="cover">
+                    <p class="name">100年传世珐琅锅 全家</p>
+                    <p class="price">￥398</p>
+                </a>
+                <a href="${ctx}/category.html" class="list-content-a">
+                    <div class="txt">更多饮食好物</div>
+                    <img class="more-btn-icon" src="${ctx}${themes_path}/images/icon_go_more.png" background-size="cover">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--返回顶部-->
+<div id="back-to-top">
+    <i class="back-top-icon"></i>
+</div>
+
+<script>
+    var mySwiper = new Swiper ('.swiper-container', {
+        direction: 'horizontal',
+        loop: true,
+        autoplay: true,//可选选项，自动滑动
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+
+    })
+</script>
+<#include '/common/footer.html'/>

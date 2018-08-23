@@ -1,0 +1,236 @@
+<#assign title="购物车页面" />
+<#include '/common/header.html'/>
+<#assign page_name = "cart"/>
+ <link rel="stylesheet" href="${ctx}${themes_path}/css/cart.css">
+<div class="head-title">
+    购物车
+</div>
+
+<div class="cart-content">
+        <!--未登录-->
+        <!--<div class="no-login" >
+            <div class="c">
+                <img src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/noCart-a8fe3f12e5.png" />
+                <p >还没有登录~</p >
+                <button type="primary" class="go-login-btn">去登录</button>
+            </div>
+        </div>-->
+        <div class='login'>
+            <div class="service-policy">
+                <div class="item">30天无忧退货</div>
+                <div class="item">48小时快速退款</div>
+                <div class="item">满88元免邮费</div>
+            </div>
+            <!--空购物车-->
+            <!--<div class="no-cart" >
+                <div class="c">
+                    <img src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/noCart-a8fe3f12e5.png" />
+                    <p >去添加点什么吧</p >
+                </div>
+            </div>-->
+            <div class="cart-div" >
+                <div class="list">
+                    <div class="group-item">
+                        <div class="goods">
+                            <div class="goods-item" >
+                                <div class="checkbox" ></div>
+                                <div class="cart-goods">
+                                    <img class="img" src="">
+                                    <div class="info" >
+                                        <div class="t">
+                                            <p  class="name">星云酥180g/3颗</p >
+                                            <p  class="num">x2</p >
+                                        </div>
+                                        <div class="attr">标准</div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                    </div>
+                                    <div class="info-edit" style="display: none;">
+                                        <div class="attr-selected" >已选择：标准> </div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                        <div class="selnum">
+                                            <div class="cut" >-</div>
+                                            <input value="2" class="number" disabled="true" type="number" />
+                                            <div class="add" >+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goods-item" >
+                                <div class="checkbox" ></div>
+                                <div class="cart-goods">
+                                    <img class="img" src="">
+                                    <div class="info">
+                                        <div class="t">
+                                            <p  class="name">星云酥180g/3颗</p >
+                                            <p  class="num">x2</p >
+                                        </div>
+                                        <div class="attr">标准</div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                    </div>
+                                    <div class="info-edit" style="display: none;">
+                                        <div class="attr-selected" >已选择：标准> </div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                        <div class="selnum">
+                                            <div class="cut" >-</div>
+                                            <input value="2" class="number" disabled="true" type="number" />
+                                            <div class="add" >+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goods-item" >
+                                <div class="checkbox" ></div>
+                                <div class="cart-goods">
+                                    <img class="img" src="">
+                                    <div class="info">
+                                        <div class="t">
+                                            <p  class="name">星云酥180g/3颗</p >
+                                            <p  class="num">x2</p >
+                                        </div>
+                                        <div class="attr">标准</div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                    </div>
+                                    <div class="info-edit" style="display: none;">
+                                        <div class="attr-selected" >已选择：标准> </div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                        <div class="selnum">
+                                            <div class="cut" >-</div>
+                                            <input value="2" class="number" disabled="true" type="number" />
+                                            <div class="add" >+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goods-item" >
+                                <div class="checkbox" ></div>
+                                <div class="cart-goods">
+                                    <img class="img" src="">
+                                    <div class="info">
+                                        <div class="t">
+                                            <p  class="name">星云酥180g/3颗</p >
+                                            <p  class="num">x2</p >
+                                        </div>
+                                        <div class="attr">标准</div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                    </div>
+                                    <div class="info-edit" style="display: none;">
+                                        <div class="attr-selected" >已选择：标准> </div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                        <div class="selnum">
+                                            <div class="cut" >-</div>
+                                            <input value="2" class="number" disabled="true" type="number" />
+                                            <div class="add" >+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goods-item" >
+                                <div class="checkbox" ></div>
+                                <div class="cart-goods">
+                                    <img class="img" src="">
+                                    <div class="info">
+                                        <div class="t">
+                                            <p  class="name">星云酥180g/3颗</p >
+                                            <p  class="num">x2</p >
+                                        </div>
+                                        <div class="attr">标准</div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                    </div>
+                                    <div class="info-edit" style="display: none;">
+                                        <div class="attr-selected" >已选择：标准> </div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                        <div class="selnum">
+                                            <div class="cut" >-</div>
+                                            <input value="2" class="number" disabled="true" type="number" />
+                                            <div class="add" >+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="goods-item" >
+                                <div class="checkbox" ></div>
+                                <div class="cart-goods">
+                                    <img class="img" src="">
+                                    <div class="info">
+                                        <div class="t">
+                                            <p  class="name">星云酥180g/3颗</p >
+                                            <p  class="num">x2</p >
+                                        </div>
+                                        <div class="attr">标准</div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                    </div>
+                                    <div class="info-edit" style="display: none;">
+                                        <div class="attr-selected" >已选择：标准> </div>
+                                        <div class="b">
+                                            <p  class="price">￥25.6</p >
+                                        </div>
+                                        <div class="selnum">
+                                            <div class="cut" >-</div>
+                                            <input value="2" class="number" disabled="true" type="number" />
+                                            <div class="add" >+</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="cart-bottom">
+                    <div class="checkbox" >全选(2)</div>
+                    <div class="total">￥165.36</div>
+                    <div class="cart-edit delete">编辑</div>
+                   <!-- <div class="checkout" bindtap="deleteCart" >删除所选</div>-->
+                    <div class="checkout tap" data-href="checkout.html">下单</div>
+                </div>
+            </div>
+        </div>
+</div>
+<script>
+    $(function(){
+       $(document).on('click','.checkbox',function () {
+            $(this).toggleClass('checked');
+       })
+        $(document).on('click','.cart-bottom .checkbox',function () {
+            $(this).toggleClass('checked');
+            $('.checkbox').toggleClass('checked');
+        })
+        $(document).on('click','.cart-edit',function () {
+            $(this).addClass('finished');
+            $(this).html('完成');
+            $('.info').hide();
+            $('.info-edit').show();
+        })
+        $(document).on('click','.finished',function () {
+            $(this).html('编辑');
+            $('.info-edit').hide();
+            $('.info').show();
+            $(this).removeClass('finished');
+
+        })
+    })
+
+</script>
+<#include '/common/footer.html'/>

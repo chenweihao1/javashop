@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>订单结算</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="${ctx}${themes_path}/css/checkout.css">
+    <script src="${ctx}${themes_path}/js/jquery-1.8.3.min.js"></script>
+    <link rel="stylesheet" href="${ctx}${themes_path}/js/swiper/css/swiper-4.3.3.min.css">
+    <script src="${ctx}${themes_path}/js/swiper/js/swiper-4.3.3.min.js"></script>
+    <script src="${ctx}${themes_path}/js/common.js"></script>
+    <link rel="stylesheet" href="${ctx}${themes_path}/css/common.css">
+</head>
+<body>
+<div class="head-title">
+    <i class="return-icon-left" onclick="window.history.go(-1);"></i> 填写订单
+</div>
+    <div class="checkout-content">
+        <div class="container">
+            <div class="address-box">
+                <div class="address-item" bindtap="selectAddress">
+                    <div class="l">
+                        <p class="name">王大事</p>
+                        <p class="default">默认</p>
+                    </div>
+                    <div class="m">
+                        <p class="mobile">18211111111</p>
+                        <p class="address">三河市维多利亚</p>
+                    </div>
+                    <div class="r tap" data-href="member/address.html">
+                        <img src="${ctx}${themes_path}/images/address_right.png"> 
+                    </div>
+                </div>
+                <div class="address-item address-empty" style="display: none;">
+                    <div class="m">
+                        还没有收货地址，去添加
+                    </div>
+                    <div class="r">
+                        <img src="${ctx}${themes_path}/images/address_right.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="coupon-box">
+                <div class="coupon-item tap" data-href="member/coupon.html">
+                    <div class="l">
+                        <p class="name">请选择优惠券</p>
+                        <p class="txt">2张</p>
+                    </div>
+                    <div class="r">
+                        <img src="${ctx}${themes_path}/images/address_right.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-box">
+                <div class="order-item">
+                    <div class="l">
+                        <p class="name">商品合计</p>
+                    </div>
+                    <div class="r">
+                        <p class="txt">￥10.00</p>
+                    </div>
+                </div>
+                <div class="order-item">
+                    <div class="l">
+                        <p class="name">运费</p>
+                    </div>
+                    <div class="r">
+                        <p class="txt">￥11.00</p>
+                    </div>
+                </div>
+                <div class="order-item no-border">
+                    <div class="l">
+                        <p class="name">优惠券</p>
+                    </div>
+                    <div class="r">
+                        <p class="txt">-￥11.00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="goods-items">
+                <div class="item" >
+                    <div class="img">
+                        <img src="">
+                    </div>
+                    <div class="info">
+                        <div class="t">
+                            <p class="name">产品名称</p>
+                            <p class="number">x6</p>
+                        </div>
+                        <div class="m"></div>
+                        <div class="b">￥85.00</div>
+                    </div>
+                </div>
+                <div class="item" >
+                    <div class="img">
+                        <img src="">
+                    </div>
+                    <div class="info">
+                        <div class="t">
+                            <p class="name">产品名称</p>
+                            <p class="number">x6</p>
+                        </div>
+                        <div class="m"></div>
+                        <div class="b">￥85.00</div>
+                    </div>
+                </div>
+                <div class="item" >
+                    <div class="img">
+                        <img src="">
+                    </div>
+                    <div class="info">
+                        <div class="t">
+                            <p class="name">产品名称</p>
+                            <p class="number">x6</p>
+                        </div>
+                        <div class="m"></div>
+                        <div class="b">￥85.00</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-total">
+                <div class="l">实付：￥200.00</div>
+                <div class="r" bindtap="submitOrder">去付款</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

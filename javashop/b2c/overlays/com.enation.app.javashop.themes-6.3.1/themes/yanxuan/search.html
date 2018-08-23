@@ -1,0 +1,120 @@
+<#assign title = '搜索' />
+<#include '/common/header.html' />
+<link rel="stylesheet" href="${ctx}${themes_path}/css/search.css">
+<div class="head-title">
+    <i class="return-icon-left" onclick="window.history.go(-1);"></i> 搜索
+</div>
+    <div class="search-content">
+        <div class="container" style="height: 100%;">
+            <div class="search-header">
+                <div class="input-box">
+                    <img class="icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png"> 
+                    <input name="input" class="keywrod" focus="true" value="520礼包抢先领" confirm-type="search" bindinput="inputChange" bindfocus="inputFocus" bindconfirm="onKeywordConfirm" placeholder="520礼包抢先领" />
+                    <img class="del"   src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/clearIpt-f71b83e3c2.png">
+                </div>
+                <div class="right" >取消</div>
+            </div>
+            <div class="no-search" style="display: none;">
+                    <div class="search-keywords search-history"  >
+                    <div class="h">
+                        <p class="title">历史记录</p>
+                        <img class="icon"   src="http://nos.netease.com/mailpub/hxm/yanxuan-wap/p/20150730/style/img/icon-normal/del1-93f0a4add4.png">
+                    </div>
+                    <div class="b">
+                        <div class="item">520礼包抢先领</div>
+                    </div>
+                </div>
+                <div class="search-keywords search-hot"  >
+                    <div class="h">
+                        <p class="title">热门搜索</p>
+                    </div>
+                    <div class="b">
+                        <div class="item  active" >520礼包抢先领</div>
+                        <div class="item" >双十一红包</div>
+                        <div class="item" >年终红斑</div>
+                    </div>
+                </div>
+                <div class="shelper-list" >
+                    <div class="item">520礼包抢先领</div>
+                    <div class="item">520礼包抢先领</div>
+                    <div class="item">520礼包抢先领</div>
+                </div>
+            </div>
+
+            <div class="search-result" >
+                <div class="sort">
+                    <div class="sort-box">
+                        <div class="item default" id="defaultSort">
+                            <p class="txt">综合</p>
+                        </div>
+                        <div class="item by-price active asc"  id="priceSort">
+                            <p class="txt">价格</p>
+                        </div>
+                        <div class="item category"  id="categoryFilter">
+                            <p class="txt">分类</p>
+                        </div>
+                    </div>
+                   <!-- <div class="sort-box-category">
+                        <div class="item active" >520礼包抢先领</div>
+                    </div>-->
+                </div>
+                <div class="cate-item">
+                    <div class="b">
+                        <div class="item " url="goods.html">
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook1.jpg" background-size="cover">
+                            <p class="name">520礼包抢先领</p>
+                            <p class="price">￥1224</p>
+                        </div>
+
+                        <div class="item  item-b" url="goods.html">
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook2.jpg" background-size="cover">
+                            <p class="name">520礼包抢先领</p>
+                            <p class="price">￥1224</p>
+                        </div>
+
+                        <div class="item  item-b" url="goods.html">
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook3.jpg" background-size="cover">
+                            <p class="name">520礼包抢先领</p>
+                            <p class="price">￥1224</p>
+                        </div>
+                        <div class="item " url="goods.html">
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook1.jpg" background-size="cover">
+                            <p class="name">520礼包抢先领</p>
+                            <p class="price">￥1224</p>
+                        </div>
+
+                        <div class="item  item-b" url="goods.html">
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook2.jpg" background-size="cover">
+                            <p class="name">520礼包抢先领</p>
+                            <p class="price">￥1224</p>
+                        </div>
+
+                        <div class="item  item-b" url="goods.html">
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook3.jpg" background-size="cover">
+                            <p class="name">520礼包抢先领</p>
+                            <p class="price">￥1224</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--返回顶部-->
+            <div id="back-to-top">
+                <i class="back-top-icon"></i>
+            </div>
+            <!--<div class="search-result-empty">
+                <img class="icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noSearchResult-7572a94f32.png"> 
+                <p class="p">您寻找的商品还未上架</p>
+            </div>-->
+        </div>
+    </div>
+<script>
+    $(function () {
+        $(document).on('click','.search-keywords .b .item',function () {
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+        })
+    })
+</script>
+
+</body>
+</html>

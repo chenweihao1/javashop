@@ -1,0 +1,100 @@
+<#assign title="商品分类" />
+<#include '/common/header.html'/>
+<link rel="stylesheet" href="${ctx}${themes_path}/css/category.css">
+    <div class="head-title">
+        <i class="return-icon-left" onclick="window.history.go(-1);"></i> 饮食
+    </div>
+    <div class="category-content">
+            <div class="cate-nav">
+                <div  class="cate-nav-body"  >
+                    <div   class="item active ">
+                        <div class="name">锅具</div>
+                    </div>
+                    <div   class="item">
+                        <div class="name">炒货</div>
+                    </div>
+                    <div   class="item">
+                        <div class="name">小食</div>
+                    </div>
+                    <div   class="item">
+                        <div class="name">食材</div>
+                    </div>
+                    <div   class="item">
+                        <div class="name">糖巧</div>
+                    </div>
+                    <div   class="item">
+                        <div class="name">糕点</div>
+                    </div>
+                    <div   class="item">
+                        <div class="name">茗茶</div>
+                    </div>
+                    <div   class="item">
+                        <div class="name">锅具</div>
+                    </div>
+
+                </div>
+            </div>
+            <div  style="height:100px;">
+                <div class="cate-item">
+                    <div class="h">
+                        <p class="name">锅具</p>
+                        <p class="desc">一口好锅，炖煮生活一日三餐</p>
+                    </div>
+                    <div class="b">
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook1.jpg" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook2.jpg" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook3.jpg" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook4.png" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook1.jpg" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook2.jpg" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook3.jpg" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                        <a class="goods-list-item"  href="goods.html" >
+                            <img class="img" src="${ctx}${themes_path}/images/index/index_cook4.png" background-size="cover">
+                            <p class="name">一百年传世珐琅锅 全家</p>
+                            <p class="price">￥398</p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div id="back-to-top">
+        <i class="back-top-icon"></i>
+    </div>
+<script>
+    $(function(){
+        $(document).on('click','.cate-nav-body .item',function () {
+            $(this).siblings('.item').removeClass('active');
+            $(this).addClass('active');
+        })
+    })
+</script>
+</body>
+</html>
