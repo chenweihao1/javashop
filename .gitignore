@@ -7,7 +7,8 @@ target
 *.log
 *.log.*
 /javashop/b2c/src/main/webapp/config/*.properties
-/javashop/b2c/src/main/webapp/install/intall.lock
+/javashop/b2c/src/main/webapp/install/install.lock
+/javashop/b2c/overlays/*
 .classpath
 .project
 .settings
