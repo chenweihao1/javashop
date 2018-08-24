@@ -25,10 +25,10 @@ import freemarker.template.TemplateModelException;
 @Component
 @Scope("prototype")
 public class GoodsGalleryTag extends BaseFreeMarkerTag {
-	
+
 	@Autowired
 	private IGoodsGalleryManager goodsGalleryManager;
-	
+
 	/**
 	 * 商品相册标签
 	 * 特殊说明：调用商品属性标签前，必须先调用商品基本信息标签
@@ -44,7 +44,7 @@ public class GoodsGalleryTag extends BaseFreeMarkerTag {
 		String default_img_url = SystemSetting.getDefault_img_url();
 		List<GoodsGallery> galleryList = this.goodsGalleryManager.list((Integer)goods.get("goods_id"));
 		if(galleryList==null || galleryList.size()==0){
-			
+
 			galleryList=new ArrayList<GoodsGallery>();
 
 			String img  =default_img_url;
@@ -56,13 +56,13 @@ public class GoodsGalleryTag extends BaseFreeMarkerTag {
 			gallery.setOriginal(img);
 			gallery.setIsdefault(1);
 			galleryList.add(gallery);
-			
+
 			goods.put("original", img);
 			goods.put("big", img);
 			goods.put("small", img);
 			goods.put("thumbnail", img);
 			goods.put("tiny", img);
-			
+
 		}
 		return galleryList;
 	}
