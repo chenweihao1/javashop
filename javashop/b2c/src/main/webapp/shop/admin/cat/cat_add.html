@@ -50,16 +50,16 @@ margin-top:10px;
       			<input  style="width: 77%" type="text" id="sort" name="cat_order" autocomplete="off"  class="layui-input" value="0" maxlength="5">
     		</div>
   		</div>
-  		
-  		<div class="layui-form-item">
-  			<input type="hidden" name="list_show" value="1" checked="checked"/>
-    		<!--  <label style="width: 35%"  class="layui-form-label">列表中显示</label>
-    		<div class="layui-input-block">
-                <input type="radio" name="list_show" value="1" checked="checked" title="是">
-                <input type="radio" name="list_show" value="0"  title="否">
-    		</div>-->
-  		</div>
-  	
+
+		<div class="layui-form-item">
+			<label style="width: 25%"  class="layui-form-label">列表中显示</label>
+			<div class="layui-input-block">
+				<input type="radio" name="whether" lay-filter="whether" value="1"  title="是">
+				<input type="radio" name="whether" lay-filter="whether" value="0" checked="checked" title="否">
+				<input type="hidden" name="reveal" id="reveal" value="">
+			</div>
+		</div>
+
  
   	</form>
     
@@ -67,18 +67,27 @@ margin-top:10px;
 </div>
 
     <script>
+        $("#reveal").val(0);
     layui.use(['form', 'layedit', 'laydate'], function(){
 	    var form = layui.form()
 	        ,layer = layui.layer
 	        ,layedit = layui.layedit
 	        ,laydate = layui.laydate;
-	    
+
     	form.on('radio(cattype)', function(data){
   		  if(data.value==1){
   		    	$(".discode").hide();
   		    }else{
   		    	$(".discode").show();
   		    }
-  	}); 
+  		});
+    	form.on('radio(whether)', function(data){
+  		  if(data.value==1){
+              $("#reveal").val(data.value);
+  		    }else{
+              $("#reveal").val(data.value);
+		    }
+  		});
     });
+
      </script>

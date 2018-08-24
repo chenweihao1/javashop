@@ -8,3 +8,6 @@ ALTER TABLE `es_adv` ADD COLUMN `keyword` varchar(255) DEFAULT NULL;
 
 --  添加数据
 update es_tag_rel set goods_keyword='hot-goods' where tag_id=1;
+
+--  添加字段（es_goods_cat）字段reveal   xiongchengcheng 2018-8-24
+ALTER TABLE `es_goods_cat` ADD  `reveal` int(8) DEFAULT 0 COMMENT '是否显示在app首页';

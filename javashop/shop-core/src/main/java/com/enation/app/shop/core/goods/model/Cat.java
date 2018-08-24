@@ -29,6 +29,7 @@ public class Cat implements Serializable   {
      protected String image;
      protected Integer index_show;
      protected List goodsList;
+	protected Integer reveal;
 
 	public List getGoodsList() {
 		return goodsList;
@@ -44,6 +45,14 @@ public class Cat implements Serializable   {
 
 	public void setIndex_show(Integer index_show) {
 		this.index_show = index_show;
+	}
+
+	public Integer getReveal() {
+		return reveal;
+	}
+
+	public void setReveal(Integer reveal) {
+		this.reveal = reveal;
 	}
 
 	/************以下为非数据库字段*************/

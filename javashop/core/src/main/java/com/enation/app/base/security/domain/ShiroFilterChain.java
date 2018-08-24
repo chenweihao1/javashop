@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.enation.eop.resource.IMenuManager;
 import com.enation.eop.resource.model.Menu;
 import com.enation.eop.sdk.context.EopSetting;
+import org.springframework.stereotype.Component;
 
 public class ShiroFilterChain implements FactoryBean<Ini.Section> {
 
