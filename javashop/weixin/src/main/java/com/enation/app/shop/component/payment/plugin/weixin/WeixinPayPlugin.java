@@ -186,7 +186,7 @@ public class WeixinPayPlugin extends AbstractPaymentPlugin implements
 		}
 		payStr.append(",function(res){  if( 'get_brand_wcpay_request:ok'==res.err_msg ) { alert('支付成功'); }else{ alert('支付失败'); }  location.href='"
 				+ ctx
-				+ "/member/order-detail.html?ordersn="+original_sn+"';  }");
+				+ "/order_detail.html?ordersn="+original_sn+"';  }");
 		
 		payStr.append(");");
 		fp.putData("payStr", payStr);

@@ -63,7 +63,6 @@
 			<version>6.3.1</version>
 			<type>war</type>
 		</dependency>
-
 		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
