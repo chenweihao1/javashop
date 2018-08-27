@@ -380,7 +380,7 @@ public class GoodsCatManager  implements IGoodsCatManager {
 	}
 	@Override
 	public List<Cat> queryCat(){
-		String sql = "select * from es_goods_cat where  reveal='1'";
+		String sql = "select * from es_goods_cat where  reveal='0'";
 		List<Cat> Cat = this.daoSupport.queryForList(sql, Cat.class);
 		return Cat;
 	}
