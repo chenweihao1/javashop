@@ -1085,4 +1085,34 @@ public class GoodsManager  implements IGoodsManager {
 		}
                
 	}
-}
+	/**
+	 * 24小时热卖商品
+	 * @param
+	 * @author yanpc 2018-8-24 添加注释
+	 *
+	 */
+	@Override
+	public List<Goods> getBestSellerLis(){
+		long nowTime = DateUtil.getDateline();
+		//获取24小时之前的时间戳
+		long dayTime = DateUtil.startOfSomeDay(1);
+		StringBuffer  sqlBuffer = new StringBuffer();
+		sqlBuffer.append("SELECT aa.* FROM es_goods aa,");
+		sqlBuffer.append("(SELECT a.goods_id AS goods_id FROM es_order_items a,es_order b  WHERE  a.order_id = b.order_id  AND b.create_time >=?");
+		sqlBuffer.append("   GROUP BY a.goods_id ORDER BY SUM(a.num) DESC)bb ");
+		sqlBuffer.append("  WHERE aa.goods_id = bb.goods_id");
+		List<Goods>  goodsList = this.daoSupport.queryForList(sqlBuffer.toString(),new Object[]{dayTime});
+         return goodsList;
+	}
+
+	/**
+	 * 大家都在看
+	 * @param
+	 * @return yanpc 2018-8-30
+	 */
+	@Override
+	public List<Goods> getViewCountList(){
+		String sql ="    SELECT * FROM es_goods a  ORDER BY a.view_count DESC  LIMIT 5";
+        List<Goods>  sqlList =  this.daoSupport.queryForList(sql);
+        return sqlList;
+	}}
