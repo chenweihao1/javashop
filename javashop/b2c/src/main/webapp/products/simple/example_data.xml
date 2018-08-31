@@ -70,6 +70,48 @@
 		<fields>aid,acid,begintime,endtime,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled</fields>
 		<values>27,13,1420041600,1420041600,0,'http://static.v5.javamall.com.cn/attachment/adv/201512091709403758.jpg','','4楼',0,'','','','false'</values>
 	</action>
+    <action>
+        <command>insert</command>
+        <table>es_adv</table>
+        <fields>aid,acid,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled,keyword</fields>
+        <values>50,50,0,'https://i.imgur.com/e7Q6ZmB.jpg','index.html','app上方轮播图',0,'','','','false','show'</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_adv</table>
+        <fields>aid,acid,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled,keyword</fields>
+        <values>51,50,0,'https://i.imgur.com/g3ttdHt.jpg','index.html','app上方轮播图',0,'','','','false','show'</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_adv</table>
+        <fields>aid,acid,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled,keyword</fields>
+        <values>52,50,0,'https://i.imgur.com/pDxPQ1k.jpg','index.html','app上方轮播图',0,'','','','false','show'</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_adv</table>
+        <fields>aid,acid,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled,keyword</fields>
+        <values>53,51,0,'https://i.imgur.com/dCT8Htc.jpg','index.html','app品牌',0,'','','','false','brand'</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_adv</table>
+        <fields>aid,acid,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled,keyword</fields>
+        <values>54,51,0,'https://i.imgur.com/UPqfTJf.jpg','index.html','app品牌',0,'','','','false','brand'</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_adv</table>
+        <fields>aid,acid,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled,keyword</fields>
+        <values>55,51,0,'https://i.imgur.com/ejNe6rB.png','index.html','app品牌',0,'','','','false','brand'</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_adv</table>
+        <fields>aid,acid,isclose,atturl,url,aname,clickcount,linkman,company,contact,disabled,keyword</fields>
+        <values>56,51,0,'https://i.imgur.com/j6htkJJ.jpg','index.html','app品牌',0,'','','','false','brand'</values>
+    </action>
 	<action>
 		<command>insert</command>
 		<table>es_adcolumn</table>
@@ -148,6 +190,18 @@
 		<fields>acid,cname,width,height,atype,disabled</fields>
 		<values>13,'4楼服装鞋帽','350','420',0,'false'</values>
 	</action>
+    <action>
+        <command>insert</command>
+        <table>es_adcolumn</table>
+        <fields>acid,cname,width,height,atype,disabled,keyword</fields>
+        <values>50,'app首页最上方广告','1440px','178px',0,'false','show'</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_adcolumn</table>
+        <fields>acid,cname,width,height,atype,disabled,keyword</fields>
+        <values>51,'app品牌','760px','484px',0,'false','brand'</values>
+    </action>
 	<action>
 		<command>insert</command>
 		<table>es_smtp</table>
@@ -982,6 +1036,60 @@
 		<fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image</fields>
 		<values>157,'存储卡',126,'0|89|126|157|',0,0,63,'1','http://static.b2b2cv2.javamall.com.cn/attachment/goodscat/562dcaa6N51e15ea5.jpg!q50.jpg'</values>
 	</action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>200,'居家',0,'0|200|',0,0,1,'1','https://i.imgur.com/ltVYbI3.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>201,'餐厨',0,'0|201|',0,0,1,'1','https://i.imgur.com/AUPjjdm.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>202,'饮食',0,'0|202|',0,0,1,'1','https://i.imgur.com/Fr6VWfu.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>203,'配件',0,'0|203|',0,0,1,'1','https://i.imgur.com/XwgdYD3.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>204,'服装',0,'0|204|',0,0,1,'1','https://i.imgur.com/vvhCFTe.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>205,'婴童',0,'0|205|',0,0,1,'1','https://i.imgur.com/MihnaTY.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>206,'杂货',0,'0|206|',0,0,1,'1','https://i.imgur.com/h8WgS6w.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>207,'洗护',0,'0|207|',0,0,1,'1','https://i.imgur.com/N7sOaHw.png',0,1</values>
+    </action>
+    <action>
+        <command>insert</command>
+        <table>es_goods_cat</table>
+        <fields>cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal</fields>
+        <values>208,'志趣',0,'0|208|',0,0,1,'1','https://i.imgur.com/HThgh79.png',0,1</values>
+    </action>
 	<action>
 		<command>insert</command>
 		<table>es_brand</table>

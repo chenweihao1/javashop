@@ -73,17 +73,28 @@ width:77%
         </div>
 
         <div class="layui-form-item">
-        	<input type="hidden" name="list_show" value="1" checked="checked"/>
-            <!--  <label class="layui-form-label">列表中显示</label>
+            <input type="hidden" name="list_show" value="1" checked="checked"/>
+            <label class="layui-form-label">列表中显示</label>
             <div class="layui-input-block">
-                <input type="radio" name="list_show" value="1" checked="checked" title="是">
-                <input type="radio" name="list_show" value="0"  title="否">
-            </div>-->
+                <#assign y = cat.reveal />
+                <input type="radio" name="whether" lay-filter="whether" value="1" <#if (y==1) >checked</#if> title="是">
+                <input type="radio" name="whether" lay-filter="whether" value="0" <#if (y!=1) >checked</#if> title="否">
+                <input type="hidden" name="reveal" id="reveal" value=${cat.reveal}>
+            </div>
         </div>
+
     </form>
     <script>
         layui.use('form', function(){
-            var form = layui.form()
+            var form = layui.form();
+
+            form.on('radio(whether)', function(data){
+                if(data.value==1){
+                    $("#reveal").val(data.value);
+                }else{
+                    $("#reveal").val(data.value);
+                }
+            });
         });
     </script>
 </div>

@@ -28,7 +28,8 @@ public class SmsZtPlugin extends AbstractSmsPlugin implements ISmsSendEvent {
 		try {
 
 			// 创建StringBuffer对象用来操作字符串
-			StringBuffer sb = new StringBuffer("http://www.api.zthysms.com/sendSms.do?");
+			StringBuffer sb = new StringBuffer("http://www.ztsms.cn/sendNSms.do?");
+
 
 			// 用户名
 			sb.append("username=" + param.get("username"));

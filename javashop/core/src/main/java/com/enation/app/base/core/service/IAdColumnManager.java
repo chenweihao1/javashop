@@ -60,5 +60,13 @@ public interface IAdColumnManager {
 	 * @return
 	 */
 	public List listAllAdvPos();
+
+	/**
+	 * 获取app广告位详细
+	 *
+	 * @param keyword
+	 * @return
+	 */
+	public AdColumn getADcolumnDetail(String keyword);
 	
 }

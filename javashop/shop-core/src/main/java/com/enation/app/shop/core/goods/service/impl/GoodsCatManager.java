@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.enation.app.base.core.model.Adv;
+import com.enation.app.shop.core.goods.model.Goods;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,7 @@ import com.enation.framework.annotation.Log;
 import com.enation.framework.database.IDaoSupport;
 import com.enation.framework.log.LogType;
 import com.enation.framework.util.StringUtil;
+import com.enation.app.shop.core.goods.model.Brand;
 
 @Service("goodsCatDbManager")
 public class GoodsCatManager  implements IGoodsCatManager {
@@ -226,6 +229,7 @@ public class GoodsCatManager  implements IGoodsCatManager {
 		map.put("list_show", cat.getList_show());
 		map.put("image", StringUtil.isEmpty(cat.getImage())?null:cat.getImage());
 		map.put("index_show", cat.getIndex_show());
+		map.put("reveal", cat.getReveal());
 		daoSupport.update("es_goods_cat", map, "cat_id=" + cat.getCat_id());
 		
 		//修改子分类的cat_path
@@ -349,5 +353,61 @@ public class GoodsCatManager  implements IGoodsCatManager {
 		String sql = "select * from es_goods_cat where index_show=?";
 		return this.daoSupport.queryForList(sql, Cat.class, index_show);
 	}
+
+	@Override
+	public List<Cat> queryGoodsCat(){
+		String sql = "select * from es_goods_cat where parent_id='0' and reveal='1' LIMIT 0,9";
+		List<Cat> Cat = this.daoSupport.queryForList(sql, Cat.class);
+		return Cat;
+	}
+	@Override
+	public List<Brand> queryBrand(){
+		String sql = "select * from es_brand where disabled=0 order by brand_id desc LIMIT 0,4";
+		List<Brand> brands = this.daoSupport.queryForList(sql, Brand.class);
+		return brands;
+	}
+	@Override
+	public List<Goods>queryGoods(){
+		String sql = "select * from (select s.*,(s.store-s.enable_store) difference from es_goods s) d where 1=1 order by d.difference desc limit 0,3";
+		List<Goods> goodss = this.daoSupport.queryForList(sql, Goods.class);
+		return goodss;
+	}
+	@Override
+	public List<Adv>queryAdv(){
+		String sql="select* from es_adv where acid in(9,10,11,13) LIMIT 0,4";
+		List<Adv> advs = this.daoSupport.queryForList(sql, Adv.class);
+		return advs;
+	}
+	@Override
+	public List<Cat> queryCat(){
+		String sql = "select * from es_goods_cat where  reveal='0'";
+		List<Cat> Cat = this.daoSupport.queryForList(sql, Cat.class);
+		return Cat;
+	}
+	@Override
+	public List<Cat> queryCatTypeId(Integer parent){
+		String sql = "select * from es_goods_cat where parent_id=?";
+		List<Cat> Cat = this.daoSupport.queryForList(sql, Cat.class,parent);
+		return Cat;
+	}
+	@Override
+	public List<Goods> queryGoodsList(Integer[] typeId){
+		if (typeId == null || typeId.length == 0) {
+			return new ArrayList<>();
+		}
+		StringBuffer term = new StringBuffer();
+		/** 形成 ?,?,?的效果 */
+		for (Integer type : typeId) {
+			if (term.length() != 0) {
+				term.append(",");
+			}
+			term.append("?");
+		}
+		String sql = "select * from es_goods where type_id in (" + term + ")";
+		List<Goods> goodss = this.daoSupport.queryForList(sql, Goods.class,typeId);
+		return goodss;
+	}
+
+
 
 }
