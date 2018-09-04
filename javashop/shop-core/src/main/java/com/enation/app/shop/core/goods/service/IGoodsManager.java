@@ -286,4 +286,6 @@ public interface IGoodsManager {
 	public List<Goods> getBestSellerLis();
 
 	public List<Goods> getViewCountList();
+
+	public List<Goods> getGoodsCatList(Integer catId);
 }

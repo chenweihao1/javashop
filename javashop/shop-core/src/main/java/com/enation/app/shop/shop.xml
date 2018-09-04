@@ -1533,4 +1533,14 @@
 		<field><name>contentid</name><type>int</type><size>10</size><option>11</option></field>
 		<field><name>receipt_content</name><type>varchar</type><size>50</size><option>00</option></field>
 	</action>
+	<!-- 我的足迹 -->
+	<action>
+		<command>create</command>
+		<table>es_footprint</table>
+		<field><name>footprint_id</name><type>int</type><size>10</size><option>00</option></field>
+		<field><name>member_id</name><type>int</type><size>10</size><option>00</option></field>
+		<field><name>goods_id</name><type>int</type><size>10</size><option>00</option></field>
+		<field><name>footprint_time</name><type>long</type><size>20</size><option>00</option></field>
+		<field><name>is_default</name><type>varchar</type><size>50</size><option>00</option></field>
+	</action>
 </dbsolution>

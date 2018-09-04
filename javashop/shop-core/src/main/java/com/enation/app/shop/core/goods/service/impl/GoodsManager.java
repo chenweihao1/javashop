@@ -1115,4 +1115,16 @@ public class GoodsManager  implements IGoodsManager {
 		String sql ="    SELECT * FROM es_goods a  ORDER BY a.view_count DESC  LIMIT 5";
         List<Goods>  sqlList =  this.daoSupport.queryForList(sql);
         return sqlList;
-	}}
+	}
+	/**
+	 *
+	 *获取菜单下的商品
+	 * @param catId
+	 *
+	 */
+	@Override
+	public List<Goods>  getGoodsCatList(Integer catId){
+		String sql = "SELECT * FROM es_goods a  WHERE a.cat_id = ?";
+		return this.daoSupport.queryForList(sql,catId);
+	}
+}

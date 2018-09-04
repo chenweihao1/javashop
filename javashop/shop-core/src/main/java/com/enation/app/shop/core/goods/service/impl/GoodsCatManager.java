@@ -384,6 +384,15 @@ public class GoodsCatManager  implements IGoodsCatManager {
 		List<Cat> Cat = this.daoSupport.queryForList(sql, Cat.class);
 		return Cat;
 	}
+
+	@Override
+	public List<Cat> queryCatParent(Integer parent_id){
+		String sqlCat = "select * from es_goods_cat where  reveal='0'and cat_id=?";
+        Cat  cat = this.daoSupport.queryForObject(sqlCat,Cat.class,parent_id);
+		String sql = "select * from es_goods_cat where  reveal='0'and parent_id=?";
+		List<Cat> CatList = this.daoSupport.queryForList(sql, Cat.class,cat.getParent_id());
+		return CatList;
+	}
 	@Override
 	public List<Cat> queryCatTypeId(Integer parent){
 		String sql = "select * from es_goods_cat where parent_id=?";

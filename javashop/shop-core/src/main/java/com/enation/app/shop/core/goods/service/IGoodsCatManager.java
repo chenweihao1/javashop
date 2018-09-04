@@ -168,6 +168,13 @@ public interface IGoodsCatManager {
 	 * @return
 	 */
 	public List<Cat> queryCat();
+
+	/**
+	 * 获取当前子类父亲的所有兄弟
+	 * @param parent_id
+	 * @return
+	 */
+	public List<Cat> queryCatParent(Integer parent_id);
 	/**
 	 * 获取三级菜单
 	 * @return
