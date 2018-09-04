@@ -82,7 +82,7 @@
 		function loaata(){
 		    totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());     //浏览器的高度加上滚动条的高度 
 
-		    if ($(document).height() <= totalheight+0.5)     //当文档的高度小于或者等于总的高度的时候，开始动态加载数据
+		    if ($(document).height() <= totalheight+)     //当文档的高度小于或者等于总的高度的时候，开始动态加载数据
 		    {
 				$(".loadimg").show();
 		    	$.get("${ctx}/goods_list_page.html?page="+page+"&cat="+$("#cat").val(), function(data){
