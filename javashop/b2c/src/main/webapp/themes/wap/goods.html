@@ -1,5 +1,5 @@
 <#--检测组件是否启用 -->
-<#assign checkCmptIsOnTag = newTag("checkCmptIsOnTag") /> 
+<#assign checkCmptIsOnTag = newTag("checkCmptIsOnTag") />
 <#assign groupbuyIsOn =checkCmptIsOnTag("{'componentName':'团购组件'}") />
 <#-- 创建商品基本信息标签 -->
 <#assign goodsBaseDataTag= newTag("goodsBaseDataTag") >
@@ -46,7 +46,7 @@
 		<input type="hidden" rel="${type!''}" cat="${cat!''}" />
 	</div>
 	<div class="common-title">
-		
+
 	</div>
 	<div class="go-search">
 	</div>
@@ -114,7 +114,7 @@
 								<!-- <@image height="30" width="30" title="${val.spec_value}" alt="${val.spec_value}" src="${val.spec_image}" /> -->
 							</a>
 						</li>
-					</#if>				
+					</#if>
 				</#list>
 			</ul>
 		</div>
@@ -183,18 +183,18 @@
 		<input type="hidden" name="productid" id="productid"  />
 		<input type="hidden" name="action" value="add-product" />
 	<#else/>
-	
+
 	<input type="hidden" name="goodsid" value="${goods.goods_id}" />
 		<input type="hidden" name="action" value="add-goods" />
 	</#if>
 	</div>
-	
+
 </div>
 <div class="goods-detail-blank">
 </div>
 <script>
 $(function(){
-	
+
 	//改变图片大小
 	$(".goods-intro img").css({"width":"100%","height":"auto","max-width":"640px"})
 	//浮动留空
@@ -204,7 +204,7 @@ $(function(){
 	$(".go-back").click(function(){
 		/*var historyID = $(this).find("input").attr("rel");  //得到是哪一页跳转到商品详细页  1、首页  3、会员收藏 4、订单列表。5、会员我的评论。如果是一串数字，那表示是订单详细页
 		var catID = $(this).find("input").attr("cat");      //如果cat有值，说明是从商品分类进行的跳转。暂时没有从品牌跳转的页面
-		
+
 		//根据historyID 跳转到哪一页 1、首页  3、会员收藏 4、订单列表。5、会员我的评论。如果是一串数字，那表示是订单详细页
 		if(historyID == "1"){
 			location.href="${ctx}/index.html"
@@ -221,13 +221,13 @@ $(function(){
 		else{
 			location.href="${ctx}/order_detail.html?ordersn="+historyID;
 		}
-		
+
 		//如果cat有值，跳转到商品列表页
 		if(catID != ""){
 			location.href="${ctx}/goods_list.html?cat="+catID;
 		}*/
 		//window.history.back()
-		
+
 	})
 
 	//立即购买
@@ -238,7 +238,7 @@ $(function(){
 	goodsjs.goodsimg();
 	//加入购物车
 	goodsjs.incart();
-	
+
 	//内容切换（商品详细、商品属性）
 	$(".goods-tab ul li").click(function(){
 		var changeID = $(this).attr("rel");
@@ -253,7 +253,7 @@ $(function(){
 			$(".goods-intro").show();
 		}
 	})
-	
+
 })
 </script>
 <#if goods.have_spec?exists && goods.have_spec==1 >
@@ -261,7 +261,7 @@ $(function(){
 <script type="text/javascript">
 var Products=
 	[
-	<#list goodsSpace.productList as product>	
+	<#list goodsSpace.productList as product>
 	  {'product_id':${product.product_id},'goods_id':${product.goods_id},'sn':'${product.sn}','store':${product.store!0},
 		'price':${product.price},
 	   'specs':${product.specsvIdJson}
