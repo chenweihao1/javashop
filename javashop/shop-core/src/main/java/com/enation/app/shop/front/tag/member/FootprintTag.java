@@ -35,17 +35,17 @@ public class FootprintTag extends BaseFreeMarkerTag {
 	 */
 	@Override
 	protected Object exec(Map params) throws TemplateModelException {
-//		Member member = UserConext.getCurrentMember();
-//		if(member==null){
-//			throw new TemplateModelException("未登录不能使用此标签");
-//		}
+		Member member = UserConext.getCurrentMember();
+		if(member==null){
+			throw new TemplateModelException("未登录不能使用此标签");
+		}
 		Integer pageSize = (Integer)params.get("goodsnum");
 		
 		//判断如果不传递每页展示商品数量，默认每页10个商品
 		if(pageSize == null){
 			 pageSize = 10;
 		}
-		Page page = footprintManager.list(52,this.getPage(), pageSize);
+		Page page = footprintManager.list(member.getMember_id(),this.getPage(), pageSize);
 
 		return page;
 	}

@@ -1,4 +1,4 @@
-package com.enation.app.shop.front.tag.goods;
+package com.enation.app.shop.front.tag.goods.search;
 
 import com.enation.app.base.core.model.Member;
 import com.enation.app.shop.component.gallery.model.GoodsGallery;
@@ -6,13 +6,12 @@ import com.enation.app.shop.component.gallery.service.IGoodsGalleryManager;
 import com.enation.app.shop.core.goods.model.Goods;
 import com.enation.app.shop.core.goods.model.GoodsVo;
 import com.enation.app.shop.core.goods.service.IGoodsManager;
-import com.enation.app.shop.core.member.model.Footprint;
-import com.enation.app.shop.core.member.service.IFootprintManager;
-import com.enation.eop.SystemSetting;
+import com.enation.app.shop.core.goods.utils.UrlUtils;
+import com.enation.app.shop.core.member.model.Favorite;
+import com.enation.app.shop.core.member.service.IFavoriteManager;
 import com.enation.eop.sdk.context.UserConext;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.taglib.BaseFreeMarkerTag;
-import com.enation.framework.util.DateUtil;
 import com.enation.framework.util.RequestUtil;
 import com.enation.framework.util.StringUtil;
 import freemarker.template.TemplateModelException;
@@ -21,7 +20,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,65 +27,41 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * 商品相册标签
- * @author kingapex
- *2013-8-1上午10:59:02
+ * 搜索url标签
+ * 根据输入的名称参数，得到排除某参数后的url字串，不带.html	
+ * @author yanpengcheng
+ *2018-8-30下午2:35:03
  */
 @Component
 @Scope("prototype")
-public class GoodsGalleryNewTag extends BaseFreeMarkerTag {
-	
-	@Autowired
-	private IGoodsGalleryManager goodsGalleryManager;
+public class SeachCollectionTag extends BaseFreeMarkerTag {
 
 	@Autowired
-	private IGoodsManager goodsManager;
+	private IFavoriteManager favoriteManager;
 
-	@Autowired
-	private IFootprintManager footprintManager;
-	
 	/**
-	 * 商品相册标签
-	 * 特殊说明：调用商品属性标签前，必须先调用商品基本信息标签
+	 * 判断商品是否已经收藏
 	 * @param
-	 * @return 商品相册 ，类型：List<GoodsGallery>
+	 * @return
 	 * {@link GoodsGallery}
 	 */
 	@Override
 	protected Object exec(Map params) throws TemplateModelException {
 		HttpServletRequest request  = this.getRequest();
 		Integer goods_id = StringUtil.toInt(params.get("goodsid"), false);
-
+		Member member = UserConext.getCurrentMember();
 		if(goods_id==null||goods_id==0){
 			goods_id= this.getGoodsId();
 		}
-		List<GoodsGallery> galleryList = this.goodsGalleryManager.list(goods_id);
-		//查询商品信息
-		Goods  goods = this.goodsManager.getGoods(goods_id);
-
-		//会员足迹
-		Member member = UserConext.getCurrentMember();
 		if(member!=null){
-            //如果此商品从在则只更新时间
-			Footprint footprintNew = this.footprintManager.get(goods.getGoods_id(),member.getMember_id());
-			if(footprintNew==null){
-				Footprint footprint = new Footprint();
-				footprint.setGoods_id(goods.getGoods_id());
-				footprint.setMember_id(member.getMember_id());
-				long timeNew = DateUtil.getDateline();
-				footprint.setIs_default("0");
-				footprint.setFootprint_time(timeNew);
-				this.footprintManager.add(footprint);
-			}else{
-				this.footprintManager.update(footprintNew.getFootprint_id());
+			//查询商品信息
+			Favorite galleryList = this.favoriteManager.get(goods_id,member.getMember_id());
+			if(galleryList == null){
+				return false;
 			}
+			return true;
 		}
-
-		GoodsVo goodsList = new  GoodsVo(goods);
-		Map map = new HashMap();
-		map.put("goodsList",goodsList);
-		map.put("galleryList",galleryList);
-		return map;
+		return false;
 	}
 
 	private Integer getGoodsId(){
@@ -108,4 +82,5 @@ public class GoodsGalleryNewTag extends BaseFreeMarkerTag {
 		}
 		return value;
 	}
+
 }

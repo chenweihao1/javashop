@@ -72,9 +72,29 @@ public class CollectApiController {
 		favoriteManager.delete(favorite_id);
 		return JsonResultUtil.getSuccessJson("取消成功");
 	}
-	
-	
-	
+
+
+	/**
+	 * 取消一个商品的收藏，必须登录才能调用此api
+	 * @param  ：收藏id，即Favorite.favorite_id
+	 * @return
+	 * @return 返回json串
+	 * result  为1表示调用成功0表示失败 ，int型
+	 * message 为提示信息
+	 *
+	 * {@link Favorite}
+	 */
+	@ResponseBody
+	@RequestMapping(value="/delete-collect",produces = MediaType.APPLICATION_JSON_VALUE)
+	public JsonResult deleteCollect(Integer goods_id){
+		Member memberLogin = UserConext.getCurrentMember();
+		favoriteManager.delete(goods_id,memberLogin.getMember_id());
+		boolean collecType = favoriteManager.isFavorited(goods_id,memberLogin.getMember_id());
+		if(collecType==true){
+			return JsonResultUtil.getErrorJson("出现异常");
+		}
+		return JsonResultUtil.getSuccessJson("取消成功");
+	}
 
 	
 }
