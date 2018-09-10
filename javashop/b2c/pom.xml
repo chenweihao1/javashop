@@ -57,12 +57,12 @@
 			<artifactId>weixin-applet</artifactId>
 			<version>6.3.1</version>
 		</dependency>
-		<dependency>
-			<groupId>com.enation.app.javashop</groupId>
-			<artifactId>themes</artifactId>
-			<version>6.3.1</version>
-			<type>war</type>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.enation.app.javashop</groupId>-->
+			<!--<artifactId>themes</artifactId>-->
+			<!--<version>6.3.1</version>-->
+			<!--<type>war</type>-->
+		<!--</dependency>-->
 		<!-- servlet -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
