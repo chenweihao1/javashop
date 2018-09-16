@@ -282,4 +282,10 @@ public interface IGoodsManager {
 	 * @return
 	 */
 	public Integer getCountByGoodsIds(Integer[] goodsId, Integer storeId);
+
+	public List<Goods> getBestSellerLis();
+
+	public List<Goods> getViewCountList();
+
+	public List<Goods> getGoodsCatList(Integer catId);
 }

@@ -36,7 +36,7 @@ public class SmsApiController {
 	 * @return
 	 */
 	@ResponseBody
-	@RequestMapping(value="/send-sms-code",produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value="	/send-sms-code",produces = MediaType.APPLICATION_JSON_VALUE)
 	public JsonResult sendSmsCode(String mobile, String key, Integer isCheckRegister) {
 		try {
 			

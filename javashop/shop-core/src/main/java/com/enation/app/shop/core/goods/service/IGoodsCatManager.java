@@ -3,8 +3,10 @@ package com.enation.app.shop.core.goods.service;
 import java.util.List;
 import java.util.Map;
 
+import com.enation.app.base.core.model.Adv;
 import com.enation.app.shop.core.goods.model.Cat;
-
+import com.enation.app.shop.core.goods.model.Brand;
+import com.enation.app.shop.core.goods.model.Goods;
 
 /**
  * 商品类别管理
@@ -138,4 +140,51 @@ public interface IGoodsCatManager {
 	 * @return
 	 */
 	public List<Cat> queryField(Integer index_show);
+
+	/**
+	 * 查询分类
+	 * @return
+	 */
+	public List<Cat> queryGoodsCat();
+
+	/**
+	 * 查询品牌制造商直供
+	 * @return
+	 */
+	public List<Brand> queryBrand();
+
+	/**
+	 * 查询人气推荐
+	 * @return
+	 */
+	public List<Goods>queryGoods();
+	/**
+	 * 获取广告位
+	 * @return
+	 */
+	public List<Adv>queryAdv();
+	/**
+	 * 获取二级菜单
+	 * @return
+	 */
+	public List<Cat> queryCat();
+
+	/**
+	 * 获取当前子类父亲的所有兄弟
+	 * @param parent_id
+	 * @return
+	 */
+	public List<Cat> queryCatParent(Integer parent_id);
+	/**
+	 * 获取三级菜单
+	 * @return
+	 */
+	public List<Cat> queryCatTypeId(Integer parent);
+	/**
+	 * 获取商品
+	 * @return
+	 */
+	public List<Goods> queryGoodsList(Integer[] typeId);
+
+
 }

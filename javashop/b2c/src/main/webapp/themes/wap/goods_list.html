@@ -33,7 +33,7 @@
 			</#list>
 		</div>
 		<div class="go-search">
-		</div>
+	</div>
 	</div>
 
 <div class="sort">
@@ -60,6 +60,7 @@
 					</a>
 				</div>
 			</li>
+			<input type="hidden" name="cat" id="cat" value="${goods.cat_id!''}">
  		</#list>
 	</ul>
 	<div class="loadimg" style="display:none;"></div>
@@ -78,13 +79,13 @@
 		
 		
 		//滚动加载
-		function loaata(){ 
+		function loaata(){
 		    totalheight = parseFloat($(window).height()) + parseFloat($(window).scrollTop());     //浏览器的高度加上滚动条的高度 
 
-		    if ($(document).height() <= totalheight)     //当文档的高度小于或者等于总的高度的时候，开始动态加载数据
-		    { 
+		    if ($(document).height() <= totalheight+1)     //当文档的高度小于或者等于总的高度的时候，开始动态加载数据
+		    {
 				$(".loadimg").show();
-		    	$.get("${ctx}/goods_list_page.html?page="+page, function(data){
+		    	$.get("${ctx}/goods_list_page.html?page="+page+"&cat="+$("#cat").val(), function(data){
 		    		$(data).appendTo(".list");
 		    		});
 		    	$(".loadimg").hide();
@@ -96,7 +97,7 @@
 		var prevTop = 0,
    		currTop = 0;
 		
-		var page =1;
+		var page =2;
 		$(window).scroll( function() {
 			
 			 currTop = $(window).scrollTop();  //滚动值

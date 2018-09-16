@@ -119,7 +119,7 @@ var goodsjs = {
 						return false;
 					}
 					$.ajax({
-						url:ctx+"/api/shop/cart/add-goods.do",
+						url:ctx+"/api/shop/cart/add-product.do",
 						data:{"goodsid":gid,"productid":productid,"num":1,"showCartData":0,"spec":1},
 						dataType:"json",
 						success : function(data) {	

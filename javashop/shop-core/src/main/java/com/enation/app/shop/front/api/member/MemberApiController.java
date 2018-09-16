@@ -659,10 +659,16 @@ public class MemberApiController  {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/register",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult register(String validcode, String license, String email, String username, String password, String mobile, String friendid) {
+	public JsonResult register(String validcode, String license, String email, String username, String password, String mobile, String friendid,String validcodemobile) {
 		if (this.validcode(validcode,"memberreg") == 0) {
 			return JsonResultUtil.getErrorJson("验证码输入错误!");				
 		}
+		//手机验证码校验
+		boolean checkResult = SmsUtil.validSmsCode(validcodemobile, mobile, SmsTypeKeyEnum.CHECK.toString());
+		if(!checkResult){
+			return JsonResultUtil.getErrorJson("手机验证码输入错误!");
+		}
+
 		if (!"agree".equals(license)) {
 			return JsonResultUtil.getErrorJson("同意注册协议才可以注册!");				
 		}
@@ -1055,7 +1061,7 @@ public class MemberApiController  {
 		return 1;
 	}
 
-	
-	// 
+
+	//
 	
 }

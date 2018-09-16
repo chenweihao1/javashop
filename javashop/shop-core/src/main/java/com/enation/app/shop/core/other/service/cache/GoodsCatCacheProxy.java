@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.enation.app.base.core.model.Adv;
+import com.enation.app.shop.core.goods.model.Brand;
+import com.enation.app.shop.core.goods.model.Goods;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,20 +30,20 @@ public class GoodsCatCacheProxy  implements
 	protected final Logger logger = Logger.getLogger(getClass());
 	@Autowired
 	private IGoodsCatManager goodsCatManager;
-	
+
 	public static final String CACHE_KEY= "goods_cat" ;
-	
+
 	@Autowired
 	public GoodsCatCacheProxy(IGoodsCatManager goodsCatDbManager) {
 		this.goodsCatManager = goodsCatDbManager;
 	}
-	
+
 	public void cleanCache(){
 		ICache cache=CacheFactory.getCache(CACHE_KEY);
 		cache.remove(CACHE_KEY+"_0") ;
 		cache.clear();
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see com.enation.app.shop.core.goods.service.IGoodsCatManager#delete(int)
@@ -76,7 +79,7 @@ public class GoodsCatCacheProxy  implements
 			cache.put(CACHE_KEY+"_"+catId, catList);
 			if(this.logger.isDebugEnabled()){
 				this.logger.debug("load goods cat from database");
-			}			
+			}
 		} else{
 			if(this.logger.isDebugEnabled()){
 				this.logger.debug("load goods cat from cache");
@@ -102,7 +105,7 @@ public class GoodsCatCacheProxy  implements
 	public void saveAdd(Cat cat) {
 		this.goodsCatManager.saveAdd(cat);
 		this.cleanCache();
-	} 
+	}
 
 	/*
 	 * (non-Javadoc)
@@ -133,14 +136,14 @@ public class GoodsCatCacheProxy  implements
 		return this.goodsCatManager.checkname(name,catid);
 	}
 
-	
+
 	/*
 	 * (non-Javadoc)
 	 * @see com.enation.app.shop.core.goods.service.IGoodsCatManager#getParents(int)
 	 */
 	@Override
 	public List<Cat> getParents(int catid) {
-		
+
 		return this.goodsCatManager.getParents(catid);
 	}
 
@@ -194,4 +197,27 @@ public class GoodsCatCacheProxy  implements
 		return null;
 	}
 
+	@Override
+	public List<Cat> queryGoodsCat() {return goodsCatManager.queryGoodsCat();}
+
+	@Override
+	public List<Brand> queryBrand() {return goodsCatManager.queryBrand();}
+
+	@Override
+	public List<Goods> queryGoods() {return goodsCatManager.queryGoods();}
+
+	@Override
+	public List<Adv> queryAdv() {return goodsCatManager.queryAdv();}
+
+	@Override
+	public List<Cat> queryCat() {return goodsCatManager.queryCat();}
+
+	@Override
+	public List<Cat> queryCatParent(Integer parent_id) {return goodsCatManager.queryCatParent(parent_id);}
+
+	@Override
+	public List<Cat> queryCatTypeId(Integer parent) {return goodsCatManager.queryCatTypeId(parent);}
+
+	@Override
+	public List<Goods> queryGoodsList(Integer[] typeId) {return goodsCatManager.queryGoodsList(typeId);}
 }
