@@ -164,7 +164,7 @@ public class ShopShortMsgPlugin extends AutoRegisterPlugin implements IShortMess
 		
 		if(count>0){
 			ShortMsg msg  = new ShortMsg();
-			msg.setUrl("/shop/admin/return-order/returns-apply-list.do?state="+ ReturnsOrderStatus.APPLY_SUB);
+			msg.setUrl("/shop/admin/order-report/returned-list.do?state="+ ReturnsOrderStatus.APPLY_SUB);
 			msg.setTitle("退换货申请单");
 			msg.setTarget("ajax");
 			msg.setContent("有"+(count)+"个退换货申请单");

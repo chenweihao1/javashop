@@ -97,4 +97,9 @@ public class AdColumnManager implements IAdColumnManager {
 		this.daoSupport.update("es_adcolumn", adColumn, "acid = " + adColumn.getAcid());
 	}
 
+	@Override
+	public AdColumn getADcolumnDetail(String keyword) {
+		AdColumn  adColumn = this.daoSupport.queryForObject("select * from es_adcolumn where keyword=?", AdColumn.class,keyword);
+		return adColumn;
+	}
 }

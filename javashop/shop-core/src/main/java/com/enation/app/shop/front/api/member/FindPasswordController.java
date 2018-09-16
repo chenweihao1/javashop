@@ -6,6 +6,7 @@ import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.eop.sdk.utils.ValidCodeServlet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -126,8 +127,15 @@ public class FindPasswordController {
 	 */
 	@ResponseBody
 	@RequestMapping(value="/check-sms-code",produces = MediaType.APPLICATION_JSON_VALUE)
-	public JsonResult checkSmsCode(String mobileNum, String validcode ) {
+	public JsonResult checkSmsCode(String mobileNum, String validcode ,String validcodes) {
 		try {
+			//图片验证码
+			if(!"".equals(validcodes)||validcodes!=null){
+				if(this.validcode(validcodes,"memberlogin") == 0){
+					return JsonResultUtil.getErrorJson("图片验证码错误！");
+				}
+			}
+
 			HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 //			String code = (String)request.getSession().getAttribute("smscode");
 			Member member = memberManager.getMemberByMobile(mobileNum);
@@ -189,6 +197,29 @@ public class FindPasswordController {
 		}
 		return pwd.toString();
 	}
-	
-	
+
+	/**
+	 * 校验验证码
+	 *
+	 * @param validcode
+	 * @param name (1、memberlogin:会员登录  2、memberreg:会员注册 3、membervalid:会员手机验证)
+	 * @return 1成功 0失败
+	 */
+	private int validcode(String validcode,String name) {
+		if (validcode == null) {
+			return 0;
+		}
+
+		String code = (String) ThreadContextHolder.getSession().getAttribute(ValidCodeServlet.SESSION_VALID_CODE + name);
+
+		if (code == null) {
+			return 0;
+		} else {
+			if (!code.equalsIgnoreCase(validcode)) {
+				return 0;
+			}
+		}
+		return 1;
+	}
+
 }

@@ -74,6 +74,6 @@ public interface IAdvManager {
 	 * @return
 	 */
 	public List listKeywordAdv(String keyword);
-	
-	
+
+
 }

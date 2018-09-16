@@ -14,10 +14,10 @@
         <module>shop-core</module>
         <module>b2c</module>
         <module>cms-core</module>
+        <module>groupbuy</module>
         <module>zt-sms</module>
         <module>weixin</module>
         <module>weixin-applet</module>
-
     </modules>
 
 

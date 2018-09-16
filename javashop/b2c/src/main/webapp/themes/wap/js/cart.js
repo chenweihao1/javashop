@@ -212,8 +212,8 @@ var Cart={
 		
 	    checkProduct:function(product){
 	    	var self = this;
-	    	
-	    	
+
+
 	    	$.ajax({
 				url:ctx+"/api/shop/cart/check-product.do",
 				data:{"checked":product.checked,"product_id":$(product).val()},
