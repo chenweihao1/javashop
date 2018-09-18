@@ -233,7 +233,7 @@ var SpecOper = {
     },
     bindTableEvent: function () {
         var self = this;
-        $(".ipt").unbind("blur").bind("blur", function () {
+        $(".ipt").bind("blur", function () {
             var $this = $(this);
 
             var prop  = $this.attr("prop");

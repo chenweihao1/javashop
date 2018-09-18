@@ -91,7 +91,13 @@ layui.use(['element', 'form'], function(){
 				$.Loading.error("您已开启规格，但是还未添加规格，请添加后再保存！");
 				return false;
 			}
-		} 
+		}
+
+        if(typeof($("input[name='price']").val()) == "undefined"){
+            $.Loading.error("图片必须上传！");
+            return false;
+        }
+
 		//图片上传判定
 		if(typeof($("input[name='picnames']").val()) == "undefined"){
 			$.Loading.error("图片必须上传！");
@@ -173,7 +179,7 @@ layui.use(['element', 'form'], function(){
 		}
 	};
 		$('#theForm').ajaxSubmit(options);
-		return false;
+			return false;
         }
 });
 
