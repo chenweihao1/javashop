@@ -65,6 +65,9 @@
 
 
 layui.use(['element', 'form'], function(){
+
+
+
 	var element = layui.element();
 	var form = layui.form();
     var t;
@@ -81,7 +84,18 @@ layui.use(['element', 'form'], function(){
 			$(".tab-page .tab-panel").hide();
 			$(".tab-panel[tabid=" + tabid + "]").show();
 		});
-		
+
+    /**
+     * 自定义规则
+     */
+    form.verify({
+        money: function(val, item) {
+            if(!/^\d+(\.\d{0,2})?$/.test(val)){
+                return '请输入正确的价格'
+            }
+        }
+    });
+
 	//立即提交
 	form.on('submit(goodsinput)', function(data) {
 		
