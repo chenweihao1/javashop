@@ -84,7 +84,6 @@ var Loginer={
 		initValidCode:function(){
 		 
 			$("#username").focus();
-		    var that =this;
 			$("#code_img").attr("src","../validcode.do?vtype=admin&rmd="+new Date().getTime())
 			.click(function(){
 				$(this).attr("src","../validcode.do?vtype=admin&rmd="+new Date().getTime() );

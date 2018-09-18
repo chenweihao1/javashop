@@ -20,7 +20,7 @@
 	<label class="layui-form-label">商品编号</label>
 	<div class="layui-input-block">
 		<input type="text" name="sn" lay-verify="required" autocomplete="off" placeholder="请输入商品编号" class="layui-input w300" value="${goodsView.sn}" >
-	</div>
+	</div>j
 </div>
 
 <div class="layui-form-item">
@@ -34,7 +34,7 @@
 <div class="layui-form-item">
 	<label class="layui-form-label">市场价格</label>
 	<div class="layui-input-block">
-		<input type="text" name="mktprice" lay-verify="number" autocomplete="off" maxlength="9" placeholder="请输入市场价格" class="layui-input w300" value="${goodsView.mktprice}" >
+		<input type="text" name="mktprice" lay-verify="money" autocomplete="off" maxlength="9" placeholder="请输入市场价格" class="layui-input w300" value="${goodsView.mktprice}" >
 		<input type="hidden" name="point" value="0" />
 	</div>
 </div>

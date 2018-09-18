@@ -1,4 +1,5 @@
 <#include '/admin/header.html' >
+	<script  type="text/javascript" src="${ctx}/shop/admin/js/jquery.autoFloat.js"></script>
 
 <style>
 .goods-info{
@@ -44,7 +45,7 @@
 			</div>
 		</#list>
 
-		<div class="goods-info">
+		<div class="goods-info" id="goods-commit-button-div">
 			<div class="goods-content">
 				<div class="layui-form-item">
 				    <div class="layui-input-block">
@@ -65,6 +66,9 @@
 
 
 layui.use(['element', 'form'], function(){
+
+
+
 	var element = layui.element();
 	var form = layui.form();
     var t;
@@ -81,7 +85,18 @@ layui.use(['element', 'form'], function(){
 			$(".tab-page .tab-panel").hide();
 			$(".tab-panel[tabid=" + tabid + "]").show();
 		});
-		
+
+    /**
+     * 自定义规则
+     */
+    form.verify({
+        money: function(val, item) {
+            if(!/^\d+(\.\d{0,2})?$/.test(val)){
+                return '请输入正确的价格'
+            }
+        }
+    });
+
 	//立即提交
 	form.on('submit(goodsinput)', function(data) {
 		
@@ -91,7 +106,13 @@ layui.use(['element', 'form'], function(){
 				$.Loading.error("您已开启规格，但是还未添加规格，请添加后再保存！");
 				return false;
 			}
-		} 
+		}
+
+        if(typeof($("input[name='price']").val()) == "undefined"){
+            $.Loading.error("图片必须上传！");
+            return false;
+        }
+
 		//图片上传判定
 		if(typeof($("input[name='picnames']").val()) == "undefined"){
 			$.Loading.error("图片必须上传！");
@@ -173,9 +194,14 @@ layui.use(['element', 'form'], function(){
 		}
 	};
 		$('#theForm').ajaxSubmit(options);
-		return false;
+			return false;
         }
 });
+
+$(function(){
+
+    $("#goods-commit-button-div").autoFloat();
+})
 
 </script>
 
