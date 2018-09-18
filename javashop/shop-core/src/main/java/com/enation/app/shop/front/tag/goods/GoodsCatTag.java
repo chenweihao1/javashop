@@ -124,7 +124,7 @@ public class GoodsCatTag extends BaseFreeMarkerTag {
 		data.put("advs", advs);//广告位
 		data.put("goodss", goodss);//人气推荐前3个
 		data.put("cats", cats);//二级菜单
-		data.put("count", count);//获取商品个数
+		data.put("count", count);//商品总数
 		return data;
 	}
 	
