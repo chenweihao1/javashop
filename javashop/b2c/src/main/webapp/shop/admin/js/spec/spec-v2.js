@@ -114,6 +114,8 @@ var SpecOper = {
             if(!$("input[name='sn']").val()){
                 alert('请先填写位于基本信息中的【商品编号】！')
             }else {
+
+
                 self.openSpec();
             }
         });

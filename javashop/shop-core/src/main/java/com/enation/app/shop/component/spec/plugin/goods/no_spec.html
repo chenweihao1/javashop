@@ -1,34 +1,34 @@
 
 
+<div id="no-spec-input">
+	<div class="layui-form-item">
+		<label class="layui-form-label">销售价</label>
+		<div class="layui-input-block">
+			<input type="text" name="price" id="price" lay-verify="money" autocomplete="off" value="${(goods.price!0)?c}" placeholder="请输入销售价" class="layui-input w300" >
+			<#if lvList?exists>
+				<#list lvList as lv>
+					<input type="hidden" class="lvid" value="${lv.lv_id}" name="lvid" />
+					<input type="hidden" class="lvPrice" lvid="${lv.lv_id}" name="lvPrice" />
+				</#list>
+			</#if>
+		</div>
+	</div>
 
-<div class="layui-form-item">
-	<label class="layui-form-label">销售价</label>
-	<div class="layui-input-block">
-		<input type="text" name="price" id="price" lay-verify="money" autocomplete="off" value="${(goods.price!0)?c}" placeholder="请输入销售价" class="layui-input w300" >
-		<#if lvList?exists> 
-			<#list lvList as lv> 
-				<input type="hidden" class="lvid" value="${lv.lv_id}" name="lvid" /> 
-				<input type="hidden" class="lvPrice" lvid="${lv.lv_id}" name="lvPrice" />
-			</#list> 
-		</#if>
+	<div class="layui-form-item">
+		<label class="layui-form-label">成本价</label>
+		<div class="layui-input-block">
+			<input type="text" name="cost" id="cost"  lay-verify="money" autocomplete="off" value="${(goods.cost!0)?c}" placeholder="请输入成本价" class="layui-input w300" >
+		</div>
+	</div>
+
+	<div class="layui-form-item">
+		<label class="layui-form-label">重量</label>
+		<div class="layui-input-block">
+			<input type="text" name="cost" id="cost"  lay-verify="money" autocomplete="off" value="${(goods.cost!0)?c}" placeholder="请输入重量" class="layui-input w300" >
+		</div>
+		<div class="layui-form-mid layui-word-aux">克(g)</div>
 	</div>
 </div>
-
-<div class="layui-form-item">
-	<label class="layui-form-label">成本价</label>
-	<div class="layui-input-block">
-		<input type="text" name="cost" id="cost"  lay-verify="money" autocomplete="off" value="${(goods.cost!0)?c}" placeholder="请输入成本价" class="layui-input w300" >
-	</div>
-</div>
-
-<div class="layui-form-item">
-	<label class="layui-form-label">重量</label>
-	<div class="layui-input-block">
-		<input type="text" name="cost" id="cost"  lay-verify="money" autocomplete="off" value="${(goods.cost!0)?c}" placeholder="请输入重量" class="layui-input w300" >
-	</div>
-	<div class="layui-form-mid layui-word-aux">克(g)</div>
-</div>
-
 <#if specList?exists && (specList?size gt 0)>
 <div class="layui-form-item advui no-spec-input">
 	<label class="layui-form-label">规格</label>
