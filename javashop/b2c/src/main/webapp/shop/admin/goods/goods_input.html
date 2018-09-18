@@ -1,4 +1,5 @@
 <#include '/admin/header.html' >
+	<script  type="text/javascript" src="${ctx}/shop/admin/js/jquery.autoFloat.js"></script>
 
 <style>
 .goods-info{
@@ -44,7 +45,7 @@
 			</div>
 		</#list>
 
-		<div class="goods-info">
+		<div class="goods-info" id="goods-commit-button-div">
 			<div class="goods-content">
 				<div class="layui-form-item">
 				    <div class="layui-input-block">
@@ -196,6 +197,11 @@ layui.use(['element', 'form'], function(){
 			return false;
         }
 });
+
+$(function(){
+
+    $("#goods-commit-button-div").autoFloat();
+})
 
 </script>
 
