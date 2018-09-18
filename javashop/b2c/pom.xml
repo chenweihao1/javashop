@@ -74,6 +74,7 @@
 					<include>**/*.xml</include>
 					<include>**/*.css</include>
 					<include>**/*.html</include>
+					<include>**/*.properties</include>
 				</includes>
 			</resource>
 
