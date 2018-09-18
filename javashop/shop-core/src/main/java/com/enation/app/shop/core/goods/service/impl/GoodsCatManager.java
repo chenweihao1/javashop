@@ -403,11 +403,16 @@ public class GoodsCatManager  implements IGoodsCatManager {
 			}
 			term.append("?");
 		}
-		String sql = "select * from es_goods where type_id in (" + term + ")";
+		String sql = "select * from es_goods where cat_id in (" + term + ")";
 		List<Goods> goodss = this.daoSupport.queryForList(sql, Goods.class,typeId);
 		return goodss;
 	}
-
+	@Override
+	public int countGoods (){
+		String sql = "select COUNT(goods_id) from es_goods where market_enable=1 and disabled=0";
+		Integer integer = this.daoSupport.queryForInt(sql);
+		return integer;
+	}
 
 
 }

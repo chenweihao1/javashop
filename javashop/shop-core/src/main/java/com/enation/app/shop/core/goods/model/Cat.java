@@ -61,7 +61,7 @@ public class Cat implements Serializable   {
      private String type_name; //类型名称      
      private String state;		//easyui判断是否有子
      private Integer totle_num;	//为查询分类列表而增加，所查询出此分类下，有多少子。
-
+	 private Integer cat; //app更多
      
     public Cat() {
     	hasChildren =false;
@@ -208,5 +208,11 @@ public class Cat implements Serializable   {
 		this.totle_num = totle_num;
 	}
 
+	public Integer getCat() {
+		return cat;
+	}
 
+	public void setCat(Integer cat) {
+		this.cat = cat;
+	}
 }
