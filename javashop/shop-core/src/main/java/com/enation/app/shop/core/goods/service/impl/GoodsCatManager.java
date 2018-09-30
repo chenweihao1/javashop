@@ -142,7 +142,7 @@ public class GoodsCatManager  implements IGoodsCatManager {
 	public List<Cat> listAllChildren(Integer catId) {
 
 		String sql = "select c.*,t.name as type_name from  es_goods_cat c "
-				+ " left join es_goods_type t on c.type_id = t.type_id where list_show=1 "
+				+ " left join es_goods_type t on c.type_id = t.type_id where list_show=1 and c.reveal='0' "
 				+ " order by parent_id,cat_order";
 		
 		// this.findSql("all_cat_list");
@@ -356,7 +356,7 @@ public class GoodsCatManager  implements IGoodsCatManager {
 
 	@Override
 	public List<Cat> queryGoodsCat(){
-		String sql = "select * from es_goods_cat where parent_id='0' and reveal='1' LIMIT 0,9";
+		String sql = "select * from es_goods_cat where parent_id='0' and reveal='1'  LIMIT 0,9";
 		List<Cat> Cat = this.daoSupport.queryForList(sql, Cat.class);
 		return Cat;
 	}
