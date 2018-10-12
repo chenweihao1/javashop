@@ -56,12 +56,19 @@ public class CommontGradenNumTag extends BaseFreeMarkerTag{
 		
 		//该商品的评论总数
 		int allCommentNum = memberCommentManager.getCommentsCount(goods_id);
-		
+
+		//商品的好评百分比
+		int percent=0;
+		if(allCommentNum!=0){
+			percent = (gradeHigh / allCommentNum)*100;
+		}
+
 		result.put("gradeHigh", gradeHigh);
 		result.put("gradeTwo", gradeTwo);
 		result.put("gradeLow", gradeLow);
 		result.put("allCommentNum", allCommentNum);
-		
+		result.put("percent", percent);
+
 		return result;
 	}
 
