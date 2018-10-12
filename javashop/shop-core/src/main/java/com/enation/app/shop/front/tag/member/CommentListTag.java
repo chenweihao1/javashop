@@ -46,7 +46,8 @@ public class CommentListTag extends BaseFreeMarkerTag {
 		Integer goods_id =  (Integer)params.get("goods_id");
 		Integer type= (Integer)params.get("type");
 		Integer grade = (Integer) params.get("grade");
-		
+		Integer yanxuan = (Integer) params.get("yanxuan");
+
 		if(type==null){
 			throw new TemplateModelException("必须输入 type参数 ");
 		}
@@ -55,6 +56,13 @@ public class CommentListTag extends BaseFreeMarkerTag {
 		int pageSize=this.getPageSize();
 		
 		Page page = memberCommentManager.getGoodsComments(goods_id, pageNo, pageSize, type, grade);
+		if(yanxuan!=null){
+			if(yanxuan==3){
+				page = memberCommentManager.getGoodsComments(goods_id, pageNo, 1, type, grade);
+			}
+		}
+
+
 		return page;
 	}
 
