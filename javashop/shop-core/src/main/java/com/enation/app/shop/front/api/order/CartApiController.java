@@ -248,6 +248,7 @@ public class CartApiController extends GridController {
 			cartManager.checkProduct(sessionid, product_id, checked);
 			return JsonResultUtil.getSuccessJson("选择购物车商品成功");
 		}catch(RuntimeException e){
+			e.printStackTrace();
 			this.logger.error("选择购物车商品出错",e);
 			return JsonResultUtil.getErrorJson("选择购物车商品出错");
 		}
