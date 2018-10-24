@@ -66,6 +66,18 @@ UE.Editor.prototype.getActionUrl = function(action) {
 function isPositiveInteger(s){//是否为正整数
   var re = /^[0-9]+$/ ;
   return re.test(s)
-} 
+}
+
+
+//form表单序列化为json
+(function($){
+    $.fn.serializeJson=function(){
+        var serializeObj={};
+        $(this.serializeArray()).each(function(){
+            serializeObj[this.name]=this.value;
+        });
+        return serializeObj;
+    };
+})(jQuery);
 
 </script>

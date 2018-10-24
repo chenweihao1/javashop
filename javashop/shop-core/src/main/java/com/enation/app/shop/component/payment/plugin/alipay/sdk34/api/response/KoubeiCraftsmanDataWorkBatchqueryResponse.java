@@ -1,0 +1,86 @@
+package com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.response;
+
+import java.util.List;
+
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.AlipayResponse;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.domain.CraftsmanWorkOpenModel;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.internal.mapping.ApiField;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.internal.mapping.ApiListField;
+
+/**
+ * ALIPAY API: koubei.craftsman.data.work.batchquery response.
+ * 
+ * @author auto create
+ * @since 1.0, 2017-01-13 16:33:13
+ */
+public class KoubeiCraftsmanDataWorkBatchqueryResponse extends AlipayResponse {
+
+	private static final long serialVersionUID = 8269898286237342216L;
+
+	/** 
+	 * 当前页码
+	 */
+	@ApiField("current_page_no")
+	private Long currentPageNo;
+
+	/** 
+	 * 每页记录数
+	 */
+	@ApiField("page_size")
+	private Long pageSize;
+
+	/** 
+	 * 总页码数目
+	 */
+	@ApiField("total_page_no")
+	private Long totalPageNo;
+
+	/** 
+	 * 总共手艺人作品数目
+	 */
+	@ApiField("total_works")
+	private Long totalWorks;
+
+	/** 
+	 * 作品信息列表
+	 */
+	@ApiListField("works")
+	@ApiField("craftsman_work_open_model")
+	private List<CraftsmanWorkOpenModel> works;
+
+	public void setCurrentPageNo(Long currentPageNo) {
+		this.currentPageNo = currentPageNo;
+	}
+	public Long getCurrentPageNo( ) {
+		return this.currentPageNo;
+	}
+
+	public void setPageSize(Long pageSize) {
+		this.pageSize = pageSize;
+	}
+	public Long getPageSize( ) {
+		return this.pageSize;
+	}
+
+	public void setTotalPageNo(Long totalPageNo) {
+		this.totalPageNo = totalPageNo;
+	}
+	public Long getTotalPageNo( ) {
+		return this.totalPageNo;
+	}
+
+	public void setTotalWorks(Long totalWorks) {
+		this.totalWorks = totalWorks;
+	}
+	public Long getTotalWorks( ) {
+		return this.totalWorks;
+	}
+
+	public void setWorks(List<CraftsmanWorkOpenModel> works) {
+		this.works = works;
+	}
+	public List<CraftsmanWorkOpenModel> getWorks( ) {
+		return this.works;
+	}
+
+}

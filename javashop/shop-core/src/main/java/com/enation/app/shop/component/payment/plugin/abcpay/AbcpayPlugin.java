@@ -1,42 +1,44 @@
 package com.enation.app.shop.component.payment.plugin.abcpay;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.shop.core.order.model.Refund;
+import com.enation.app.shop.core.order.model.RefundBill;
 import org.springframework.stereotype.Component;
 
-import com.enation.app.shop.core.order.model.PayCfg;
-import com.enation.app.shop.core.order.model.PayEnable;
-import com.enation.app.shop.core.order.model.PaymentLog;
-import com.enation.app.shop.core.order.model.Refund;
-import com.enation.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
+import com.enation.app.base.core.model.ConfigItem;
+import com.enation.app.shop.core.payment.model.vo.PayBill;
+import com.enation.app.shop.core.payment.service.AbstractPaymentPlugin;
+import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 
 @Component
-public class AbcpayPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
+public class AbcpayPlugin extends AbstractPaymentPlugin implements IPaymentPlugin {
 
 	@Override
-	public String onPay(PayCfg payCfg, PayEnable order) {
+	public String onPay(PayBill bill) {
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		
-		String callBackUrl = this.getCallBackUrl(payCfg,order);
+		String callBackUrl = this.getCallBackUrl(bill.getOrdertype());
 		
 		Date today = Calendar.getInstance().getTime();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
 		//	生成订单对象
 		com.hitrust.trustpay.client.b2c.Order tOrder = new com.hitrust.trustpay.client.b2c.Order();
-		tOrder.setOrderNo(order.getSn());		// 设定订单编号 （必要信息）
+		tOrder.setOrderNo(bill.getTrade_sn());		// 设定订单编号 （必要信息）
 		tOrder.setExpiredDate(30); // 设定订单有效期（必要信息）
 		tOrder.setOrderDesc(""); // 设定订单说明
 		tOrder.setOrderDate(date.format(today)); // 设定订单日期 （必要信息 - YYYY/MM/DD）
 		tOrder.setOrderTime(time.format(today)); // 设定订单时间 （必要信息 - HH:MM:SS）
-		tOrder.setOrderAmount(order.getNeedPayMoney()); // 设定订单金额 （必要信息）
-		tOrder.setOrderURL(this.getShowUrl(order)); // 设定订单网址
+		tOrder.setOrderAmount(bill.getOrder_price()); // 设定订单金额 （必要信息）
+		tOrder.setOrderURL(this.getShowUrl(bill)); // 设定订单网址
 		tOrder.setBuyIP(request.getRemoteAddr()); // 设定订单IP
 
 		//	生成定单订单对象，并将订单明细加入定单中（可选信息）
@@ -71,32 +73,49 @@ public class AbcpayPlugin extends AbstractPaymentPlugin implements IPaymentEvent
 	}
 
 	@Override
-	public String onCallBack(String ordertype) {
-		logger.debug("Abc callbacked");
-		//System.out.println("Callback");
-		return "callbacked";
-	}
-
-	@Override
 	public String onReturn(String ordertype) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public String getId() {
-		return "abcpayPlugin";
+	public String onCallback(String ordertype) {
+		// TODO Auto-generated method stub
+				return null;
 	}
 
 	@Override
-	public String getName() {
+	public boolean returnPay(RefundBill bill) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Refund queryRefundStatus(Refund refund) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPluginName() {
 		return "中国农业银行网上支付";
 	}
 
 	@Override
-	public String onRefund(PayEnable order, Refund refund, PaymentLog paymentLog) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ConfigItem> definitionConfigItem() {
+		List<ConfigItem> list = new ArrayList<>();
+		return list;
 	}
+
+	@Override
+	public Integer getIsRetrace() {
+		return 0;
+	}
+
+	@Override
+	public String getPluginId() {
+		return "abcpayPlugin";
+	}
+
 
 }

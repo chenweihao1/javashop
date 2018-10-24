@@ -1,74 +1,136 @@
 package com.enation.framework.util;
 
-
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.ByteArrayOutputStream;
-import java.io.CharArrayWriter;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.OutputStream;
-import java.io.Reader;
-import java.io.Writer;
 
 /**
- * Provides encoding of raw bytes to base64-encoded characters, and
- * decoding of base64 characters to raw bytes.
- * date: 06 August 1998
- * modified: 14 February 2000
- * modified: 22 September 2000
- *
- * @author Kevin Kelley (kelley@ruralnet.net)
- * @version 1.3
+ * @Author Sylow
+ * @Description //TODO
+ * @Date 16:10 2018/9/21
  */
 public class Base64 {
+	private static final char[] legalChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
+			.toCharArray();
 
-    /**
-     * returns an array of base64-encoded characters to represent the
-     * passed data array.
-     *
-     * @param data the array of bytes to encode
-     * @return base64-coded character array.
-     */
-    public static char[] encode(byte[] data) {
-        char[] out = new char[((data.length + 2) / 3) * 4];
+	public static String encode(byte[] data) {
+		int start = 0;
+		int len = data.length;
+		StringBuffer buf = new StringBuffer(data.length * 3 / 2);
 
-        //
-        // 3 bytes encode to 4 chars.  Output is always an even
-        // multiple of 4 characters.
-        //
-        for (int i = 0, index = 0; i < data.length; i += 3, index += 4) {
-            boolean quad = false;
-            boolean trip = false;
+		int end = len - 3;
+		int i = start;
+		int n = 0;
 
-            int val = (0xFF & data[i]);
-            val <<= 8;
-            if ((i + 1) < data.length) {
-                val |= (0xFF & data[i + 1]);
-                trip = true;
-            }
-            val <<= 8;
-            if ((i + 2) < data.length) {
-                val |= (0xFF & data[i + 2]);
-                quad = true;
-            }
-            out[index + 3] = alphabet[(quad ? (val & 0x3F) : 64)];
-            val >>= 6;
-            out[index + 2] = alphabet[(trip ? (val & 0x3F) : 64)];
-            val >>= 6;
-            out[index + 1] = alphabet[val & 0x3F];
-            val >>= 6;
-            out[index + 0] = alphabet[val & 0x3F];
-        }
-        return out;
-    }
+		while (i <= end) {
+			int d = ((((int) data[i]) & 0x0ff) << 16)
+					| ((((int) data[i + 1]) & 0x0ff) << 8)
+					| (((int) data[i + 2]) & 0x0ff);
 
+			buf.append(legalChars[(d >> 18) & 63]);
+			buf.append(legalChars[(d >> 12) & 63]);
+			buf.append(legalChars[(d >> 6) & 63]);
+			buf.append(legalChars[d & 63]);
+
+			i += 3;
+
+			if (n++ >= 14) {
+				n = 0;
+				buf.append(" ");
+			}
+		}
+
+		if (i == start + len - 2) {
+			int d = ((((int) data[i]) & 0x0ff) << 16)
+					| ((((int) data[i + 1]) & 255) << 8);
+
+			buf.append(legalChars[(d >> 18) & 63]);
+			buf.append(legalChars[(d >> 12) & 63]);
+			buf.append(legalChars[(d >> 6) & 63]);
+			buf.append("=");
+		} else if (i == start + len - 1) {
+			int d = (((int) data[i]) & 0x0ff) << 16;
+
+			buf.append(legalChars[(d >> 18) & 63]);
+			buf.append(legalChars[(d >> 12) & 63]);
+			buf.append("==");
+		}
+
+		return buf.toString();
+	}
+
+	private static int decode(char c) {
+		if (c >= 'A' && c <= 'Z')
+			return ((int) c) - 65;
+		else if (c >= 'a' && c <= 'z')
+			return ((int) c) - 97 + 26;
+		else if (c >= '0' && c <= '9')
+			return ((int) c) - 48 + 26 + 26;
+		else
+			switch (c) {
+			case '+':
+				return 62;
+			case '/':
+				return 63;
+			case '=':
+				return 0;
+			default:
+				throw new RuntimeException("unexpected code: " + c);
+			}
+	}
+
+	/**
+	 * Decodes the given Base64 encoded String to a new byte array. The byte
+	 * array holding the decoded data is returned.
+	 */
+
+	public static byte[] decode(String s) {
+
+		ByteArrayOutputStream bos = new ByteArrayOutputStream();
+		try {
+			decode(s, bos);
+		} catch (IOException e) {
+			throw new RuntimeException();
+		}
+		byte[] decodedBytes = bos.toByteArray();
+		try {
+			bos.close();
+			bos = null;
+		} catch (IOException ex) {
+			System.err.println("Error while decoding BASE64: " + ex.toString());
+		}
+		return decodedBytes;
+	}
+
+	private static void decode(String s, OutputStream os) throws IOException {
+		int i = 0;
+
+		int len = s.length();
+
+		while (true) {
+			while (i < len && s.charAt(i) <= ' ')
+				i++;
+
+			if (i == len)
+				break;
+
+			int tri = (decode(s.charAt(i)) << 18)
+					+ (decode(s.charAt(i + 1)) << 12)
+					+ (decode(s.charAt(i + 2)) << 6)
+					+ (decode(s.charAt(i + 3)));
+
+			os.write((tri >> 16) & 255);
+			if (s.charAt(i + 2) == '=')
+				break;
+			os.write((tri >> 8) & 255);
+			if (s.charAt(i + 3) == '=')
+				break;
+			os.write(tri & 255);
+
+			i += 4;
+		}
+	}
+	
     /**
      * Decodes a BASE-64 encoded stream to recover the original
      * data. White space before and after will be trimmed away,
@@ -143,138 +205,6 @@ public class Base64 {
 
         return out;
     }
-
-
-    //
-    // code characters for values 0..63
-    //
-    private static char[] alphabet =
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".toCharArray();
-
-    //
-    // lookup table for converting base64 characters to value in range 0..63
-    //
+    
     private static byte[] codes = new byte[256];
-
-    static {
-        for (int i = 0; i < 256; i++)
-            codes[i] = -1;
-        for (int i = 'A'; i <= 'Z'; i++)
-            codes[i] = (byte) (i - 'A');
-        for (int i = 'a'; i <= 'z'; i++)
-            codes[i] = (byte) (26 + i - 'a');
-        for (int i = '0'; i <= '9'; i++)
-            codes[i] = (byte) (52 + i - '0');
-        codes['+'] = 62;
-        codes['/'] = 63;
-    }
-
-
-
-
-    ///////////////////////////////////////////////////
-    // remainder (main method and helper functions) is
-    // for testing purposes only, feel free to clip it.
-    ///////////////////////////////////////////////////
-
-    public static void main(String[] args) {
-        boolean decode = false;
-
-        if (args.length == 0) {
-            //System.out.println("usage:  java Base64 [-d[ecode]] filename");
-            System.exit(0);
-        }
-        for (int i = 0; i < args.length; i++) {
-            if ("-decode".equalsIgnoreCase(args[i]))
-                decode = true;
-            else if ("-d".equalsIgnoreCase(args[i]))
-                decode = true;
-        }
-
-        String filename = args[args.length - 1];
-        File file = new File(filename);
-        if (!file.exists()) {
-            //System.out.println("Error:  file '" + filename + "' doesn't exist!");
-            System.exit(0);
-        }
-
-        if (decode) {
-            char[] encoded = readChars(file);
-            byte[] decoded = decode(encoded);
-            writeBytes(file, decoded);
-        }
-        else {
-            byte[] decoded = readBytes(file);
-            char[] encoded = encode(decoded);
-            writeChars(file, encoded);
-        }
-    }
-
-    private static byte[] readBytes(File file) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try {
-            InputStream fis = new FileInputStream(file);
-            InputStream is = new BufferedInputStream(fis);
-            int count = 0;
-            byte[] buf = new byte[16384];
-            while ((count = is.read(buf)) != -1) {
-                if (count > 0)
-                    baos.write(buf, 0, count);
-            }
-            is.close();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return baos.toByteArray();
-    }
-
-    private static char[] readChars(File file) {
-        CharArrayWriter caw = new CharArrayWriter();
-        try {
-            Reader fr = new FileReader(file);
-            Reader in = new BufferedReader(fr);
-            int count = 0;
-            char[] buf = new char[16384];
-            while ((count = in.read(buf)) != -1) {
-                if (count > 0)
-                    caw.write(buf, 0, count);
-            }
-            in.close();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return caw.toCharArray();
-    }
-
-    private static void writeBytes(File file, byte[] data) {
-        try {
-            OutputStream fos = new FileOutputStream(file);
-            OutputStream os = new BufferedOutputStream(fos);
-            os.write(data);
-            os.close();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void writeChars(File file, char[] data) {
-        try {
-            Writer fos = new FileWriter(file);
-            Writer os = new BufferedWriter(fos);
-            os.write(data);
-            os.close();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    ///////////////////////////////////////////////////
-    // end of test code.
-    ///////////////////////////////////////////////////
-
 }

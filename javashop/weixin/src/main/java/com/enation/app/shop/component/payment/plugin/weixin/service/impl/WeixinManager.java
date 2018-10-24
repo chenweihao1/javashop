@@ -272,7 +272,7 @@ public class WeixinManager implements IWeixinManager {
 	private   Map<String,String> getWeixinSetting(){
 		WeixinPayPlugin plugin = new WeixinPayPlugin();
 		Map<String, String> cfgparams =new HashMap();
-		cfgparams= paymentManager.getConfigParams(plugin.getId());
+		cfgparams= paymentManager.getConfigParams(plugin.getPluginId());
 		
 //		String json ="";
 //		JSONObject jsonObject = JSONObject.fromObject( json );  

@@ -14,10 +14,10 @@
 <#--读取订单发票详细 -->
 <#assign receipt=receiptTag("'orderid':${order.order_id}")>
 
-<#--创建查询订单发票标签 -->
+<#--创建查询支付方式列表标签 -->
 <#assign paymentListTag=newTag("paymentListTag")>
-<#--读取订单发票详细 -->
-<#assign paymentList=paymentListTag()>
+<#--读取支付列表 -->
+<#assign paymentList=paymentListTag("{'client_type':'PC'}")>
 
 
 <link rel="stylesheet" type="text/css" href="${ctx}${themes_path}/css/checkout.css" />
@@ -60,23 +60,31 @@
 				</div>
 				<ul class="cashier-pay-list">
 					<#list paymentList as payment>
-						<#if payment.type=="alipayDirectPlugin">
-						<li class="alipay" rel="alipay" payid="${payment.id}" pluginid="${payment.type}">
-							<img src="${ctx}${themes_path}/images/zhifubao.png"/>
-							<span></span>
-						</li>
-						<#elseif payment.type=="weixinPayPlugin">
-						<li class="wechat" rel="wechat" payid="${payment.id}" pluginid="${payment.type}">
-							<img src="${ctx}${themes_path}/images/weixinpay.png"/>
-							<span></span>
-						</li>
-						<#else>
-						<li class="bank" rel="bank" payid="${payment.id}"  pluginid="${payment.type}">
-							<@image src="${payment.pay_img!''}" width="150" /> 
-							<span></span>
-						</li>
+						<#if payment.plugin_id=="alipayDirectPlugin">
+							<li class="alipay" rel="alipay" payid="${payment.method_id}">
+								<#if payment.img_url??>
+									<img src="${payment.img_url!''}" width="150"/>
+									<#else>
+										<img src="${ctx}${themes_path}/images/zhifubao.png"/>
+								</#if>
+								<span></span>
+							</li>
+							<#elseif payment.plugin_id=="weixinPayPlugin">
+								<li class="wechat" rel="wechat" payid="${payment.method_id}">
+									<#if payment.img_url??>
+										<img src="${payment.img_url!''}" width="150"/>
+										<#else>
+											<img src="${ctx}${themes_path}/images/weixinpay.png"/>
+									</#if>
+									<span></span>
+								</li>
+								<#else>
+									<li class="bank" rel="bank" payid="${payment.method_id}" pluginid="${payment.method_id}" >
+										<@image src="${payment.img_url!''}" width="150" />
+										<span></span>
+									</li>
 						</#if>
-					</#list>			
+					</#list>
 				</ul>
 			</div>
 		</div>

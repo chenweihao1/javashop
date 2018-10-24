@@ -1,21 +1,23 @@
 package com.enation.app.shop.component.payment.plugin.bill;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.shop.core.order.model.PaymentResult;
+import com.enation.app.shop.core.order.model.Refund;
+import com.enation.app.shop.core.order.model.RefundBill;
+import com.enation.app.shop.core.payment.model.vo.PayBill;
+import com.enation.app.shop.core.payment.service.AbstractPaymentPlugin;
+import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import org.springframework.stereotype.Component;
 
+import com.enation.app.base.core.model.ConfigItem;
 import com.enation.app.shop.component.payment.plugin.bill.util.Pkipair;
-import com.enation.app.shop.core.order.model.Order;
-import com.enation.app.shop.core.order.model.PayCfg;
-import com.enation.app.shop.core.order.model.PayEnable;
-import com.enation.app.shop.core.order.model.PaymentLog;
-import com.enation.app.shop.core.order.model.Refund;
-import com.enation.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
-import com.enation.app.shop.core.order.service.IPaymentManager;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.enation.framework.util.StringUtil;
 
 /**
  * 快钱人民币支付
@@ -23,24 +25,7 @@ import com.enation.framework.context.webcontext.ThreadContextHolder;
  *
  */
 @Component
-public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
-	
-	private IPaymentManager paymentManager;
-
-
-
-	@Override
-	public String getId() {
-		
-		return "billPlugin";
-	}
-
-	@Override
-	public String getName() {
-		
-		return "快钱人民币支付";
-	}
-
+public class BillPlugin extends AbstractPaymentPlugin implements IPaymentPlugin {
 	
 	/**
 	 * 功能函数。将变量值不为空的参数组成字符串
@@ -68,10 +53,31 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 			return returnStr;
 	}
 
-	@Override
-	public String onPay(PayCfg payCfg, PayEnable order) {
+	
+	/**
+	 * 获取返回地址
+	 * @param ordertype
+	 * @return
+	 */
+	private String getReturnUrl(String ordertype,String param){
+		 
+		HttpServletRequest request  =  ThreadContextHolder.getHttpRequest();
+		String serverName =request.getServerName();
+		int port =request.getLocalPort();
+		String portstr = "";
+		if(port!=80){
+			portstr = ":"+port;
+		}
+		String contextPath = request.getContextPath();
 		
-		Map<String,String> params = paymentManager.getConfigParams(this.getId());
+	
+		return "http://"+serverName+portstr+contextPath+"/"+ordertype+"_"+this.getPluginId()+"_payment-result.html"+param ;
+	}
+
+	@Override
+	public String onPay(PayBill bill) {
+		
+		Map<String,String> params = this.getConfig();
 		String partner =params.get("partner");
 		
 		String url =  params.get("url");
@@ -94,7 +100,7 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		//服务器接受支付结果的后台地址.与[pageUrl]不能同时为空。必须是绝对地址。
 		///快钱通过服务器连接的方式将交易结果发送到[bgUrl]对应的页面地址，在商户处理完成后输出的<result>如果为1，页面会转向到<redirecturl>对应的地址。
 		///如果快钱未接收到<redirecturl>对应的地址，快钱将把支付结果GET到[pageUrl]对应的页面。
-		String bgUrl=this.getCallBackUrl(payCfg, order);
+		String bgUrl  = "";
 			
 		//网关版本.固定值
 		///快钱会根据版本号来调用对应的接口处理程序。
@@ -121,20 +127,20 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		///1代表Email
 		String payerContactType="2";
 
-		Order shopOrder  = (Order)order;
+//		Order shopOrder  = (Order)order;
 		//支付人联系方式
 		///只能选择Email或手机号
-		String payerContact=shopOrder.getShip_mobile();
+		//String payerContact=shopOrder.getShip_mobile();
 
 		//商户订单号
 		///由字母、数字、或[-][_]组成
-		String orderId=order.getSn();
+//		String orderId=order.getSn();
 
 		//订单金额
 		///以分为单位，必须是整型数字
 		///比方2，代表0.02元
-		double oa = order.getNeedPayMoney()*100;
-		String orderAmount=String.valueOf((int)oa);
+//		double oa = order.getNeedPayMoney()*100;
+		String orderAmount=String.valueOf(bill.getOrder_price());
 			
 		//订单提交时间
 		///14位数字。年[4位]月[2位]日[2位]时[2位]分[2位]秒[2位]
@@ -143,7 +149,7 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 
 		//商品名称
 		///可为中文或英文字符
-		String productName= "订单:" + order.getSn(); 
+		String productName= "订单:" + bill.getTrade_sn(); 
 
 		//商品数量
 		///可为空，非空时必须为数字
@@ -192,8 +198,8 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		signMsgVal = appendParam(signMsgVal, "merchantAcctId",merchantAcctId);
 		signMsgVal = appendParam(signMsgVal, "payerName", payerName);
 		signMsgVal = appendParam(signMsgVal, "payerContactType",payerContactType);
-		signMsgVal = appendParam(signMsgVal, "payerContact", payerContact);
-		signMsgVal = appendParam(signMsgVal, "orderId", orderId);
+		//signMsgVal = appendParam(signMsgVal, "payerContact", payerContact);
+		signMsgVal = appendParam(signMsgVal, "orderId", bill.getOrder_id().toString());
 		signMsgVal = appendParam(signMsgVal, "orderAmount", orderAmount);
 		signMsgVal = appendParam(signMsgVal, "orderTime", orderTime);
 		signMsgVal = appendParam(signMsgVal, "productName", productName);
@@ -223,8 +229,8 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		strHtml+="		<input type=\"hidden\" name=\"merchantAcctId\" value=\""+merchantAcctId+"\" />                          ";
 		strHtml+="		<input type=\"hidden\" name=\"payerName\" value=\""+payerName+"\" />                                    ";
 		strHtml+="		<input type=\"hidden\" name=\"payerContactType\" value=\""+payerContactType+"\" />                      ";
-		strHtml+="		<input type=\"hidden\" name=\"payerContact\" value=\""+payerContact+"\" />                              ";
-		strHtml+="		<input type=\"hidden\" name=\"orderId\" value=\""+orderId+"\" />                                        ";
+		//strHtml+="		<input type=\"hidden\" name=\"payerContact\" value=\""+payerContact+"\" />                              ";
+		strHtml+="		<input type=\"hidden\" name=\"orderId\" value=\""+bill.getOrder_id()+"\" />                                        ";
 		strHtml+="		<input type=\"hidden\" name=\"orderAmount\" value=\""+orderAmount+"\" />                                ";
 		strHtml+="		<input type=\"hidden\" name=\"orderTime\" value=\""+orderTime+"\" />                                    ";
 		strHtml+="		<input type=\"hidden\" name=\"productName\" value=\""+productName+"\" />                                ";
@@ -241,13 +247,23 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		strHtml+="	</form>";
 		strHtml+="<script type=\"text/javascript\">document.forms['kqPay'].submit();</script>";
 		
-		return strHtml; 
-			
-	 
+		return ""; 
 	}
 
 	@Override
-	public String onCallBack(String ordertype) {
+	public String onReturn(String ordertype) {
+		HttpServletRequest request  =  ThreadContextHolder.getHttpRequest();
+		String ordersn= request.getParameter("ordersn");
+		String msg= request.getParameter("msg");
+		if(!"success".equals(msg)){
+			throw new RuntimeException("支付失败");
+		}
+		
+		return ordersn;
+	}
+
+	@Override
+	public String onCallback(String ordertype) {
 		HttpServletRequest request  = ThreadContextHolder.getHttpRequest();
 		
 		//人民币网关账号，该账号为11位人民币网关商户编号+01,该值与提交时相同。
@@ -308,7 +324,7 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		merchantSignMsgVal = appendParam(merchantSignMsgVal, "payResult",payResult);
 		merchantSignMsgVal = appendParam(merchantSignMsgVal, "errCode",errCode);
 		
-		Map<String,String> params = paymentManager.getConfigParams(this.getId());
+		Map<String,String> params = this.getConfig();
 		String publicKeyPath =params.get("publicKey");
 		
 		
@@ -326,15 +342,24 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		  					/*
 		  					此处商户可以做业务逻辑处理
 		  					*/
-		  					this.paySuccess(orderId, "", "", ordertype);
+		  				
+		  					double payprice = StringUtil.toDouble(payAmount, 0d);
+		  					
+			  				PaymentResult paymentResult = new PaymentResult();
+							paymentResult.setOrdersn(orderId);
+							paymentResult.setPay_order_no(dealId);
+							paymentResult.setOrderType(ordertype);
+							paymentResult.setPay_price(payprice);
+							
+		  					this.paySuccess(paymentResult);
 		  					rtnOK=1;
 		  					//以下是我们快钱设置的show页面，商户需要自己定义该页面。
-		  					rtnUrl=this.getReturnUrl( ordertype,"?msg=success&ordersn="+orderId);
+		  					//rtnUrl=this.getReturnUrl();
 		  					break;
 		  			default:
 		  					rtnOK=0;
 		  					//以下是我们快钱设置的show页面，商户需要自己定义该页面。
-		  					rtnUrl=this.getReturnUrl( ordertype,"?msg=error&ordersn="+orderId);
+		  					//rtnUrl=this.getReturnUrl( tradeType,"?msg=error&ordersn="+orderId);
 		  					break;
 		  		}
 		  	}
@@ -342,62 +367,66 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
 		  	{
 		  		rtnOK=0;
 		  		//以下是我们快钱设置的show页面，商户需要自己定义该页面。
-		  		rtnUrl=this.getReturnUrl( ordertype,"?msg=error&ordersn="+orderId);
+		  		//rtnUrl=this.getReturnUrl( ordertype,"?msg=error&ordersn="+orderId);
 		  	}	
 		
 		
 			return "<result>"+rtnOK+"</result> <redirecturl>"+rtnUrl+"</redirecturl>";
-		}
-	
-	/**
-	 * 获取返回地址
-	 * @param ordertype
-	 * @return
-	 */
-	private String getReturnUrl(String ordertype,String param){
-		 
-		HttpServletRequest request  =  ThreadContextHolder.getHttpRequest();
-		String serverName =request.getServerName();
-		int port =request.getLocalPort();
-		String portstr = "";
-		if(port!=80){
-			portstr = ":"+port;
-		}
-		String contextPath = request.getContextPath();
-		
-	
-		return "http://"+serverName+portstr+contextPath+"/"+ordertype+"_"+this.getId()+"_payment-result.html"+param ;
-	}
-	
-	/**
-	 * 响应返回页面
-	 */
-	@Override
-	public String onReturn(String ordertype) {
-		HttpServletRequest request  =  ThreadContextHolder.getHttpRequest();
-		String ordersn= request.getParameter("ordersn");
-		String msg= request.getParameter("msg");
-		if(!"success".equals(msg)){
-			throw new RuntimeException("支付失败");
-		}
-		
-		return ordersn;
-	}
-
-
-
-	public IPaymentManager getPaymentManager() {
-		return paymentManager;
-	}
-
-	public void setPaymentManager(IPaymentManager paymentManager) {
-		this.paymentManager = paymentManager;
 	}
 
 	@Override
-	public String onRefund(PayEnable order, Refund refund, PaymentLog paymentLog) {
+	public boolean returnPay(RefundBill bill) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public Refund queryRefundStatus(Refund refund) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public String getPluginId() {
+		
+		return "billPlugin";
+	}
+
+	@Override
+	public String getPluginName() {
+		return "快钱人民币支付";
+	}
+
+	@Override
+	public List<ConfigItem> definitionConfigItem() {
+		List<ConfigItem> list = new ArrayList<>();
+		ConfigItem seller_urlItem = new ConfigItem();
+		seller_urlItem.setName("url");
+		seller_urlItem.setText("支付提交URL");
+		ConfigItem seller_partnerItem = new ConfigItem();
+		seller_partnerItem.setName("partner");
+		seller_partnerItem.setText("快钱帐号");
+		ConfigItem seller_privateKeyItem = new ConfigItem();
+		seller_privateKeyItem.setName("privateKey");
+		seller_privateKeyItem.setText("私钥地址");
+		ConfigItem seller_keyPwdItem = new ConfigItem();
+		seller_keyPwdItem.setName("keyPwd");
+		seller_keyPwdItem.setText("私钥密码");
+		ConfigItem seller_publicKeyItem = new ConfigItem();
+		seller_publicKeyItem.setName("publicKey");
+		seller_publicKeyItem.setText("公钥地址");
+		list.add(seller_privateKeyItem);
+		list.add(seller_partnerItem);
+		list.add(seller_urlItem);
+		list.add(seller_publicKeyItem);
+		list.add(seller_keyPwdItem);
+		return list;
+	}
+
+	@Override
+	public Integer getIsRetrace() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 

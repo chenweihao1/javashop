@@ -25,8 +25,6 @@ height:30px;
         <!--按钮操作  -->
         <div class="table_control">
             <div class="table_opera">
-                <button type="button" class="layui-btn layui-btn-primary " title="添加" onclick="newTab('添加支付方式','${ctx}/shop/admin/payCfg/add.do')"><i class="icon iconfont icon-llalbumshopselectorcreate"></i></button>
-                <button type="button" class="layui-btn layui-btn-primary" title="删除" onclick="delPayment()"><i class="icon iconfont icon-guanbi1"></i></button>
                 <button type="button" class="layui-btn layui-btn-primary " title="说明" id="explain"><i class="licon iconfont icon-tishi1"></i></button>
             </div>
 
@@ -38,8 +36,10 @@ height:30px;
     <table id="paymentdata" class="layui-table site-table table-hover" width="100%" lay-skin="line">
         <thead>
           <tr>
-            <th><input type='checkbox'  class='btn-checkall fly-checkbox' id='selected-all'></th>
             <th>支付方式</th>
+            <th>启用PC</th>
+            <th>启用WAP</th>
+            <th>启用APP</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -55,54 +55,49 @@ var table;
 $(function(){
 	table = $('#paymentdata').DataTable({
 		"language": {
-	        "url": "${staticserver}/media/zh_CN.txt"
+			"url":ctx + "/zh_CN.txt"
 	    },
 	    "processing": true,
 	    "serverSide": true,
 	    "ordering": false,
 	    "searching": false,
 	    "lengthChange": false,
+	    "paging": false,
 	    ajax: {
 	        //指定数据源
-	        type:"post",
-	        url: '${ctx}/shop/admin/payCfg/list-json.do',
+	        type:"get",
+	        paging: false,
+	        url: '${ctx}/order-pay/admin/payment/list-json.do',
 	    },
 	    columns: [ //定义列
-            {"data": function (obj) {
-                return '<input type="checkbox" name="id" class="fly-checkbox" value=' + obj.id + '>';
-            		}},
-	        {data: "name"},
+	        {data: "method_name"},
+	        {"data": function (obj) {
+	        	if(obj.pc_enable=="YES"){
+	        		return "启用"
+	        	}else{
+	        		return "未启用"
+	        	}
+    		}},
+	        {"data": function (obj) {
+	        	if(obj.wap_enable=="YES"){
+	        		return "启用"
+	        	}else{
+	        		return "未启用"
+	        	}
+    		}},
+	        {"data": function (obj) {
+	        	if(obj.app_enable=="YES"){
+	        		return "启用"
+	        	}else{
+	        		return "未启用"
+	        	}
+    		}},
 	        {data: null,"render": function(data, type, row) {
-	        	return "<a class='layui-btn layui-btn-small _aa' onclick='newTab(\"修改支付方式\",\"${ctx}/shop/admin/payCfg/edit.do?paymentId="+data["id"]+"\")'>操作</a>";		//获取值:data["brand_id"]
+	        	return "<a class='layui-btn layui-btn-small _aa' onclick='newTab(\"修改"+data.method_name+"方式\",\"${ctx}/shop/admin/paymethod/"+data["plugin_id"]+".do\")'>配置</a>";		//获取值:data["brand_id"]
 	       	}}
 	     ]
 	});
 });
 
-function delPayment(){
-	var check = $("input[name='id']").is("input:checked");
-	if(check == false){
-		alert("请选中需要删除的支付方式！！！");
-		return false;
-	}
-	if(!confirm("确认要删除支付方式？")){
-		return;
-	}
-	var options = {
-			url:ctx+"/shop/admin/payCfg/delete.do",
-			type:"post",
-			dataType:"json",
-			success:function(data){
-				if(data.result == 1){
-					$.Loading.success(data.message);
-					table.ajax.url(ctx+"/shop/admin/payCfg/list-json.do").load();
-				}
-				if(data.result==0){
-					$.Loading.error(data.message);
-				}
-			}
-	};
-	$("#paymentform").ajaxSubmit(options);
-}
 </script>
 <#include '/admin/footer.html' >

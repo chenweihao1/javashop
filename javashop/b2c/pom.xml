@@ -46,12 +46,6 @@
 			<artifactId>zt-sms</artifactId>
 			<version>6.3.1</version>
 		</dependency>
-		<!-- 微信组件 -->
-		<dependency>
-			<groupId>com.enation.app.javashop</groupId>
-			<artifactId>weixin</artifactId>
-			<version>6.3.1</version>
-		</dependency>
 		<dependency>
 			<groupId>com.enation.app.javashop</groupId>
 			<artifactId>weixin-applet</artifactId>

@@ -1,0 +1,70 @@
+package com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.response;
+
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.AlipayResponse;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.domain.InsCertificate;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.domain.InsProduct;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.internal.mapping.ApiField;
+
+/**
+ * ALIPAY API: alipay.ins.scene.coupon.send response.
+ * 
+ * @author auto create
+ * @since 1.0, 2017-02-23 21:17:32
+ */
+public class AlipayInsSceneCouponSendResponse extends AlipayResponse {
+
+	private static final long serialVersionUID = 5288795279973344332L;
+
+	/** 
+	 * 发奖凭证
+	 */
+	@ApiField("certificate")
+	private InsCertificate certificate;
+
+	/** 
+	 * 活动ID
+	 */
+	@ApiField("compaign_id")
+	private String compaignId;
+
+	/** 
+	 * 发奖流水ID
+	 */
+	@ApiField("flow_id")
+	private String flowId;
+
+	/** 
+	 * 保险产品
+	 */
+	@ApiField("product")
+	private InsProduct product;
+
+	public void setCertificate(InsCertificate certificate) {
+		this.certificate = certificate;
+	}
+	public InsCertificate getCertificate( ) {
+		return this.certificate;
+	}
+
+	public void setCompaignId(String compaignId) {
+		this.compaignId = compaignId;
+	}
+	public String getCompaignId( ) {
+		return this.compaignId;
+	}
+
+	public void setFlowId(String flowId) {
+		this.flowId = flowId;
+	}
+	public String getFlowId( ) {
+		return this.flowId;
+	}
+
+	public void setProduct(InsProduct product) {
+		this.product = product;
+	}
+	public InsProduct getProduct( ) {
+		return this.product;
+	}
+
+}

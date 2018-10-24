@@ -1,5 +1,6 @@
 package com.enation.app.shop.core.order.service.impl;
 
+import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,6 @@ import com.enation.app.shop.core.order.model.PaymentLog;
 import com.enation.app.shop.core.order.model.Refund;
 import com.enation.app.shop.core.order.model.SellBackStatus;
 import com.enation.app.shop.core.order.plugin.order.OrderPluginBundle;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
 import com.enation.app.shop.core.order.service.IOrderManager;
 import com.enation.app.shop.core.order.service.IPaymentLogManager;
 import com.enation.app.shop.core.order.service.IPaymentManager;
@@ -86,11 +86,12 @@ public class RefundManager implements IRefundManager {
 		/** 如果退款方式为原支付方式返回 */
 		if(payCfg.getIs_retrace() == 1){
 			
-			IPaymentEvent paymentPlugin = SpringContextHolder.getBean(payCfg.getType());
+			IPaymentPlugin paymentPlugin = SpringContextHolder.getBean(payCfg.getType());
 			/** 获取收款单信息 */
 			PaymentLog paymentLog=paymentLogManager.get(order.getOrder_id());
 			/** 判断退款方式是否需要跳转页面 */
-			result = paymentPlugin.onRefund(order, refund, paymentLog);
+			//result = paymentPlugin.returnPay(order, refund, paymentLog);
+			result = "false";
 			String message="退款中";
 			System.out.println("==result=="+result);
 			if(!("FAIL".equals(result) || result==null)){

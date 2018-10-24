@@ -26,20 +26,18 @@ import org.springframework.web.util.WebUtils;
 
 import com.enation.eop.SystemSetting;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.google.gson.JsonParser;
 
 /**
  * 字串工具类
- * 
+ *
  * @author kingapex 2010-1-6下午01:52:58
  */
 public class StringUtil {
 
-
-	
-
 	/**
 	 * 将一个Double转为int的String，将省略小数点后面的值
-	 * 
+	 *
 	 * @param d
 	 * @return
 	 */
@@ -50,7 +48,7 @@ public class StringUtil {
 
 	/**
 	 * 检查浮点数
-	 * 
+	 *
 	 * @param num
 	 * @param type
 	 *            "0+":非负浮点数 "+":正浮点数 "-0":非正浮点数 "-":负浮点数 "":浮点数
@@ -76,7 +74,7 @@ public class StringUtil {
 
 	/**
 	 * 检测某字串是否存在某数组中
-	 * 
+	 *
 	 * @param value
 	 * @param array
 	 * @return 存在返回真，不存在返回假
@@ -104,7 +102,7 @@ public class StringUtil {
 
 	/**
 	 * 将数组成str连接成字符串
-	 * 
+	 *
 	 * @param str
 	 * @param array
 	 * @return
@@ -141,15 +139,15 @@ public class StringUtil {
 
 	/**
 	 * MD5加密方法
-	 * 
+	 *
 	 * @param str
 	 *            String
 	 * @return String
 	 */
 	public static String md5(String str) {
-		return md5(str,true);
+		return md5(str, true);
 	}
-	
+
 	public static String md5(String str, boolean zero) {
 		MessageDigest messageDigest = null;
 		try {
@@ -162,25 +160,22 @@ public class StringUtil {
 		StringBuffer result = new StringBuffer();
 		for (int i = 0; i < resultByte.length; ++i) {
 			int v = 0xFF & resultByte[i];
-			if(v<16 && zero)
+			if (v < 16 && zero)
 				result.append("0");
 			result.append(Integer.toHexString(v));
 		}
 		return result.toString();
 	}
-	
 
-	 
-	public static void main(String[] args){
+	public static void main(String[] args) {
 
-//		//System.out.println(md5.getMD5("123456".getBytes()) );
-		//System.out.println( md5("123456"));
+		// //System.out.println(md5.getMD5("123456".getBytes()) );
+		// System.out.println( md5("123456"));
 	}
 
-	
 	/**
 	 * 验证Email地址是否有效
-	 * 
+	 *
 	 * @param sEmail
 	 * @return
 	 */
@@ -191,7 +186,7 @@ public class StringUtil {
 
 	/**
 	 * 验证字符最大长度
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -208,7 +203,7 @@ public class StringUtil {
 
 	/**
 	 * 验证字符最小长度
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -225,13 +220,13 @@ public class StringUtil {
 
 	/**
 	 * 验证一个字符串是否为空
-	 * 
+	 *
 	 * @param str
 	 * @return 如果为空返回真，如果不为空返回假
 	 */
 
 	public static boolean isEmpty(String str) {
-		if (str == null || "".equals(str.trim()) || str.equals("undefined")){
+		if (str == null || "".equals(str.trim()) || str.equals("undefined")) {
 			return true;
 		}
 		String pattern = "\\S";
@@ -242,7 +237,7 @@ public class StringUtil {
 
 	/**
 	 * 验证两个字符串是否相等且不能为空
-	 * 
+	 *
 	 * @param str1
 	 * @param str2
 	 * @return
@@ -256,7 +251,7 @@ public class StringUtil {
 
 	/**
 	 * 将字串转为数字
-	 * 
+	 *
 	 * @param str
 	 * @param checked如果为treu格式不正确抛出异常
 	 * @return
@@ -278,17 +273,17 @@ public class StringUtil {
 		return value;
 	}
 
-	
 	/**
 	 * 将object转为数字
-	 * 
-	 * @param obj 需要转object的对象
+	 *
+	 * @param obj
+	 *            需要转object的对象
 	 * @param checked如果为true格式不正确抛出异常
 	 * @return
 	 */
 	public static int toInt(Object obj, boolean checked) {
 		int value = 0;
-		if (obj == null ) {
+		if (obj == null) {
 			return 0;
 		}
 		try {
@@ -302,10 +297,14 @@ public class StringUtil {
 		}
 		return value;
 	}
+
 	/**
 	 * 将一个字串转为int，如果无空，则返回默认值
-	 * @param str 要转换的数字字串
-	 * @param defaultValue 默认值 
+	 *
+	 * @param str
+	 *            要转换的数字字串
+	 * @param defaultValue
+	 *            默认值
 	 * @return
 	 */
 	public static Integer toInt(String str, Integer defaultValue) {
@@ -320,10 +319,10 @@ public class StringUtil {
 		}
 		return value;
 	}
-	
+
 	/**
 	 * 将字符型转为Int型
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -359,7 +358,7 @@ public class StringUtil {
 
 	/**
 	 * 将一个字串转为double
-	 * 
+	 *
 	 * @param str
 	 * @param checked如果为treu格式不正确抛出异常
 	 * @return
@@ -379,18 +378,18 @@ public class StringUtil {
 		}
 		return value;
 	}
-	
+
 	/**
-	 * 将一个object转为double
-	 * 如果object 为 null 则返回0；
-	 * 
-	 * @param obj 需要转成Double的对象
+	 * 将一个object转为double 如果object 为 null 则返回0；
+	 *
+	 * @param obj
+	 *            需要转成Double的对象
 	 * @param checked如果为true格式不正确抛出异常
 	 * @return
 	 */
 	public static Double toDouble(Object obj, boolean checked) {
 		Double value = 0d;
-		if (obj == null ) {
+		if (obj == null) {
 			if (checked)
 				throw new RuntimeException("数字格式不正确");
 			else
@@ -406,7 +405,7 @@ public class StringUtil {
 		}
 		return value;
 	}
-	
+
 	public static Double toDouble(String str, Double defaultValue) {
 		Double value = defaultValue;
 		if (str == null || str.equals("")) {
@@ -416,15 +415,14 @@ public class StringUtil {
 			value = Double.valueOf(str);
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			value =defaultValue;
+			value = defaultValue;
 		}
 		return value;
 	}
 
-
 	/**
 	 * 把数组转换成String
-	 * 
+	 *
 	 * @param array
 	 * @return
 	 */
@@ -445,7 +443,7 @@ public class StringUtil {
 
 	/**
 	 * 将一个list转为以split分隔的string
-	 * 
+	 *
 	 * @param list
 	 * @param split
 	 * @return
@@ -465,12 +463,11 @@ public class StringUtil {
 
 	/**
 	 * 得到WEB-INF的绝对路径
-	 * 
+	 *
 	 * @return
 	 */
 	public static String getWebInfPath() {
-		String filePath = Thread.currentThread().getContextClassLoader()
-				.getResource("").toString();
+		String filePath = Thread.currentThread().getContextClassLoader().getResource("").toString();
 		if (filePath.toLowerCase().indexOf("file:") > -1) {
 			filePath = filePath.substring(6, filePath.length());
 		}
@@ -487,48 +484,48 @@ public class StringUtil {
 
 	/**
 	 * 得到根目录绝对路径(不包含WEB-INF)
-	 * 
+	 *
 	 * @return
 	 */
 	public static String getRootPath() {
-		
-		//测试模式下由request获取根目录，为了支撑单元测试
-		//此时的request是spring test 框架mock的request
-		HttpServletRequest request  = ThreadContextHolder.getHttpRequest();
-		if(SystemSetting.getTest_mode()==1 && request!=null ){
-			if(!(ThreadContextHolder.getHttpRequest().getServletContext()==null)){
-				String path  = ThreadContextHolder.getHttpRequest().getServletContext().getRealPath("");
+
+		// 测试模式下由request获取根目录，为了支撑单元测试
+		// 此时的request是spring test 框架mock的request
+		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
+		if (SystemSetting.getTest_mode() == 1 && request != null) {
+			if (!(ThreadContextHolder.getHttpRequest().getServletContext() == null)) {
+				String path = ThreadContextHolder.getHttpRequest().getServletContext().getRealPath("");
 				return path;
-			} 
+			}
 		}
-		String filePath  = StringUtil.class.getResource("").toString();
- 
+		String filePath = StringUtil.class.getResource("").toString();
+
 		int index = filePath.indexOf("WEB-INF");
-		if(index == -1){
+		if (index == -1) {
 			index = filePath.indexOf("build");
 		}
-		
-		if(index == -1){
+
+		if (index == -1) {
 			index = filePath.indexOf("bin");
 		}
-		
-		if(index!=-1){
-			filePath = filePath.substring(0,index);	
+
+		if (index != -1) {
+			filePath = filePath.substring(0, index);
 		}
-		
-		if(filePath.startsWith("jar")){
-			// 当class文件在jar文件中时，返回”jar:file:/F:/ …”样的路径 
+
+		if (filePath.startsWith("jar")) {
+			// 当class文件在jar文件中时，返回”jar:file:/F:/ …”样的路径
 			filePath = filePath.substring(10);
-		}else if(filePath.startsWith("file")){
-			// 当class文件在jar文件中时，返回”file:/F:/ …”样的路径 
+		} else if (filePath.startsWith("file")) {
+			// 当class文件在jar文件中时，返回”file:/F:/ …”样的路径
 			filePath = filePath.substring(6);
-		}else if(filePath.startsWith("zip:")){
-			// weblogic发布war的情况 
+		} else if (filePath.startsWith("zip:")) {
+			// weblogic发布war的情况
 			filePath = filePath.substring(4);
-		}else if(filePath.startsWith("vfs:")){
+		} else if (filePath.startsWith("vfs:")) {
 			filePath = filePath.substring(5);
-		}else if(filePath.startsWith("/vfs:")){
-			//jboss发布war的情况
+		} else if (filePath.startsWith("/vfs:")) {
+			// jboss发布war的情况
 			filePath = filePath.substring(6);
 		}
 		if (System.getProperty("os.name").toLowerCase().indexOf("window") < 0) {
@@ -537,26 +534,26 @@ public class StringUtil {
 
 		if (filePath.endsWith("/"))
 			filePath = filePath.substring(0, filePath.length() - 1);
-//		//System.out.println("getRoot path is "+filePath );
+		// //System.out.println("getRoot path is "+filePath );
 		return filePath;
 	}
 
 	public static String getRootPath(String resource) {
-		HttpServletRequest request =ThreadContextHolder.getHttpRequest() ;
+		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		try {
-			 
+
 			return WebUtils.getRealPath(request.getSession().getServletContext(), resource);
 		} catch (FileNotFoundException e) {
-			 
+
 			e.printStackTrace();
 			return "";
 		}
-		 
+
 	}
 
 	/**
 	 * 格式化页码
-	 * 
+	 *
 	 * @param page
 	 * @return
 	 */
@@ -575,7 +572,7 @@ public class StringUtil {
 
 	/**
 	 * 将计量单位字节转换为相应单位
-	 * 
+	 *
 	 * @param size
 	 * @return
 	 */
@@ -601,20 +598,19 @@ public class StringUtil {
 
 	/**
 	 * 得到一个32位随机字符
-	 * 
+	 *
 	 * @return
 	 */
 	public static String getEntry() {
 		Random random = new Random(100);
 		Date now = new Date();
-		SimpleDateFormat formatter = new SimpleDateFormat(new String(
-				"yyyyMMddHHmmssS"));
+		SimpleDateFormat formatter = new SimpleDateFormat(new String("yyyyMMddHHmmssS"));
 		return md5(formatter.format(now) + random.nextDouble());
 	}
 
 	/**
 	 * 将中文汉字转成UTF8编码
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -654,13 +650,12 @@ public class StringUtil {
 
 	/**
 	 * 得到一个数字的大写(一到十之内)
-	 * 
+	 *
 	 * @param num
 	 * @return
 	 */
 	public static String getChineseNum(int num) {
-		String[] chineseNum = new String[] { "一", "二", "三", "四", "五", "六", "七",
-				"八", "九", "十" };
+		String[] chineseNum = new String[] { "一", "二", "三", "四", "五", "六", "七", "八", "九", "十" };
 		return chineseNum[num];
 	}
 
@@ -674,15 +669,14 @@ public class StringUtil {
 		StringBuffer buffer = new StringBuffer(source);
 		int start = buffer.indexOf(target);
 		if (start > 0) {
-			source = buffer.replace(start, start + target.length(), content)
-					.toString();
+			source = buffer.replace(start, start + target.length(), content).toString();
 		}
 		return source;
 	}
 
 	/**
 	 * 去除HTML 元素
-	 * 
+	 *
 	 * @param element
 	 * @return
 	 */
@@ -710,7 +704,7 @@ public class StringUtil {
 
 	/**
 	 * clear trim to String
-	 * 
+	 *
 	 * @return
 	 */
 	public static String toTrim(String strtrim) {
@@ -722,7 +716,7 @@ public class StringUtil {
 
 	/**
 	 * 转义字串的$
-	 * 
+	 *
 	 * @param str
 	 * @return
 	 */
@@ -734,8 +728,7 @@ public class StringUtil {
 					if (str.indexOf('$', 0) > -1) {
 						sReturn += str.subSequence(0, str.indexOf('$', 0));
 						sReturn += "\\$";
-						str = str.substring(str.indexOf('$', 0) + 1,
-								str.length());
+						str = str.substring(str.indexOf('$', 0) + 1, str.length());
 					} else {
 						sReturn += str;
 						str = "";
@@ -778,41 +771,46 @@ public class StringUtil {
 		}
 		return "";
 	}
+
 	/**
-	 * Object转String的方法 
-	 * @param o 需要转String的对象
-	 * @param checked 是否检测异常
+	 * Object转String的方法
+	 *
+	 * @param o
+	 *            需要转String的对象
+	 * @param checked
+	 *            是否检测异常
 	 * @return String 转换之后的字符串
 	 */
-	public static String toString(Object o,boolean checked) {
-		String value="";
+	public static String toString(Object o, boolean checked) {
+		String value = "";
 		if (null != o) {
 			try {
 				value = o.toString();
-				
+
 			} catch (Exception e) {
 				if (checked) {
 					throw new RuntimeException("String类型不正确");
-				} 
+				}
 			}
 		}
 		return value;
 	}
-	
+
 	/**
-	 * Object转String的方法 
-	 * 若为空，或者转换出现异常 
-	 * @param o 需要转String的对象
+	 * Object转String的方法 若为空，或者转换出现异常
+	 *
+	 * @param o
+	 *            需要转String的对象
 	 * @return 转换之后的字符串
 	 */
 	public static String toString(Object o) {
-		String value="";
+		String value = "";
 		if (null != o) {
-			value =o.toString();
+			value = o.toString();
 		}
 		return value;
 	}
-	
+
 	public static String getRandom() {
 		int[] array = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 		Random rand = new Random();
@@ -831,7 +829,7 @@ public class StringUtil {
 
 	/**
 	 * 处理树型码 获取本级别最大的code 如:301000 返回301999
-	 * 
+	 *
 	 * @param code
 	 * @return
 	 */
@@ -891,7 +889,7 @@ public class StringUtil {
 
 	/**
 	 * 进行解析
-	 * 
+	 *
 	 * @param regex
 	 * @param rpstr
 	 * @param source
@@ -905,7 +903,7 @@ public class StringUtil {
 
 	/**
 	 * 脚本过滤
-	 * 
+	 *
 	 * @param source
 	 * @return
 	 */
@@ -919,29 +917,26 @@ public class StringUtil {
 		source = source.replaceAll("document.cookie", "documents&#46cookie");
 		source = source.replaceAll("vbscript:", "&#118bscript:");
 		source = source.replaceAll("vbs:", "&#118bs:");
-		source = doFilter("(on(mouse|exit|error|click|key))", "&#111n$2",
-				source);
+		source = doFilter("(on(mouse|exit|error|click|key))", "&#111n$2", source);
 		return source;
 	}
 
 	/**
 	 * 格式化HTML代码
-	 * 
+	 *
 	 * @param htmlContent
 	 * @return
 	 */
 	public static String htmlDecode(String htmlContent) {
 		htmlContent = formatScript(htmlContent);
-		htmlContent = htmlContent.replaceAll(" ", "&nbsp;")
-				.replaceAll("<", "&lt;").replaceAll(">", "&gt;")
-				.replaceAll("\n\r", "<br>").replaceAll("\r\n", "<br>")
-				.replaceAll("\r", "<br>");
+		htmlContent = htmlContent.replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
+				.replaceAll("\n\r", "<br>").replaceAll("\r\n", "<br>").replaceAll("\r", "<br>");
 		return htmlContent;
 	}
 
 	/**
 	 * 动态添加表前缀，对没有前缀的表增加前缀
-	 * 
+	 *
 	 * @param table
 	 * @param prefix
 	 * @return
@@ -949,8 +944,7 @@ public class StringUtil {
 	public static String addPrefix(String table, String prefix) {
 		String result = "";
 		if (table.length() > prefix.length()) {
-			if (table.substring(0, prefix.length()).toLowerCase()
-					.equals(prefix.toLowerCase()))
+			if (table.substring(0, prefix.length()).toLowerCase().equals(prefix.toLowerCase()))
 				result = table;
 			else
 				result = prefix + table;
@@ -965,8 +959,7 @@ public class StringUtil {
 		if (table.length() > suffix.length()) {
 			int start = table.length() - suffix.length();
 			int end = start + suffix.length();
-			if (table.substring(start, end).toLowerCase()
-					.equals(suffix.toLowerCase()))
+			if (table.substring(start, end).toLowerCase().equals(suffix.toLowerCase()))
 				result = table;
 			else
 				result = table + suffix;
@@ -975,28 +968,73 @@ public class StringUtil {
 
 		return result;
 	}
-	
-	
+
 	/**
 	 * 得到异常的字串
+	 *
 	 * @param aThrowable
 	 * @return
 	 */
-	public static String getStackTrace(Throwable aThrowable) { 
-		final Writer result = new StringWriter(); 
-		final PrintWriter printWriter = new PrintWriter(result); 
-		aThrowable.printStackTrace(printWriter); return result.toString(); 
-	
+	public static String getStackTrace(Throwable aThrowable) {
+		final Writer result = new StringWriter();
+		final PrintWriter printWriter = new PrintWriter(result);
+		aThrowable.printStackTrace(printWriter);
+		return result.toString();
+
 	}
-	 /**
-     * 判断判断字符串是否为数字
-     * @param str 传入的字符串  
-     * @return 是整数返回true,否则返回false  
-     */  
-     public static boolean isNumber(String str) { 
-       Pattern patternInteger = Pattern.compile("^[-\\+]?[\\d]*$");		//是否是整数
-       Pattern patternDouble = Pattern.compile("^[-\\+]?[.\\d]*$");  	//是否是小数
-       return patternInteger.matcher(str).matches() || patternDouble.matcher(str).matches();    
-     }  
-	
+
+	/**
+	 * 判断Integer是否为空
+	 *
+	 * @param i
+	 *            需要校验的Integer对象
+	 * @param includeZero
+	 *            是否包含0
+	 * @return
+	 */
+	public static boolean isEmpty(Integer i, boolean includeZero) {
+		if (includeZero) {
+			if (i == null || i.equals(0)) {
+				return true;
+			}
+		}
+		if (i == null) {
+			return true;
+		}
+		return false;
+	}
+
+
+	/**
+	 * 不为空的判断
+	 * @param str
+	 * @return
+	 */
+	public static boolean notEmpty(String str) {
+		return !isEmpty(str);
+	}
+	/**
+	 * 判断是否是数字，传入字符串，判断是否是数字，true  是     false  否
+	 * @param str  字符串
+	 * @return
+	 */
+	public static boolean isNumber(String str) {
+		Pattern patternInteger = Pattern.compile("^[-\\+]?[\\d]*$");		//是否是整数
+		Pattern patternDouble = Pattern.compile("^[-\\+]?[.\\d]*$");  	//是否是小数
+		return patternInteger.matcher(str).matches() || patternDouble.matcher(str).matches();
+	}
+
+	/**
+	 * 判断一个字符串是否为json格式
+	 * @param json
+	 * @return
+	 */
+	public static boolean isJson(String json) {
+		try {
+			new JsonParser().parse(json);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

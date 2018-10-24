@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.enation.app.shop.core.payment.service.AbstractPaymentPlugin;
 import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import com.enation.app.shop.core.order.model.Order;
 import com.enation.app.shop.core.order.model.PayCfg;
-import com.enation.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
 import com.enation.app.shop.core.order.plugin.payment.IPaymentQrCodeEvent;
 import com.enation.app.shop.core.order.plugin.payment.PaymentPluginBundle;
 import com.enation.app.shop.core.order.service.IPaymentManager;
@@ -208,8 +208,7 @@ public class PaymentManager implements IPaymentManager {
 		List<IPlugin>  plguinList =  this.listAvailablePlugins();
 		for(IPlugin plugin :plguinList){
 			if(plugin instanceof AbstractPaymentPlugin){
-				
-				if( ((AbstractPaymentPlugin) plugin).getId().equals(pluginId)){
+				if( ((AbstractPaymentPlugin) plugin).getPluginId().equals(pluginId)){
 					installPlugin = plugin;
 					break;
 				}

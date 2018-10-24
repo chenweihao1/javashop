@@ -1,0 +1,29 @@
+package com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.domain;
+
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.AlipayObject;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.internal.mapping.ApiField;
+
+/**
+ * 商圈首页地址变更工单审核状态查询
+ *
+ * @author auto create
+ * @since 1.0, 2017-03-31 14:01:07
+ */
+public class KoubeiShopMallAuditQueryModel extends AlipayObject {
+
+	private static final long serialVersionUID = 5193251832945436743L;
+
+	/**
+	 * koubei.shop.mall.page.modify(商圈主页地址创建修改接口)中 返回的工单id
+	 */
+	@ApiField("order_flow_id")
+	private String orderFlowId;
+
+	public String getOrderFlowId() {
+		return this.orderFlowId;
+	}
+	public void setOrderFlowId(String orderFlowId) {
+		this.orderFlowId = orderFlowId;
+	}
+
+}

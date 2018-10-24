@@ -16,7 +16,6 @@
         <module>cms-core</module>
         <module>groupbuy</module>
         <module>zt-sms</module>
-        <module>weixin</module>
         <module>weixin-applet</module>
     </modules>
 

@@ -337,6 +337,11 @@
 			<artifactId>sdk-java</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.chinapay</groupId>
+			<artifactId>chinapay-secure</artifactId>
+			<version>1.5</version>
+		</dependency>
 	</dependencies>
 
 	<build>

@@ -6,11 +6,11 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.enation.app.shop.core.order.model.PaymentResult;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
 import com.enation.framework.context.spring.SpringContextHolder;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.taglib.BaseFreeMarkerTag;
@@ -53,7 +53,7 @@ public class PaymentResultTag extends BaseFreeMarkerTag {
 				paymentResult.setResult(0);
 				paymentResult.setError("参数不正确");
 			} else {
-				IPaymentEvent paymentPlugin = SpringContextHolder.getBean(pluginid);
+				IPaymentPlugin paymentPlugin = SpringContextHolder.getBean(pluginid);
 				String ordersn = paymentPlugin.onReturn(ordertype);
 				paymentResult.setResult(1);
 				paymentResult.setOrdersn(ordersn);

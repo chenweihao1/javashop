@@ -3,11 +3,12 @@ package com.enation.app.shop.front.api.order;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
+
+import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
 import com.enation.framework.context.spring.SpringContextHolder;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.util.RequestUtil;
@@ -47,8 +48,8 @@ public class PaymentCallbackApiController {
 				return error;
 			}
 
-			IPaymentEvent paymentPlugin = SpringContextHolder.getBean(pluginid);
-			String result = paymentPlugin.onCallBack(ordertype);
+			IPaymentPlugin paymentPlugin = SpringContextHolder.getBean(pluginid);
+			String result = paymentPlugin.onCallback(ordertype);
 
 			this.logger.debug("支付回调结果:" + result);
 			return result;

@@ -6,6 +6,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.enation.app.shop.core.payment.service.IPaymentPlugin;
+import com.enation.framework.context.spring.SpringContextHolder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -18,12 +20,10 @@ import com.enation.app.shop.core.member.model.MemberAddress;
 import com.enation.app.shop.core.member.service.IMemberAddressManager;
 import com.enation.app.shop.core.order.model.Order;
 import com.enation.app.shop.core.order.model.PayCfg;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
 import com.enation.app.shop.core.order.service.IOrderManager;
 import com.enation.app.shop.core.order.service.IPaymentManager;
 import com.enation.framework.action.GridController;
 import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.spring.SpringContextHolder;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.util.JsonResultUtil;
 import com.enation.framework.util.StringUtil;
@@ -59,7 +59,6 @@ public class PaymentApiController extends GridController {
 	
 	/**
 	 * 跳转到第三方支付页面
-	 * @param orderid 订单Id
 	 * @return
 	 */
 	@ResponseBody
@@ -91,9 +90,9 @@ public class PaymentApiController extends GridController {
 		
 		PayCfg payCfg = this.paymentManager.get(paymentId);
 		
-		IPaymentEvent paymentPlugin = SpringContextHolder.getBean(payCfg.getType());
+		IPaymentPlugin paymentPlugin = SpringContextHolder.getBean(payCfg.getType());
 		String payhtml = paymentPlugin.onPay(payCfg, order);
-
+		//String payhtml = "";
 		// 用户更换了支付方式，更新订单的数据
 		if (order.getPayment_id().intValue() != paymentId.intValue()) {
 			this.orderManager.updatePayMethod(orderId, paymentId, payCfg.getType(), payCfg.getName());

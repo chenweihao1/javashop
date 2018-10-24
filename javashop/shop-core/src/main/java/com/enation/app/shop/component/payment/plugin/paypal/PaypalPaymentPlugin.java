@@ -1,53 +1,32 @@
 package com.enation.app.shop.component.payment.plugin.paypal;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
+
+import com.enation.app.base.core.model.ConfigItem;
+import com.enation.app.shop.component.payment.plugin.paypal.api.payments.*;
+import com.enation.app.shop.component.payment.plugin.paypal.base.rest.APIContext;
+import com.enation.app.shop.component.payment.plugin.paypal.base.rest.PayPalRESTException;
+import com.enation.app.shop.component.payment.plugin.paypal.base.rest.PayPalResource;
+import com.enation.app.shop.component.payment.plugin.paypal.util.GenerateAccessToken;
+import com.enation.app.shop.core.order.model.RefundBill;
+import com.enation.app.shop.core.payment.model.vo.PayBill;
+import com.enation.app.shop.core.payment.service.AbstractPaymentPlugin;
+import com.enation.app.shop.core.payment.service.IPaymentPlugin;
+import com.enation.eop.resource.model.EopSite;
+import com.enation.framework.context.webcontext.ThreadContextHolder;
+import org.springframework.stereotype.Component;
+import com.enation.app.shop.core.order.model.Refund;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLContext;
+import javax.servlet.http.HttpServletRequest;
+import java.io.*;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
-
-import javax.net.ssl.HttpsURLConnection;
-import javax.net.ssl.SSLContext;
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.log4j.Logger;
-import org.springframework.stereotype.Component;
-
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Amount;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Details;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Item;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.ItemList;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Links;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Payer;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Payment;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.PaymentExecution;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.RedirectUrls;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Transaction;
-import com.enation.app.shop.component.payment.plugin.paypal.base.rest.APIContext;
-import com.enation.app.shop.component.payment.plugin.paypal.base.rest.PayPalRESTException;
-import com.enation.app.shop.component.payment.plugin.paypal.base.rest.PayPalResource;
-import com.enation.app.shop.component.payment.plugin.paypal.util.GenerateAccessToken;
-import com.enation.app.shop.core.order.model.PayCfg;
-import com.enation.app.shop.core.order.model.PayEnable;
-import com.enation.app.shop.core.order.model.PaymentLog;
-import com.enation.app.shop.core.order.model.Refund;
-import com.enation.app.shop.core.order.plugin.payment.AbstractPaymentPlugin;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
-import com.enation.eop.resource.model.EopSite;
-import com.enation.framework.context.webcontext.ThreadContextHolder;
-
+import java.util.*;
 
 /**
  * Paypay支付插件
@@ -55,73 +34,18 @@ import com.enation.framework.context.webcontext.ThreadContextHolder;
  *2016年3月25日下午3:27:01
  */
 @Component
-public class PaypalPaymentPlugin extends AbstractPaymentPlugin implements IPaymentEvent {
-private static 	Map<String, String> map = new HashMap<String, String>();
+public class PaypalPaymentPlugin extends AbstractPaymentPlugin implements IPaymentPlugin {
 
-	@Override
-	public String onPay(PayCfg payCfg, PayEnable order) {
-		
-		this.init(payCfg);
-		String href="";
-		
-		try {
-			Payment payment = createPayment(payCfg,order);
-			List<Links> links  =payment.getLinks();
-			for (int i = 0; i < links.size(); i++) {
-				Links link = links.get(i);
-				if ( "REDIRECT".equals( link.getMethod() )){
-					href = link.getHref();
-				}
-			}
-		} catch (Exception e) {
-			this.logger.error("paypal支付插件出现错误:"+e.getMessage());
-			return "跳转Paypal支付出现问题，请检查PayPal参数是否正确。";
-		}
-		
-		
-		return "正在转向Paypal...<script> location.href='"+href+"'; </script>";
-	}
+	private static 	Map<String, String> map = new HashMap<String, String>();
 
-	
-	
-	private static final Logger LOGGER = Logger
-			.getLogger(PaypalPaymentPlugin.class);
- 
-
-	
-	/**
-	 * 初始化SDK参数
-	 * @param payCfg
-	 */
-	public void init( PayCfg payCfg)  {
-		
-		// ##Load Configuration
-		// Load SDK configuration for
-		// the resource. This intialization code can be
-		Map<String, String> params = paymentManager.getConfigParams(this.getId());
-
-		Properties properties = new Properties();
-		properties.put("service.EndPoint",params.get("service"));
-		properties.put("clientId",params.get("clientId"));
-		properties.put("clientSecret", params.get("clientSecret"));
-		
-		PayPalResource.initConfig(properties);
-		
- 
-
-	}
-
- 
  
 	/**
 	 * 调用api生成payment
-	 * @param payCfg
-	 * @param order
 	 * @return
 	 */
-	public Payment createPayment(PayCfg payCfg,PayEnable order ) {
-			String ordersn = order.getSn(); // 商户网站订单
-
+	public Payment createPayment(PayBill bill) {
+//			String ordersn = order.getSn(); // 商户网站订单
+//
 			Payment createdPayment = null;
 			// ###AccessToken
 			// Retrieve the access token from
@@ -129,8 +53,8 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 			// ClientID and ClientSecret
 
 			APIContext apiContext = getAPIContext();
-			 NumberFormat nf = new DecimalFormat("###.00");
-				String needPayMoney=  nf.format(order.getNeedPayMoney());
+			NumberFormat nf = new DecimalFormat("###.00");
+				String needPayMoney=  nf.format(bill.getOrder_price());
 				
 			// ###Details
 			// Let's you specify details of a payment amount.
@@ -156,7 +80,7 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 			transaction.setAmount(amount);
 			EopSite site  =EopSite.getInstance();
 			transaction .setDescription("支付"+site.getSitename()+"订单");
-			transaction.setInvoiceNumber(ordersn);
+			transaction.setInvoiceNumber(bill.getTrade_sn());
 			
 			// ### Items
 			Item item = new Item();
@@ -194,11 +118,11 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 			// ###Redirect URLs
 			RedirectUrls redirectUrls = new RedirectUrls();
 			
-			String reutrnUrl = this.getReturnUrl(payCfg, order);
+			String reutrnUrl = this.getReturnUrl(bill);
 			String cancelUrl ="";
-			redirectUrls.setCancelUrl(cancelUrl +"?ordersn="+ ordersn);
+			redirectUrls.setCancelUrl(cancelUrl +"?ordersn="+ bill.getTrade_sn());
 			
-			redirectUrls.setReturnUrl(reutrnUrl+"?ordersn=" + ordersn);
+			redirectUrls.setReturnUrl(reutrnUrl+"?ordersn=" + bill.getTrade_sn());
 			
 			payment.setRedirectUrls(redirectUrls);
 
@@ -208,31 +132,12 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 			// The return object contains the status;
 			try {
 				createdPayment = payment.create(apiContext);
-				map.put(ordersn, createdPayment.getId());
+				map.put(bill.getTrade_sn(), createdPayment.getId());
 			} catch (PayPalRESTException e) {
 				 e.printStackTrace();
 			}
 		 
 		return createdPayment;
-	}
-	
-	@Override
-	public String onCallBack(String ordertype) {
-		
-		try {
-			return this.valid(ordertype);
-		} catch (KeyManagementException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (NoSuchAlgorithmException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		 return "error";
-	 
 	}
 
 	/**
@@ -243,8 +148,9 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 	 * @throws NoSuchAlgorithmException
 	 * @throws KeyManagementException
 	 */
-	private String valid(String ordertype) throws IOException, NoSuchAlgorithmException, KeyManagementException{
-		Map<String, String> params = paymentManager.getConfigParams(this.getId());
+	private String valid(String ordertype) throws IOException, NoSuchAlgorithmException, KeyManagementException {
+		Map<String, String> params = this.getConfig();
+		
 		HttpServletRequest request  = ThreadContextHolder.getHttpRequest();
 		
 		String str = "cmd=_notify-validate";
@@ -284,7 +190,7 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 		pw.close();
 		
 		//接受 PayPal 对 IPN 回发的回复信息
-		BufferedReader in= new BufferedReader(new InputStreamReader(uc.getInputStream())); 
+		BufferedReader in= new BufferedReader(new InputStreamReader(uc.getInputStream()));
 		String res = in.readLine();
 		in.close();
 		
@@ -301,7 +207,9 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 		//获取 PayPal 对回发信息的回复信息,判断刚才的通知是否为 PayPal 发出的 
 		if(res.equals("VERIFIED")) {
 			if("Completed".equals(paymentStatus)){
-				this.paySuccess(invoice, txnId, txnId, ordertype);
+				
+				
+				//this.paySuccess(invoice, txnId, txnId, ordertype);
 				return "ok";
 			}
 	 
@@ -340,14 +248,39 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 			 * apiContext = new APIContext(accessToken, requestId ));
 			 */
 		} catch (PayPalRESTException e) {
-			 this.LOGGER.error("生成 api context 出错", e);
+			 this.logger.error("生成 api context 出错", e);
 		}
 		return  apiContext;
 	}
 	
-	/**
-	 * 响应paypay return ，执行付款操作
-	 */
+
+
+
+
+	@Override
+	public String onPay(PayBill bill) {
+		this.init();
+		String href="";
+		
+		try {
+			Payment payment = createPayment(bill);
+			List<Links> links  =payment.getLinks();
+			for (int i = 0; i < links.size(); i++) {
+				Links link = links.get(i);
+				if ( "REDIRECT".equals( link.getMethod() )){
+					href = link.getHref();
+				}
+			}
+		} catch (Exception e) {
+			this.logger.error("paypal支付插件出现错误:"+e.getMessage());
+			return "跳转Paypal支付出现问题，请检查PayPal参数是否正确。";
+		}
+		
+		
+		return "正在转向Paypal...<script> location.href='"+href+"'; </script>";
+	}
+
+
 	@Override
 	public String onReturn(String ordertype) {
 		APIContext apiContext = getAPIContext();
@@ -366,30 +299,97 @@ private static 	Map<String, String> map = new HashMap<String, String>();
 			  map.remove(ordersn);
 			return ordersn;
 		} catch (PayPalRESTException e) {
-			 this.LOGGER.error("执行payment出错", e);
+			 this.logger.error("执行payment出错", e);
 			 throw new RuntimeException("执行付款出错");
 		}
-		
 	}
 
+
+
 	@Override
-	public String getId() {
-		
+	public String onCallback(String ordertype) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public boolean returnPay(RefundBill bill) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+
+
+	@Override
+	public Refund queryRefundStatus(Refund refund) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public String getPluginId() {
 		return "paypalPaymentPlugin";
 	}
 
+
 	@Override
-	public String getName() {
-		
+	public String getPluginName() {
 		return "paypal支付插件";
 	}
 
 
 
 	@Override
-	public String onRefund(PayEnable order, Refund refund, PaymentLog paymentLog) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ConfigItem> definitionConfigItem() {
+		List<ConfigItem> list = new ArrayList<>();
+		ConfigItem seller_serviceItem = new ConfigItem();
+		seller_serviceItem.setName("service");
+		seller_serviceItem.setText("service.EndPoint");
+		ConfigItem seller_ipnItem = new ConfigItem();
+		seller_ipnItem.setName("ipn");
+		seller_ipnItem.setText("ipn.EndPoint");
+		ConfigItem seller_clientIdItem = new ConfigItem();
+		seller_clientIdItem.setName("clientId");
+		seller_clientIdItem.setText("clientId");
+		ConfigItem seller_clientSecretItem = new ConfigItem();
+		seller_clientSecretItem.setName("clientSecret");
+		seller_clientSecretItem.setText("clientSecret");
+		list.add(seller_serviceItem);
+		list.add(seller_ipnItem);
+		list.add(seller_clientIdItem);
+		list.add(seller_clientSecretItem);
+		return list;
 	}
 
+
+
+	@Override
+	public Integer getIsRetrace() {
+		return 0;
+	}
+	
+	/**
+	 * 初始化SDK参数
+	 */
+	public void init()  {
+		
+		// ##Load Configuration
+		// Load SDK configuration for
+		// the resource. This intialization code can be
+		Map<String, String> params = this.getConfig();
+
+		Properties properties = new Properties();
+		properties.put("service.EndPoint",params.get("service"));
+		properties.put("clientId",params.get("clientId"));
+		properties.put("clientSecret", params.get("clientSecret"));
+		
+		PayPalResource.initConfig(properties);
+		
+ 
+
+	}
 }

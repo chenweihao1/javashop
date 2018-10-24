@@ -52,8 +52,9 @@ public class RefundCallbackApiController {
 			if (null == ordertype) {
 				return error;
 			}
-			AlipayRefund alipayRefund = SpringContextHolder.getBean("alipayRefund");
-			String result = alipayRefund.onCallBack(ordertype);
+//			AlipayRefund alipayRefund = SpringContextHolder.getBean("alipayRefund");
+//			String result = alipayRefund.onCallBack(ordertype);
+			String result = "false";
 			this.logger.debug("支付回调结果:" + result);
 			return result;
 		} catch (Exception e) {
