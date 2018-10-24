@@ -91,10 +91,13 @@ public class GoodsCatTag extends BaseFreeMarkerTag {
 			String str = sp[sp.length-1];
 			Integer parent = Integer.parseInt(str);
 			List<Cat> cats1 = goodsCatManager.queryCatTypeId(parent);
+			//查出来二级菜单（只要第一个）
+			Integer cat_id = cats1.get(0).getCat_id();
+			cats.get(i).setCat(cat_id);
 			//把类型id查询出来
 			Integer [] typeid = new Integer[cats1.size()];
 			for (int j = 0; j < cats1.size(); j++) {
-				typeid[j]=cats1.get(j).getType_id();
+				typeid[j]=cats1.get(j).getCat_id();
 			}
 			//把商品查出来并储存到cats里面；
 			List<Goods> goodss1 = goodsCatManager.queryGoodsList(typeid);
@@ -111,7 +114,8 @@ public class GoodsCatTag extends BaseFreeMarkerTag {
 				cats.get(i).setGoodsList(goodss2);
 			}
 		}
-
+		//获取商品个数
+		int count = goodsCatManager.countGoods();
 
 		Map<String, Object> data =new HashMap();
 		data.put("showimg", showimage);//是否显示分类图片
@@ -120,6 +124,7 @@ public class GoodsCatTag extends BaseFreeMarkerTag {
 		data.put("advs", advs);//广告位
 		data.put("goodss", goodss);//人气推荐前3个
 		data.put("cats", cats);//二级菜单
+		data.put("count", count);//商品总数
 		return data;
 	}
 	

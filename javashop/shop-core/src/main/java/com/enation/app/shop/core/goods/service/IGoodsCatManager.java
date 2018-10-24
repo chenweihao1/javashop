@@ -185,6 +185,9 @@ public interface IGoodsCatManager {
 	 * @return
 	 */
 	public List<Goods> queryGoodsList(Integer[] typeId);
-
+	/**
+	 * 获取商品个数
+	 */
+	public int countGoods ();
 
 }

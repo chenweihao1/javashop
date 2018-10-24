@@ -220,4 +220,7 @@ public class GoodsCatCacheProxy  implements
 
 	@Override
 	public List<Goods> queryGoodsList(Integer[] typeId) {return goodsCatManager.queryGoodsList(typeId);}
+
+	@Override
+	public int countGoods() {return goodsCatManager.countGoods();}
 }

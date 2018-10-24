@@ -60,7 +60,7 @@ $(function () {
 
         //  结算页选择地址
         if(urlStr == 'checkout'){
-            $('.address-list').on('click', '.content', function () {
+            $('.address-list').on('tap', '.content', function () {
                 var $this  = $(this),
                     add_id = $this.attr('address_id');
                 $.ajax({
