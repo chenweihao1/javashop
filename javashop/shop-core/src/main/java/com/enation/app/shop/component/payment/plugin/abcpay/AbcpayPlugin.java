@@ -25,14 +25,14 @@ public class AbcpayPlugin extends AbstractPaymentPlugin implements IPaymentPlugi
 	public String onPay(PayBill bill) {
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		
-		String callBackUrl = this.getCallBackUrl(bill.getOrdertype());
+		String callBackUrl = this.getCallBackUrl(bill.getOrderType());
 		
 		Date today = Calendar.getInstance().getTime();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy/MM/dd");
 		SimpleDateFormat time = new SimpleDateFormat("HH:mm:ss");
 		//	生成订单对象
 		com.hitrust.trustpay.client.b2c.Order tOrder = new com.hitrust.trustpay.client.b2c.Order();
-		tOrder.setOrderNo(bill.getTrade_sn());		// 设定订单编号 （必要信息）
+		tOrder.setOrderNo(bill.getOrder_sn());		// 设定订单编号 （必要信息）
 		tOrder.setExpiredDate(30); // 设定订单有效期（必要信息）
 		tOrder.setOrderDesc(""); // 设定订单说明
 		tOrder.setOrderDate(date.format(today)); // 设定订单日期 （必要信息 - YYYY/MM/DD）

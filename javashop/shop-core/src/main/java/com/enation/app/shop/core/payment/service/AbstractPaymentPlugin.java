@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.shop.core.order.model.OrderType;
 import com.enation.app.shop.core.order.model.PaymentResult;
 import com.enation.framework.plugin.AutoRegisterPlugin;
 import org.apache.commons.logging.Log;
@@ -104,7 +105,7 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 	 * @return
 	 */
 	protected String getReturnUrl( PayBill bill){
-		String tradeType = bill.getOrdertype();
+		String tradeType = bill.getOrderType().name();
 		String payMode = bill.getPay_mode();
 		
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
@@ -116,7 +117,7 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 		}
 		String contextPath = request.getContextPath();
 		
-		return "http://"+serverName+portstr+contextPath+"/order-pay/return/" +tradeType+"/"+payMode+"/" + this.getPluginId()+".do";
+		return "http://"+serverName+portstr+contextPath+"/api/shop/order-pay/return/" +tradeType+"/"+payMode+"/" + this.getPluginId()+".do";
 	}
 	
 
@@ -138,7 +139,7 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 		return showUrlPrefix+bill.getOrder_id();
 	}
 	
-	protected String getCallBackUrl( String order_type){
+	protected String getCallBackUrl(OrderType order_type){
 		
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		String serverName = request.getServerName();
@@ -149,7 +150,7 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 		}
 		String contextPath = request.getContextPath();
 		
-		return "http://"+serverName+portstr+contextPath+"/order-pay/callback/"+order_type+"/" + this.getPluginId()+".do";
+		return "http://"+serverName+portstr+contextPath+"/api/shop//order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
 	}	
 	
 	/**

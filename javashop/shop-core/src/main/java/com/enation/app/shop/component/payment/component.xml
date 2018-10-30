@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="支付组件" version="1.0" javashop_version="3.0.0" author="javashop">
 	<plugins>
-<!-- 		<plugin name="支付宝担保交易接口" id="alipayEscowPlugin"> -->
-<!-- 			<bundle id="paymentPluginBundle"></bundle> -->
-<!-- 		</plugin> -->
+ 		<plugin name="支付宝及时到付插件" id="alipayDirectPlugin">
+ 			<bundle id="paymentPluginBundle"></bundle>
+ 		</plugin>
+
+		<plugin name="微信支付插件" id="weixinPayPlugin">
+			<bundle id="paymentPluginBundle"></bundle>
+		</plugin>
+
 <!-- 		<plugin name="支付宝即时到账接口" id="alipayDirectPlugin"> -->
 <!-- 			<bundle id="paymentPluginBundle"></bundle> -->
 <!-- 		</plugin> -->

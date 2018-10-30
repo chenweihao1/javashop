@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.naming.NoPermissionException;
 import javax.servlet.http.HttpServletRequest;
 
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.config.AlipayConfig;
@@ -19,7 +18,6 @@ import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.AlipayClie
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.DefaultAlipayClient;
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.request.AlipayTradePagePayRequest;
 
-import com.enation.app.shop.core.payment.model.vo.PayBill;
 import com.enation.eop.resource.model.EopSite;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.util.StringUtil;
@@ -40,7 +38,7 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 			super.setConfig();
 			
 			AlipayConfig.return_url = this.getReturnUrl(bill);
-			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrdertype());
+			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrderType());
 			
 			AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 			//设置请求参数
@@ -49,7 +47,7 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 			alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 			
 			// 商户网站订单
-			String out_trade_no = bill.getTrade_sn();
+			String out_trade_no = bill.getOrder_sn();
 			double payMoney = bill.getOrder_price();
 			
 			// 付款金额
@@ -61,12 +59,12 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 			String body = "";
 			List<OrderItem> itemList = null;
 			// 订单交易，查询订单的产品
-//			if (bill.getTradeType().name().equals(TradeType.order.name())) {
+//			if (bill.getOrderType().name().equals(OrderType.order.name())) {
 ////				itemList = orderItemQueryClient.queryByOrderSn(out_trade_no);
 //			}
 //
 //			// 交易，查询交易的产品
-//			if (bill.getTradeType().name().equals(TradeType.trade.name())) {
+//			if (bill.getOrderType().name().equals(OrderType.trade.name())) {
 ////				itemList = orderItemQueryClient.queryByTradeSn(out_trade_no);
 //			}
 

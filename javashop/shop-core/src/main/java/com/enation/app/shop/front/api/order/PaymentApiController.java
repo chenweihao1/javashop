@@ -91,8 +91,8 @@ public class PaymentApiController extends GridController {
 		PayCfg payCfg = this.paymentManager.get(paymentId);
 		
 		IPaymentPlugin paymentPlugin = SpringContextHolder.getBean(payCfg.getType());
-		String payhtml = paymentPlugin.onPay(payCfg, order);
-		//String payhtml = "";
+		//String payhtml = paymentPlugin.onPay(payCfg, order);
+		String payhtml = "";
 		// 用户更换了支付方式，更新订单的数据
 		if (order.getPayment_id().intValue() != paymentId.intValue()) {
 			this.orderManager.updatePayMethod(orderId, paymentId, payCfg.getType(), payCfg.getName());
@@ -125,7 +125,6 @@ public class PaymentApiController extends GridController {
 	
 	/**
 	 * 支付宝二维码
-	 * @param payCode
 	 * @param orderId
 	 * @return
 	 */

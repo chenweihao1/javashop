@@ -1,6 +1,6 @@
 //package com.enation.app.shop.core.payment.model.vo;
 //
-//import com.enation.app.shop.trade.model.enums.TradeType;
+//import com.enation.app.shop.trade.model.enums.OrderType;
 //
 ///**
 // * 支付结果
@@ -15,8 +15,8 @@
 //	private String sn;
 //
 //
-//	//@see TradeType
-//	private TradeType trade_type;
+//	//@see OrderType
+//	private OrderType trade_type;
 //
 //	//支付的流程号
 //	private String pay_order_no;
@@ -59,12 +59,12 @@
 //	}
 //
 //
-//	public TradeType getTrade_type() {
+//	public OrderType getTrade_type() {
 //		return trade_type;
 //	}
 //
 //
-//	public void setTrade_type(TradeType trade_type) {
+//	public void setTrade_type(OrderType trade_type) {
 //		this.trade_type = trade_type;
 //	}
 //

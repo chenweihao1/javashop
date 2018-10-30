@@ -44,13 +44,13 @@ public class TenpayDirectPlugin extends AbstractPaymentPlugin implements IPaymen
 		// //////////////////////////////////请求参数//////////////////////////////////////
 
 		// 商品描述
-		String desc = "商品：订单(" + bill.getTrade_sn() + ")中的商品,备注：网店订单";
+		String desc = "商品：订单(" + bill.getOrder_sn() + ")中的商品,备注：网店订单";
 
 		// 当前时间 yyyyMMddHHmmss
 		String currTime = TenpayUtil.getCurrTime();
 
 		// 商家订单号
-		String strReq = bill.getTrade_sn();
+		String strReq = bill.getOrder_sn();
 
 		// 商户号
 		String partner = params.get("tenpaybid");
@@ -59,7 +59,7 @@ public class TenpayDirectPlugin extends AbstractPaymentPlugin implements IPaymen
 		String key = params.get("tenpaykey");
 
 		// 回调通知URL
-		String notify_url = this.getCallBackUrl(bill.getOrdertype());
+		String notify_url = this.getCallBackUrl(bill.getOrderType());
 
 		String return_url = this.getReturnUrl(bill);
 

@@ -1,15 +1,11 @@
 package com.enation.app.shop.component.payment.plugin.alipay.direct.executor;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Service;
 
-import com.enation.app.shop.component.payment.PaymentUtil;
 import com.enation.app.shop.core.order.model.PaymentResult;
 import com.enation.app.shop.component.payment.plugin.alipay.JavashopAlipayUtil;
 import com.enation.app.shop.component.payment.plugin.alipay.direct.AlipayPluginConfig;
@@ -19,13 +15,10 @@ import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.domain.Ali
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.request.AlipayTradeAppPayRequest;
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.response.AlipayTradeAppPayResponse;
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.config.AlipayConfig;
-import com.enation.app.shop.component.payment.plugin.alipay.util.SignUtils;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
 import com.enation.eop.resource.model.EopSite;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.util.StringUtil;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.gson.Gson;
 
 /**
  * 支付宝app支付执行者
@@ -47,14 +40,14 @@ public class AlipayAppPaymentExecutor extends AlipayPluginConfig{
 		try {
 			super.setConfig();
 			
-			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrdertype());
+			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrderType());
 			AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 			//设置请求参数
 			AlipayTradeAppPayRequest alipayRequest = new AlipayTradeAppPayRequest();
 			alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
 			
 			// 商户网站订单
-			String out_trade_no = bill.getTrade_sn();
+			String out_trade_no = bill.getOrder_sn();
 			double payMoney = bill.getOrder_price();
 	
 			// 付款金额
@@ -207,7 +200,7 @@ public class AlipayAppPaymentExecutor extends AlipayPluginConfig{
 	}
 
 	private String getReturn( PayBill bill){
-		String tradeType = bill.getOrdertype();
+		String tradeType = bill.getOrderType().name();
 		String payMode = bill.getPay_mode();
 		
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();

@@ -43,7 +43,7 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 		try {
 			super.setConfig();
 			
-			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrdertype());
+			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrderType());
 			AlipayConfig.return_url = this.getReturnUrl(bill);
 			
 			AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -53,7 +53,7 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 			alipayRequest.setReturnUrl(AlipayConfig.return_url);
 			
 			// 商户网站订单
-			String out_trade_no = bill.getTrade_sn();
+			String out_trade_no = bill.getOrder_sn();
 			double payMoney = bill.getOrder_price();
 	
 			// 付款金额
@@ -65,12 +65,12 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 			String body = "";
 			List<OrderItem> itemList = null;
 			// 订单交易，查询订单的产品
-//			if (bill.getTradeType().name().equals(TradeType.order.name())) {
+//			if (bill.getOrderType().name().equals(OrderType.order.name())) {
 ////				itemList = orderItemQueryClient.queryByOrderSn(out_trade_no);
 //			}
 //
 //			// 交易，查询交易的产品
-//			if (bill.getTradeType().name().equals(TradeType.trade.name())) {
+//			if (bill.getOrderType().name().equals(OrderType.trade.name())) {
 ////				itemList = orderItemQueryClient.queryByTradeSn(out_trade_no);
 //			}
 
@@ -221,7 +221,7 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 	}
 
 	private String getReturn( PayBill bill){
-		String tradeType = bill.getOrdertype();
+		String tradeType = bill.getOrderType().name();
 		String payMode = bill.getPay_mode();
 		
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();

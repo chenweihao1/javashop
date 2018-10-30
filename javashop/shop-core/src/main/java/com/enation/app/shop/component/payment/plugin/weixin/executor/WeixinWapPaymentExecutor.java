@@ -53,7 +53,7 @@ public class WeixinWapPaymentExecutor extends WeixinPuginConfig {
 		String appid = cfgparams.get("appid");// cfgparams.get("appid");
 		String key = cfgparams.get("key"); // cfgparams.get("key");
 
-		String original_sn = bill.getTrade_sn();
+		String original_sn = bill.getOrder_sn();
 		String body = "网店订单[" + original_sn + "]";
 
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
@@ -68,7 +68,7 @@ public class WeixinWapPaymentExecutor extends WeixinPuginConfig {
 		Double money = bill.getOrder_price();
 		params.put("total_fee", toFen(money));
 		params.put("spbill_create_ip", getIpAddress());
-		params.put("notify_url",this.getCallBackUrl(bill.getOrdertype()));
+		params.put("notify_url",this.getCallBackUrl(bill.getOrderType()));
 		params.put("trade_type", "MWEB");
 		String sign = WeixinUtil.createSign(params, key);
 		params.put("sign", sign);
@@ -90,7 +90,7 @@ public class WeixinWapPaymentExecutor extends WeixinPuginConfig {
 			if ("SUCCESS".equals(result_code)) {
 				code_url = rootEl.element("mweb_url").getText(); // 返回码
 				System.out.println(code_url);
-				return "<script> location.href='"+code_url+"&redirect_url="+getPay_wap_success_url(bill.getOrdertype(),original_sn)+"';</script>";
+				return "<script> location.href='"+code_url+"&redirect_url="+getPay_wap_success_url(bill.getOrderType().name(),original_sn)+"';</script>";
 			} else {
 				return "参数生成错误";
 			}

@@ -1,6 +1,7 @@
 package com.enation.app.shop.core.payment.model.vo;
 
 
+import com.enation.app.shop.core.order.model.OrderType;
 import com.enation.app.shop.core.payment.model.enums.ClientType;
 
 import java.io.Serializable;
@@ -13,32 +14,31 @@ import java.io.Serializable;
  * 2017年4月3日下午11:31:10
  */
 public class PayBill implements Serializable {
-	
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -8927776219119098139L;
 
 
 //	public PaymentBill(){super();}
-//	
+//
 //	public PaymentBill(String sn){ super();this.order_sn = sn;}
-	
+
 	/**
 	 * 订单id
 	 */
 	private Integer order_id;
-	
+
 	/**
 	 * 订单编号
 	 */
-	private String trade_sn;
-	
+	private String order_sn;
+
 	/**
 	 * 要支付的金额
 	 */
 	private Double order_price;
-	
+
 	/**
 	 * 此订单的会员id
 	 */
@@ -48,39 +48,39 @@ public class PayBill implements Serializable {
 	 * 会员用户名
 	 */
 	private String member_name;
-	
+
 	/**
 	 * 支付方式id
 	 */
 	private Integer payment_method_id;
-	
+
 	/**
 	 * 支付插件id
 	 */
 	private String payment_plugin_id;
-	
+
 	/**
 	 * 支付名称
 	 */
 	private String payment_method_name;
-	
+
 	/**
 	 * normal:正常的网页跳转
 	 * qr:二维码扫描
 	 */
 	private String pay_mode;
-	
+
 	/**
 	 * 交易类型
 	 */
-	private String ordertype;
+	private OrderType orderType;
 
 	/**
 	 * 支付类型
 	 */
 	private ClientType clientType;
-	
-	
+
+
 	public Integer getOrder_id() {
 		return order_id;
 	}
@@ -89,12 +89,12 @@ public class PayBill implements Serializable {
 		this.order_id = order_id;
 	}
 
-	public String getTrade_sn() {
-		return trade_sn;
+	public String getOrder_sn() {
+		return order_sn;
 	}
 
-	public void setTrade_sn(String trade_sn) {
-		this.trade_sn = trade_sn;
+	public void setOrder_sn(String order_sn) {
+		this.order_sn = order_sn;
 	}
 
 	public Integer getMember_id() {
@@ -145,6 +145,13 @@ public class PayBill implements Serializable {
 		this.member_name = member_name;
 	}
 
+	public OrderType getOrderType() {
+		return orderType;
+	}
+
+	public void setOrderType(OrderType orderType) {
+		this.orderType = orderType;
+	}
 
 	public String getPay_mode() {
 		return pay_mode;
@@ -162,12 +169,5 @@ public class PayBill implements Serializable {
 		this.clientType = clientType;
 	}
 
-	public void setOrdertype(String ordertype) {
-		this.ordertype = ordertype;
-	}
 
-	public String getOrdertype() {
-		return ordertype;
-	}
-	
 }

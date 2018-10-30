@@ -37,9 +37,7 @@ public abstract class BaseFreeMarkerTag implements TemplateMethodModel {
 	public Object exec(List jsonParam) throws TemplateModelException {
 		//判断参数是否为空
 		if(jsonParam!=null && !jsonParam.isEmpty()){
-			
 			String param = (String)jsonParam.get(0);
-			
 			if(param!=null){
 				
 				if(!param.startsWith("{")){

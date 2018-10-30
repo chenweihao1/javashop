@@ -8,7 +8,11 @@ import java.util.List;
 
 import com.enation.app.base.core.model.Member;
 import com.enation.app.base.core.service.IMemberManager;
+import com.enation.app.shop.core.order.model.Order;
+import com.enation.app.shop.core.order.service.IOrderFlowManager;
+import com.enation.app.shop.core.order.service.IOrderManager;
 import com.enation.app.shop.core.order.service.OrderStatus;
+import com.enation.app.shop.core.payment.service.IOrderPayManager;
 import com.enation.eop.sdk.context.UserConext;
 import com.enation.framework.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,17 +36,17 @@ public class PaymentBillManager implements IPaymentBillManager {
 	@Autowired
 	private IDaoSupport daoSupport;
 
-//	@Autowired
-//	private IOrderOperateManager orderOperateManager;
-//
-//	@Autowired
-//	private IOrderQueryManager orderQueryManager;
-//
-//	@Autowired
-//	private IRechargeQueryManager rechargeQueryManager;
+	@Autowired
+	private IOrderPayManager orderPayManager;
 
 	@Autowired
 	private IMemberManager memberManager;
+
+	@Autowired
+	private IOrderFlowManager orderFlowManager;
+
+	@Autowired
+	private IOrderManager orderManager;
 
 	@Override
 	public PaymentBill add(PaymentBill paymentStream) {
@@ -82,6 +86,11 @@ public class PaymentBillManager implements IPaymentBillManager {
 		bill.setPay_order_no(orderPayReturnParam.getPay_order_no());
 		bill.setIs_pay(1);
 		this.update(bill);
+
+		Order order = this.orderManager.get(bill.getSn());
+		//对订单进行支付
+		this.orderFlowManager.payConfirm(order.getOrder_id());
+
 		/** 对交易支付 */
 //		if(orderPayReturnParam.getTrade().equals("trade")){
 //			List<Order> orderList = this.orderQueryManager.queryByTradeSnGetOrder(bill.getSn());

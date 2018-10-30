@@ -15,10 +15,8 @@ import net.sf.json.JSONArray;
 import com.enation.app.shop.core.order.model.Order;
 import com.enation.app.shop.core.order.model.OrderGift;
 import com.enation.app.shop.core.order.model.PayCfg;
-import com.enation.app.shop.core.order.model.PaymentLog;
 import com.enation.app.shop.core.order.model.Refund;
 import com.enation.app.shop.core.order.model.SellBack;
-import com.enation.app.shop.core.order.plugin.payment.IPaymentEvent;
 import com.enation.app.shop.core.order.service.IOrderGiftManager;
 import com.enation.app.shop.core.order.service.IOrderManager;
 import com.enation.app.shop.core.order.service.IOrderMetaManager;
@@ -28,16 +26,13 @@ import com.enation.app.shop.core.order.service.IPaymentManager;
 import com.enation.app.shop.core.order.service.IRefundManager;
 import com.enation.app.shop.core.order.service.ISellBackManager;
 import com.enation.app.shop.core.order.service.OrderStatus;
-import com.enation.app.shop.front.tag.member.MemberWaitCommontListTag;
 import com.enation.eop.resource.model.AdminUser;
 import com.enation.eop.sdk.context.UserConext;
 import com.enation.framework.action.GridController;
 import com.enation.framework.action.GridJsonResult;
 import com.enation.framework.action.JsonResult;
-import com.enation.framework.context.spring.SpringContextHolder;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.util.JsonResultUtil;
-import com.google.zxing.Result;
 
 /**
  * 
@@ -79,13 +74,9 @@ public class OrderReportController extends GridController {
 
 	@Autowired
 	private IPaymentLogManager  paymentLogManager;
+
 	/**
 	 * 付款单列表
-	 * @param statusMap 订单状态,Map
-	 * @param payStatusMap 付款状态,Map
-	 * @param shipMap 发货状态,Map
-	 * @param shipTypeList 配送方式列表,List
-	 * @param payTypeList 付款方式列表,List
 	 * @return
 	 */
 	@RequestMapping("/payment-list")

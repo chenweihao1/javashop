@@ -80,7 +80,7 @@ public class PaypalPaymentPlugin extends AbstractPaymentPlugin implements IPayme
 			transaction.setAmount(amount);
 			EopSite site  =EopSite.getInstance();
 			transaction .setDescription("支付"+site.getSitename()+"订单");
-			transaction.setInvoiceNumber(bill.getTrade_sn());
+			transaction.setInvoiceNumber(bill.getOrder_sn());
 			
 			// ### Items
 			Item item = new Item();
@@ -120,9 +120,9 @@ public class PaypalPaymentPlugin extends AbstractPaymentPlugin implements IPayme
 			
 			String reutrnUrl = this.getReturnUrl(bill);
 			String cancelUrl ="";
-			redirectUrls.setCancelUrl(cancelUrl +"?ordersn="+ bill.getTrade_sn());
+			redirectUrls.setCancelUrl(cancelUrl +"?ordersn="+ bill.getOrder_sn());
 			
-			redirectUrls.setReturnUrl(reutrnUrl+"?ordersn=" + bill.getTrade_sn());
+			redirectUrls.setReturnUrl(reutrnUrl+"?ordersn=" + bill.getOrder_sn());
 			
 			payment.setRedirectUrls(redirectUrls);
 
@@ -132,7 +132,7 @@ public class PaypalPaymentPlugin extends AbstractPaymentPlugin implements IPayme
 			// The return object contains the status;
 			try {
 				createdPayment = payment.create(apiContext);
-				map.put(bill.getTrade_sn(), createdPayment.getId());
+				map.put(bill.getOrder_sn(), createdPayment.getId());
 			} catch (PayPalRESTException e) {
 				 e.printStackTrace();
 			}

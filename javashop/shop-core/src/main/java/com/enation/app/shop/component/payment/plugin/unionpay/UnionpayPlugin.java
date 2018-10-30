@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -19,7 +18,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.enation.app.base.core.model.ConfigItem;
-import com.enation.app.shop.component.payment.plugin.paypal.api.payments.Order;
 import com.enation.app.shop.component.payment.plugin.unionpay.sdk.AcpService;
 import com.enation.app.shop.component.payment.plugin.unionpay.sdk.LogUtil;
 import com.enation.app.shop.component.payment.plugin.unionpay.sdk.SDKConfig;
@@ -77,14 +75,14 @@ public class UnionpayPlugin extends UnionpayPluginConfig implements IPaymentPlug
 		// 前台通知地址 ，控件接入方式无作用
 		data.put("frontUrl", this.getReturnUrl(bill));
 		// 后台通知地址
-		data.put("backUrl", this.getCallBackUrl(bill.getOrdertype()));
+		data.put("backUrl", this.getCallBackUrl(bill.getOrderType()));
 		// 接入类型，商户接入填0 0- 商户 ， 1： 收单， 2：平台商户
 		data.put("accessType", "0");
 		// 商户号码，请改成自己的商户号
 		data.put("merId", UnionpayConfig.merId);
 		// 商户订单号，8-40位数字字母
 		//因为 银联要求的订单号不能有-号，在javashop中的子订单是有这个符号的，所以改用orderid
-		String  orderid = bill.getTrade_sn();
+		String  orderid = bill.getOrder_sn();
 		
 		int length  =  orderid.length();
 		//保证不小于8位，且不大于40位

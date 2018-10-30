@@ -55,7 +55,7 @@ public class WeixinAppPaymentExecutor extends WeixinPuginConfig {
 		String appid = cfgparams.get("appid");// cfgparams.get("appid");
 		String key = cfgparams.get("key"); // cfgparams.get("key");
 
-		String original_sn = bill.getTrade_sn();
+		String original_sn = bill.getOrder_sn();
 		String body = "网店订单[" + original_sn + "]";
 
 		Map<String,String> params = new TreeMap();
@@ -69,7 +69,7 @@ public class WeixinAppPaymentExecutor extends WeixinPuginConfig {
 		Double money = bill.getOrder_price();
 		params.put("total_fee", toFen(money));
 		params.put("spbill_create_ip", "127.0.0.1");
-		params.put("notify_url",this.getCallBackUrl(bill.getOrdertype()));
+		params.put("notify_url",this.getCallBackUrl(bill.getOrderType()));
 		params.put("trade_type", "APP");
 		String sign = WeixinUtil.createSign(params, key);
 		params.put("sign", sign);

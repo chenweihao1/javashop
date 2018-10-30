@@ -145,7 +145,7 @@
 				<menu text="发票设置" url="/shop/admin/receipt/list.do" />
 			</menu>
 			<menu text="配送和支付">  
-				<menu text="支付方式" url="/shop/admin/payCfg/list.do" />
+				<menu text="支付方式" url="/shop/admin/paymethod/list.do" />
 				<menu text="配送方式" url="/shop/admin/dly-type/list.do" />
 				<menu text="物流公司" url="/shop/admin/logi/list-logi.do" />
 				<menu text="地区管理" url="/shop/admin/region/list.do" />

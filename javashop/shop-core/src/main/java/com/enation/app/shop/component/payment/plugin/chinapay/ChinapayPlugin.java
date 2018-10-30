@@ -1,10 +1,8 @@
 package com.enation.app.shop.component.payment.plugin.chinapay;
 
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -114,7 +112,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 		// 签名
 		param.put("Version", "20140728");
 		param.put("MerId", merId);
-		param.put("MerOrderNo", bill.getTrade_sn());
+		param.put("MerOrderNo", bill.getOrder_sn());
 		String TransDate = new SimpleDateFormat("yyyyMMdd").format(new Date());
 		param.put("TranDate", TransDate);
 		String TranTime = new SimpleDateFormat("hhmmss").format(new Date());
@@ -123,7 +121,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 		param.put("OrderAmt", ""+txnAmt.intValue());
 		param.put("BusiType", "0001");
 		param.put("MerPageUrl", this.getReturnUrl(bill));
-		param.put("MerBgUrl", this.getCallBackUrl(bill.getOrdertype()));
+		param.put("MerBgUrl", this.getCallBackUrl(bill.getOrderType()));
 		param.put("RemoteAddr", "127.0.0.1");
 		// 签名
         secssUtil.sign(param);

@@ -15,6 +15,7 @@ import com.enation.app.shop.core.payment.model.enums.ClientType;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
 import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
+import com.enation.framework.plugin.AutoRegisterPlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -32,7 +33,7 @@ import com.enation.app.base.core.model.ConfigItem;
 @SuppressWarnings("unchecked")
 @Component
 @Order(2)
-public class WeixinPayPlugin  implements IPaymentPlugin {
+public class WeixinPayPlugin extends AutoRegisterPlugin implements IPaymentPlugin {
 	
 	public static final String OPENID_SESSION_KEY = "weixin_openid";
 	public static final String UNIONID_SESSION_KEY = "weixin_unionid";

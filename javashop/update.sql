@@ -35,3 +35,11 @@ INSERT INTO es_goods_cat (cat_id,name,parent_id,cat_path,goods_count,cat_order,t
 INSERT INTO es_goods_cat (cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal) VALUES (206,'杂货',0,'0|206|',0,0,1,'1','https://i.imgur.com/h8WgS6w.png',0,1);
 INSERT INTO es_goods_cat (cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal) VALUES (207,'洗护',0,'0|207|',0,0,1,'1','https://i.imgur.com/N7sOaHw.png',0,1);
 INSERT INTO es_goods_cat (cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal) VALUES (208,'志趣',0,'0|208|',0,0,1,'1','https://i.imgur.com/HThgh79.png',0,1);
+
+--  添加字段 es_order
+ALTER TABLE `es_order` ADD  `payment_method_id` int(8) DEFAULT 0 COMMENT '支付方式id';
+ALTER TABLE `es_order` ADD  `payment_plugin_id` varchar(50) COMMENT '支付方式pluginid';
+ALTER TABLE `es_order` ADD  `payment_method_name` varchar(50) COMMENT '支付方式名称';
+
+
+

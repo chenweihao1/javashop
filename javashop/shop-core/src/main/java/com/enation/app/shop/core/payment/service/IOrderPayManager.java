@@ -27,20 +27,6 @@ public interface IOrderPayManager {
 	
 	
 	/**
-	 * 对某交易进行支付
-	 * @param tradesn 交易编号
-	 * @param payment_method_id 支付方式id
-	 * @param payMode 支付模式：
-	 * normal:正常的网页跳转
-	 * qr:二维码扫描
-	 * 如果为空默认为normal模式
-	 * @param client_type 调用客户端类型
-	 * @return 支付跳转HTML
-	 */
-	String payTrade(String tradesn,Integer payment_method_id,String payMode,String client_type);
-	
-	
-	/**
 	 * 支付同步回调
 	 * @param pluginId
 	 */

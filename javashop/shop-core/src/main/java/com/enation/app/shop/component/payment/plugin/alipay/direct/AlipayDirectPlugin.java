@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.enation.app.shop.core.order.model.Refund;
 import com.enation.app.shop.core.order.model.RefundBill;
+import com.enation.framework.plugin.AutoRegisterPlugin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
@@ -26,7 +27,7 @@ import com.enation.app.shop.core.payment.service.IPaymentPlugin;
  */
 @Component
 @Order(1)
-public class AlipayDirectPlugin  implements IPaymentPlugin {
+public class AlipayDirectPlugin extends AutoRegisterPlugin implements IPaymentPlugin {
 
 	@Autowired
 	private AlipayPaymentExecutor alipayPaymentExecutor;

@@ -149,7 +149,7 @@ public class BillPlugin extends AbstractPaymentPlugin implements IPaymentPlugin 
 
 		//商品名称
 		///可为中文或英文字符
-		String productName= "订单:" + bill.getTrade_sn(); 
+		String productName= "订单:" + bill.getOrder_sn();
 
 		//商品数量
 		///可为空，非空时必须为数字

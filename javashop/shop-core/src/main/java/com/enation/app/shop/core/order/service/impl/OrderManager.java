@@ -234,7 +234,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#listbyshipid(int,
 	 * int, int, int, java.lang.String, java.lang.String)
 	 */
-	@Override
 	public Page listbyshipid(int pageNo, int pageSize, int status, int shipping_id, String sort, String order) {
 		order = " ORDER BY " + sort + " " + order;
 		String sql = "select * from es_order where disabled=0 and status=" + status + " and shipping_id= "
@@ -552,7 +551,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#export(java.util.
 	 * Date, java.util.Date)
 	 */
-	@Override
 	public String export(Date start, Date end) {
 		String sql = "select * from es_order where disabled=0 ";
 		if (start != null) {
@@ -646,7 +644,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#updateOrderPrice(
 	 * double, int)
 	 */
-	@Override
 	public void updateOrderPrice(double price, int orderid) {
 		this.daoSupport.execute(
 				"update es_order set order_amount = order_amount-?,goods_amount = goods_amount- ? where order_id = ?",
@@ -660,7 +657,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#queryLogiNameById(
 	 * java.lang.Integer)
 	 */
-	@Override
 	public String queryLogiNameById(Integer logi_id) {
 		return   this.daoSupport.queryForString("select name from es_logi_company where id=?",   logi_id);
 	}
@@ -687,7 +683,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#listByStatus(int,
 	 * int, int, int)
 	 */
-	@Override
 	public Page listByStatus(int pageNo, int pageSize, int status, int memberid) {
 		String filedname = "status";
 		if (status == 0) {
@@ -726,7 +721,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#listByStatus(int,
 	 * int)
 	 */
-	@Override
 	public List<Order> listByStatus(int status, int memberid) {
 		String filedname = "status";
 		if (status == 0) {
@@ -746,7 +740,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#getMemberOrderNum(
 	 * int)
 	 */
-	@Override
 	public int getMemberOrderNum(int member_id) {
 		return this.daoSupport.queryForInt("SELECT COUNT(0) FROM es_order WHERE member_id=?", member_id);
 	}
@@ -879,7 +872,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#delItem(java.lang.
 	 * Integer, java.lang.Integer)
 	 */
-	@Override
 	@Transactional(propagation = Propagation.REQUIRED)
 	public boolean delItem(Integer itemid, Integer itemnum) {// 删除订单货物
 		OrderItem item = this.getOrderItem(itemid);
@@ -1232,7 +1224,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#getOrderItemDetail(
 	 * int)
 	 */
-	@Override
 	public List getOrderItemDetail(int item_id) {
 		String sql = "SELECT c.*,g.mktprice from es_order_item_child c INNER JOIN es_goods g ON g.goods_id=c.goodsid where itemid=? ORDER BY c.goodsid";
 		return this.daoSupport.queryForList(sql, item_id);
@@ -1245,7 +1236,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#getOrderByMemberid(
 	 * java.lang.String, java.lang.Integer)
 	 */
-	@Override
 	public boolean getOrderByMemberid(String sn, Integer memberid) {
 		boolean flag = false;
 		String sql = "select count(0) from es_order where member_id=? and sn=?";
@@ -1595,7 +1585,6 @@ public class OrderManager implements IOrderManager {
 	 * com.enation.app.shop.core.order.service.IOrderManager#getOrderByProductId
 	 * (java.lang.Integer)
 	 */
-	@Override
 	public String getOrderByProductId(Integer productid) {
 		String sql = "select * from es_order_items where product_id=?";
 		return this.daoSupport.queryForMap(sql, productid).get("order_id").toString();

@@ -1,9 +1,16 @@
 package com.enation.app.shop.core.payment.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.enation.app.shop.core.order.model.OrderType;
 import com.enation.app.shop.core.order.model.Refund;
 import com.enation.app.shop.core.order.model.RefundBill;
+import com.enation.app.shop.core.payment.model.po.PaymentBill;
+import com.enation.app.shop.core.payment.model.po.PaymentMethod;
+import com.enation.app.shop.core.payment.service.IPaymentBillManager;
+import com.enation.app.shop.core.payment.service.IPaymentMethodManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -31,8 +38,12 @@ public class OrderPayManager implements IOrderPayManager {
 	@Autowired
 	private IDaoSupport daoSupport;
 
-//	@Autowired
-//	private IPaymentBillManager paymentBillManager;
+	@Autowired
+	private IPaymentBillManager paymentBillManager;
+
+	@Autowired
+	private IPaymentMethodManager paymentMethodManager;
+
 //
 //	@Autowired
 //	private IAfterSaleManager afterSaleManager;
@@ -49,40 +60,38 @@ public class OrderPayManager implements IOrderPayManager {
 	 * @return
 	 */
 	private String pay(PayBill bill,Integer payment_method_id){
-		String pluginid = "";
-//		PaymentMethod paymentMethod  =null;
-//		//指定了支付方式
-//		if( payment_method_id!=null  ){
-//			paymentMethod = this.daoSupport.queryForObject("select * from es_payment_method where method_id=? ", PaymentMethod.class, payment_method_id);
-//			if( paymentMethod== null ){
-//				throw new ResourceNotFoundException(ErrorCode.RESOURCE_NOT_FOUND, "未找到相应的支付方式["+payment_method_id+"]");
-//			}
-//			pluginid=paymentMethod.getPlugin_id();
-//		}else{
-//			pluginid = bill.getPayment_plugin_id();
-//		}
-//
-//		String sn = System.currentTimeMillis()+""  ;
-//
-//		//这里生成支付流水
-//		PaymentBill paymentStream = new PaymentBill();
-//		paymentStream.setPay_key(sn);
-//		paymentStream.setSn(bill.getTrade_sn());
-//		paymentStream.setIs_pay(0);
-//		paymentBillManager.add(paymentStream);
-//		//修改订单的支付方式
-//		Map<String, Object> map = new HashMap<>();
-//		map.put("payment_method_id", paymentMethod.getMethod_id());
-//		map.put("payment_plugin_id", paymentMethod.getPlugin_id()); //支付插件id
-//		map.put("payment_method_name", paymentMethod.getMethod_name()); //支付方式名称
-//		System.out.println(bill.getTradeType());
-//		if(bill.getTradeType().equals(TradeType.trade)) {
-//			this.daoSupport.update("es_order", map, "trade_sn = " + paymentStream.getSn());
-//		}else {
-//			this.daoSupport.update("es_order", map, "sn = " + paymentStream.getSn());
-//		}
-//		bill.setTrade_sn(sn);
-		//		//调起插件
+		String pluginid;
+		PaymentMethod paymentMethod  =null;
+		//指定了支付方式
+		if( payment_method_id != null ){
+			paymentMethod = this.daoSupport.queryForObject("select * from es_payment_method where method_id=? ", PaymentMethod.class, payment_method_id);
+			if( paymentMethod == null ){
+				throw new RuntimeException("未找到相应的支付方式["+payment_method_id+"]");
+			}
+			pluginid = paymentMethod.getPlugin_id();
+		}else{
+			pluginid = bill.getPayment_plugin_id();
+		}
+
+		String sn = System.currentTimeMillis()+""  ;
+
+		//这里生成支付流水
+		PaymentBill paymentStream = new PaymentBill();
+		paymentStream.setPay_key(sn);
+		paymentStream.setSn(bill.getOrder_sn());
+		paymentStream.setIs_pay(0);
+		paymentBillManager.add(paymentStream);
+
+		//修改订单的支付方式
+		Map<String, Object> map = new HashMap<>();
+		map.put("payment_method_id", paymentMethod.getMethod_id());
+		map.put("payment_plugin_id", paymentMethod.getPlugin_id()); //支付插件id
+		map.put("payment_method_name", paymentMethod.getMethod_name()); //支付方式名称
+
+		this.daoSupport.update("es_order", map, "sn = " + paymentStream.getSn());
+		bill.setOrder_sn(sn);
+
+		//调起插件
 		IPaymentPlugin plugin = this.findPlugin(pluginid);
 		String html = plugin.onPay(bill);
 
@@ -92,37 +101,21 @@ public class OrderPayManager implements IOrderPayManager {
 	@Override
 	public String payOrder(String order_sn,Integer payment_method_id,String pay_mode,String client_type) {
 
-		PayBill bill = this.daoSupport.queryForObject("select  order_id , sn as trade_sn,  order_price,payment_method_id,payment_plugin_id , payment_method_name from es_order  where sn=?", PayBill.class, order_sn);
+		PayBill bill = this.daoSupport.queryForObject(
+				"select order_id ,sn as order_sn,order_amount as order_price ,payment_method_id,payment_plugin_id,payment_method_name " +
+						"from es_order  where sn=?", PayBill.class, order_sn);
 
 		if(bill==null){
 			throw new RuntimeException("未找到相应的交易["+order_sn+"]");
 		}
 
-		bill.setOrdertype("c");
+		bill.setOrderType(OrderType.order);
 		bill.setPay_mode(pay_mode);
 		bill.setClientType(ClientType.valueOf(client_type));
 
 		return this.pay(bill, payment_method_id);
 
 	}
-
-
-	@Override
-	public String payTrade(String  trade_sn,Integer payment_method_id,String pay_mode,String client_type) {
-
-		PayBill bill = this.daoSupport.queryForObject("select trade_id as order_id ,trade_sn, total_price as order_price,payment_method_id,payment_plugin_id , payment_method_name from es_trade  where trade_sn=?", PayBill.class, trade_sn);
-
-		if(bill==null){
-			throw new RuntimeException("该交易不存在");
-		}
-		bill.setPay_mode(pay_mode);
-		bill.setOrdertype("c");
-		bill.setClientType(ClientType.valueOf(client_type));
-
-		return this.pay(bill, payment_method_id);
-	}
-
-
 
 	@Override
 	public String payReturn(String ordertype,String pluginId) {
@@ -142,10 +135,7 @@ public class OrderPayManager implements IOrderPayManager {
 
 
 	private IPaymentPlugin findPlugin(String pluginid){
-//		//如果是余额支付就返回为空
-//		if (pluginid.equals("accountPayPlugin")){
-//			return null;
-//		}
+
 		for (IPaymentPlugin plugin : paymentPluginList) {
 			if(plugin.getPluginId().equals( pluginid)){
 				return plugin;

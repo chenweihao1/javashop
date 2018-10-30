@@ -56,7 +56,7 @@ public class WeixinJsapiPaymentExecutor extends WeixinPuginConfig{
 		String appid = cfgparams.get("appid");// cfgparams.get("appid");
 		String key = cfgparams.get("key"); // cfgparams.get("key");
 
-		String original_sn = bill.getTrade_sn();
+		String original_sn = bill.getOrder_sn();
 		String body = "网店订单[" + original_sn + "]";
 
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
@@ -71,7 +71,7 @@ public class WeixinJsapiPaymentExecutor extends WeixinPuginConfig{
 		Double money = bill.getOrder_price();
 		params.put("total_fee", toFen(money));
 		params.put("spbill_create_ip", request.getRemoteAddr());
-		params.put("notify_url",this.getCallBackUrl(bill.getOrdertype()));
+		params.put("notify_url",this.getCallBackUrl(bill.getOrderType()));
 		params.put("trade_type", "JSAPI");
 		
 		//获取openid
@@ -95,7 +95,7 @@ public class WeixinJsapiPaymentExecutor extends WeixinPuginConfig{
 				if ("SUCCESS".equals(result_code)) {
 					String prepay_id = rootEl.element("prepay_id").getText(); // 预支付订单id
 					
-					result = this.getPayScript(prepay_id, appid, key,original_sn,bill.getOrdertype());
+					result = this.getPayScript(prepay_id, appid, key,original_sn,bill.getOrderType().name());
 
 				} else {
 					

@@ -266,7 +266,7 @@ public class PaymentManager implements IPaymentManager {
 	@Override
 	public String getPayQrCdoe(Order order, String pluginId) {
 
-		IPaymentQrCodeEvent event =  SpringContextHolder.getBean(pluginId);
+		IPaymentQrCodeEvent event = SpringContextHolder.getBean(pluginId);
 		PayCfg payCfg = this.get(pluginId);
 		String  code_url = event.onPayQrCode(payCfg, order);
 		return code_url;

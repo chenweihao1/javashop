@@ -76,10 +76,10 @@
 //	public void setAccount_type(String account_type) {
 //		this.account_type = account_type;
 //	}
-//	public String getTrade_sn() {
+//	public String getOrder_sn() {
 //		return trade_sn;
 //	}
-//	public void setTrade_sn(String trade_sn) {
+//	public void setOrder_sn(String trade_sn) {
 //		this.trade_sn = trade_sn;
 //	}
 //

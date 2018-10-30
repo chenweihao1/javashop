@@ -38,7 +38,7 @@
 <div class="cashier-box">
 	<div class="cashier-change">
 		<h2>订单号：<b>${order.sn}</b></h2>
-		<h2>应付金额：<span>${order.needPayMoney?string("currency")}</span><i>元</i></h2>
+		<h2>应付金额：<span>${order.need_pay_money?string("currency")}</span><i>元</i></h2>
 		<div class="cashier-order-detail">
 			<div class="cashier-order-inside">
 				<h3><i></i>送货至：<span>${order.ship_name!''}</span><span>${order.shipping_area!''}<span>${order.ship_addr!''}</span><span>${order.ship_mobile}</span><b rel="close">展开+</b></h3>
@@ -61,7 +61,7 @@
 				<ul class="cashier-pay-list">
 					<#list paymentList as payment>
 						<#if payment.plugin_id=="alipayDirectPlugin">
-							<li class="alipay" rel="alipay" payid="${payment.method_id}">
+							<li class="alipay" rel="alipay" payid="${payment.method_id}" pluginid="${payment.plugin_id}" >
 								<#if payment.img_url??>
 									<img src="${payment.img_url!''}" width="150"/>
 									<#else>
@@ -70,7 +70,7 @@
 								<span></span>
 							</li>
 							<#elseif payment.plugin_id=="weixinPayPlugin">
-								<li class="wechat" rel="wechat" payid="${payment.method_id}">
+								<li class="wechat" rel="wechat" payid="${payment.method_id}" pluginid="${payment.plugin_id}">
 									<#if payment.img_url??>
 										<img src="${payment.img_url!''}" width="150"/>
 										<#else>
@@ -79,7 +79,7 @@
 									<span></span>
 								</li>
 								<#else>
-									<li class="bank" rel="bank" payid="${payment.method_id}" pluginid="${payment.method_id}" >
+									<li class="bank" rel="bank" payid="${payment.method_id}" pluginid="${payment.plugin_id}" >
 										<@image src="${payment.img_url!''}" width="150" />
 										<span></span>
 									</li>
@@ -201,11 +201,14 @@
 			var payWay = $(this).attr("rel");
 			$("."+payWay+"-pay").show();
 			$(".cashier-pay").css("border","1px solid #e1e1e1");
-			
+
+            var payid =  $(".cashier-pay-list li.selected").attr("payid");
+
 			if(payWay == "alipay"){
 				$(".wechat-pay").hide();
+
 				//支付方式切换显示
-				$(".alipay_qrcode").attr("src","${ctx}/api/shop/payment/alipay-qrcode.do?orderId=${orderid}&mtype=2");
+				$(".alipay_qrcode").attr("src","${ctx}/api/shop/order-pay/order/${order.sn}.do?pay_mode=qr&payment_method_id="+payid);
 				$(".pay-wait").hide();
 				$(".alipay_qrcode").show();
 				$(".paybtn").hide();
@@ -215,7 +218,7 @@
 				
 			}else if(payWay == "wechat"){
 				$(".alipay-pay").hide();
-				$(".wechat_qrcode").attr("src","${ctx}/api/shop/payment/wechat-qrcode.do?orderId=${orderid}");
+				$(".wechat_qrcode").attr("src","${ctx}/api/shop/payment/wechat-qrcode.do?orderId=${orderid}&payment_method_id="+payid);
 				$(".pay-wait").hide();
 				$(".wechat_qrcode").show();
 				$(".paybtn").hide();
@@ -250,7 +253,7 @@
 		$(".alipay-pay a").click(function(){
 			var payid =  $(".cashier-pay-list li.alipay").attr("payid");
 			//打开新窗口跳转支付
-			window.open('${ctx}/api/shop/payment/execute.do?orderid=${order.order_id}&paymentid='+payid); 
+			window.open('${ctx}/api/shop/order-pay/order/${order.sn}.do?payment_method_id='+payid);
 			$(".show-mask-box").show();
 			$(".pay-mask").show();
 			$(".bank-pay ul li").removeClass("selected");
@@ -271,7 +274,7 @@
 			}
 			var payid =  $(".cashier-pay-list li.selected").attr("payid");
 			//打开新窗口跳转支付
-			window.open('${ctx}/api/shop/payment/execute.do?orderid=${order.order_id}&paymentid='+payid); 
+			window.open('${ctx}/api/shop/payment/execute.do?orderid=${order.order_id}&payment_method_id='+payid);
 			
 			$(".show-mask-box").show();
 			$(".pay-mask").show();
