@@ -36,10 +36,33 @@ INSERT INTO es_goods_cat (cat_id,name,parent_id,cat_path,goods_count,cat_order,t
 INSERT INTO es_goods_cat (cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal) VALUES (207,'洗护',0,'0|207|',0,0,1,'1','https://i.imgur.com/N7sOaHw.png',0,1);
 INSERT INTO es_goods_cat (cat_id,name,parent_id,cat_path,goods_count,cat_order,type_id,list_show,image,index_show,reveal) VALUES (208,'志趣',0,'0|208|',0,0,1,'1','https://i.imgur.com/HThgh79.png',0,1);
 
---  添加字段 es_order
+--  添加支付字段 es_order
 ALTER TABLE `es_order` ADD  `payment_method_id` int(8) DEFAULT 0 COMMENT '支付方式id';
 ALTER TABLE `es_order` ADD  `payment_plugin_id` varchar(50) COMMENT '支付方式pluginid';
 ALTER TABLE `es_order` ADD  `payment_method_name` varchar(50) COMMENT '支付方式名称';
 
+-- 支付方式表
+DROP TABLE IF EXISTS `es_payment_method`;
+CREATE TABLE `es_payment_method` (
+  `method_id` int(8) NOT NULL AUTO_INCREMENT,
+  `method_name` varchar(255) DEFAULT NULL,
+  `config` longtext,
+  `plugin_id` varchar(255) DEFAULT NULL,
+  `pc_enable` varchar(50) DEFAULT NULL,
+  `wap_enable` varchar(50) DEFAULT NULL,
+  `app_enable` varchar(50) DEFAULT NULL,
+  `img_url` varchar(100) DEFAULT NULL,
+  `is_retrace` int(2) DEFAULT NULL,
+  PRIMARY KEY (`method_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
-
+-- 支付记录表
+DROP TABLE IF EXISTS `es_payment_bill`;
+CREATE TABLE `es_payment_bill` (
+  `id` int(8) NOT NULL AUTO_INCREMENT,
+  `sn` varchar(50) DEFAULT NULL,
+  `pay_key` longtext,
+  `pay_order_no` varchar(100) DEFAULT NULL,
+  `is_pay` smallint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
