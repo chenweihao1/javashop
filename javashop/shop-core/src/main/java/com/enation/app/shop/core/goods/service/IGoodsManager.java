@@ -285,7 +285,12 @@ public interface IGoodsManager {
 
 	public List<Goods> getBestSellerLis();
 
-	public List<Goods> getViewCountList();
+	/**
+	 * 获取大家都在看的商品列表
+	 * @param count  商品数量
+	 * @return
+	 */
+	List<Goods> getViewCountList(int count);
 
 	public List<Goods> getGoodsCatList(Integer catId);
 }
