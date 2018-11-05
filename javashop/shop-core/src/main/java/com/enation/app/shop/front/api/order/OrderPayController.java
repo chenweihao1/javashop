@@ -112,6 +112,7 @@ public class OrderPayController {
     @ResponseBody
     @RequestMapping(value="/callback/{tradetype}/{pluginid}", produces = MediaType.TEXT_HTML_VALUE,method=RequestMethod.POST)
     public String payCallback(@PathVariable String tradetype,@PathVariable() String payment_plugin_id){
+        System.out.println("进入支付回调方法");
         OrderType type = OrderType.valueOf(tradetype);
         String result  = this.orderPayManager.payCallback(type.name(),payment_plugin_id);
         return result;

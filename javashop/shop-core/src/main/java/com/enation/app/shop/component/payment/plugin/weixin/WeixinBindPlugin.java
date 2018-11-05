@@ -25,7 +25,7 @@ import com.enation.framework.plugin.AutoRegisterPlugin;
  * @version v1.0,2016年7月8日
  * @since v6.1
  */
-@Component
+@Component()
 public class WeixinBindPlugin  extends AutoRegisterPlugin implements IMemberLoginEvent, IMemberRegisterEvent {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(WeixinBindPlugin.class);

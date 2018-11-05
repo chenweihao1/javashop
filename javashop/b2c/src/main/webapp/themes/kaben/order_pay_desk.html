@@ -117,7 +117,7 @@
 				<div class="wechat-right">
 					<p>使用微信扫一扫即可付款</p>
 					<div class="pay-erweima">
-						<img src="" class="wechat_qrcode" style="display:none">
+						<iframe src="" class="wechat_qrcode" frameborder="no" style="display:none;height:300px" ></iframe>
 						<img src="${ctx}${themes_path}/images/loading.jpg" class="pay-wait" />
 					</div>
 				</div>
@@ -218,7 +218,7 @@
 				
 			}else if(payWay == "wechat"){
 				$(".alipay-pay").hide();
-				$(".wechat_qrcode").attr("src","${ctx}/api/shop/payment/wechat-qrcode.do?orderId=${orderid}&payment_method_id="+payid);
+				$(".wechat_qrcode").attr("src","${ctx}/api/shop/order-pay/order/${order.sn}.do?pay_mode=qr&payment_method_id="+payid);
 				$(".pay-wait").hide();
 				$(".wechat_qrcode").show();
 				$(".paybtn").hide();

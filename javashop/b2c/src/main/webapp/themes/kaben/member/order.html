@@ -103,7 +103,7 @@
 						 <div class="order-list-tools btn-div">
 							<#-- 不是货到付款订单并且订单未支付订单并且订单未申请取消订 -->
 						 	<#if !orders.isCod && orders.status == orderState.ORDER_CONFIRM&&orders.is_cancel==0>
-						 		<#if pcfg.id == orders.payment_id>
+						 		<#if pcfg != '' && pcfg.id == orders.payment_id>
 						 				<a href='javascript:;' class="payCfg small-white" orderid="${orders.order_id}" rel="${orders.order_id}" >查看付款账号</a>
 						 		<#else>
 						 			<a href="${ctx}/order_pay_desk.html?orderid=${orders.order_id}" class="green_btn small-white">立即付款</a>

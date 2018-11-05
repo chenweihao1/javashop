@@ -29,10 +29,10 @@ import com.enation.framework.util.StringUtil;
 @Component("chinaPay")
 @Order(3)
 public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlugin {
-	
+
 	@Autowired
 	private IPaymentMethodManager paymentMethodManager;
-	
+
 	/**
 	 * 生成自动提交表单
 	 * @param actionUrl
@@ -50,7 +50,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 		html.append("</form>\n");
 		return html.toString();
 	}
-	
+
 	protected String payBack(String ordertype) {
 		Map<String, String> config = this.getConfig();
 		String merPath = config.get("merPath");
@@ -98,7 +98,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 
 		return "";
 	}
-	
+
 
 	@Override
 	public String onPay(PayBill bill) {
@@ -126,18 +126,18 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 		// 签名
         secssUtil.sign(param);
         param.put("Signature", secssUtil.getSign());
-		
+
 		System.out.println(String.format("sendMap = %s", param));
-		
+
 		String html = "<div style='margin:50px auto;width:500px'>正在跳转到银联在线支付平台，请稍等...</div>";
 		html = html + generateAutoSubmitForm(payUrl,param);//跳转到银联页面支付
-		
+
 		return html;
 	}
 
 	@Override
 	public String onReturn(String ordertype) {
-		
+
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		String queryId = request.getParameter("AcqSeqId");
 		String tradeno = request.getParameter("MerOrderNo");	//商户订单号
@@ -146,7 +146,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 		double payprice = StringUtil.toDouble(settleAmt, 0d);
 		// 传回来的是分，转为元
 		payprice = CurrencyUtil.mul(payprice, 0.01);
-		
+
 		if("0000".equals(orderStatus)){
 			PaymentResult paymentResult = new PaymentResult();
 			paymentResult.setOrdersn(tradeno);
@@ -156,7 +156,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 			this.paySuccess(paymentResult);
 			return tradeno;
 		}
-		
+
 		return null;
 	}
 
@@ -170,7 +170,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 		double payprice = StringUtil.toDouble(settleAmt, 0d);
 		// 传回来的是分，转为元
 		payprice = CurrencyUtil.mul(payprice, 0.01);
-		
+
 		if("0000".equals(orderStatus)){
 			PaymentResult paymentResult = new PaymentResult();
 			paymentResult.setOrdersn(tradeno);
@@ -180,7 +180,7 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 			this.paySuccess(paymentResult);
 			return tradeno;
 		}
-		
+
 		return null;
 	}
 
@@ -228,10 +228,10 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
 	public Integer getIsRetrace() {
 		return 0;
 	}
-	
+
 	/**
      * 加载安全秘钥 .
-     * 
+     *
      * @param ownerId
      *            所有者id
      * @return SecssUtil .

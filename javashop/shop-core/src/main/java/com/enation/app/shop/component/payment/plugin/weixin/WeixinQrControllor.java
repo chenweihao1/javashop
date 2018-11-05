@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.ByteArrayOutputStream;
@@ -38,24 +40,26 @@ public class WeixinQrControllor {
 //	@ApiImplicitParams({
 //         @ApiImplicitParam(name = "pr", value = "二维码短地址", required = true, dataType = "String" ,paramType="query"),
 //	 })
+	@ResponseBody
 	@RequestMapping(value="/weixin/qr/{pr}" , produces = MediaType.IMAGE_JPEG_VALUE)
-	public byte[] qr( String pr) throws IOException, WriterException {
-		ByteArrayOutputStream stream = new ByteArrayOutputStream();
-		int width = 280;//图片的宽度
-		int height = 280;//高度 
-		QRCodeWriter writer = new QRCodeWriter();
-		BitMatrix m = writer.encode("weixin://wxpay/bizpayurl?pr="+pr, BarcodeFormat.QR_CODE, height, width);
-		MatrixToImageWriter.writeToStream(m, "jpeg", stream);
+	public byte[] qr( @PathVariable String pr) throws IOException, WriterException {
+			ByteArrayOutputStream stream = new ByteArrayOutputStream();
+			int width = 280;//图片的宽度
+			int height = 280;//高度
+			QRCodeWriter writer = new QRCodeWriter();
+			BitMatrix m = writer.encode("weixin://wxpay/bizpayurl?pr="+pr, BarcodeFormat.QR_CODE, height, width);
+			MatrixToImageWriter.writeToStream(m, "jpeg", stream);
 
-		return stream.toByteArray();
+			return stream.toByteArray();
 	}
 	
 //	@ApiOperation(value="获取微信扫描支付的状态" )
 //	@ApiImplicitParams({
 //        @ApiImplicitParam(name = "sn", value = "订单或交易编号", required = true, dataType = "String" ,paramType="path"),
 //	 })
+	@ResponseBody
 	@RequestMapping("/weixin/status/{sn}")
-	public String payStatus(String sn){
+	public String payStatus(@PathVariable String sn){
 		
 		String status  = (String) cache.get(WeixinPuginConfig.CACHE_KEY_PREFIX+sn);
 		if(!"ok".equals(status)){
@@ -85,7 +89,7 @@ public class WeixinQrControllor {
 //         @ApiImplicitParam(name = "pr", value = "二维码短地址", required = true, dataType = "String",paramType="path")
 //	 })
 	@RequestMapping("/weixin/qrpage/{tradeType}/{sn}/{pr}")
-	public ModelAndView qrPage(String tradeType, String sn, String pr ) {
+	public ModelAndView qrPage(@PathVariable String tradeType, @PathVariable String sn, @PathVariable String pr ) {
 		HttpServletRequest request  =  ThreadContextHolder.getHttpRequest();
 		ModelAndView view = new ModelAndView();
 		

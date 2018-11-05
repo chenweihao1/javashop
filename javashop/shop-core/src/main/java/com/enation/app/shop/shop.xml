@@ -448,6 +448,9 @@
 		<field><name>receipt_duty</name><type>varchar</type><size>50</size><option>00</option></field>
 		<field><name>receipt_type</name><type>int</type><size>10</size><option>00</option></field>
 		<field><name>receipt</name><type>int</type><size>10</size><option>00</option></field>
+		<field><name>payment_method_id</name><type>int</type><size>10</size><option>00</option></field>
+		<field><name>payment_plugin_id</name><type>int</type><size>50</size><option>00</option></field>
+		<field><name>payment_method_name</name><type>varchar</type><size>50</size><option>00</option></field>
 	</action>
 	<action>
 		<command>create</command>
@@ -1542,5 +1545,27 @@
 		<field><name>goods_id</name><type>int</type><size>10</size><option>00</option></field>
 		<field><name>footprint_time</name><type>long</type><size>20</size><option>00</option></field>
 		<field><name>is_default</name><type>varchar</type><size>50</size><option>00</option></field>
+	</action>
+	<action>
+		<command>create</command>
+		<table>es_payment_method</table>
+		<field><name>method_id</name><type>int</type><size>10</size><option>11</option></field>
+		<field><name>method_name</name><type>varchar</type><size>10</size><option>00</option></field>
+		<field><name>config</name><type>memo</type><size>715827882</size><option>00</option></field>
+		<field><name>plugin_id</name><type>varchar</type><size>20</size><option>00</option></field>
+		<field><name>pc_enable</name><type>varchar</type><size>50</size><option>00</option></field>
+		<field><name>wap_enable</name><type>varchar</type><size>50</size><option>00</option></field>
+		<field><name>app_enable</name><type>varchar</type><size>50</size><option>00</option></field>
+		<field><name>img_url</name><type>varchar</type><size>100</size><option>00</option></field>
+		<field><name>is_retrace</name><type>int</type><size>2</size><option>00</option></field>
+	</action>
+	<action>
+		<command>create</command>
+		<table>es_payment_bill</table>
+		<field><name>id</name><type>int</type><size>10</size><option>11</option></field>
+		<field><name>sn</name><type>varchar</type><size>20</size><option>00</option></field>
+		<field><name>pay_key</name><type>memo</type><size>715827882</size><option>00</option></field>
+		<field><name>pay_order_no</name><type>varchar</type><size>100</size><option>00</option></field>
+		<field><name>is_pay</name><type>smallint</type><size>1</size><option>00</option></field>
 	</action>
 </dbsolution>

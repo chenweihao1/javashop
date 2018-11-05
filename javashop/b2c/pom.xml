@@ -69,6 +69,7 @@
 					<include>**/*.css</include>
 					<include>**/*.html</include>
 					<include>**/*.properties</include>
+					<include>**/*.dic</include>
 				</includes>
 			</resource>
 
