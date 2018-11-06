@@ -222,9 +222,6 @@
 				$(".pay-wait").hide();
 				$(".wechat_qrcode").show();
 				$(".paybtn").hide();
-				
-				//刷新微信支付状态
-				refreshPayStatus();
 			}else{
 				$(".alipay-pay").hide();
 				$(".wechat-pay").hide();
@@ -233,21 +230,9 @@
 				//停止刷新微信支付状态
 				clearTimeout(t);
 			}
-		})
+		});
 		
-		//微信支付，刷新支付状态
-		function refreshPayStatus(){
-			//每几秒钟查询微信支付付款后，返回数据。
-			$.post("${ctx}/api/shop/payment/get-pay-status-for-wechat.do",{orderId:${orderid},pluginId:"weixinPayPlugin"},function(data){
-				//判断支付成功
-				if(data.result==1){
-					window.parent.location.href="${ctx}/qr-payment-result.html?orderId=${orderid}&pluginId=weixinPayPlugin&trade_status=SUCCESS";
-				}else{
-					//支付失败
-				}
-			});
-	        t = setTimeout(refreshPayStatus, 1000*3);
-	    }
+
 		
 		//支付宝跳转电脑支付
 		$(".alipay-pay a").click(function(){
