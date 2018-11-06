@@ -61,7 +61,6 @@ public class WeixinPaymentExecutor extends WeixinPuginConfig {
 		params.put("total_fee", toFen(money));
 		params.put("spbill_create_ip", "127.0.0.1");
 		params.put("notify_url",this.getCallBackUrl(bill.getOrderType()));
-        System.out.println(this.getCallBackUrl(bill.getOrderType()));
 		params.put("trade_type", "NATIVE");
 		String sign = WeixinUtil.createSign(params, key);
 		params.put("sign", sign);
