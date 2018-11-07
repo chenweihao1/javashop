@@ -11,6 +11,8 @@ import com.enation.framework.database.Page;
 import com.enation.framework.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -52,13 +54,15 @@ public class FootprintManager implements IFootprintManager {
 	 * @see com.enation.app.shop.core.member.service.IFavoriteManager#add(java.lang.Integer)
 	 */
 	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void add(Footprint footprint) {
 
-		
+		footprint.setFootprint_time(DateUtil.getDateline());
 		this.daoSupport.insert("es_footprint", footprint);
 	}
 
-
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
 	public void update(int footprint_id){
 		//获取当前时间
 		long timeNew = DateUtil.getDateline();
@@ -79,5 +83,21 @@ public class FootprintManager implements IFootprintManager {
         return null;
     }
 
-	
+	@Override
+	public Footprint get(int goodsid, int memberid, String sessionid) {
+		String sql = "SELECT * FROM es_footprint WHERE goods_id=? AND ( member_id=? or session_id = ? )";
+		List<Footprint> favoriteList = daoSupport.queryForList(sql, Footprint.class, goodsid, memberid,sessionid);
+		if(favoriteList.size() > 0){
+			return favoriteList.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
+	public void update(String sessionid, Integer member_id) {
+		this.daoSupport.execute("update es_footprint set member_id = ? where session_id = ? and member_id = -1",member_id,sessionid);
+	}
+
+
 }

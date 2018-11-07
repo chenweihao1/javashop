@@ -66,3 +66,6 @@ CREATE TABLE `es_payment_bill` (
   `is_pay` smallint(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+alter table es_footprint add session_id VARCHAR(255) DEFAULT null;

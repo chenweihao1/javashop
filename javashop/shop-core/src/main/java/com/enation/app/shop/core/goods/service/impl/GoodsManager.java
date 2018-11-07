@@ -1112,9 +1112,7 @@ public class GoodsManager  implements IGoodsManager {
 	 */
 	@Override
 	public List<Goods> getViewCountList(int count){
-		String sql ="SELECT * FROM es_goods a  ORDER BY a.view_count DESC  LIMIT 15";
-
-		Page result = this.daoSupport.queryForPage("select * from es_goods as a ORDER BY a.view_count ",1,count,Goods.class);
+		Page result = this.daoSupport.queryForPage("select * from es_goods as a ORDER BY a.view_count desc ",1,count,Goods.class);
 
         return (List<Goods>) result.getResult();
 	}

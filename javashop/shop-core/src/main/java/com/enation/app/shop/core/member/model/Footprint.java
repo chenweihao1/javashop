@@ -14,6 +14,7 @@ public class Footprint implements java.io.Serializable {
 	private int member_id;
 	private int goods_id;
 	private String is_default;
+	private String session_id;
 	
 	/**
 	 * 浏览时间
@@ -21,6 +22,7 @@ public class Footprint implements java.io.Serializable {
 	 */
 	private long footprint_time;
 
+	@PrimaryKeyField
 	public int getFootprint_id() {
 		return footprint_id;
 	}
@@ -59,5 +61,13 @@ public class Footprint implements java.io.Serializable {
 
 	public void setFootprint_time(long footprint_time) {
 		this.footprint_time = footprint_time;
+	}
+
+	public String getSession_id() {
+		return session_id;
+	}
+
+	public void setSession_id(String session_id) {
+		this.session_id = session_id;
 	}
 }
