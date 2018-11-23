@@ -1111,10 +1111,10 @@ public class GoodsManager  implements IGoodsManager {
 	 * @return yanpc 2018-8-30
 	 */
 	@Override
-	public List<Goods> getViewCountList(){
-		String sql ="    SELECT * FROM es_goods a  ORDER BY a.view_count DESC  LIMIT 5";
-        List<Goods>  sqlList =  this.daoSupport.queryForList(sql);
-        return sqlList;
+	public List<Goods> getViewCountList(int count){
+		Page result = this.daoSupport.queryForPage("select * from es_goods as a ORDER BY a.view_count desc ",1,count,Goods.class);
+
+        return (List<Goods>) result.getResult();
 	}
 	/**
 	 *

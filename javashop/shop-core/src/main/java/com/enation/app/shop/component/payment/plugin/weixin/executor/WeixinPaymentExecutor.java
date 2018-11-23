@@ -83,7 +83,7 @@ public class WeixinPaymentExecutor extends WeixinPuginConfig {
 			if ("SUCCESS".equals(result_code)) {
 				code_url = rootEl.element("code_url").getText(); // 返回码
 				String qr = code_url.replaceAll(QR_URL_PREFIX, "");
-				return "<script> location.href='../weixin/qrpage/"+tradeType+"/"+ original_sn + "/" + qr + ".do';</script>";
+				return "<script> location.href='/order-pay/weixin/qrpage/"+tradeType+"/"+ original_sn + "/" + qr + ".do';</script>";
 			} else {
 				return "二维码生成错误";
 			}
@@ -182,7 +182,11 @@ public class WeixinPaymentExecutor extends WeixinPuginConfig {
 			map.put("return_code", "FAIL");
 			map.put("return_msg", "");
 			e.printStackTrace();
-		}
+		} catch (Exception e){
+            map.put("return_code", "FAIL");
+            map.put("return_msg", "");
+		    e.printStackTrace();
+        }
 		HttpServletResponse response = ThreadContextHolder.getHttpResponse();
 		response.setHeader("Content-Type", "text/xml");
 		try {

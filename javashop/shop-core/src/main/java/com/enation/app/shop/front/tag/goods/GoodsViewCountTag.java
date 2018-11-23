@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,10 +36,17 @@ public class GoodsViewCountTag extends BaseFreeMarkerTag {
 	 */
 	@Override
 	protected Object exec(Map params) throws TemplateModelException {
-		//查询商品信息
-		List<Goods>  goodsList = this.goodsManager.getViewCountList();
 
-		return goodsList;
+		int pageSize = com.enation.framework.util.StringUtil.toInt(params.get("pageSize"),false);
+
+		pageSize = pageSize == 0 ? 5 : pageSize;
+
+
+		//查询商品信息
+		List<Goods>  goodsList = this.goodsManager.getViewCountList(pageSize);
+		Map<String,Object> result = new HashMap<>();
+		result.put("goodsList",goodsList);
+		return result;
 	}
 
 

@@ -55,7 +55,21 @@ public interface IFootprintManager {
 	 */
 	public Footprint get(int goodsid, int memberid);
 
+	/**
+	 * 通货商品ID  会员ID  SessionID获取足迹
+	 * @param goodsid
+	 * @param memberid
+	 * @param sessionid
+	 * @return
+	 */
+	Footprint get(int goodsid, int memberid,String sessionid);
 
+	/**
+	 * 记住足迹
+	 * @param sessionid
+	 * @param member_id
+	 */
+	void update(String sessionid,Integer member_id);
 
 
 	

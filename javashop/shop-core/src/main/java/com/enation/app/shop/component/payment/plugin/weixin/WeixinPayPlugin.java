@@ -93,7 +93,6 @@ public class WeixinPayPlugin extends AutoRegisterPlugin implements IPaymentPlugi
 
 	@Override
 	public String onCallback(String ordertype) {
-		
 		return weixinPaymentExecutor.onCallback(ordertype);
 	}
 

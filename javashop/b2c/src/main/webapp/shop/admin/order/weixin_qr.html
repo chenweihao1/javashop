@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<header>
+<script type="text/javascript" src="${jquery_path}"></script>
+</header>
+<body>
+ <img src='${ctx}/order-pay/weixin/qr/${pr}.do' />
+ 
+ 
+ <script>
+ function checkStatus(){
+	 $.ajax({
+		 url:"${ctx}/order-pay/weixin/status/${sn}.do",
+		 type:"get",
+		 success:function(result){
+			 if("ok"==result){
+				 window.parent.location.href="${pay_success_url}";
+			 }
+		 }
+	 })
+ }
+ setInterval(checkStatus,1000);
+ </script>
+ 
+</body>
+
+</html>
+ 

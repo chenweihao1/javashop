@@ -151,6 +151,7 @@ public class PaymentApiController extends GridController {
 		try {
 			 url = this.paymentManager.getPayQrCdoe(order,"weixinPayPlugin");
 		} catch (Exception e) {
+			e.printStackTrace();
 			this.logger.error(e.getMessage(), e);
 		}
 		
