@@ -299,7 +299,7 @@
 		</dependency>
 		<dependency>
 			<groupId>com.chinapay</groupId>
-			<artifactId>chinapay-file-secure</artifactId>
+			<artifactId>chinapay-filesecure</artifactId>
 			<version>1.0</version>
 		</dependency>
         <dependency>
