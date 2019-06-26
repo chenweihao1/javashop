@@ -3,6 +3,7 @@ package com.enation.app.base.core.service;
 import java.util.List;
 
 import com.enation.app.base.core.model.SiteMenu;
+import com.enation.framework.database.Page;
 
 
 /**
@@ -57,9 +58,9 @@ public interface ISiteMenuManager {
 	 * @return
 	 */
 	public List<SiteMenu> list(Integer parentid);
-	
-	
-	
+
+
+	Page list(Integer pageNo, Integer pageSize, String keyword);
 	
 	/**
 	 * 更新排序

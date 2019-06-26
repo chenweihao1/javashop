@@ -3,6 +3,8 @@ package com.enation.app.base.core.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.enation.framework.database.Page;
+import com.enation.framework.util.StringUtil;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -65,29 +67,30 @@ public class SiteMenuManager implements ISiteMenuManager {
 	 */
 	@Override
 	public List<SiteMenu> list(Integer parentid) {
-		String sql  ="select * from es_site_menu order by parentid,sort desc,menuid desc";
+		String sql  ="select * from es_site_menu order by sort asc";
 		List<SiteMenu> menuList  = this.daoSupport.queryForList(sql, SiteMenu.class);
-		List<SiteMenu> topMenuList  = new ArrayList<SiteMenu>();
-		if(this.logger.isDebugEnabled()){
-			this.logger.debug("查找"+parentid+"的子...");
+		return menuList;
+	}
+
+	/* (non-Javadoc)
+	 * @see com.enation.app.base.core.service.ISiteMenuManager#list(java.lang.Integer)
+	 */
+	@Override
+	public Page list(Integer pageNo, Integer pageSize, String keyword) {
+		StringBuffer  sql  = new StringBuffer("select * from es_site_menu ");
+
+		List<Object> term = new ArrayList<>();
+		if(!StringUtil.isEmpty(keyword)){
+			sql.append(" where name like ? ");
+			term.add("%"+keyword+"%");
 		}
-		for(SiteMenu menu :menuList){
-			if(menu.getParentid().compareTo(parentid)==0){
-				if(this.logger.isDebugEnabled()){
-					this.logger.debug("发现子["+menu.getName()+"-"+menu.getMenuid()+"]");
-				}
-				List<SiteMenu> children = this.getChildren(menuList, menu.getMenuid());
-				
-				int i = this.daoSupport.queryForInt("select count(0) from es_site_menu where parentid="+menu.getMenuid());
-				if(i!=0){
-					menu.setState("closed");
-				}
-				menu.setChildren(children);
-				topMenuList.add(menu);
-			}
-		}
-		
-		return topMenuList;
+
+		sql.append("order by sort asc");
+
+
+		Page menuList  = this.daoSupport.queryForPage(sql.toString(),pageNo,pageSize, SiteMenu.class,term.toArray());
+
+		return menuList;
 	}
 	
 	/* (non-Javadoc)

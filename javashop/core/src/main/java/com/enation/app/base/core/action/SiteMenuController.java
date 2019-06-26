@@ -51,22 +51,11 @@ public class SiteMenuController extends GridController{
 	 */
 	@ResponseBody
 	@RequestMapping(value="/list-json")
-	public GridJsonResult listJson(){
-		List menuList = this.siteMenuManager.list(0);
-		return JsonResultUtil.getGridJson(menuList);
+	public GridJsonResult listJson(String keyword){
+		this.webpage = this.siteMenuManager.list(this.getPage(), this.getPageSize(),keyword);
+		return JsonResultUtil.getGridJson(webpage );
 	}
-	
-	/**
-	 * 异步加载获取导航栏列表json
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value="/get-list-by-parentid-json")
-	public String getListJson(Integer parentid){
-		List menuList = this.siteMenuDbManager.list(parentid);
-		String s = JSONArray.fromObject(menuList).toString();
-		return s.replace("name", "text").replace("menuid", "id");
-	}
+
 	
 	/**
 	 * 更改导航栏排序
@@ -93,29 +82,11 @@ public class SiteMenuController extends GridController{
 	public ModelAndView add(){
 		ModelAndView view = new ModelAndView();
 		view.addObject("isEdit", false);
-		view.addObject("menuList", this.siteMenuManager.list(0));
 		view.addObject("siteMenu", new SiteMenu());
 		view.setViewName("/core/admin/siteMenu/menu_input");
 		return view;
 	}
-	
-	/**
-	 * 跳转至添加子导航
-	 * @param isEdit 是否为修改
-	 * @param menuList 导航栏列表
-	 * @param menuid 导航栏ID
-	 * @param siteMenu 导航栏
-	 */
-	@RequestMapping(value="/add-children")
-	public ModelAndView addchildren(Integer menuid){
-		ModelAndView view = new ModelAndView();
-		view.addObject("isEdit", false);
-		view.addObject("menuList", this.siteMenuManager.list(0));
-		view.addObject("menuid", this.siteMenuManager.get(menuid).getMenuid());
-		view.addObject("siteMenu", new SiteMenu());
-		view.setViewName("/core/admin/siteMenu/menu_input");
-		return view;
-	}
+
 	
 	/**
 	 * 跳转至修改导航栏
@@ -124,7 +95,6 @@ public class SiteMenuController extends GridController{
 	public ModelAndView edit(Integer menuid){
 		ModelAndView view = new ModelAndView();
 		view.addObject("isEdit", true);
-		view.addObject("menuList", this.siteMenuManager.list(0));
 		view.addObject("siteMenu", this.siteMenuManager.get(menuid));
 		view.setViewName("/core/admin/siteMenu/menu_input");
 		return view;

@@ -2,6 +2,7 @@ package com.enation.app.base.core.service.impl.cache;
 
 import java.util.List;
 
+import com.enation.framework.database.Page;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -70,7 +71,9 @@ public class SiteMenuCacheProxy extends AbstractCacheProxy<List<SiteMenu>> imple
 	 */
 	@Override
 	public List<SiteMenu> list(Integer parentid) {
+
 		ICache cache=CacheFactory.getCache(MENU_LIST_CACHE_KEY);
+		cache.remove(MENU_LIST_CACHE_KEY);
 		List<SiteMenu> menuList  =  (List<SiteMenu>) cache.get( MENU_LIST_CACHE_KEY);
 		
 		
@@ -87,6 +90,11 @@ public class SiteMenuCacheProxy extends AbstractCacheProxy<List<SiteMenu>> imple
 		}
 		
 		return menuList;
+	}
+
+	@Override
+	public Page list(Integer pageNo, Integer pageSize, String keyword) {
+		return this.siteMenuManager.list(pageNo,pageSize,keyword);
 	}
 
 	/*

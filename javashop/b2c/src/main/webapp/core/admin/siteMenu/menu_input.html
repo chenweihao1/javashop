@@ -24,17 +24,6 @@
     		</div>
   		</div>
   		<div class="layui-form-item">
-			<label class="layui-form-label _stration">上级菜单</label>
-    		<div class="layui-input-block">
-      			<select name="parentid" id="parentid">
-						<option value="0">顶级类别</option> 
-						<#assign children=menuList />
-						<#assign level=1 /> 
-						<#include 'select_children.html' />
-				</select>
-   			</div>
-  		</div>
-  		<div class="layui-form-item">
     		<label class="layui-form-label">链接</label>
     		<div class="layui-input-block">
       			<input type="text" name="url"  maxlength="60" value="${siteMenu.url!''}" placeholder="请输入符合规范的站内链接"  autocomplete="off" class="layui-input">
