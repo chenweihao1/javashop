@@ -298,6 +298,17 @@
 			<artifactId>hibernate-validator</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>com.chinapay</groupId>
+			<artifactId>chinapay-filesecure</artifactId>
+			<version>1.0</version>
+		</dependency>
+        <dependency>
+
+            <groupId>com.chinapay</groupId>
+            <artifactId>chinapay-secure</artifactId>
+            <version>1.5</version>
+        </dependency>
+		<dependency>
 			<groupId>org.apache</groupId>
 			<artifactId>template</artifactId>
 			<version>1.0</version>
@@ -337,11 +348,7 @@
 			<artifactId>sdk-java</artifactId>
 			<version>1.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.chinapay</groupId>
-			<artifactId>chinapay-secure</artifactId>
-			<version>1.5</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>

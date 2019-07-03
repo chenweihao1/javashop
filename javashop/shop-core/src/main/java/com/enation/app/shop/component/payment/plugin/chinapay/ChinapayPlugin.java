@@ -1,11 +1,9 @@
 package com.enation.app.shop.component.payment.plugin.chinapay;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -237,9 +235,18 @@ public class ChinapayPlugin extends AbstractPaymentPlugin implements IPaymentPlu
      * @return SecssUtil .
      */
     protected SecssUtil getSecssUtil(String ownerId) {
-        SecssUtil secssUtil = new SecssUtil();
-        secssUtil.init("C:/Users/javashop/Desktop/chinapay/security.properties");
-        return secssUtil;
+		SecssUtil secssUtil = new SecssUtil();
+		try {
+			Properties properties = new Properties();
+			BufferedReader bufferedReader = new BufferedReader(new FileReader("./security.properties"));
+			properties.load(bufferedReader);
+			secssUtil.init(properties);
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return secssUtil;
     }
 
 }
