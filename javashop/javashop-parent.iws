@@ -6,203 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bdcc247d-f072-4a6d-a965-9262f7f0eb4d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/junit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/webapp/config/eop.properties.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/webapp/config/jdbc.properties.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/1.0/sdk-java-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/1.0/sdk-java-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/1.0/sdk-java-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/1.0/sdk-java-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/1.0/sdk-java-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/1.0/sdk-java-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/alipay/sdk-java/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-filesecure/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.0/chinapay-secure-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.0/chinapay-secure-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.0/chinapay-secure-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.0/chinapay-secure-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.0/chinapay-secure-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.0/chinapay-secure-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/chinapay/chinapay-secure/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/1.0/client-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/1.0/client-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/1.0/client-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/1.0/client-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/1.0/client-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/1.0/client-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/hitrust/trustpay/client/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/1.0/sqljdbc-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/1.0/sqljdbc-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/1.0/sqljdbc-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/1.0/sqljdbc-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/1.0/sqljdbc-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/1.0/sqljdbc-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/microsoft/sqlserver/sqljdbc/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/_remote.repositories" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0-sources.jar.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.jar.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.pom.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/client-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/1.0/m2e-lastUpdated.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/maven-metadata-maven-repository.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/netpay/client/resolver-status.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/1.0/showapi-sdk-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/1.0/showapi-sdk-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/1.0/showapi-sdk-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/1.0/showapi-sdk-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/1.0/showapi-sdk-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/1.0/showapi-sdk-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/show/api/showapi-sdk/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/1.0/client-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/1.0/client-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/1.0/client-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/1.0/client-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/1.0/client-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/1.0/client-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/com/tenpay/client/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/_remote.repositories" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0-sources.jar.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.jar.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.pom.lastUpdated" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/apache/template/1.0/template-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/1.0/ojdbc-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/1.0/ojdbc-1.0.jar.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/1.0/ojdbc-1.0.jar.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/1.0/ojdbc-1.0.pom" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/1.0/ojdbc-1.0.pom.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/1.0/ojdbc-1.0.pom.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/maven-metadata.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/maven-metadata.xml.md5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/maven-repository/org/mysql/ojdbc/maven-metadata.xml.sha1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/EopInstallManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/EopInstallManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/sdk/context/EopSetting.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/sdk/context/EopSetting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/GroupbuyComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/component.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/groupbuy_install.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/GroupbuyPluginBundle.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/act/GroupBuyActPlugin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/act/IGroupBuyActAddEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/act/IGroupBuyActDeleteEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/act/IGroupBuyActEndEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/act/IGroupBuyActStartEvent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/cart/GroupGoodsCartPlugin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/goods/GroupBuyGoodsPlugin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/component/plugin/tag/GroupBuyActTagPlugin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/action/backend/GroupBuyActTagController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/action/backend/GroupBuyActiveController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/action/backend/GroupBuyAreaController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/action/backend/GroupBuyCatController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/action/backend/GroupbuyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/action/backend/GroupbuyTagController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/model/GroupBuy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/model/GroupBuyActive.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/model/GroupBuyArea.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/model/GroupBuyCat.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/model/GroupBuyTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/IGroupBuyActiveManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/IGroupBuyAreaManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/IGroupBuyCatManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/IGroupBuyManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/IGroupGoodsTagManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/impl/GroupBuyActiveManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/impl/GroupBuyAreaManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/impl/GroupBuyCatManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/impl/GroupBuyManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/core/service/impl/GroupGoodsTagManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/api/GroupBuyCartApiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/GroupBuyAreaListTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/GroupBuyCatListTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/GroupBuyGoodsListTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/GroupBuyGoodsSpecTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/GroupBuyListTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/GroupBuyTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/act/GroupBuyActSurplusTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/groupbuy/src/main/java/com/enation/app/groupbuy/front/tag/act/GroupBuyActTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javashop-parent.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/javashop-parent.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javashop-parent.iws" beforeDir="false" afterPath="$PROJECT_DIR$/javashop-parent.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayPaymentExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayPaymentExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/api/DefaultAlipayClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/api/DefaultAlipayClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/config/AlipayConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/config/AlipayConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/ProductSnapshotManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/ProductSnapshotManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/AbstractPaymentPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/AbstractPaymentPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderPayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderPayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentCallbackApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentCallbackApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/tag/order/WapPaymentListTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/tag/order/WapPaymentListTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin-applet/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin-applet/src/main/java/com/enation/app/shop/api/WxClassifyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin-applet/src/main/java/com/enation/app/shop/api/WxIndexController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/WeixinComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/api_test.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/component.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/HttpRequestDeviceUtils.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/Sha1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/WeixinUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/md5.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/payscript.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/service/IWeixinManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/service/impl/WeixinManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/service/impl/config_script.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/plugin/WeixinBindPlugin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/plugin/WeixinRefundPlugin.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/weixin_install.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/component/weixin_uninstall.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/front/payment/weixin/action/WeixinApiController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/front/payment/weixin/tag/IsWeChartTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/front/payment/weixin/tag/MemberOpenIdTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/front/payment/weixin/tag/OpenIdGetTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/front/payment/weixin/tag/UnionIdGetTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/weixin/src/main/java/com/enation/app/shop/front/payment/weixin/tag/WeixinOAuth2UrlTag.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zt-sms/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zt-sms/src/main/java/com/enation/app/sms/component/ztsms/SmsZtComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zt-sms/src/main/java/com/enation/app/sms/component/ztsms/component.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zt-sms/src/main/java/com/enation/app/sms/component/ztsms/plugin/SmsZtPlugin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zt-sms/src/main/java/com/enation/app/sms/component/ztsms/plugin/SmsZtPlugin.java" beforeDir="false" />
-    </list>
+    <list default="true" id="bdcc247d-f072-4a6d-a965-9262f7f0eb4d" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/groupbuy/target/" />
     <ignored path="$PROJECT_DIR$/core/target/" />
     <ignored path="$PROJECT_DIR$/b2c/target/" />
@@ -308,11 +112,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderPayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="125" column="54" lean-forward="true" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
+            <state relative-caret-position="682">
+              <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -363,10 +167,10 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="572">
+            <state relative-caret-position="94">
               <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
             </state>
           </provider>
@@ -540,7 +344,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="width" value="974" />
     <option name="height" value="1047" />
@@ -559,144 +363,6 @@
               <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="javashop" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="b2c" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="b2c" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="b2c" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="b2c" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="b2c" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring_cfg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enation" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enation" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enation" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enation" type="462c0819:PsiDirectoryNode" />
-              <item name="base" type="462c0819:PsiDirectoryNode" />
-              <item name="security" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="shop-core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="shop-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="shop-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="shop-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="shop-core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="shop" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -710,7 +376,7 @@
     <property name="SearchEverywhereHistoryKey" value="junit&#9;PSI&#9;JAVA://com.enation.app.shop.core.payment.junit&#10;config&#9;PSI&#9;JAVA://com.enation.app.base.core.model.ConfigItem&#10;AliPayConfig&#9;FILE&#9;file://E:/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/config/AlipayConfig.java&#10;OrderPayManager&#9;FILE&#9;file://E:/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/core/payment/service/impl/OrderPayManager.java&#10;IPaymentPlugin&#9;FILE&#9;file://E:/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/core/payment/service/IPaymentPlugin.java&#10;paymentPluginList&#9;PSI&#9;JAVA://com.enation.app.shop.core.payment.service.impl.OrderPayManager#paymentPluginList&#10;jdbc.pr&#9;FILE&#9;file://E:/Javashop-B2C/javashop/b2c/src/main/webapp/config/jdbc.properties.example&#10;address-add-edit.js&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/js/page/address-add-edit.js&#10;order.html&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/member/order.html&#10;RegionSelectDirective&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.other.regions.RegionSelectDirective&#10;address-add&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/kaben/checkout/address-add.html&#10;goodsSearchTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.GoodsSearchTag&#10;searchSelectorTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.search.SearchSelectorTag&#10;footprintTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.member.FootprintTag&#10;footprints&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/member/footprints.html&#10;goodsGalleryBestSellerTag&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/front/tag/goods/GoodsGalleryBestSellerTag.java&#10;memberIsCommentTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.member.MemberIsCommentTag&#10;comment.html&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/comment.html&#10;comment.htm&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/docs/api/comment.html&#10;goodsGalleryNewTag&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/front/tag/goods/GoodsGalleryNewTag.java&#10;checkCmptIsOnTag&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/core/src/main/java/com/enation/app/base/core/tag/CheckCmptIsOnTag.java&#10;goodsCatTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.GoodsCatTag&#10;goodsGalleryTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.GoodsGalleryTag&#10;goods_list.html&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/goods_list.html&#10;search.html&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/search.html&#10;float_footer&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/common/float_footer.html&#10;class&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/classify.html&#10;classify.&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/js/classify.js&#10;cat_edit&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/shop/admin/cat/cat_edit.html&#10;classify.html&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/classify.html&#10;common.js&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/js/common.js&#10;classify&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/js/classify.js&#10;iscroll&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/statics/e_tools/mobile/library/iscroll/iscroll.js&#10;classify.css&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/css/classify.css&#10;classify.h&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/classify.html&#10;category&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/category.html&#10;iscroll.js&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/statics/e_tools/mobile/library/iscroll/iscroll.js&#10;goods.html&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/docs/api/goods.html" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564639777426" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1564640263572" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="last_opened_file_path" value="E:/javashop2/Javashop-B2C/b2c-wap" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -1030,7 +696,7 @@
       <workItem from="1564466509672" duration="22836000" />
       <workItem from="1564539664958" duration="22913000" />
       <workItem from="1564564570674" duration="17586000" />
-      <workItem from="1564626995038" duration="10294000" />
+      <workItem from="1564626995038" duration="10857000" />
     </task>
     <servers />
   </component>
@@ -1067,7 +733,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="222729000" />
+    <option name="totallyTimeSpent" value="223292000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1494,13 +1160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/b2c/src/main/resources/auth.properties">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1537,8 +1196,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderPayController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="125" column="54" lean-forward="true" selection-start-line="125" selection-start-column="54" selection-end-line="125" selection-end-column="54" />
+        <state relative-caret-position="682">
+          <caret line="139" column="44" selection-start-line="139" selection-start-column="44" selection-end-line="139" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="26" column="28" lean-forward="true" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
         </state>
       </provider>
     </entry>
