@@ -64,7 +64,7 @@ public class PaymentCallbackApiController {
 	 * @param url
 	 * @return 
 	 */
-	private String[] getPluginid(String url) {
+	private static String[] getPluginid(String url) {
 		String pluginid = null;
 		String ordertype = null;
 		String[] params = new String[2];
@@ -75,21 +75,33 @@ public class PaymentCallbackApiController {
 			ordertype = m.replaceAll("$1");
 			pluginid = m.replaceAll("$2");
 			params[0] = ordertype;
+			System.out.println(ordertype+"--");
 			params[1] = pluginid;
+			System.out.println(pluginid+"---");
 			return params;
 		} else {
 			return null;
 		}
 	}
 
-	public static void main(String[] args) {
-		String url = "/credit_alipay_payment-callback.do";
-		String pattern = ".*/(\\w+)_(\\w+)_(payment-callback).do(.*)";
-		Pattern p = Pattern.compile(pattern, 2 | Pattern.DOTALL);
-		Matcher m = p.matcher(url);
-		if (m.find()) {
-			String ordertype = m.replaceAll("$1");
-			String pluginid = m.replaceAll("$2");
+	public static void main(String[] args){
+		String url = "http://00b5588.nat123.cc:31978/api/shop/credit_aplipay_payment-callback/execute.do";
+		String[] params = getPluginid(url);
+		for(int i = 0; i<=params.length-1;i++){
+			System.out.println(params[i]);
 		}
 	}
+
+//	public static void main(String[] args) {
+//		String url = "/credit_alipay_payment-callback.do";
+//		String pattern = ".*/(\\w+)_(\\w+)_(payment-callback).do(.*)";
+//		Pattern p = Pattern.compile(pattern, 2 | Pattern.DOTALL);
+//		Matcher m = p.matcher(url);
+//		if (m.find()) {
+//			String ordertype = m.replaceAll("$1");
+//			String pluginid = m.replaceAll("$2");
+//			System.out.println(ordertype);
+//			System.out.println(pluginid);
+//		}
+//	}
 }

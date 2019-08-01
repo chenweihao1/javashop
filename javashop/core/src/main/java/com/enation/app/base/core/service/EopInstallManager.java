@@ -41,21 +41,21 @@ public class EopInstallManager {
 		long s= DateUtil.getDateline();
 	    long start  = this.log("开始安装");
 	    dataOperation.imported("file:com/enation/app/base/init.xml");
-	    
-		long end =this.logEnd("init xml安装完成",start);		
-		 
+
+		long end =this.logEnd("init xml安装完成",start);
+
 		//安装
 		solutionInstaller.install( productid);
-		end =this.logEnd("simple product 安装完成",end);		
-		
+		end =this.logEnd("simple product 安装完成",end);
+
 		//安装base应用
 		solutionInstaller.install( "base");
-		end =this.logEnd("base product 安装完成",end);	
-		
+		end =this.logEnd("base product 安装完成",end);
+
 		//安装管理员
 		this.installUser(username, password);
 		end  = this.logEnd("user 安装完成",end);
-		 
+
 		System.out.println("耗时{"+(end-s)+"}");
 	}
 

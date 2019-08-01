@@ -39,13 +39,17 @@ public class WapPaymentListTag extends BaseFreeMarkerTag{
 		List<PayCfg>  newList = this.paymentManager.list();
 		for (PayCfg cfg : newList) {
 			if(cfg.getIs_online()==1){
-				if(!this.isMobile() && !cfg.getType().equals("alipayWapPlugin")){ 
-					paymentList.add(cfg); 
-				}else if(this.isMobile() && cfg.getType().equals("alipayWapPlugin")){ 
-					paymentList.add(cfg);  
-				}else if(this.isMobile()&&!cfg.getType().equals("alipayDirectPlugin")
-						&&!cfg.getType().equals("alipayMobilePlugin")&&!cfg.getType().equals("wechatMobilePlugin")){
-					paymentList.add(cfg);  
+//				if(!this.isMobile() && !cfg.getType().equals("alipayWapPlugin")){
+//					paymentList.add(cfg);
+//				}else if(this.isMobile() && cfg.getType().equals("alipayWapPlugin")){
+//					paymentList.add(cfg);
+//				}else if(this.isMobile()&&!cfg.getType().equals("alipayDirectPlugin")
+//						&&!cfg.getType().equals("alipayMobilePlugin")&&!cfg.getType().equals("wechatMobilePlugin")){
+//					paymentList.add(cfg);
+//				}
+
+				if(this.isMobile() && cfg.getType().equals("alipayDirectPlugin")){
+					paymentList.add(cfg);
 				}
 			}
 		}

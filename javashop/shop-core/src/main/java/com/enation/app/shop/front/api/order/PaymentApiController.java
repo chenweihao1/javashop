@@ -6,8 +6,12 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.enation.app.shop.core.order.model.OrderType;
+import com.enation.app.shop.core.payment.model.enums.ClientType;
+import com.enation.app.shop.core.payment.model.vo.PayBill;
 import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import com.enation.framework.context.spring.SpringContextHolder;
+import com.enation.framework.database.IDaoSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -55,6 +59,8 @@ public class PaymentApiController extends GridController {
 	private IMemberAddressManager memberAddressManager;
 	@Autowired
 	private IRegionsManager regionsManager;
+	@Autowired
+	private IDaoSupport daoSupport;
 
 	
 	/**
@@ -91,8 +97,19 @@ public class PaymentApiController extends GridController {
 		PayCfg payCfg = this.paymentManager.get(paymentId);
 		
 		IPaymentPlugin paymentPlugin = SpringContextHolder.getBean(payCfg.getType());
-		//String payhtml = paymentPlugin.onPay(payCfg, order);
-		String payhtml = "";
+		PayBill bill = this.daoSupport.queryForObject(
+				"select order_id ,sn as order_sn,order_amount as order_price ,payment_method_id,payment_plugin_id,payment_method_name " +
+						"from es_order  where order_id=?", PayBill.class, order.getOrder_id());
+
+		if(bill==null){
+			throw new RuntimeException("未找到相应的交易["+orderId+"]");
+		}
+
+		bill.setOrderType(OrderType.order);
+		bill.setClientType(ClientType.WAP);
+		String payhtml = paymentPlugin.onPay(bill);
+		System.out.println(payhtml);
+		//String payhtml = "";
 		// 用户更换了支付方式，更新订单的数据
 		if (order.getPayment_id().intValue() != paymentId.intValue()) {
 			this.orderManager.updatePayMethod(orderId, paymentId, payCfg.getType(), payCfg.getName());

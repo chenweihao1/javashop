@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gson.JsonObject;
+import net.sf.json.JSON;
 import net.sf.json.JSONArray;
 
+import net.sf.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -175,6 +178,8 @@ public class ProductSnapshotManager implements IProductSnapshotManager {
 
 	@Override
 	public void add(ProductSnapshot productSnapshot) {
+		System.out.println(JSONObject.fromObject(productSnapshot).toString());
+		productSnapshot.setSnapshot_id(null);
 		daoSupport.insert("es_product_snapshot", productSnapshot);
 	}
 

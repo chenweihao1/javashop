@@ -140,7 +140,6 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 	}
 	
 	protected String getCallBackUrl(OrderType order_type){
-		
 		HttpServletRequest request = ThreadContextHolder.getHttpRequest();
 		String serverName = request.getServerName();
 		int port = request.getServerPort();
@@ -150,7 +149,7 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 		}
 		String contextPath = request.getContextPath();
 		
-		return "http://"+serverName+portstr+contextPath+"/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
+		return "http://"+"00b5588.nat123.cc:31978"+"/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
 	}	
 	
 	/**

@@ -6,6 +6,11 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePagePayRequest;
+import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.config.AlipayConfig;
 import com.enation.app.shop.core.order.model.OrderItem;
 import com.enation.app.shop.core.order.model.PaymentResult;
@@ -14,9 +19,6 @@ import org.springframework.stereotype.Service;
 
 import com.enation.app.shop.component.payment.plugin.alipay.JavashopAlipayUtil;
 import com.enation.app.shop.component.payment.plugin.alipay.direct.AlipayPluginConfig;
-import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.AlipayClient;
-import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.DefaultAlipayClient;
-import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.request.AlipayTradePagePayRequest;
 
 import com.enation.eop.resource.model.EopSite;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
@@ -36,27 +38,26 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 		String form="";
 		try {
 			super.setConfig();
-			
+
 			AlipayConfig.return_url = this.getReturnUrl(bill);
 			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrderType());
-			
+
 			AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 			//设置请求参数
 			AlipayTradePagePayRequest alipayRequest = new AlipayTradePagePayRequest();
 			alipayRequest.setReturnUrl(AlipayConfig.return_url);
 			alipayRequest.setNotifyUrl(AlipayConfig.notify_url);
-			
+
 			// 商户网站订单
 			String out_trade_no = bill.getOrder_sn();
 			double payMoney = bill.getOrder_price();
-			
+
 			// 付款金额
 			String sitename = EopSite.getInstance().getSitename();
 			// 订单名称
 			String subject = sitename + "订单";
-			
-			
-			String body = "";
+
+			String body = sitename + "订单";
 			List<OrderItem> itemList = null;
 			// 订单交易，查询订单的产品
 //			if (bill.getOrderType().name().equals(OrderType.order.name())) {
@@ -67,34 +68,38 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 //			if (bill.getOrderType().name().equals(OrderType.trade.name())) {
 ////				itemList = orderItemQueryClient.queryByTradeSn(out_trade_no);
 //			}
-
+//
 //			for (OrderItem orderItem : itemList) {
 //				body += orderItem.getName() + "x" + orderItem.getNum() + "<br/>";
 //			}
 
-			
+
+
 			Map<String, String> sParaTemp = new HashMap<String, String>();
 			sParaTemp.put("out_trade_no", out_trade_no);
 			sParaTemp.put("product_code", "FAST_INSTANT_TRADE_PAY");
 			sParaTemp.put("total_amount", payMoney+"");
 			sParaTemp.put("subject", subject);
 			sParaTemp.put("body", body);
-			
+
 			// 扫描二维码模式
 			if ("qr".equals(bill.getPay_mode())) {
 				sParaTemp.put("qr_pay_mode", "4");
 				sParaTemp.put("qrcode_width", "200");
 			}
-			
-			
+
+
 			ObjectMapper json = new ObjectMapper();
-			
+
 		    alipayRequest.setBizContent(json.writeValueAsString(sParaTemp));//填充业务参数
-	   
-			form = alipayClient.pageExecute(alipayRequest).getBody();
+
+			form = alipayClient.pageExecute(alipayRequest).getBody(); //调用SDK生成表单
+			System.out.println("返回form表单"+form);
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
+
+
 		return form;
 	}
 	

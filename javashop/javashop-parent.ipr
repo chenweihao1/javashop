@@ -122,6 +122,8 @@
             <element id="library" level="project" name="Maven: javax.validation:validation-api:1.1.0.Final" />
             <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.1.GA" />
             <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.0.0" />
+            <element id="library" level="project" name="Maven: com.chinapay:chinapay-filesecure:1.0" />
+            <element id="library" level="project" name="Maven: com.chinapay:chinapay-secure:1.5" />
             <element id="library" level="project" name="Maven: org.apache:template:1.0" />
             <element id="library" level="project" name="Maven: org.mysql:ojdbc:1.0" />
             <element id="library" level="project" name="Maven: com.microsoft.sqlserver:sqljdbc:1.0" />
@@ -133,21 +135,9 @@
             <element id="archive" name="shop-core-6.3.1.jar">
               <element id="module-output" name="shop-core" />
             </element>
+            <element id="library" level="project" name="Maven: com.alipay.sdk:alipay-sdk-java:3.7.110.ALL" />
             <element id="archive" name="cms-core-6.3.1.jar">
               <element id="module-output" name="cms-core" />
-            </element>
-            <element id="archive" name="groupbuy-6.3.1.jar">
-              <element id="module-output" name="groupbuy" />
-            </element>
-            <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.3" />
-            <element id="archive" name="zt-sms-6.3.1.jar">
-              <element id="module-output" name="zt-sms" />
-            </element>
-            <element id="archive" name="weixin-6.3.1.jar">
-              <element id="module-output" name="weixin" />
-            </element>
-            <element id="archive" name="weixin-applet-6.3.1.jar">
-              <element id="module-output" name="weixin-applet" />
             </element>
           </element>
         </element>
@@ -155,17 +145,17 @@
           <element id="file-copy" path="$PROJECT_DIR$/b2c/target/b2c-6.3.1/META-INF/MANIFEST.MF" />
         </element>
         <element id="javaee-facet-resources" facet="b2c/web/Web" />
-        <element id="artifact" artifact-name="themes:war exploded" />
+        <element id="artifact" artifact-name="b2c-wap:war exploded" />
       </root>
     </artifact>
     <artifact type="war" name="themes:war">
-      <output-path>$PROJECT_DIR$/../../../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/target</output-path>
+      <output-path>E:/../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/target</output-path>
       <root id="archive" name="themes.war">
         <element id="artifact" artifact-name="themes:war exploded" />
       </root>
     </artifact>
     <artifact type="exploded-war" name="themes:war exploded">
-      <output-path>$PROJECT_DIR$/../../../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/target/themes</output-path>
+      <output-path>E:/../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/target/themes</output-path>
       <root id="root">
         <element id="directory" name="WEB-INF">
           <element id="directory" name="classes">
@@ -173,9 +163,29 @@
           </element>
         </element>
         <element id="directory" name="META-INF">
-          <element id="file-copy" path="$PROJECT_DIR$/../../../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/target/themes/META-INF/MANIFEST.MF" />
+          <element id="file-copy" path="E:/../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/target/themes/META-INF/MANIFEST.MF" />
         </element>
         <element id="javaee-facet-resources" facet="themes/web/Web" />
+      </root>
+    </artifact>
+    <artifact type="war" name="b2c-wap:war">
+      <output-path>$PROJECT_DIR$/b2c-wap/target</output-path>
+      <root id="archive" name="b2c-wap.war">
+        <element id="artifact" artifact-name="b2c-wap:war exploded" />
+      </root>
+    </artifact>
+    <artifact type="exploded-war" name="b2c-wap:war exploded">
+      <output-path>$PROJECT_DIR$/b2c-wap/target/b2c-wap</output-path>
+      <root id="root">
+        <element id="directory" name="WEB-INF">
+          <element id="directory" name="classes">
+            <element id="module-output" name="b2c-wap" />
+          </element>
+        </element>
+        <element id="directory" name="META-INF">
+          <element id="file-copy" path="$PROJECT_DIR$/b2c-wap/target/b2c-wap/META-INF/MANIFEST.MF" />
+        </element>
+        <element id="javaee-facet-resources" facet="b2c-wap/web/Web" />
       </root>
     </artifact>
   </component>
@@ -186,6 +196,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="b2c" />
+        <module name="b2c-wap" />
         <module name="cms-core" />
         <module name="core" />
         <module name="groupbuy" />
@@ -198,6 +209,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="b2c" target="1.8" />
+      <module name="b2c-wap" target="1.5" />
       <module name="cms-core" target="1.8" />
       <module name="core" target="1.8" />
       <module name="groupbuy" target="1.8" />
@@ -214,15 +226,12 @@
     <file url="file://$PROJECT_DIR$/b2c" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cms-core" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/groupbuy" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/shop-core" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/weixin" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/weixin-applet" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/zt-sms" charset="UTF-8" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="web" url="file://$PROJECT_DIR$/../../../shop_b2c_weixin/javashop-b2c-weixin-applet/themes" />
+    <file type="web" url="file://E:/../shop_b2c_weixin/javashop-b2c-weixin-applet/themes" />
     <file type="web" url="file://$PROJECT_DIR$/b2c" />
+    <file type="web" url="file://$PROJECT_DIR$/b2c-wap" />
   </component>
   <component name="InspectionProjectProfileManager">
     <profile version="1.0">
@@ -234,7 +243,7 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/../../../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/pom.xml" />
+        <option value="E:/../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/pom.xml" />
       </list>
     </option>
   </component>
@@ -362,25 +371,24 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/b2c/b2c.iml" filepath="$PROJECT_DIR$/b2c/b2c.iml" />
+      <module fileurl="file://$PROJECT_DIR$/b2c-wap/b2c-wap.iml" filepath="$PROJECT_DIR$/b2c-wap/b2c-wap.iml" />
       <module fileurl="file://$PROJECT_DIR$/cms-core/cms-core.iml" filepath="$PROJECT_DIR$/cms-core/cms-core.iml" />
       <module fileurl="file://$PROJECT_DIR$/core/core.iml" filepath="$PROJECT_DIR$/core/core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/groupbuy/groupbuy.iml" filepath="$PROJECT_DIR$/groupbuy/groupbuy.iml" />
       <module fileurl="file://$PROJECT_DIR$/javashop-parent.iml" filepath="$PROJECT_DIR$/javashop-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/shop-core/shop-core.iml" filepath="$PROJECT_DIR$/shop-core/shop-core.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/themes.iml" filepath="$PROJECT_DIR$/../../../shop_b2c_weixin/javashop-b2c-weixin-applet/themes/themes.iml" />
-      <module fileurl="file://$PROJECT_DIR$/weixin/weixin.iml" filepath="$PROJECT_DIR$/weixin/weixin.iml" />
-      <module fileurl="file://$PROJECT_DIR$/weixin-applet/weixin-applet.iml" filepath="$PROJECT_DIR$/weixin-applet/weixin-applet.iml" />
-      <module fileurl="file://$PROJECT_DIR$/zt-sms/zt-sms.iml" filepath="$PROJECT_DIR$/zt-sms/zt-sms.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Javashop_B2B2C_6.5" />
+    <property name="last_opened_file_path" value="E:/../Javashop_B2B2C_6.5" />
   </component>
   <component name="SvnConfiguration">
     <configuration>C:\Users\Administrator\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
   </component>
   <component name="libraryTable">
     <library name="Maven: aopalliance:aopalliance:1.0">
@@ -405,6 +413,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: com.alipay.sdk:alipay-sdk-java:3.7.110.ALL">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alipay/sdk/alipay-sdk-java/3.7.110.ALL/alipay-sdk-java-3.7.110.ALL.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alipay/sdk/alipay-sdk-java/3.7.110.ALL/alipay-sdk-java-3.7.110.ALL-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alipay/sdk/alipay-sdk-java/3.7.110.ALL/alipay-sdk-java-3.7.110.ALL-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: com.alipay:sdk-java:1.0">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/alipay/sdk-java/1.0/sdk-java-1.0.jar!/" />
@@ -425,6 +444,28 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/caucho/hessian/4.0.38/hessian-4.0.38-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.chinapay:chinapay-filesecure:1.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/chinapay/chinapay-filesecure/1.0/chinapay-filesecure-1.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.chinapay:chinapay-secure:1.5">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/chinapay/chinapay-secure/1.5/chinapay-secure-1.5-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.6.5">
@@ -680,6 +721,17 @@
         <root url="jar://$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.5/commons-lang-2.5-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: commons-logging:commons-logging:1.1.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: commons-logging:commons-logging:1.2">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/commons-logging/commons-logging/1.2/commons-logging-1.2.jar!/" />
@@ -766,17 +818,6 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/3.0.1/javax.servlet-api-3.0.1-sources.jar!/" />
-      </SOURCES>
-    </library>
-    <library name="Maven: javax.servlet:servlet-api:2.3">
-      <CLASSES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar!/" />
-      </CLASSES>
-      <JAVADOC>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3-javadoc.jar!/" />
-      </JAVADOC>
-      <SOURCES>
-        <root url="jar://$MAVEN_REPOSITORY$/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: javax.validation:validation-api:1.1.0.Final">

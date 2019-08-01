@@ -5,6 +5,8 @@ import com.enation.app.shop.core.payment.model.enums.ClientType;
 import com.enation.app.shop.core.payment.service.IOrderPayManager;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.util.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -30,6 +32,8 @@ public class OrderPayController {
 
     @Autowired
     private IOrderPayManager orderPayManager;
+
+    private static Logger logger = LoggerFactory.getLogger(OrderPayController.class);
 
 
     /**
@@ -109,11 +113,19 @@ public class OrderPayController {
     }
 
 
+    /**
+     * 获取支付异步回调
+     * @param tradetype
+     * @param pluginid
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value="/callback/{tradetype}/{pluginid}", produces = MediaType.TEXT_HTML_VALUE,method=RequestMethod.POST)
     public String payCallback(@PathVariable String tradetype,@PathVariable String pluginid){
+        logger.info("支付宝异步回调成功");
         OrderType type = OrderType.valueOf(tradetype);
         String result  = this.orderPayManager.payCallback(type.name(),pluginid);
+        logger.info("支付宝异步回调返回结果:{}",result);
         return result;
     }
 

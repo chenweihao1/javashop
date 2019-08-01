@@ -14,9 +14,7 @@
         <module>shop-core</module>
         <module>b2c</module>
         <module>cms-core</module>
-        <module>groupbuy</module>
-        <module>zt-sms</module>
-        <module>weixin-applet</module>
+        <module>b2c-wap</module>
     </modules>
 
 
