@@ -1,12 +1,15 @@
 package com.enation.app.shop.core.member.action;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.shop.front.api.order.enums.RespCodeEnum;
+import com.enation.app.shop.front.api.order.model.ResultModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -313,6 +316,7 @@ public class MemberController extends GridController {
 		return view;
 
 	}
+
 
 	/**
 	 * 获取会员列表Json

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.shop.front.api.order.model.ResultModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -72,6 +73,18 @@ public class GoodsApiController  extends GridController {
 
 		return JsonMessageUtil.getListJson(goodslist);
 		
+	}
+
+
+	/**
+	 * 获取商品列表
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("obtain-goods-list")
+	public ResultModel obtainGoodsList(){
+		List<Goods> goodsList = goodsManager.obtainGoodsList();
+		return ResultModel.success(goodsList);
 	}
 	
 	/***

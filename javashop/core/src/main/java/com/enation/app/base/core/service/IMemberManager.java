@@ -24,6 +24,14 @@ public interface IMemberManager {
 	 */
 	@Transactional(propagation = Propagation.REQUIRED)  
 	public int add(Member member);
+
+
+	/**
+	 * 更改sessionId
+	 * @param sessionId
+	 * @param memberId
+	 */
+	public void changeSession(String sessionId,Integer memberId);
 	
 	
 	/**
@@ -43,8 +51,14 @@ public interface IMemberManager {
 	 *  
 	 */
 	public void checkEmailSuccess(Member member);
-	
-	
+
+
+	/**
+	 * 获取会员信息
+	 * @param memberId
+	 * @return
+	 */
+	public Member getMemberById(Integer memberId);
 	
 	
 	/**
@@ -316,5 +330,8 @@ public interface IMemberManager {
 	 * @param img			fs地址
 	 */
 	public void editMemberImg(Integer member_id,String img);
+
+
+	public List<Member> obtainMemberList();
 	
 }

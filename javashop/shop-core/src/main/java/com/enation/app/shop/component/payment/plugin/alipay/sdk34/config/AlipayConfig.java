@@ -14,8 +14,8 @@ public class AlipayConfig {
 //↓↓↓↓↓↓↓↓↓↓请在这里配置您的基本信息↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
 
 	// 应用ID,您的APPID，收款账号既是您的APPID对应支付宝账号
-	//public static String app_id = "2019073166070271";
-	public static String app_id = "2016100200644648";
+	public static String app_id = "2019073166070271";
+	//public static String app_id = "2016100200644648";
 	
 	// 商户私钥，您的PKCS8格式RSA2私钥
     public static String merchant_private_key =
@@ -62,8 +62,8 @@ public class AlipayConfig {
 	public static String charset = "utf-8";
 	
 	// 支付宝网关
-//	public static String gatewayUrl = "https://openapi.alipay.com/gateway.do";
-	public static String gatewayUrl = "https://openapi.alipaydev.com/gateway.do";
+	public static String gatewayUrl = "https://openapi.alipay.com/gateway.do";
+//	public static String gatewayUrl = "https://openapi.alipaydev.com/gateway.do";
 	
 
 }

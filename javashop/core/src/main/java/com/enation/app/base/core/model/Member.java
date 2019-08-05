@@ -57,7 +57,15 @@ public class Member implements java.io.Serializable {
 	private Integer midentity;	//身份
 	private Long last_send_email; //最后发送激活邮件的时间
 	private String find_code;	//找回密码代码
-	
+	private String sessionId;
+
+	public String getSessionId() {
+		return sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
+	}
 
 	@PrimaryKeyField
 	public Integer getMember_id() {

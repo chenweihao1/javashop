@@ -136,6 +136,7 @@
               <element id="module-output" name="shop-core" />
             </element>
             <element id="library" level="project" name="Maven: com.alipay.sdk:alipay-sdk-java:3.7.110.ALL" />
+            <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.47" />
             <element id="archive" name="cms-core-6.3.1.jar">
               <element id="module-output" name="cms-core" />
             </element>
@@ -411,6 +412,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.alibaba:fastjson:1.2.47">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.47/fastjson-1.2.47.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.47/fastjson-1.2.47-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.47/fastjson-1.2.47-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.alipay.sdk:alipay-sdk-java:3.7.110.ALL">

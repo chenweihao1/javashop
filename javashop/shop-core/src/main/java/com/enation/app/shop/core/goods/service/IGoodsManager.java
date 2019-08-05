@@ -33,6 +33,9 @@ public interface IGoodsManager {
 	 * @return Goods
 	 */
 	public Goods getGoods(Integer goods_id);
+
+
+	public List<Goods> obtainGoodsList();
 	
 	/**
 	 * 修改时获取数据

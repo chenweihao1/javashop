@@ -651,6 +651,13 @@ public class GoodsManager  implements IGoodsManager {
 	public void incViewCount(Integer goods_id) {
 		this.daoSupport.execute("update es_goods set view_count = view_count + 1 where goods_id = ?", goods_id);
 	}
+
+
+	public List<Goods> obtainGoodsList(){
+		String sql = "select * from es_goods";
+		List<Goods> goodsList = this.daoSupport.queryForList(sql);
+		return goodsList;
+	}
 	
 	
 	public List listGoods(String catid,String tagid,String goodsnum){

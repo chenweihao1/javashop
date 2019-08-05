@@ -17,7 +17,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.enation.app.base.core.model.Member;
 import com.enation.app.base.core.service.IRegionsManager;
 import com.enation.app.shop.component.receipt.Receipt;
-import com.enation.app.shop.component.receipt.service.IReceiptManager;
 import com.enation.app.shop.core.member.model.MemberAddress;
 import com.enation.app.shop.core.member.service.IMemberAddressManager;
 import com.enation.app.shop.core.member.service.IMemberReceiptManager;
@@ -182,8 +181,7 @@ public class OrderApiController {
 				//return JsonResultUtil.getErrorJson("请输入正确的运单号");
 			} else {
 				if(code == null || code.equals("")){
-					code = "yuantong";
-				}
+					code = "yuantong";				}
 				
 				Map kuaidiResult = this.expressManager.getDefPlatform(code, logino);
 				view.addObject("kuaidiResult", kuaidiResult);
@@ -395,6 +393,7 @@ public class OrderApiController {
 				}
 			} 
 		}
+
 		
 		return	this.orderFlowManager.add(order,itemList,sessionid);
 		

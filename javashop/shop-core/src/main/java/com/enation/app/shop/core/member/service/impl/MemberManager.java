@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 
+import org.springframework.beans.Mergeable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -172,6 +173,16 @@ public class MemberManager  implements IMemberManager {
 			return map;
 		}
 		return null;
+	}
+
+	@Override
+	public Member getMemberById(Integer memberId) {
+		String sql="select * from es_member where member_id=?";
+		Member member = this.daoSupport.queryForObject(sql, Member.class, memberId);
+		if(member==null){
+			return null;
+		}
+		return member;
 	}
 
 	/*
@@ -840,6 +851,13 @@ public class MemberManager  implements IMemberManager {
 		//修改手机验证成功后，删除session中的加密信息
 		ThreadContextHolder.getSession().removeAttribute("account_detail");
 	}
+
+
+	public void changeSession(String sessionId,Integer memberId){
+		String sql = "update es_member set session_id = ? where member_id = ?";
+		this.daoSupport.execute(sql,sessionId,memberId);
+	}
+
 	/**
 	 * 查询所有会员回收站的会员信息
 	 */
@@ -904,7 +922,11 @@ public class MemberManager  implements IMemberManager {
 		this.daoSupport.execute(sql, img,member_id);
 	}
 
-
+	@Override
+	public List<Member> obtainMemberList() {
+		String sql = "select * from es_member where disabled=0";
+		return this.daoSupport.queryForList(sql);
+	}
 
 
 }

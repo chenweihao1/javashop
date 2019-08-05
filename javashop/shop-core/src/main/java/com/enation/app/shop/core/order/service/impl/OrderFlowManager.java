@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import com.enation.app.shop.core.payment.model.po.PaymentBill;
+import com.enation.app.shop.core.payment.service.IPaymentBillManager;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -83,6 +85,9 @@ public class OrderFlowManager implements IOrderFlowManager {
 	@Autowired
 	private ISettingManager settingManager;
 	private Logger logger = Logger.getLogger(getClass());
+
+	@Autowired
+	private IPaymentBillManager paymentBillManager;
 	
 	
 	
@@ -184,6 +189,11 @@ public class OrderFlowManager implements IOrderFlowManager {
 		order.setOrder_id(orderId);
 		
 		this.saveGoodsItem(itemList, order);
+
+		PaymentBill paymentBill = new PaymentBill();
+		paymentBill.setSn(order.getSn());
+		paymentBill.setPay_key(order.getSn());
+		paymentBillManager.add(paymentBill);
 
 
 		/************ 写入订单日志 ************************/

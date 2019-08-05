@@ -9,9 +9,9 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.shop.front.api.order.model.ResultModel;
 import net.sf.json.JSONObject;
 
-import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -25,6 +25,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.enation.app.base.core.model.Member;
@@ -47,7 +49,6 @@ import com.enation.framework.util.DateUtil;
 import com.enation.framework.util.EncryptionUtil1;
 import com.enation.framework.util.FileUtil;
 import com.enation.framework.util.HttpUtil;
-import com.enation.framework.util.JsonMessageUtil;
 import com.enation.framework.util.JsonResultUtil;
 import com.enation.framework.util.RequestUtil;
 import com.enation.framework.util.StringUtil;
@@ -64,7 +65,7 @@ import com.enation.framework.util.TestUtil;
 public class MemberApiController  {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(MemberApiController.class);
-	
+
 	@Autowired
 	private IMemberManager memberManager;
 	@Autowired	
@@ -205,7 +206,7 @@ public class MemberApiController  {
 						String cookieValue = EncryptionUtil1.authcode(
 								"{username:\"" + username + "\",password:\"" + StringUtil.md5(password) + "\"}",
 								"ENCODE", "", 0);
-						HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 60 * 24 * 14);
+						HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 365 * 24 * 60 * 60);
 					}
 					shiroLogin(username, password);
 					return JsonResultUtil.getSuccessJson("登录成功");
@@ -227,7 +228,7 @@ public class MemberApiController  {
 							String cookieValue = EncryptionUtil1.authcode(
 									"{username:\"" + member.getUname() + "\",password:\"" + StringUtil.md5(member.getPassword()) + "\"}",
 									"ENCODE", "", 0);
-							HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 60 * 60 * 24 * 14);
+							HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 365 * 24 * 60 * 60);
 						}
 						//手机登录时没有密码
 						shiroLogin(member.getUname(), validcode);
@@ -1063,5 +1064,40 @@ public class MemberApiController  {
 
 
 	//
+
+
+	/**
+	 * 获取会员列表
+	 * @return
+	 */
+	@ResponseBody
+	@RequestMapping("obtain-member-list")
+	public ResultModel obtainMemberList(){
+		List<Member> memberList = memberManager.obtainMemberList();
+		return ResultModel.success(memberList);
+	}
+
+
+
+	@ResponseBody
+	@RequestMapping("obtain-login-session")
+	public ResultModel obtainLoginSession(Integer memberId){
+		//获取会员信息
+		Member member = memberManager.getMemberById(memberId);
+		if(null==member){
+			return ResultModel.fail("用户信息不存在");
+		}
+		//进行会员登录
+		String cookieValue = EncryptionUtil1.authcode(
+					"{username:\"" + member.getUname() + "\",password:\"" + StringUtil.md5(member.getPassword()) + "\"}",
+					"ENCODE", "", 0);
+			HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 365 * 24 * 60 * 60);
+		shiroLogin(member.getUname(), member.getPassword());
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		String sessionId = request.getRequestedSessionId();
+		memberManager.changeSession(sessionId,member.getMember_id());
+		return ResultModel.success(sessionId);
+	}
+
 	
 }
