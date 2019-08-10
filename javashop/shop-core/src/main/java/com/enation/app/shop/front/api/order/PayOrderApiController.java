@@ -9,6 +9,7 @@ import com.enation.app.shop.core.member.model.MemberAddress;
 import com.enation.app.shop.core.member.service.IMemberAddressManager;
 import com.enation.app.shop.core.order.model.OrderType;
 import com.enation.app.shop.core.order.model.PayCfg;
+import com.enation.app.shop.core.order.model.Transaction;
 import com.enation.app.shop.core.order.model.support.CartItem;
 import com.enation.app.shop.core.order.model.support.OrderPrice;
 import com.enation.app.shop.core.order.plugin.cart.CartPluginBundle;
@@ -16,6 +17,7 @@ import com.enation.app.shop.core.order.service.*;
 import com.enation.app.shop.core.payment.model.enums.ClientType;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
 import com.enation.app.shop.core.payment.service.IPaymentPlugin;
+import com.enation.app.shop.front.api.order.enums.PayStatusEnum;
 import com.enation.app.shop.front.api.order.enums.RespCodeEnum;
 import com.enation.app.shop.front.api.order.exception.ParamsIsNullException;
 import com.enation.app.shop.front.api.order.model.OrderPay;
@@ -24,19 +26,21 @@ import com.enation.app.shop.core.order.model.Order;
 import com.enation.app.shop.front.api.order.publicmethod.CartPublicMethod;
 import com.enation.framework.action.JsonResult;
 import com.enation.framework.context.spring.SpringContextHolder;
+import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.database.IDaoSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 
-@RequestMapping("/api/shop/pay")
 @Controller
+@RequestMapping("/api/shop/pay")
 public class PayOrderApiController {
 
     private static Logger logger = LoggerFactory.getLogger(PayOrderApiController.class);
@@ -61,29 +65,45 @@ public class PayOrderApiController {
     private IOrderManager orderManager;
     @Autowired
     private IDaoSupport daoSupport;
+    @Autowired
+    private ITradingManager tradingManager;
 
 
-    @RequestMapping(name = "/order",method = RequestMethod.POST)
-    public String payOrder(OrderPay orderPay){
+    @ResponseBody
+    @RequestMapping(value = "/order",method = RequestMethod.POST)
+    public ResultModel payOrder(OrderPay orderPay){
         this.checkParams(orderPay);
-
         //查找会员
         Member member = memberManager.getMemberById(orderPay.getMemberId());
         if(member == null ){
-            return ResultModel.save(RespCodeEnum.NO_RESULT,"no member info");
+            return ResultModel.fail("无用户信息");
         }
-
         //添加商品到购物车
         Product product = productManager.getByGoodsId(orderPay.getGoodsId());
         JsonResult result = cartPublicMethod.addCart(product, orderPay.getGoodsNum(),
         orderPay.getShowCartData(), orderPay.getActivityId());
         if(result.getResult()!=1){
-            return ResultModel.save(RespCodeEnum.FAIL,"order create failed");
+            return ResultModel.fail("订单创建失败");
         }
-        //进行订单结算
+        //创建订单
         Order order = this.PayOrder(orderPay,member);
-        return  execute(order);
+        //创建交易记录
+        createOrderLog(orderPay,order.getSn());
+        //进行订单结算
+        String payhtml = execute(order);
+        return ResultModel.success(payhtml);
+    }
 
+
+    private void createOrderLog(OrderPay orderPay,String sn){
+        Transaction order = new Transaction();
+        order.setThirdOrderNum(orderPay.getOrderNum());
+        order.setStatus(PayStatusEnum.UNPAID.getCode());
+        order.setSn(sn);
+        order.setCallBackUrl(orderPay.getCallBackUrl());
+        order.setReturnUrl(orderPay.getReturnUrl());
+        order.setCreateTime(new Date());
+        tradingManager.saveOrder(order);
     }
 
 
@@ -111,7 +131,6 @@ public class PayOrderApiController {
         bill.setOrderType(OrderType.order);
         bill.setClientType(ClientType.WAP);
         String payhtml = paymentPlugin.onPay(bill);
-        System.out.println(payhtml);
         //String payhtml = "";
         // 用户更换了支付方式，更新订单的数据
         if (order.getPayment_id().intValue() != order.getPayment_id().intValue()) {
@@ -161,7 +180,9 @@ public class PayOrderApiController {
         order.setRemark(orderPay.getRemark());
         order.setAddress_id(address.getAddr_id());//保存本订单的会员id
 
-        List<CartItem> itemList  = this.cartManager.selectListGoods(member.getSessionId());
+        HttpServletRequest request  = ThreadContextHolder.getHttpRequest();
+        String sessionid =  request.getSession().getId();
+        List<CartItem> itemList  = this.cartManager.selectListGoods(sessionid);
         if(itemList==null||itemList.size()==0){
             throw new RuntimeException("购物车不能为空");
         }
@@ -171,7 +192,7 @@ public class PayOrderApiController {
         orderPrice  = this.cartPluginBundle.coutPrice(orderPrice);
         order.setOrderprice(orderPrice);
 
-        return	this.orderFlowManager.add(order,itemList,member.getSessionId());
+        return	this.orderFlowManager.add(order,itemList,sessionid);
 
     }
 
@@ -183,9 +204,6 @@ public class PayOrderApiController {
     private void checkParams(OrderPay orderPay){
         if(null==orderPay.getMemberId()){
             throw new ParamsIsNullException(RespCodeEnum.PARAM_IS_ERROR,"memberId is null");
-        }
-        if(null==orderPay.getAddressId()){
-            throw new ParamsIsNullException(RespCodeEnum.PARAM_IS_ERROR,"addressId is null");
         }
         if(null==orderPay.getGoodsId()){
             throw new ParamsIsNullException(RespCodeEnum.PARAM_IS_ERROR,"goodsId is null");

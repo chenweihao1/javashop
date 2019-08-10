@@ -52,6 +52,12 @@ public class OrderPay {
      */
     private Integer activityId;
 
+    private String orderNum;
+
+    private String callBackUrl;
+
+    private String returnUrl;
+
     /**
      * 是否显示商品数量
      */
@@ -79,6 +85,30 @@ public class OrderPay {
 
     public void setShipDay(String shipDay) {
         this.shipDay = shipDay;
+    }
+
+    public String getOrderNum() {
+        return orderNum;
+    }
+
+    public void setOrderNum(String orderNum) {
+        this.orderNum = orderNum;
+    }
+
+    public String getCallBackUrl() {
+        return callBackUrl;
+    }
+
+    public void setCallBackUrl(String callBackUrl) {
+        this.callBackUrl = callBackUrl;
+    }
+
+    public String getReturnUrl() {
+        return returnUrl;
+    }
+
+    public void setReturnUrl(String returnUrl) {
+        this.returnUrl = returnUrl;
     }
 
     public String getShipTime() {

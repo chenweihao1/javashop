@@ -6,15 +6,18 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
-import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.enation.app.shop.component.payment.plugin.alipay.sdk34.config.AlipayConfig;
 import com.enation.app.shop.core.order.model.OrderItem;
 import com.enation.app.shop.core.order.model.PaymentResult;
+import com.enation.app.shop.core.order.model.Transaction;
+import com.enation.app.shop.core.order.service.ITradingManager;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
+import com.enation.app.shop.front.api.order.enums.PayStatusEnum;
+import com.enation.framework.util.HttpClientUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enation.app.shop.component.payment.plugin.alipay.JavashopAlipayUtil;
@@ -28,7 +31,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Service
 public class AlipayPaymentExecutor extends AlipayPluginConfig{
  
-	
+
+
+	@Autowired
+	private ITradingManager tradingManager;
+
+
 	/**
 	 * 支付
 	 * @param bill
@@ -195,6 +203,7 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 
 					// 注意：
 					// 退款日期超过可退款期限后（如三个月可退款），支付宝系统发送该交易状态通知
+					return "success";
 				} else if (trade_status.equals("TRADE_SUCCESS")) {
 					// 判断该笔订单是否在商户网站中已经做过处理
 					// 如果没有做过处理，根据订单号（out_trade_no）在商户网站的订单系统中查到该笔订单的详细，并执行商户的业务程序
@@ -202,21 +211,29 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 
 					// 注意：
 					// 付款完成后，支付宝系统发送该交易状态通知
+					double payprice = StringUtil.toDouble(total_amount, 0d);
+
+					//更新订单状态
+					Transaction order = tradingManager.findBySn(out_trade_no);
+					order.setPayOrderNum(trade_no);
+					order.setStatus(PayStatusEnum.SUCCESS.getCode());
+					tradingManager.edit(order);
+
+					//进行回调
+					Map<String,String> map = new HashMap<>();
+					map.put("orderNum",order.getThirdOrderNum());
+					String result = HttpClientUtil.post(order.getCallBackUrl(),map,"UTF-8");
+
+					PaymentResult paymentResult = new PaymentResult();
+					paymentResult.setOrdersn(out_trade_no);
+					paymentResult.setPay_order_no(trade_no);
+					paymentResult.setOrderType(ordertype);
+					paymentResult.setPay_price(payprice);
+
+					this.paySuccess(paymentResult);
+					return ("success"); // 请不要修改或删除
 				}
-
-				// ——请根据您的业务逻辑来编写程序（以上代码仅作参考）——
-
-				double payprice = StringUtil.toDouble(total_amount, 0d);
-
-				PaymentResult paymentResult = new PaymentResult();
-				paymentResult.setOrdersn(out_trade_no);
-				paymentResult.setPay_order_no(trade_no);
-				paymentResult.setOrderType(ordertype);
-				paymentResult.setPay_price(payprice);
-
-				this.paySuccess(paymentResult);
-				return ("success"); // 请不要修改或删除
-
+				return ("fail");
 				//////////////////////////////////////////////////////////////////////////////////////////
 			} else {// 验证失败
 				return ("fail");

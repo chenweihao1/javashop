@@ -27,11 +27,10 @@ public interface IMemberManager {
 
 
 	/**
-	 * 更改sessionId
-	 * @param sessionId
+	 * 更改cookie
 	 * @param memberId
 	 */
-	public void changeSession(String sessionId,Integer memberId);
+	public void changeCookie(String cookie,Integer memberId);
 	
 	
 	/**

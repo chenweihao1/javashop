@@ -57,14 +57,14 @@ public class Member implements java.io.Serializable {
 	private Integer midentity;	//身份
 	private Long last_send_email; //最后发送激活邮件的时间
 	private String find_code;	//找回密码代码
-	private String sessionId;
+	private String cookie;
 
-	public String getSessionId() {
-		return sessionId;
+	public String getCookie() {
+		return cookie;
 	}
 
-	public void setSessionId(String sessionId) {
-		this.sessionId = sessionId;
+	public void setCookie(String cookie) {
+		this.cookie = cookie;
 	}
 
 	@PrimaryKeyField

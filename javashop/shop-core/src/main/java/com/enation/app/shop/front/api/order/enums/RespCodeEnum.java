@@ -7,30 +7,25 @@ package com.enation.app.shop.front.api.order.enums;
  * @date 2018-08-30
  */
 public enum RespCodeEnum {
-    HANDLING("0100", "处理中"),
-    SUCCESS("0000", "成功"),
-    FAIL("0001", "失败"),
-    SIGN_ERROR("0002", "签名错误"),
-    NO_RESULT("0004", "未查询到相关信息"), // 上游未查询到结果
-    PARAM_IS_ERROR("1001", "参数异常"),
-    UP_SYSTEM_ERROR("9998", "服务繁忙"), // 上游响应超时
-    SYSTEM_ERROR("9999", "系统异常"),
-    TRADE_STATUS_FINISHED("3", "交易成功"),
-    TRADE_STATUS_PAYSUCCESS_SETTLEING("2", "支付成功,结算中"),
-    TRADE_STATUS_PAYING("1", "支付中"),
-    TRADE_STATUS_WAIT_PAY("0", "待支付"),
-    TRADE_STATUS_FAIL("-1", "交易失败");
+    HANDLING(1100, "处理中"),
+    SUCCESS(1000, "成功"),
+    FAIL(1001, "失败"),
+    SIGN_ERROR(1002, "签名错误"),
+    NO_RESULT(1004, "未查询到相关信息"),
+    PARAM_IS_ERROR(1011, "参数异常"),
+    UP_SYSTEM_ERROR(9998, "服务繁忙"),
+    SYSTEM_ERROR(9999, "系统异常");
 
-    private String respCode;
+    private Integer respCode;
 
     private String respDesc;
 
-    RespCodeEnum(String respCode, String respDesc) {
+    RespCodeEnum(Integer respCode, String respDesc) {
         this.respCode = respCode;
         this.respDesc = respDesc;
     }
 
-    public String getRespCode() {
+    public Integer getRespCode() {
         return respCode;
     }
 
@@ -38,7 +33,7 @@ public enum RespCodeEnum {
         return respDesc;
     }
 
-    public void setRespCode(String respCode) {
+    public void setRespCode(Integer respCode) {
         this.respCode = respCode;
     }
 

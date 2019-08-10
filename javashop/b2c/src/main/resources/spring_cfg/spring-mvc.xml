@@ -58,7 +58,6 @@
         <!-- 懒加载为了让异常能走到controller中 -->
         <property name="resolveLazily" value="true" />
     </bean>
- 
    
        
 	<!-- 声明改变request的拦截器 -->  
@@ -87,5 +86,7 @@
     </mvc:annotation-driven>
     <aop:aspectj-autoproxy/> 
     
-    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor"></bean>
+    <bean class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor" />
+
+
 </beans>

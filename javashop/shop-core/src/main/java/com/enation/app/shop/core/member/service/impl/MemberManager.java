@@ -853,9 +853,9 @@ public class MemberManager  implements IMemberManager {
 	}
 
 
-	public void changeSession(String sessionId,Integer memberId){
-		String sql = "update es_member set session_id = ? where member_id = ?";
-		this.daoSupport.execute(sql,sessionId,memberId);
+	public void changeCookie(String cookie,Integer memberId){
+		String sql = "update es_member set cookie = ? where member_id = ?";
+		this.daoSupport.execute(sql,cookie,memberId);
 	}
 
 	/**

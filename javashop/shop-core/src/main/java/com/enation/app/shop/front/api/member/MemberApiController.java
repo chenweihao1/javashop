@@ -25,8 +25,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.enation.app.base.core.model.Member;
@@ -1091,13 +1089,9 @@ public class MemberApiController  {
 		String cookieValue = EncryptionUtil1.authcode(
 					"{username:\"" + member.getUname() + "\",password:\"" + StringUtil.md5(member.getPassword()) + "\"}",
 					"ENCODE", "", 0);
-			HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 365 * 24 * 60 * 60);
+		HttpUtil.addCookie(ThreadContextHolder.getHttpResponse(), "JavaShopUser", cookieValue, 365 * 24 * 60 * 60);
 		shiroLogin(member.getUname(), member.getPassword());
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-		String sessionId = request.getRequestedSessionId();
-		memberManager.changeSession(sessionId,member.getMember_id());
-		return ResultModel.success(sessionId);
+		memberManager.changeCookie(cookieValue,member.getMember_id());
+		return ResultModel.success(cookieValue);
 	}
-
-	
 }
