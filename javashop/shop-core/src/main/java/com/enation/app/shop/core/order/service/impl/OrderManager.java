@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.InputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.alibaba.excel.metadata.Sheet;
+import com.enation.app.shop.core.order.pojo.OrderOutput;
+import com.enation.framework.util.*;
 import net.sf.json.JSONArray;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,12 +53,6 @@ import com.enation.framework.database.IDaoSupport;
 import com.enation.framework.database.Page;
 import com.enation.framework.database.StringMapper;
 import com.enation.framework.log.LogType;
-import com.enation.framework.util.CurrencyUtil;
-import com.enation.framework.util.DateUtil;
-import com.enation.framework.util.ExcelUtil;
-import com.enation.framework.util.FileUtil;
-import com.enation.framework.util.JsonUtil;
-import com.enation.framework.util.StringUtil;
 
 /**
  * 订单管理
@@ -542,6 +536,31 @@ public class OrderManager implements IOrderManager {
 		stateMap.put("allocation_yes", count);
 
 		return stateMap;
+	}
+
+	public void output(String filePath,Date start,Date end){
+		String sql = "select * from es_order where disabled=0";
+		if(start != null){
+			sql +=" and create_time>" + start.getTime();
+		}
+
+		if(end != null){
+			sql +=" and create_time<" + end.getTime();
+		}
+
+		List<OrderOutput> outputs = new ArrayList<>();
+		List<Order> orderList = this.daoSupport.queryForList(sql, Order.class);
+		//List<ExcelUtils.MultipleSheelPropety> outputList = new ArrayList<>();
+		for(Order order : orderList){
+			OrderOutput output = new OrderOutput();
+			output.setOrderNo(order.getSn());
+			output.setShipname(order.getShip_name());
+			output.setMobile(order.getShip_mobile());
+			output.setShipAddress(order.getShipping_area()+order.getShip_addr());
+			outputs.add(output);
+		}
+		System.out.println("导出数据"+outputs.size());
+		ExcelUtils.writeWithTemplate(filePath,outputs);
 	}
 
 	/*

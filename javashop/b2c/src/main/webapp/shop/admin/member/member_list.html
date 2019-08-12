@@ -84,7 +84,11 @@ margin-top:8px;
 
 			<!--搜索区域  -->
 			<div class="table_search">
+
+				<button type="button"
+						class="layui-btn layui-btn-primary layui-btn-small" id="add-member">批量添加</button>
 				<input type="text" id="_search" placeholder="请输入用户名,姓名,手机号" style="height:25px;">
+
 				<button type="button"
 					class="layui-btn layui-btn-primary layui-btn-small"
 					id="_searchMember">
@@ -318,6 +322,21 @@ margin-top:8px;
 		<div id="addBrand"></div>
 	</form>
 </div>
+
+<script>
+	$(function () {
+		$("#add-member").click(function () {
+            layer.open({
+                type: 2,
+                title: '批量添加会员',
+                maxmin: true,
+                shadeClose: true, //点击遮罩关闭层
+                area : ['400px' , '180px'],
+                content: '${ctx}/shop/admin/member/member-add-many.do'
+            });
+        })
+    })
+</script>
 
 <!--js区域  -->
 <script>

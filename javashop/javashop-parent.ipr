@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ArtifactManager">
-    <artifact type="war" name="b2c:war">
+    <artifact type="war" build-on-make="true" name="b2c:war">
       <output-path>$PROJECT_DIR$/b2c/target</output-path>
       <root id="archive" name="b2c-6.3.1.war">
         <element id="artifact" artifact-name="b2c:war exploded" />
@@ -132,6 +132,16 @@
             <element id="library" level="project" name="Maven: com.netpay:client:1.0" />
             <element id="library" level="project" name="Maven: com.tenpay:client:1.0" />
             <element id="library" level="project" name="Maven: com.alipay:sdk-java:1.0" />
+            <element id="library" level="project" name="Maven: com.alibaba:easyexcel:1.1.2-beat1" />
+            <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml:3.17" />
+            <element id="library" level="project" name="Maven: org.apache.poi:poi-ooxml-schemas:3.17" />
+            <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" />
+            <element id="library" level="project" name="Maven: stax:stax-api:1.0.1" />
+            <element id="library" level="project" name="Maven: com.github.virtuald:curvesapi:1.04" />
+            <element id="library" level="project" name="Maven: cglib:cglib:3.1" />
+            <element id="library" level="project" name="Maven: org.ow2.asm:asm:4.2" />
+            <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.2" />
+            <element id="library" level="project" name="Maven: cn.hutool:hutool-all:4.5.1" />
             <element id="archive" name="shop-core-6.3.1.jar">
               <element id="module-output" name="shop-core" />
             </element>
@@ -146,7 +156,6 @@
           <element id="file-copy" path="$PROJECT_DIR$/b2c/target/b2c-6.3.1/META-INF/MANIFEST.MF" />
         </element>
         <element id="javaee-facet-resources" facet="b2c/web/Web" />
-        <element id="artifact" artifact-name="b2c-wap:war exploded" />
       </root>
     </artifact>
     <artifact type="war" name="themes:war">
@@ -188,6 +197,10 @@
         </element>
         <element id="javaee-facet-resources" facet="b2c-wap/web/Web" />
       </root>
+    </artifact>
+    <artifact type="jar" name="javashop">
+      <output-path>$PROJECT_DIR$/out/artifacts/javashop</output-path>
+      <root id="archive" name="javashop.jar" />
     </artifact>
   </component>
   <component name="CompilerConfiguration">
@@ -414,6 +427,39 @@
         <root url="jar://$MAVEN_REPOSITORY$/c3p0/c3p0/0.9.1.2/c3p0-0.9.1.2-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: cglib:cglib:3.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/cglib/cglib/3.1/cglib-3.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/cglib/cglib/3.1/cglib-3.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/cglib/cglib/3.1/cglib-3.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: cn.hutool:hutool-all:4.5.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/cn/hutool/hutool-all/4.5.1/hutool-all-4.5.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/cn/hutool/hutool-all/4.5.1/hutool-all-4.5.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/cn/hutool/hutool-all/4.5.1/hutool-all-4.5.1-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.alibaba:easyexcel:1.1.2-beat1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/easyexcel/1.1.2-beat1/easyexcel-1.1.2-beat1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/easyexcel/1.1.2-beat1/easyexcel-1.1.2-beat1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/easyexcel/1.1.2-beat1/easyexcel-1.1.2-beat1-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: com.alibaba:fastjson:1.2.47">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/com/alibaba/fastjson/1.2.47/fastjson-1.2.47.jar!/" />
@@ -522,6 +568,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/classmate/1.0.0/classmate-1.0.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: com.github.virtuald:curvesapi:1.04">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/github/virtuald/curvesapi/1.04/curvesapi-1.04.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/com/github/virtuald/curvesapi/1.04/curvesapi-1.04-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/com/github/virtuald/curvesapi/1.04/curvesapi-1.04-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: com.google.code.gson:gson:2.5">
@@ -1107,6 +1164,28 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/httpcomponents/httpmime/4.5.1/httpmime-4.5.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.apache.poi:poi-ooxml-schemas:3.17">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml-schemas/3.17/poi-ooxml-schemas-3.17-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.poi:poi-ooxml:3.17">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi-ooxml/3.17/poi-ooxml-3.17-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.apache.poi:poi:3.12">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/poi/poi/3.12/poi-3.12.jar!/" />
@@ -1171,6 +1250,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/org/apache/xbean/xbean-spring/4.5/xbean-spring-4.5-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/apache/xmlbeans/xmlbeans/2.6.0/xmlbeans-2.6.0-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: org.apache.zookeeper:zookeeper:3.4.6">
@@ -1503,6 +1593,28 @@
         <root url="jar://$MAVEN_REPOSITORY$/org/objenesis/objenesis/2.1/objenesis-2.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="Maven: org.ow2.asm:asm:4.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/4.2/asm-4.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/4.2/asm-4.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/ow2/asm/asm/4.2/asm-4.2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: org.projectlombok:lombok:1.18.2">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.2/lombok-1.18.2.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.2/lombok-1.18.2-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.2/lombok-1.18.2-sources.jar!/" />
+      </SOURCES>
+    </library>
     <library name="Maven: org.quartz-scheduler:quartz:2.2.3">
       <CLASSES>
         <root url="jar://$MAVEN_REPOSITORY$/org/quartz-scheduler/quartz/2.2.3/quartz-2.2.3.jar!/" />
@@ -1721,6 +1833,17 @@
       </JAVADOC>
       <SOURCES>
         <root url="jar://$MAVEN_REPOSITORY$/rhino/js/1.7R2/js-1.7R2-sources.jar!/" />
+      </SOURCES>
+    </library>
+    <library name="Maven: stax:stax-api:1.0.1">
+      <CLASSES>
+        <root url="jar://$MAVEN_REPOSITORY$/stax/stax-api/1.0.1/stax-api-1.0.1.jar!/" />
+      </CLASSES>
+      <JAVADOC>
+        <root url="jar://$MAVEN_REPOSITORY$/stax/stax-api/1.0.1/stax-api-1.0.1-javadoc.jar!/" />
+      </JAVADOC>
+      <SOURCES>
+        <root url="jar://$MAVEN_REPOSITORY$/stax/stax-api/1.0.1/stax-api-1.0.1-sources.jar!/" />
       </SOURCES>
     </library>
     <library name="Maven: xml-apis:xml-apis:1.0.b2">

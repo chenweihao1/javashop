@@ -34,7 +34,7 @@ public class TradingManager implements ITradingManager {
         map.put("third_order_num",order.getThirdOrderNum());
         map.put("sn",order.getSn());
         map.put("pay_order_num",order.getPayOrderNum());
-        map.put("callback_url",order.getCallBackUrl());
+        map.put("call_back_url",order.getCallBackUrl());
         map.put("return_url",order.getReturnUrl());
         map.put("status",order.getStatus());
         map.put("create_time",sdf.format(order.getCreateTime()));

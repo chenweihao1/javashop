@@ -67,6 +67,16 @@ public class MemberAddressManager implements IMemberAddressManager {
 		memberPluginBundle.onAddressAdd(address);
 		return addressid;
 	}
+
+	@Override
+	@Transactional(propagation = Propagation.REQUIRED)
+	public int createAddress(MemberAddress address) {
+		this.daoSupport.insert("es_member_address", address);
+		int addressid  = this.daoSupport.getLastId("es_member_address");
+		address.setAddr_id(addressid);
+		memberPluginBundle.onAddressAdd(address);
+		return addressid;
+	}
 	
 	/*
 	 * (non-Javadoc)

@@ -86,6 +86,12 @@ public class MemberController extends GridController {
 		return "/shop/admin/member/lv_add";
 	}
 
+
+	@RequestMapping(value = "/member-add-many")
+	public String addMembers(){
+		return "/shop/admin/member/member_add_many";
+	}
+
 	/**
 	 * 跳转至修改会员等级页面
 	 * @param lvId 会员等级Id

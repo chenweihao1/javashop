@@ -47,7 +47,7 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 		try {
 			super.setConfig();
 
-			AlipayConfig.return_url = this.getReturnUrl(bill);
+			AlipayConfig.return_url = bill.getReturnUrl();
 			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrderType());
 
 			AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
@@ -223,6 +223,9 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 					Map<String,String> map = new HashMap<>();
 					map.put("orderNum",order.getThirdOrderNum());
 					String result = HttpClientUtil.post(order.getCallBackUrl(),map,"UTF-8");
+					if(result==null || "fail".equals(result)){
+						return "fail";
+					}
 
 					PaymentResult paymentResult = new PaymentResult();
 					paymentResult.setOrdersn(out_trade_no);
@@ -234,7 +237,6 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 					return ("success"); // 请不要修改或删除
 				}
 				return ("fail");
-				//////////////////////////////////////////////////////////////////////////////////////////
 			} else {// 验证失败
 				return ("fail");
 			}

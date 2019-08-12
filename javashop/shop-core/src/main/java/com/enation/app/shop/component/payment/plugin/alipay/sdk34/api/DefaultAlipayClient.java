@@ -37,7 +37,7 @@ public class DefaultAlipayClient implements AlipayClient {
     private String privateKey;
     private String prodCode;
     private String format         = AlipayConstants.FORMAT_JSON;
-    private String sign_type      = "RSA";
+    private String sign_type      = "RSA2";
 
     private String encryptType    = AlipayConstants.ENCRYPT_TYPE_AES;
 

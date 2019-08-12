@@ -27,6 +27,8 @@ public interface IMemberAddressManager {
 	 * @return
 	 */
 	public MemberAddress getAddress(int addr_id);
+
+	public int createAddress(MemberAddress address);
 	/**
 	 * 添加接收地址
 	 * @param address 接收地址

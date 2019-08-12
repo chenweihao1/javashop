@@ -71,7 +71,9 @@ public interface IOrderManager {
 	 * 拒绝退货
 	 */
 	void refuseReturn(String orderSn);
-	
+
+
+	void output(String filePath,Date start,Date end);
 	
 	/**
 	 * 修改订单信息

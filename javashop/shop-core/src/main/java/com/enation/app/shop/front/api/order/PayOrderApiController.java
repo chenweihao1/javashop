@@ -90,7 +90,7 @@ public class PayOrderApiController {
         //创建交易记录
         createOrderLog(orderPay,order.getSn());
         //进行订单结算
-        String payhtml = execute(order);
+        String payhtml = execute(order,orderPay.getReturnUrl(),product.getName());
         return ResultModel.success(payhtml);
     }
 
@@ -111,7 +111,7 @@ public class PayOrderApiController {
      * 进行支付页面跳转
      * @return
      */
-    private String execute(Order order){
+    private String execute(Order order,String returnUrl,String goodsName){
 
         if(order==null){
             return "该订单不存在";
@@ -130,6 +130,8 @@ public class PayOrderApiController {
 
         bill.setOrderType(OrderType.order);
         bill.setClientType(ClientType.WAP);
+        bill.setReturnUrl(returnUrl);
+        bill.setGoods_name(goodsName);
         String payhtml = paymentPlugin.onPay(bill);
         //String payhtml = "";
         // 用户更换了支付方式，更新订单的数据

@@ -6,9 +6,15 @@ import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.enation.app.base.core.util.RandomValue;
+import com.enation.app.shop.core.member.model.Area;
+import com.enation.app.shop.core.member.model.MemberAddress;
+import com.enation.app.shop.core.member.service.IAreasManager;
+import com.enation.app.shop.core.member.service.IMemberAddressManager;
 import com.enation.app.shop.front.api.order.model.ResultModel;
 import net.sf.json.JSONObject;
 
@@ -72,6 +78,10 @@ public class MemberApiController  {
 	private IMemberPointManger memberPointManger;
 	@Autowired
 	private ISmsManager smsManager;
+	@Autowired
+	private IAreasManager areasManager;
+	@Autowired
+	private IMemberAddressManager memberAddressManager;
 	
 	
 
@@ -259,7 +269,7 @@ public class MemberApiController  {
 
 	/**
 	 * 注销会员登录
-	 * @param 无
+	 * @param
 	 * @return json字串
 	 * result  为1表示注销成功，0表示失败 ，int型
 	 * message 为提示信息 ，String型
@@ -651,6 +661,53 @@ public class MemberApiController  {
 			return JsonResultUtil.getErrorJson("用户名[" + member.getUname() + "]已存在!");				
 		}
 	}
+
+
+	@ResponseBody
+	@RequestMapping("/registers")
+	public ResultModel registers(int number){
+		for(int i =0 ; i<=number-1; i++){
+			Member member = new Member();
+			member.setMobile(RandomValue.getTel());
+			member.setUname(RandomValue.getChineseName());
+			member.setName(member.getUname());       //会员的uname及name分不清楚，暂时这2个字段在注册的时候使用同一个值
+			member.setPassword("123456");
+			member.setEmail(RandomValue.getEmail(5,15));
+			member.setRegisterip("0.0.0.0.1");
+			int result = memberManager.register(member);
+			if(result!=1){
+				continue;
+			}
+			Member member1 = memberManager.getMemberByMobile(member.getMobile());
+			MemberAddress address = new MemberAddress();
+			address.setMember_id(member1.getMember_id());
+			address.setName(member1.getName());
+			address.setMobile(member1.getMobile());
+			address.setDef_addr(1);
+			address.setShipAddressName("家里");
+			this.RandomArea(address);
+			memberAddressManager.createAddress(address);
+		}
+		return ResultModel.success();
+	}
+
+	public void RandomArea(MemberAddress address){
+		List<Area> areaList = areasManager.getAreaByLevel();
+		Random random = new Random();
+		int index = random.nextInt(areaList.size());
+		Area area = areaList.get(index);
+		Area city = areasManager.getAreaByPrantId(area.getParentCode());
+		Area prov = areasManager.getAreaByPrantId(city.getParentCode());
+		String addf = RandomValue.getAddress();
+		address.setProvince_id(prov.getAreaCode());
+		address.setCity_id(city.getAreaCode());
+		address.setRegion_id(city.getAreaCode());
+		address.setRegion(area.getAreaName());
+		address.setCity(city.getAreaName());
+		address.setProvince(prov.getAreaName());
+		address.setAddr(addf);
+	}
+
 
 	/**
 	 * 会员注册

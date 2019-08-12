@@ -39,12 +39,12 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>com.enation.app.javashop</groupId>
-			<artifactId>b2c-wap</artifactId>
-			<version>6.3.1</version>
-			<type>war</type>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>com.enation.app.javashop</groupId>-->
+			<!--<artifactId>b2c-wap</artifactId>-->
+			<!--<version>6.3.1</version>-->
+			<!--<type>war</type>-->
+		<!--</dependency>-->
 
 	</dependencies>
 	<build>
@@ -70,6 +70,7 @@
 					<include>**/*.html</include>
 					<include>**/*.properties</include>
 					<include>**/*.dic</include>
+					<include>**/*.lock</include>
 
 				</includes>
 			</resource>

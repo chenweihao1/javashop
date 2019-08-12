@@ -7,7 +7,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import com.enation.app.shop.core.order.model.OrderItem;
+import com.enation.app.shop.core.order.model.OrderType;
 import com.enation.app.shop.core.order.model.PaymentResult;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enation.app.shop.component.payment.plugin.alipay.JavashopAlipayUtil;
@@ -31,7 +33,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 @Service
 public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
- 
+
 	
 	/**
 	 * 支付
@@ -44,7 +46,7 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 			super.setConfig();
 			
 			AlipayConfig.notify_url = this.getCallBackUrl(bill.getOrderType());
-			AlipayConfig.return_url = this.getReturnUrl(bill);
+			AlipayConfig.return_url = bill.getReturnUrl();
 			
 			AlipayClient alipayClient = new DefaultAlipayClient(AlipayConfig.gatewayUrl, AlipayConfig.app_id, AlipayConfig.merchant_private_key, "json", AlipayConfig.charset, AlipayConfig.alipay_public_key, AlipayConfig.sign_type);
 			//设置请求参数
@@ -62,21 +64,7 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 			// 订单名称
 			String subject = sitename + "订单";
 			
-			String body = "";
-			List<OrderItem> itemList = null;
-			// 订单交易，查询订单的产品
-//			if (bill.getOrderType().name().equals(OrderType.order.name())) {
-////				itemList = orderItemQueryClient.queryByOrderSn(out_trade_no);
-//			}
-//
-//			// 交易，查询交易的产品
-//			if (bill.getOrderType().name().equals(OrderType.trade.name())) {
-////				itemList = orderItemQueryClient.queryByTradeSn(out_trade_no);
-//			}
-
-//			for (OrderItem orderItem : itemList) {
-//				body += orderItem.getName() + "x" + orderItem.getNum() + "<br/>";
-//			}
+			String body =  bill.getGoods_name()+ "x1";
 
 			
 			Map<String, String> sParaTemp = new HashMap<String, String>();

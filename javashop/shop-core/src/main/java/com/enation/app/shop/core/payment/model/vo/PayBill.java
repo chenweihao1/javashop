@@ -29,6 +29,8 @@ public class PayBill implements Serializable {
 	 */
 	private Integer order_id;
 
+	private String goods_name;
+
 	/**
 	 * 订单编号
 	 */
@@ -80,6 +82,23 @@ public class PayBill implements Serializable {
 	 */
 	private ClientType clientType;
 
+	private String returnUrl;
+
+	public String getReturnUrl() {
+		return returnUrl;
+	}
+
+	public void setReturnUrl(String returnUrl) {
+		this.returnUrl = returnUrl;
+	}
+
+	public String getGoods_name() {
+		return goods_name;
+	}
+
+	public void setGoods_name(String goods_name) {
+		this.goods_name = goods_name;
+	}
 
 	public Integer getOrder_id() {
 		return order_id;
