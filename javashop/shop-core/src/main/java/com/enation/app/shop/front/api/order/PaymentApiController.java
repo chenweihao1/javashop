@@ -1,6 +1,8 @@
 package com.enation.app.shop.front.api.order;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +14,9 @@ import com.enation.app.shop.core.payment.model.vo.PayBill;
 import com.enation.app.shop.core.payment.service.IPaymentPlugin;
 import com.enation.framework.context.spring.SpringContextHolder;
 import com.enation.framework.database.IDaoSupport;
+import com.enation.framework.util.HttpClientUtil;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -108,7 +113,7 @@ public class PaymentApiController extends GridController {
 		bill.setOrderType(OrderType.order);
 		bill.setClientType(ClientType.WAP);
 		String payhtml = paymentPlugin.onPay(bill);
-		System.out.println(payhtml);
+
 		//String payhtml = "";
 		// 用户更换了支付方式，更新订单的数据
 		if (order.getPayment_id().intValue() != paymentId.intValue()) {

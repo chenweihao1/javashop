@@ -108,6 +108,7 @@ public abstract class RequestUtil {
 		
 		String domain ="http://"+ request.getServerName()+port;
 		domain+=contextPath;
+		System.out.println(domain);
 		return domain;
 	}
 	
@@ -162,7 +163,5 @@ public abstract class RequestUtil {
 		method=method.toUpperCase();
 		return method;
 	}
-	
-	
 	
 }

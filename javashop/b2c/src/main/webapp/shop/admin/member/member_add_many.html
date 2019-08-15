@@ -1,32 +1,26 @@
 <#include '/admin/sonheader.html' >
 
 <div class="main" style="background-color: white;text-align: center;">
-	<div><span>批量添加 <input type="text" style="height: 20px;width: 90px;" id = "number" /> 条会员记录</span></div>
-	<div style="padding-top: 50px;"><button class="layui-btn layui-btn-primary" id = "yes" >确定</button></div>
+	<div style="padding-top: 20px;"><span>批量添加 <input type="text" value="" style="height: 20px;width: 30px;" id = "number" /> 条会员记录</span></div>
+	<div style="padding-top: 30px;height: 10px;"><button class="layui-btn layui-btn-primary" id = "yes" >确定</button></div>
 
 </div>
 <script>
 	$(document).ready(function () {
 		$("#yes").click(function () {
 			$.ajax({
-				url: "http://localhost:8080/api/shop/member/registers",
+				url: "${ctx}/api/shop/member/registers.do",
 				type: "POST",
-				data: {number:$(" #number ").val()},
-				success(){
-                    layer.open({
-                        type: 1,
-                        area: ['600px', '360px'],
-                        shadeClose: true, //点击遮罩关闭
-                        content: '\<\div style="padding:20px;">批量添加成功\<\/div>'
-                    });
+				data: {"number": $("#number").val()},
+				success:function(req){
+				    if(req.code==1000){
+                        layer.msg("添加成功");
+					}else{
+                        layer.msg("添加失败");
+					}
 				},
-				error(){
-                    layer.open({
-                        type: 1,
-                        area: ['600px', '360px'],
-                        shadeClose: true, //点击遮罩关闭
-                        content: '\<\div style="padding:20px;">批量添加失败\<\/div>'
-                    });
+				error:function(){
+                    layer.msg("出现异常");
 				}
 			})
         })

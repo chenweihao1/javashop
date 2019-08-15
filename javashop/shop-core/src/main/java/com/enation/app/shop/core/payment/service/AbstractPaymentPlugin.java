@@ -148,9 +148,9 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 //			portstr = ":"+port;
 //		}
 //		String contextPath = request.getContextPath();
-//
-		return "http://"+"pay.szyhb.cn/b2c/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
-	}	
+		//return "http://200b6746.nat123.cc:32611/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
+		return "http://47.92.143.184:8080/b2c/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
+	}
 	
 	/**
 	 * 返回价格字符串

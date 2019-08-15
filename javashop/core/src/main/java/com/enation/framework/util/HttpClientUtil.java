@@ -16,6 +16,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
@@ -35,6 +36,8 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * HttpClient工具类
@@ -45,6 +48,8 @@ import org.apache.http.util.EntityUtils;
 @SuppressWarnings("deprecation")
 
 public abstract class HttpClientUtil {
+
+	private static Logger logger = LoggerFactory.getLogger(HttpClientUtil.class);
 
 	/**
 	 * HTTP GET请求
@@ -79,6 +84,7 @@ public abstract class HttpClientUtil {
 			 */
 			entity = httpresponse.getEntity();
 			body = EntityUtils.toString(entity, encoding);
+			logger.info("响应结果:"+body);
 		} catch (Exception e) {
 		}
 		return body;
@@ -127,11 +133,22 @@ public abstract class HttpClientUtil {
 			 * 发送请求
 			 */
 			HttpResponse httpresponse = httpClient.execute(httppost);
+			int code = httpresponse.getStatusLine().getStatusCode();
+			String newuri="";
+			if (code == 302) {
+				Header header = httpresponse.getFirstHeader("location"); // 跳转的目标地址是在 HTTP-HEAD 中的
+				newuri = header.getValue(); // 这就是跳转后的地址，再向这个地址发出新申请，以便得到跳转后的信息是啥。
+				return newuri;
+			}
 			/*
 			 * 获取返回数据
 			 */
 			entity = httpresponse.getEntity();
 			body = EntityUtils.toString(entity, encoding);
+
+			logger.info("响应结果:"+body);
+			System.out.println("响应结果:"+body);
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

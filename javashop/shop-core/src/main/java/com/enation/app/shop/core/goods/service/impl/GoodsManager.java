@@ -654,7 +654,7 @@ public class GoodsManager  implements IGoodsManager {
 
 
 	public List<Goods> obtainGoodsList(){
-		String sql = "select * from es_goods";
+		String sql = "select * from es_goods where market_enable = 1";
 		List<Goods> goodsList = this.daoSupport.queryForList(sql);
 		return goodsList;
 	}

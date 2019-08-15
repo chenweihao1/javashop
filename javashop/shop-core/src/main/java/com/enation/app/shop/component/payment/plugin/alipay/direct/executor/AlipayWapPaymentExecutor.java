@@ -69,7 +69,7 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 			
 			Map<String, String> sParaTemp = new HashMap<String, String>();
 			sParaTemp.put("out_trade_no", out_trade_no);
-			sParaTemp.put("product_code", "FAST_INSTANT_TRADE_PAY");
+			sParaTemp.put("product_code", "QUICK_WAP_WAY");
 			sParaTemp.put("total_amount", payMoney+"");
 			sParaTemp.put("subject", subject);
 			sParaTemp.put("body", body);

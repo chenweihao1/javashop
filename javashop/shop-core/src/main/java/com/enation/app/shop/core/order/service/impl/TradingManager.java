@@ -47,4 +47,12 @@ public class TradingManager implements ITradingManager {
         String sql = "update es_tran set status = ?,pay_order_num = ? where sn = ?";
         this.daoSupport.execute(sql,order.getStatus(),order.getPayOrderNum(),order.getSn());
     }
+
+    @Override
+    @Transactional(propagation = Propagation.REQUIRED)
+    public Transaction queryByOrderNo(String orderNo){
+        String sql = "select * from es_tran where thirdOrderNum = ?";
+        Transaction tran = this.daoSupport.queryForObject(sql,Transaction.class,orderNo);
+        return tran;
+    }
 }

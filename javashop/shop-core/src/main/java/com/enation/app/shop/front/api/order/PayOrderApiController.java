@@ -28,6 +28,9 @@ import com.enation.framework.action.JsonResult;
 import com.enation.framework.context.spring.SpringContextHolder;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.database.IDaoSupport;
+import com.enation.framework.util.HttpClientUtil;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +39,9 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
@@ -68,6 +73,16 @@ public class PayOrderApiController {
     @Autowired
     private ITradingManager tradingManager;
 
+    @ResponseBody
+    @RequestMapping(value = "/query",method =   RequestMethod.POST)
+    public ResultModel queryByOrderNo(String orderNo){
+        Transaction tran = tradingManager.queryByOrderNo(orderNo);
+        if(tran==null){
+            return ResultModel.fail("无该订单信息");
+        }
+        return ResultModel.success(tran);
+    }
+
 
     @ResponseBody
     @RequestMapping(value = "/order",method = RequestMethod.POST)
@@ -90,8 +105,18 @@ public class PayOrderApiController {
         //创建交易记录
         createOrderLog(orderPay,order.getSn());
         //进行订单结算
+
         String payhtml = execute(order,orderPay.getReturnUrl(),product.getName());
-        return ResultModel.success(payhtml);
+        Document doc = Jsoup.parse(payhtml);
+        String action = doc.select("form").attr("action");
+        logger.info("支付宝form表单解析参数action:"+action);
+        String biz_content = doc.select("input").first().attr("value");
+        logger.info("支付宝form表单解析参数biz_content:"+biz_content);
+        Map<String, String> params = new HashMap<>();
+        params.put("biz_content", biz_content);
+        String payUrl = HttpClientUtil.post(action, params, "UTF-8");
+        logger.info("支付宝from表单请求返回链接:{}"+payUrl);
+        return ResultModel.success(payUrl);
     }
 
 

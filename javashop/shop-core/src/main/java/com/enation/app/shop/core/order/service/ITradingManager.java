@@ -11,5 +11,6 @@ public interface ITradingManager {
 
     void edit(Transaction order);
 
+    Transaction queryByOrderNo(String orderNo);
 
 }

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.alibaba.fastjson.JSONObject;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradePagePayRequest;
@@ -15,8 +16,11 @@ import com.enation.app.shop.core.order.model.PaymentResult;
 import com.enation.app.shop.core.order.model.Transaction;
 import com.enation.app.shop.core.order.service.ITradingManager;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
+import com.enation.app.shop.front.api.order.OrderPayController;
 import com.enation.app.shop.front.api.order.enums.PayStatusEnum;
 import com.enation.framework.util.HttpClientUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,6 +40,7 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 	@Autowired
 	private ITradingManager tradingManager;
 
+	private static Logger log = LoggerFactory.getLogger(AlipayPaymentExecutor.class);
 
 	/**
 	 * 支付
@@ -223,9 +228,10 @@ public class AlipayPaymentExecutor extends AlipayPluginConfig{
 					Map<String,String> map = new HashMap<>();
 					map.put("orderNum",order.getThirdOrderNum());
 					String result = HttpClientUtil.post(order.getCallBackUrl(),map,"UTF-8");
-					if(result==null || "fail".equals(result)){
+					log.info("回调结果:{}",result);
+					/*if(result==null || !"success".equals(result)){
 						return "fail";
-					}
+					}*/
 
 					PaymentResult paymentResult = new PaymentResult();
 					paymentResult.setOrdersn(out_trade_no);

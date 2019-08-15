@@ -353,7 +353,6 @@
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
-
             <dependency>
                 <groupId>c3p0</groupId>
                 <artifactId>c3p0</artifactId>
@@ -589,5 +588,18 @@
 
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <!--<dependency>-->
+            <!--<groupId>org.slf4j</groupId>-->
+            <!--<artifactId>log4j-over-slf4j</artifactId>-->
+            <!--<version>1.7.12</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>ch.qos.logback</groupId>-->
+            <!--<artifactId>logback-core</artifactId>-->
+            <!--<version>1.2.3</version>-->
+        <!--</dependency>-->
+    </dependencies>
 
 </project>

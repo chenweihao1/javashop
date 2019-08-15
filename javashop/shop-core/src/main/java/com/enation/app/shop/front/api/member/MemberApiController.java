@@ -28,6 +28,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -62,6 +63,7 @@ import com.enation.framework.util.TestUtil;
  * @author Sylow
  * @version 2.1,2016-07-20
  */
+@CrossOrigin
 @Controller
 @RequestMapping("/api/shop/member")
 @Scope("prototype")
