@@ -13,8 +13,9 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.util.SystemOutLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -173,7 +174,7 @@ public class BonusManager  implements IBonusManager {
 			}
 			 
 		} catch (Throwable e) {
-			Logger logger = Logger.getLogger(getClass());
+			Logger logger = LoggerFactory.getLogger(getClass());
 			logger.error("生成个优惠券第["+i+"]出错，已生成["+successCount+"]个",e);
 		}
 		

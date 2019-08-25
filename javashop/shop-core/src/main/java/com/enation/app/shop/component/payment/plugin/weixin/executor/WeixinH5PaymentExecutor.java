@@ -75,7 +75,8 @@ public class WeixinH5PaymentExecutor extends WeixinPuginConfig {
 
 		try {
 			String xml = WeixinUtil.mapToXml(params);
-			Document resultDoc = WeixinUtil.post("https://api.mch.weixin.qq.com/pay/unifiedorder", xml);
+			//https://api.mch.weixin.qq.com/pay/unifiedorder
+			Document resultDoc = WeixinUtil.post("https://api.mch.weixin.qq.com/sandboxnew/pay/micropay", xml);
 			Element rootEl = resultDoc.getRootElement();
 			
 			String result_code = rootEl.element("result_code").getText();

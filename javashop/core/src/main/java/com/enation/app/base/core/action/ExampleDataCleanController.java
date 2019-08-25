@@ -1,7 +1,8 @@
 
 package com.enation.app.base.core.action;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +55,7 @@ public class ExampleDataCleanController {
 			this.exampleDataCleanManager.clean(moudels);
 			return JsonResultUtil.getSuccessJson("清除成功");
 		} catch (Exception e) {
-			Logger logger = Logger.getLogger(getClass());
+			Logger logger = LoggerFactory.getLogger(getClass());
 			logger.error("清除失败", e);
 			return JsonResultUtil.getSuccessJson("清除失败");
 		}

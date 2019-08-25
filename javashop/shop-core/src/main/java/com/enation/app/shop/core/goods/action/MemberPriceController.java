@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -65,7 +66,7 @@ public class MemberPriceController  {
 			map.put("priceData", priceList);
 			return map;
 		}catch(RuntimeException e){
-			Logger logger = Logger.getLogger(getClass());
+			Logger logger = LoggerFactory.getLogger(getClass());
 			logger.error(e.getMessage(), e.fillInStackTrace());
 			return JsonResultUtil.getErrorJson(e.getMessage());
 		}

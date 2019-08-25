@@ -8,7 +8,8 @@ import java.util.Random;
 
 import com.enation.app.shop.core.payment.model.po.PaymentBill;
 import com.enation.app.shop.core.payment.service.IPaymentBillManager;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -84,7 +85,7 @@ public class OrderFlowManager implements IOrderFlowManager {
 	private IDaoSupport daoSupport;
 	@Autowired
 	private ISettingManager settingManager;
-	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
 	private IPaymentBillManager paymentBillManager;

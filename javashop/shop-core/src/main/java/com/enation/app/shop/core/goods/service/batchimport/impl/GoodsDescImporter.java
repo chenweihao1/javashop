@@ -2,7 +2,8 @@ package com.enation.app.shop.core.goods.service.batchimport.impl;
 
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
 
 import com.enation.app.shop.core.goods.model.ImportDataSource;
@@ -16,7 +17,7 @@ import com.enation.framework.database.IDaoSupport;
  *
  */
 public class GoodsDescImporter implements IGoodsDataImporter {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	private IDaoSupport daoSupport;
 	private IDaoSupport baseDaoSupport;
 	private GoodsDescReader goodsDescReader;

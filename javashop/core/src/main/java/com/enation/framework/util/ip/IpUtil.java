@@ -3,8 +3,6 @@ package com.enation.framework.util.ip;
 import java.io.UnsupportedEncodingException;
 import java.util.StringTokenizer;
 
-import org.apache.commons.logging.LogFactory;
-import org.apache.log4j.Level;
 
 public class IpUtil {
 	      

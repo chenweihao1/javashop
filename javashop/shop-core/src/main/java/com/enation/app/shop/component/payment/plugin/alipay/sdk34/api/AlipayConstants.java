@@ -4,6 +4,9 @@
  */
 package com.enation.app.shop.component.payment.plugin.alipay.sdk34.api;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * 
  * @author runzhi
@@ -55,6 +58,11 @@ public class AlipayConstants {
 
     public static final String ENCRYPT_TYPE                   = "encrypt_type";
 
+    public static Map<String,String> aliPayMap = new ConcurrentHashMap<>();
+    static {
+        aliPayMap.put("test", "<p>不用測試了沙雕</p>");
+    }
+
     //-----===-------///
 
     public static final String BIZ_CONTENT_KEY                = "biz_content";
@@ -91,4 +99,6 @@ public class AlipayConstants {
     /** 加密后XML返回报文的节点名字 */
     public static final String RESPONSE_XML_ENCRYPT_NODE_NAME = "response_encrypted";
 
+    //public static final String SERVER_URL = "http://www.dianyub.cn";
+    public static final String SERVER_URL = "http://39.100.237.220:8080";
 }

@@ -3,7 +3,8 @@ package com.enation.app.shop.core.goods.service.batchimport.impl;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Element;
 
 import com.enation.app.shop.core.goods.model.Attribute;
@@ -17,7 +18,7 @@ import com.enation.framework.util.StringUtil;
  *
  */
 public class GoodsPropImporter implements IGoodsDataImporter {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	public void imported(Object value, Element node,
 			ImportDataSource importConfig, Map goods) {
 

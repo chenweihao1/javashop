@@ -6,20 +6,19 @@ import java.nio.ByteOrder;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Level;
 
-import com.enation.eop.sdk.context.EopSetting;
-import com.enation.framework.util.DateUtil;
 import com.enation.framework.util.StringUtil;
-  
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class IPSeeker {
 	
-	
+	private Logger logger = LoggerFactory.getLogger(IPSeeker.class);
+
     //纯真IP数据库名  
       
       
@@ -55,7 +54,7 @@ public class IPSeeker {
         	String IP_FILE =app_path+"/WEB-INF/QQWry.Dat";
             ipFile = new RandomAccessFile(IP_FILE, "r");  
         } catch (FileNotFoundException e) {  
-        	 LogFactory.log("IP地址信息文件没有找到，IP显示功能将无法使用",Level.ERROR,e);  
+        	 logger.error("IP地址信息文件没有找到，IP显示功能将无法使用:{}",e);
         }   
         // 如果打开文件成功，读取文件头信息  
         if(ipFile != null) {  
@@ -66,8 +65,8 @@ public class IPSeeker {
                     ipFile.close();  
                     ipFile = null;  
                 }             
-            } catch (IOException e) {  
-                LogFactory.log("IP地址信息文件格式有错误，IP显示功能将无法使用",Level.ERROR,e);  
+            } catch (IOException e) {
+                logger.error("IP地址信息文件格式有错误，IP显示功能将无法使用:{}",e);
                 ipFile = null;  
             }             
         }  
@@ -150,8 +149,8 @@ public class IPSeeker {
                     }  
                 }  
             }             
-        } catch (IOException e) {  
-            LogFactory.log("",Level.ERROR,e);  
+        } catch (IOException e) {
+            logger.error("系统异常:"+e);
         }  
         return ret;  
     }  
@@ -327,8 +326,8 @@ public class IPSeeker {
             temp = ip[1];  
             ip[1] = ip[2];  
             ip[2] = temp;  
-        } catch (IOException e) {  
-            LogFactory.log("",Level.ERROR,e);  
+        } catch (IOException e) {
+            logger.error("系统异常:"+e);
         }  
     }  
       
@@ -552,8 +551,8 @@ public class IPSeeker {
             for(i = 0, buf[i] = ipFile.readByte(); buf[i] != 0; buf[++i] = ipFile.readByte());  
             if(i != 0)   
                 return IpUtil.getString(buf, 0, i, "GBK");  
-        } catch (IOException e) {             
-            LogFactory.log("",Level.ERROR,e);  
+        } catch (IOException e) {
+            logger.error("系统异常:"+e);
         }  
         return "";  
     }  
@@ -570,8 +569,8 @@ public class IPSeeker {
             for(i = 0, buf[i] = mbb.get(); buf[i] != 0; buf[++i] = mbb.get());  
             if(i != 0)   
                 return IpUtil.getString(buf, 0, i, "GBK");         
-        } catch (IllegalArgumentException e) {  
-            LogFactory.log("",Level.ERROR,e);  
+        } catch (IllegalArgumentException e) {
+            logger.error("系统异常:"+e);
         }  
         return "";     
     }  

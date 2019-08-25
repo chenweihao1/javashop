@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.enation.app.base.core.model.Regions;
@@ -16,7 +17,7 @@ import com.enation.framework.database.IDaoSupport;
 public class RegionsCacheProxy  implements IRegionsManager {
 	
 	//FIXME 检查发现此Cache逻辑混乱，应未实现Cache功能
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private IDaoSupport daoSupport;

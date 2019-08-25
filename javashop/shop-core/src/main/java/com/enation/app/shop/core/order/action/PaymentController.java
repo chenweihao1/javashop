@@ -5,7 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -59,15 +60,10 @@ public class PaymentController {
 	@Autowired
 	private OrderPluginBundle orderPluginBundle;
 	
-	protected Logger logger = Logger.getLogger(getClass());
+	protected Logger logger = LoggerFactory.getLogger(getClass());
 	/**
 	 * 显示确认收款对话框
 	 * @param orderId 订单Id,Integer
-	 * @param ord 订单,Order
-	 * @param payment_id 支付方式Id,Integer
-	 * @param paymentList 收款详细列表,List
-	 * @param metaList 订单扩展列表,List
-	 * @param showMoney 应付金额,Double
 	 * @return
 	 */
 	@RequestMapping("/show-pay-dialog")
@@ -114,14 +110,6 @@ public class PaymentController {
 	
 	/**
 	 * 货到付款付款记录
-	 * @param orderId 
-	 * @param pay_method 
-	 * @param paydate 
-	 * @param sn
-	 * @param paymoney
-	 * @param remark
-	 * @param member
-	 * @param paymentLog
 	 * @return
 	 */
 	@ResponseBody
@@ -200,7 +188,7 @@ public class PaymentController {
 			}
 		}catch(RuntimeException e){
 			if(logger.isDebugEnabled()){
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("确认付款失败:"+e.getMessage());
 		}

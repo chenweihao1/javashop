@@ -5,8 +5,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
 import org.apache.tools.ant.util.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -38,6 +39,8 @@ public class GoodsGalleryProcessor implements IJmsProcessor {
 
 	@Autowired
 	private IDaoSupport daoSupport;
+
+	private static Logger logger = LoggerFactory.getLogger(GoodsGalleryProcessor.class);
 
 	/**
 	 * 获取是否开启集群fastDFS，来寻找管理类 
@@ -83,8 +86,7 @@ public class GoodsGalleryProcessor implements IJmsProcessor {
 		try {
 			this.goodsGalleryManager.createThumb(filepath, targetpath, pic_width, pic_height);
 		} catch (Exception e) {
-			Logger logger = Logger.getLogger(getClass());
-			logger.error(e.getMessage(), e);
+			logger.error("系统异常:{}",e);
 		}
 	}
 

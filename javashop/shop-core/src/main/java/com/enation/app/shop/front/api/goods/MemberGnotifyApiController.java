@@ -1,6 +1,7 @@
 package com.enation.app.shop.front.api.goods;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +23,8 @@ public class MemberGnotifyApiController {
 	
 	@Autowired
 	private IGnotifyManager gnotifyManager;
+
+	private static Logger logger = LoggerFactory.getLogger(MemberGnotifyApiController.class);
 	
 	@ResponseBody
 	@RequestMapping(value="/gnotify-del")
@@ -30,10 +33,7 @@ public class MemberGnotifyApiController {
 			this.gnotifyManager.deleteGnotify(gnotify_id);
 			return JsonResultUtil.getSuccessJson("删除成功");
 		} catch (Exception e) {
-			Logger logger = Logger.getLogger(getClass());
-			if (logger.isDebugEnabled()) {
-				logger.error(e.getStackTrace());
-			}
+			logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson("删除失败[" + e.getMessage() + "]");
 
 		}

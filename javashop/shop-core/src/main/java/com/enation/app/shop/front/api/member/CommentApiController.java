@@ -5,7 +5,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -46,13 +47,14 @@ public class CommentApiController {
 	@Autowired
 	private IMemberOrderItemManager memberOrderItemManager;
 
+	private static Logger logger = LoggerFactory.getLogger(CommentApiController.class);
+
 	/**
 	 * 发表评论
 	 * 
 	 * @param goods_id:商品id,int型，必填项
 	 * @param commenttype:评论类型，int型，必填项，可选值：1或2，1为评论，2为咨询。
 	 * @param content:评论内容，String型，必填项。
-	 * @param file:评论的图片，File类型，可选项。
 	 * @param grade
 	 *            :评分
 	 * @return 返回json串 result 为1表示添加成功，0表示失败 ，int型 message 为提示信息
@@ -135,7 +137,6 @@ public class CommentApiController {
 			return JsonResultUtil.getSuccessJson("发表成功");
 
 		} catch (RuntimeException e) {
-			Logger logger = Logger.getLogger(getClass());
 			logger.error("发表评论出错", e);
 
 			return JsonResultUtil.getErrorJson("发表评论出错" + e.getMessage());
@@ -168,7 +169,6 @@ public class CommentApiController {
 			return JsonResultUtil.getSuccessJson("更新成功");
 
 		} catch (RuntimeException e) {
-			Logger logger = Logger.getLogger(getClass());
 			logger.error("修改评论出错", e);
 			return JsonResultUtil.getErrorJson("更新失败");
 		}
@@ -253,7 +253,6 @@ public class CommentApiController {
 			}
 			return JsonResultUtil.getSuccessJson("发表成功");
 		} catch (RuntimeException e) {
-			Logger logger = Logger.getLogger(getClass());
 			logger.error("发表评论出错", e);
 
 			return JsonResultUtil.getErrorJson("发表评论出错" + e.getMessage());

@@ -7,8 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-import org.apache.log4j.Logger;
 import org.apache.tools.ant.taskdefs.Input;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -154,7 +155,7 @@ public class UploadController {
 				}
 			}
 		} catch(RuntimeException e) {
-			Logger logger = Logger.getLogger(getClass());
+			Logger logger = LoggerFactory.getLogger(getClass());
 			logger.error("上传图片出错:"+e);
 		}
 		return JsonResultUtil.getErrorJson("请选择文件");

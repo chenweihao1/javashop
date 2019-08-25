@@ -50,7 +50,6 @@ public class UserAdminController extends GridController {
 	
 	/**
 	 * 获取站点管理员JSON列表
-	 * @param userList 管理员列表
 	 * @return 站点管理员JSON列表
 	 */
 	@ResponseBody
@@ -62,7 +61,6 @@ public class UserAdminController extends GridController {
 
 	/***
 	 * 跳转添加管理员
-	 * @param roleList 角色列表
 	 * @return
 	 */
 	@RequestMapping(value="/add")
@@ -104,11 +102,8 @@ public class UserAdminController extends GridController {
 	/**
 	 * 跳转至管理员修改页面
 	 * @param id 管理员Id
-	 * @param roleList 角色列表
-	 * @param userRoles 管理员角色
 	 * @param adminUser 管理员
-	 * @param htmlList 修改html
-	 * @return 
+	 * @return
 	 */
 	@RequestMapping(value="/edit")
 	public ModelAndView edit(Integer id,AdminUser adminUser) throws Exception {
@@ -158,7 +153,7 @@ public class UserAdminController extends GridController {
 
 		} catch (RuntimeException e) {
 			e.printStackTrace();
-			logger.error(e,e.fillInStackTrace());
+			logger.error("系统异常",e);
 			return JsonResultUtil.getErrorJson("修改管理员失败");
 		}
 	}

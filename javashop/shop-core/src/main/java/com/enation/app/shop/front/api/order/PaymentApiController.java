@@ -84,7 +84,7 @@ public class PaymentApiController extends GridController {
 		}
 		
 		//支付方式id参数
-		Integer paymentId=  StringUtil.toInt( request.getParameter("paymentid") ,null);
+		Integer paymentId=  StringUtil.toInt( request.getParameter("payment_method_id") ,null);
 		Order order = this.orderManager.get(orderId);
 		
 		if(order==null){

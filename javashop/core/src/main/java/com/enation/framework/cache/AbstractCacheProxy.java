@@ -1,6 +1,7 @@
 package com.enation.framework.cache;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -11,7 +12,7 @@ import org.apache.log4j.Logger;
  * @param <T>
  */
 public abstract class AbstractCacheProxy<T> {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	public AbstractCacheProxy(){
 		

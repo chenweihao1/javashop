@@ -60,12 +60,11 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 	
 			// 付款金额
 //			String price = new String(String.valueOf(payMoney).getBytes("ISO-8859-1"), "UTF-8");
-			String sitename = EopSite.getInstance().getSitename();
+			//String sitename = EopSite.getInstance().getSitename();
 			// 订单名称
-			String subject = sitename + "订单";
+			String subject = bill.getGoods_name() + "订单";
 			
 			String body =  bill.getGoods_name()+ "x1";
-
 			
 			Map<String, String> sParaTemp = new HashMap<String, String>();
 			sParaTemp.put("out_trade_no", out_trade_no);

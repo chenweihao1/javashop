@@ -2,8 +2,6 @@ package com.enation.app.shop.core.goods.service.batchimport.util;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
-
 import com.enation.app.base.core.service.ISettingService;
 import com.enation.eop.SystemSetting;
 import com.enation.eop.sdk.utils.StaticResourcesUtil;
@@ -11,9 +9,11 @@ import com.enation.framework.image.IThumbnailCreator;
 import com.enation.framework.image.ThumbnailCreatorFactory;
 import com.enation.framework.util.FileUtil;
 import com.enation.framework.util.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class GoodsImageReader {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	private ISettingService settingService ;
 	private String getSettingValue(String code){
 		return  settingService.getSetting("photo", code);

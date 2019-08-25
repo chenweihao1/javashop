@@ -6,7 +6,8 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.enation.eop.SystemSetting;
@@ -29,7 +30,7 @@ public class B2cThemePathGeter implements IThemePathGeter{
 	/**
 	 * 日志
 	 */
-	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	/**
 	 * 店铺manager

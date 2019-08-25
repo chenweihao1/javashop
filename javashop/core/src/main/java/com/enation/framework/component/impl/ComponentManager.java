@@ -3,7 +3,8 @@ package com.enation.framework.component.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ import com.enation.framework.plugin.IPluginBundle;
 @Service("componentManager")
 public class ComponentManager implements IComponentManager {
 	
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private IDaoSupport daoSupport;

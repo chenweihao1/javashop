@@ -7,7 +7,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,8 @@ public class ExpressController{
 	
 	@Autowired
 	private IExpressManager expressManager;
+
+	private static Logger logger = LoggerFactory.getLogger(ExpressController.class);
 	
 	/**
 	 * 快递平台列表页
@@ -70,7 +73,6 @@ public class ExpressController{
 			view.setViewName("/shop/admin/express/express_edit");
 		} catch (Exception e) {
 			
-			Logger logger = Logger.getLogger(getClass());
 			logger.error("修改快递平台参数出现错误",e);
 		}
 		return view;
@@ -97,8 +99,7 @@ public class ExpressController{
 			this.expressManager.setParam(id, params);
 			return JsonResultUtil.getSuccessJson("设置成功");
 		}catch(Exception e){
-			Logger logger = Logger.getLogger(getClass());
-			
+
 			logger.error("设置快递网关参数出错", e);
 			return JsonResultUtil.getErrorJson("设置失败");
 		}

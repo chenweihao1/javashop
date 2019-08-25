@@ -9,7 +9,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -43,11 +44,10 @@ public class MemberReceiptApiController extends GridController{
 	@Autowired
 	private IMemberReceiptManager memberReceiptManager;
 
-	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	/**
 	 * 获取会员发票
-	 * @param 无
 	 * @return json字串
 	 * result  为1表示调用正确，0表示失败 ，int型
 	 * data: 发票列表
@@ -73,10 +73,6 @@ public class MemberReceiptApiController extends GridController{
 
 	/**
 	 * 添加发票
-	 * @param title：发票抬头,String型，必填
-	 * @param content:发票类别,String型，必填
-	 * @param type：发票类型,如果传递"1"则为个人，如果传递"2"为单位
-	 * @param duty： 税号
 	 * @return json字串
 	 * result  为1表示添加成功，0表示失败 ，int型
 	 * message 为提示信息 ，String型
@@ -128,11 +124,6 @@ public class MemberReceiptApiController extends GridController{
 
 	/**
 	 * 修改发票
-	 * @param receipt_id：要修改的发票ID
-	 * @param title：发票抬头,String型，必填
-	 * @param content:发票类别,String型，必填
-	 * @param type：发票类型,如果传递"1"则为个人，如果传递"2"为单位
-	 * @param duty： 税号
 	 * result  为1表示添加成功，0表示失败 ，int型
 	 */
 	@ResponseBody
@@ -203,7 +194,7 @@ public class MemberReceiptApiController extends GridController{
 			memberReceiptManager.delete(id);
 			return JsonResultUtil.getSuccessJson("删除成功");
 		} catch (Exception e) {
-			logger.error(e.getStackTrace());
+			logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson("删除失败[" + e.getMessage() + "]");				
 
 		}

@@ -1,6 +1,7 @@
 package com.enation.app.base.core.service.solution.impl;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -52,7 +53,7 @@ public class ThemeInstaller implements IInstaller {
 		NodeList themeList = fragment.getChildNodes(); 
 		this.install(themeList); 
 	}
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	private void install(Element themeNode) {
 		String isdefault = themeNode.getAttribute("default");
 		Theme theme = new Theme();

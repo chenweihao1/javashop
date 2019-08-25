@@ -8,7 +8,8 @@ import java.util.Map;
 import com.enation.app.base.core.model.Adv;
 import com.enation.app.shop.core.goods.model.Brand;
 import com.enation.app.shop.core.goods.model.Goods;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ import com.enation.framework.util.StringUtil;
 @Service("goodsCatManager")
 public class GoodsCatCacheProxy  implements
 		IGoodsCatManager {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private IGoodsCatManager goodsCatManager;
 

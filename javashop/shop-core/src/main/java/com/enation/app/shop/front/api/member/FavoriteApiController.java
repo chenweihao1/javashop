@@ -1,7 +1,6 @@
 package com.enation.app.shop.front.api.member;
 
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -53,10 +52,6 @@ public class FavoriteApiController {
 				return JsonResultUtil.getErrorJson("请先登录");
 			}
 		} catch (Exception e) {
-			Logger logger = Logger.getLogger(getClass());
-			if (logger.isDebugEnabled()) {
-				logger.error(e.getStackTrace());
-			}
 			return JsonResultUtil.getErrorJson("删除失败[" + e.getMessage() + "]");
 		}
 	}

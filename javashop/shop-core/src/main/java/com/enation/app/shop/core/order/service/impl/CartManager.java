@@ -2,7 +2,8 @@ package com.enation.app.shop.core.order.service.impl;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -62,7 +63,7 @@ public class CartManager implements ICartManager {
 	@Autowired
 	private IDaoSupport daoSupport;
 
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	/**
 	 * 促销活动管理接口 
 	 * add_by DMRain 2016-7-12

@@ -3,7 +3,8 @@ package com.enation.eop.sdk;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.enation.app.base.core.service.dbsolution.DBSolutionFactory;
@@ -21,7 +22,7 @@ public abstract class App implements IApp {
 	@Autowired
 	private IDataOperation dataOperation;
 	
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 
 	protected boolean dataOnly = true; // 导出建表语句开关，默认仅导出数据
 

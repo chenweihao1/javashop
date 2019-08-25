@@ -1,10 +1,10 @@
 package com.enation.framework.jms;
 
-import org.apache.log4j.Logger;
-
 import com.enation.eop.sdk.context.EopContext;
 import com.enation.framework.context.spring.SpringContextHolder;
 import com.enation.framework.util.StringUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -14,7 +14,7 @@ import com.enation.framework.util.StringUtil;
  */
 public class EopConsumer {
 	
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	
 
 	

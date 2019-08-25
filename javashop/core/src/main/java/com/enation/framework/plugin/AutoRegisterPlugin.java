@@ -2,11 +2,12 @@ package com.enation.framework.plugin;
 
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AutoRegisterPlugin implements IPlugin {
 	
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	protected List<IPluginBundle> bundleList;
 	private boolean isEnable =false;
 	

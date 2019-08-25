@@ -6,7 +6,8 @@ import java.util.Map;
 
 import net.sf.json.JSONArray;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -57,7 +58,7 @@ public class FloorController extends GridController{
 	@Autowired
 	private IDaoSupport daoSupport;
 	
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	/**
 	 * 跳转主页管理
 	 * @return url

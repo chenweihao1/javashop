@@ -3,7 +3,8 @@ package com.enation.app.shop.core.decorate.action;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +34,7 @@ public class ShowCaseController extends GridController{
 	@Autowired
 	private IShowCaseManager showCaseManager;
 
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	/**
 	 * 跳转橱窗列表
 	 * @return

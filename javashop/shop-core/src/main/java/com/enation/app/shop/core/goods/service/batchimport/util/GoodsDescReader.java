@@ -2,13 +2,14 @@ package com.enation.app.shop.core.goods.service.batchimport.util;
 
 import java.io.File;
 
-import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import com.enation.eop.SystemSetting;
 import com.enation.framework.util.FileUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 商品描述读取
@@ -16,7 +17,7 @@ import com.enation.framework.util.FileUtil;
  *
  */
 public class GoodsDescReader {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	public String read(String folder,String goodsid){
 		
 		 

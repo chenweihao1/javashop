@@ -40,7 +40,6 @@ public class DlyCenterController extends GridController {
 	/**
 	 * 显示发货信息添加页
 	 * @author xulipeng
-	 * @param provinceList 省列表,List
 	 * @return 发货信息添加页
 	 * 2014年4月1日17:29:02
 	 */
@@ -54,9 +53,6 @@ public class DlyCenterController extends GridController {
 	/**
 	 * 显示发货信息修改页
 	 * @param dlyCenterId 发货信息Id,Integer
-	 * @param listProvince 省列表,List
-	 * @param cityList 城市列表,List
-	 * @param regionList 地区列表,List
 	 * @return 发货信息修改页
 	 */
 	@RequestMapping("/edit")
@@ -95,8 +91,6 @@ public class DlyCenterController extends GridController {
 		return view;
 	}
 	/**
-	 * 获取发货信息列表json
-	 * @param list 发货信息列表
 	 * @return 获取发货信息列表json
 	 */
 	@ResponseBody
@@ -129,7 +123,7 @@ public class DlyCenterController extends GridController {
 			
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}");
 			}
 			return JsonResultUtil.getErrorJson("发货信息删除失败"+e.getMessage());
 
@@ -166,7 +160,7 @@ public class DlyCenterController extends GridController {
 			
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("发货信息删除失败"+e.getMessage());
 
@@ -177,12 +171,6 @@ public class DlyCenterController extends GridController {
 	 * 添加发货信息
 	 * @author xulipeng
 	 * 2014年4月1日17:28:35
-	 * @param province 省,String
-	 * @param city 城市,String
-	 * @param region 地区,String
-	 * @param province_id 省Id,Integer
-	 * @param city_id 城市Id,Integer
-	 * @param region_id 地区Id,Integer
 	 * @param dlyCenter 发货信息对象,DlyCenter
 	 * @return json
 	 * result 1.操作成功。0.操作失败
@@ -229,12 +217,6 @@ public class DlyCenterController extends GridController {
 	/**
 	 * 修改发货信息
 	 * @author xulipeng
-	 * @param province 省,String
-	 * @param city 城市,String
-	 * @param region 地区,String
-	 * @param province_id 省Id,Integer
-	 * @param city_id 城市Id,Integer
-	 * @param region_id 地区Id,Integer
 	 * @param dlyCenter 发货信息对象,DlyCenter
 	 * @return json
 	 * result 1.操作成功。0.操作失败

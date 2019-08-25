@@ -1,0 +1,173 @@
+<#include '/admin/header.html' >
+<#assign dateFormat="com.enation.framework.directive.DateformateDirective"?new()>
+<style>
+.page_explain ul li {
+height:50px;
+}
+</style>
+<div  class="admin-main">
+   <div>
+        <!--按钮操作  -->
+        <div class="table_control">
+            <div class="table_opera">
+                <button type="button" id="add_serverConfig_button" class="layui-btn layui-btn-primary " title="添加"><i class="icon iconfont icon-llalbumshopselectorcreate"></i></button>
+            </div>
+        </div>
+    </div>
+    
+   <!--表格区域  -->
+   <form id="contentForm">
+    <table id="contentdata" class="layui-table site-table table-hover" width="100%" lay-skin="line">
+        <thead>
+          <tr>
+            <th>域名</th>
+            <th>是否启用</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+    </table>
+    <!--传值等操作(暂时)  -->
+    <div id="addBrand" ></div>
+   </form>
+</div>
+
+<!--js区域  -->
+<script>
+var table;
+$(function(){
+
+    // table = $('#contentdata').DataTable({
+    //     "language": {
+    //         "url": "${staticserver}/media/zh_CN.txt"
+    //     },
+    //     "processing": true,
+    //     "serverSide": true,
+    //     "ordering": false,
+    //     "searching": false,
+    //     "lengthChange": false,
+    //     ajax: {
+    //         //指定数据源
+    //         type:"post",
+    //         url: '${ctx}/shop/admin/server/list-json.do',
+    //     },
+    //     columns: [ //定义列
+    //         {"data": function (obj) {
+    //                 return '<input type="checkbox" name="checklist" class="fly-checkbox" value=' + obj.id + '>';
+    //             }},
+    //         {data: "state"},
+    //         {data: null,"render": function(data, type, row) {
+    //                 var val;
+    //                 if(data.state==1){
+    //                     val="已启用&nbsp;";
+    //                 }else{
+    //                     val="未启用&nbsp;<a href='javascript:void(0);' class='layui-btn layui-btn-normal layui-btn-small' onclick='setOpen("+row.id+")'>开启</a>";
+    //                 }
+    //                 return val;
+    //             }}
+    //     ]
+    // });
+	
+	table = $('#contentdata').DataTable({
+		"language": {
+	        "url": "${staticserver}/media/zh_CN.txt"
+	    },
+	    "processing": true,
+	    "serverSide": true,
+	    "ordering": false,
+	    "searching": false,
+	    "lengthChange": false,
+	    ajax: {
+	        //指定数据源
+	        type:"post",
+	        url: '${ctx}/shop/admin/server/list-json.do',
+	    },
+	    columns: [ //定义列
+	        {data: "domain_name"},
+	        {data: null,"render": function(data, type, row) {
+	        	return "<a class='layui-btn layui-btn-small layui-btn-normal' onclick='edit("+data["id"]+")'>修改</a>"+"&nbsp"+"<a class='layui-btn layui-btn-small layui-btn-danger' onclick='del("+data["id"]+")'>删除</a>";		//获取值:data["brand_id"]
+	       	}},
+            {data: null,"render": function(data, type, row) {
+                    var val;
+                    if(data.state==1){
+                        val="已启用&nbsp;";
+                    }else{
+                        val="未启用&nbsp;<a href='javascript:void(0);' class='layui-btn layui-btn-normal layui-btn-small' onclick='setOpen("+row.id+")'>开启</a>";
+                    }
+                    return val;
+                }}
+	     ]
+	});
+
+    $("#add_serverConfig_button").click(function(){
+        layer.open({
+            title:"添加域名",//标题
+            maxmin :true,//右上角可否放大缩小
+            type:2,//弹框的类型
+            shade: [0.3, '#000'],//黑色背景
+            shadeClose:false,//黑色背景是否可以点击关闭
+            content:"${ctx}/shop/admin/server/add.do",//内容的URL
+            area:['650px','170px'],//弹框大小
+            scrollbar: false//是否允许浏览器出现滚动条
+        });
+    });
+});
+
+
+function setOpen(id){
+    $.ajax({
+        url:"${ctx}/shop/admin/server/set-open.do?id="+id,
+        dataType:"json",
+        cache: false,             //清楚缓存，暂时测试，如果产生冲突，请优先考虑是否是这条语句。
+        success:function(data){
+            if(data.result==1){
+                $.Loading.success(data.message);
+                table.ajax.url("list-json.do").load();
+            }else{
+                $.Loading.error(data.message);
+            }
+        },
+        error:function(){
+            $.Loading.error("出错了，请稍候重试!");
+        }
+    });
+}
+
+
+
+//修改
+function edit(id){
+	
+	layer.open({
+        title:"修改域名",//标题
+        maxmin :true,//右上角可否放大缩小
+        offset: '100px',//弹框位置
+        type:2,//弹框的类型
+        shade: [0.3, '#000'],//黑色背景
+        shadeClose:false,//黑色背景是否可以点击关闭
+        content:ctx+"/shop/admin/server/edit.do?id="+id,//内容的URL
+        area:['650px','170px'],//弹框大小
+        scrollbar: false,//是否允许浏览器出现滚动条
+    });
+}
+
+//删除
+function del(id){
+	if(!confirm("确认要删除域名信息吗？")){
+		return;
+	}
+	$.ajax({
+		url:ctx+"/shop/admin/server/delete.do?id="+id,
+		type:"post",
+		dataType:"json",
+		success:function(data){
+			if(data.result == 1){
+				$.Loading.success(data.message);
+				table.ajax.url(ctx+"/shop/admin/server/list-json.do").load();
+			}else{
+				$.Loading.error(data.message);
+			}
+		}
+	});
+}
+</script>
+<#include '/admin/footer.html' >

@@ -2,7 +2,8 @@ package com.enation.app.base.core.action.api;
 
 import java.util.Date;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,7 +39,7 @@ public class TagTestCreateController  {
 			}
 			return JsonMessageUtil.getStringJson("url", filename);
 		}catch(Throwable e){
-			Logger logger = Logger.getLogger(getClass());
+			Logger logger = LoggerFactory.getLogger(getClass());
 			logger.error("生成标签测试页面出错",e);
 			return JsonResultUtil.getErrorJson("生成标签测试页面出错:"+e.getMessage());
 		}

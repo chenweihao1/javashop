@@ -1,12 +1,12 @@
 package com.enation.app.base.core.plugin.express;
 
-import org.apache.log4j.Logger;
-
 import com.enation.framework.plugin.AutoRegisterPlugin;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public abstract class AbstractExpressPlugin extends AutoRegisterPlugin {
 	
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	
 	/**

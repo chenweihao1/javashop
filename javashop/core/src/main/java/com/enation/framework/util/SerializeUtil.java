@@ -5,11 +5,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class SerializeUtil {
 	
-	private static final Logger logger = Logger.getLogger(SerializeUtil.class);
+	private static final Logger logger = LoggerFactory.getLogger(SerializeUtil.class);
 	
 	/**
 	 * 序列化对象为字节

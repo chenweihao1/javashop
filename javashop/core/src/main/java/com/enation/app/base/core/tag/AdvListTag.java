@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -30,8 +32,9 @@ public class AdvListTag extends BaseFreeMarkerTag {
 	
 	@Autowired
 	private IAdColumnManager adColumnManager;
+
+	private static Logger logger = LoggerFactory.getLogger(AdvListTag.class);
 	/**
-	 * @param acid 广告位id
 	 * @return Map广告信息数据，其中key结构为
 	 * adDetails:广告位详细信息 {@link AdColumn}
 	 * advList:广告列表 {@link Adv}
@@ -86,8 +89,8 @@ public class AdvListTag extends BaseFreeMarkerTag {
 				//}
 			}
 		}catch(RuntimeException e){
-			if(this.logger.isDebugEnabled()){
-				this.logger.error(e.getStackTrace());
+			if(logger.isDebugEnabled()){
+				logger.error("系统异常:{}",e);
 			}
 		}
 		return data;

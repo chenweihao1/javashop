@@ -107,9 +107,6 @@ public class OrderController extends GridController {
 	 * 
 	 * @param orderId
 	 *            订单Id,Integer
-	 * @param adminUser
-	 *            管理员,AdminUser
-	 * @param amount
 	 *            订单总额,double
 	 * @param price
 	 *            修改后订单总额,double
@@ -135,13 +132,6 @@ public class OrderController extends GridController {
 	 * 
 	 * @param orderId
 	 *            订单Id,Integer
-	 * @param currshipamount
-	 *            修改前订单配送费用,double
-	 * @param shipmoney
-	 *            修改后订单配送费用,double
-	 * @param price
-	 *            修改后订单总价,double
-	 * @param adminUser
 	 *            管理员,AdminUser
 	 * @return json result 1,操作成功.2,操作失败
 	 */
@@ -171,19 +161,6 @@ public class OrderController extends GridController {
 	 * 
 	 * @param orderId
 	 *            订单Id,Integer
-	 * @param province
-	 *            省,String
-	 * @param city
-	 *            城市,String
-	 * @param region
-	 *            地区,String
-	 * @param Attr
-	 *            配送地址,String
-	 * @param province_id
-	 *            省Id,Integer
-	 * @param city_id
-	 *            城市Id,Integer
-	 * @param region_id
 	 *            区Id,Integer
 	 * @return json result 1,操作成功.2,操作失败
 	 */
@@ -229,10 +206,6 @@ public class OrderController extends GridController {
 	/**
 	 * 修改订单详细配送地址
 	 * 
-	 * @param adminUser
-	 *            管理员,AdminUser
-	 * @param oldAddr
-	 *            修改前订单详细配送地址,String
 	 * @param addr
 	 *            修改后订单详细配送地址,String
 	 * @param orderId
@@ -262,17 +235,6 @@ public class OrderController extends GridController {
 	/**
 	 * 修改 订单配送信息
 	 * 
-	 * @param adminUser
-	 *            管理员,AdminUser
-	 * @param oldShip_day
-	 *            修改前的收货日期,String
-	 * @param oldship_name
-	 *            修改前的收货人,String
-	 * @param oldship_tel
-	 *            修改前的收货人电话,String
-	 * @param oldship_mobile
-	 *            修改前的收货人手机号,String
-	 * @param oldship_zip
 	 *            修改前的邮编,String
 	 * @param remark
 	 *            修改后的订单备注,String
@@ -339,15 +301,6 @@ public class OrderController extends GridController {
 	/**
 	 * 分页读取订单列表 根据订单状态 state 检索，如果未提供状态参数，则检索所有
 	 * 
-	 * @param statusMap
-	 *            订单状态集合,Map
-	 * @param payStatusMap
-	 *            订单付款状态集合,Map
-	 * @param shipMap
-	 *            ,订单配送人状态集合,Map
-	 * @param shipTypeList
-	 *            配送方式集合,List
-	 * @param payTypeList
 	 *            付款方式集合,List
 	 * @return 订单列表
 	 */
@@ -385,15 +338,6 @@ public class OrderController extends GridController {
 	 * 未发货订单
 	 * 
 	 * @author LiFenLong;2014-4-18
-	 * @param statusMap
-	 *            订单状态集合,Map
-	 * @param payStatusMap
-	 *            订单付款状态集合,Map
-	 * @param shipMap
-	 *            ,订单配送人状态集合,Map
-	 * @param shipTypeList
-	 *            配送方式集合,List
-	 * @param payTypeList
 	 *            付款方式集合,List
 	 * @return 未发货订单列表
 	 */
@@ -432,15 +376,6 @@ public class OrderController extends GridController {
 	 * 已成交订单
 	 * 
 	 * @author LiFenLong;2016-9-19
-	 * @param statusMap
-	 *            订单状态集合,Map
-	 * @param payStatusMap
-	 *            订单付款状态集合,Map
-	 * @param shipMap
-	 *            ,订单配送人状态集合,Map
-	 * @param shipTypeList
-	 *            配送方式集合,List
-	 * @param payTypeList
 	 *            付款方式集合,List
 	 * @return 未发货订单列表
 	 */
@@ -479,15 +414,6 @@ public class OrderController extends GridController {
 	 * 未付款订单
 	 * 
 	 * @author LiFenLong
-	 * @param statusMap
-	 *            订单状态集合,Map
-	 * @param payStatusMap
-	 *            订单付款状态集合,Map
-	 * @param shipMap
-	 *            ,订单配送人状态集合,Map
-	 * @param shipTypeList
-	 *            配送方式集合,List
-	 * @param payTypeList
 	 *            付款方式集合,List
 	 * @return 未付款订单列表
 	 */
@@ -524,15 +450,6 @@ public class OrderController extends GridController {
 	 * 未收货订单
 	 * 
 	 * @author LiFenLong
-	 * @param statusMap
-	 *            订单状态集合,Map
-	 * @param payStatusMap
-	 *            订单付款状态集合,Map
-	 * @param shipMap
-	 *            ,订单配送人状态集合,Map
-	 * @param shipTypeList
-	 *            配送方式集合,List
-	 * @param payTypeList
 	 *            付款方式集合,List
 	 * @return 未收货订单列表
 	 */
@@ -590,7 +507,6 @@ public class OrderController extends GridController {
 	 *            配送方式,Integer
 	 * @param payment_id
 	 *            付款方式,Integer
-	 * @param order_state
 	 *            订单状态_从哪个页面进来搜索的(未付款、代发货、等),String
 	 * @param complete
 	 *            是否订单为已完成,String
@@ -628,15 +544,6 @@ public class OrderController extends GridController {
 	 * 回收站订单
 	 * 
 	 * @author LiFenLong
-	 * @param statusMap
-	 *            订单状态集合,Map
-	 * @param payStatusMap
-	 *            订单付款状态集合,Map
-	 * @param shipMap
-	 *            ,订单配送人状态集合,Map
-	 * @param shipTypeList
-	 *            配送方式集合,List
-	 * @param payTypeList
 	 *            付款方式集合,List
 	 * @return 回收站订单列表
 	 */
@@ -661,32 +568,6 @@ public class OrderController extends GridController {
 	}
 
 	/**
-	 * @author LiFenLong
-	 * @param stype
-	 *            搜索状态, Integer
-	 * @param keyword
-	 *            搜索关键字,String
-	 * @param start_time
-	 *            开始时间,String
-	 * @param end_time
-	 *            结束时间,String
-	 * @param sn
-	 *            订单编号,String
-	 * @param ship_name
-	 *            订单收货人姓名,String
-	 * @param status
-	 *            订单状态,Integer
-	 * @param paystatus
-	 *            订单付款状态,Integer
-	 * @param shipstatus
-	 *            订单配送状态,Integer
-	 * @param shipping_type
-	 *            配送方式,Integer
-	 * @param payment_id
-	 *            付款方式,Integer
-	 * @param sort
-	 *            排序,Integer
-	 * @return 回收站订单列表 json
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/trash-list-json")
@@ -715,7 +596,7 @@ public class OrderController extends GridController {
 			}
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("订单删除失败" + e.getMessage());
 		}
@@ -736,7 +617,7 @@ public class OrderController extends GridController {
 			return JsonResultUtil.getSuccessJson("订单还原成功");
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("订单还原失败:" + e.getMessage());
 		}
@@ -758,7 +639,7 @@ public class OrderController extends GridController {
 			return JsonResultUtil.getSuccessJson("订单清除成功");
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("订单清除失败" + e.getMessage());
 
@@ -770,8 +651,6 @@ public class OrderController extends GridController {
 	 * 
 	 * @param orderId
 	 *            订单号,Integer
-	 * @param order
-	 *            订单,Order
 	 * @return json result 1。操作成功.0.操作失败
 	 */
 	@ResponseBody
@@ -784,7 +663,7 @@ public class OrderController extends GridController {
 					+ "]成功标记为完成状态");
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("订单完成失败");
 		}
@@ -797,7 +676,6 @@ public class OrderController extends GridController {
 	 *            订单号,Integer
 	 * @param cancel_reason
 	 *            作废原因,String
-	 * @param order
 	 *            订单,Order
 	 * @return json result 1。操作成功.0.操作失败
 	 */
@@ -810,7 +688,7 @@ public class OrderController extends GridController {
 			return JsonResultUtil.getSuccessJson("取消订单成功");
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常");
 			}
 			return JsonResultUtil.getErrorJson("订单作废失败:" + e.getMessage());
 		}
@@ -820,7 +698,6 @@ public class OrderController extends GridController {
 	 * 确定收货
 	 * 
 	 * @author LiFenLong
-	 * @param adminUser
 	 *            管理员,AdminUser
 	 * @param orderId
 	 *            订单Id,Integer
@@ -846,7 +723,6 @@ public class OrderController extends GridController {
 	 * 
 	 * @param orderId
 	 *            订单号,Integer
-	 * @param order
 	 *            订单,Order
 	 * @return json result 1。操作成功.0.操作失败
 	 */
@@ -861,7 +737,7 @@ public class OrderController extends GridController {
 					+ "]成功确认'");
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getSuccessJson("订单确认失败" + e.getMessage());
 		}
@@ -893,15 +769,6 @@ public class OrderController extends GridController {
 	 *            收货人姓名,String
 	 * @param orderId
 	 *            订单号,Integer
-	 * @param ord
-	 *            订单,Order
-	 * @param provinceList
-	 *            省列表
-	 * @param pluginTabs
-	 *            订单详细页的选项卡
-	 * @param pluginHtmls
-	 *            订单详细页的内容
-	 * @param dlycenterlist
 	 *            发货信息列表
 	 * @return 订单详细页面
 	 */
@@ -945,11 +812,6 @@ public class OrderController extends GridController {
 	 *            会员名称,String
 	 * @param ship_name
 	 *            收货人姓名,String
-	 * @param listProvince
-	 *            省列表,List
-	 * @param pluginTabs
-	 *            订单详细页的选项卡
-	 * @param pluginHtmls
 	 *            订单详细页的内容
 	 * @return 订单详细页面
 	 */
@@ -985,7 +847,6 @@ public class OrderController extends GridController {
 	 *            备注内容
 	 * @param orderId
 	 *            订单号,Integer
-	 * @param ord
 	 *            订单,Order
 	 * @return json result 1。操作成功.0.操作失败
 	 */
@@ -1000,7 +861,7 @@ public class OrderController extends GridController {
 			return JsonResultUtil.getSuccessJson("修改成功");
 		} catch (RuntimeException e) {
 			if (logger.isDebugEnabled()) {
-				logger.debug(e);
+				logger.debug("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("修改失败");
 		}
@@ -1012,7 +873,6 @@ public class OrderController extends GridController {
 	 * @author xulipeng
 	 * @param member_id
 	 *            会员Id,Integer
-	 * @param list
 	 *            会员订单
 	 * @return 会员订单json
 	 */
@@ -1033,11 +893,6 @@ public class OrderController extends GridController {
 	 *            订单Id,Integer
 	 * @param depotid
 	 *            库房id,Integer
-	 * @param oldname
-	 *            修改前库房名称
-	 * @param depotname
-	 *            修改后库房名称
-	 * @param adminUser
 	 *            管理员,AdminUser
 	 * @return json result 1。操作成功.0.操作失败
 	 */

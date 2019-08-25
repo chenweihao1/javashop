@@ -5,7 +5,8 @@ import java.util.List;
 
 import com.enation.framework.database.Page;
 import com.enation.framework.util.StringUtil;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -29,7 +30,7 @@ public class SiteMenuManager implements ISiteMenuManager {
 	@Autowired
 	private IDaoSupport daoSupport;
 	
-	protected  Logger logger = Logger.getLogger(getClass());
+	protected Logger logger = LoggerFactory.getLogger(getClass());
 	
 	/* (non-Javadoc)
 	 * @see com.enation.app.base.core.service.ISiteMenuManager#add(com.enation.app.base.core.model.SiteMenu)

@@ -1,6 +1,5 @@
 package com.enation.app.shop.core.decorate.action;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,7 +7,6 @@ import java.util.Map;
 import net.sf.json.JSONArray;
 
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.enation.app.shop.core.decorate.DecorateUtil;
 import com.enation.app.shop.core.decorate.model.Floor;
 import com.enation.app.shop.core.decorate.service.IFloorManager;
-import com.enation.app.shop.core.goods.model.Goods;
 import com.enation.app.shop.core.goods.service.IBrandManager;
 import com.enation.app.shop.core.goods.service.IGoodsManager;
 import com.enation.eop.sdk.utils.StaticResourcesUtil;

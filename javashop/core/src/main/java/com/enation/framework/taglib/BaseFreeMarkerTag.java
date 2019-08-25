@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
-import org.apache.log4j.Logger;
 import org.apache.poi.ss.formula.functions.T;
 
 import com.enation.eop.sdk.context.EopSetting;
@@ -21,6 +20,8 @@ import com.enation.framework.util.StringUtil;
 
 import freemarker.template.TemplateMethodModel;
 import freemarker.template.TemplateModelException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 /**
@@ -29,7 +30,7 @@ import freemarker.template.TemplateModelException;
  *2013-7-28下午9:10:23
  */
 public abstract class BaseFreeMarkerTag implements TemplateMethodModel {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	private int pageSize =10;
 	
 	

@@ -1,8 +1,10 @@
 package com.enation.app.shop.front.api.order;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.enation.app.base.core.model.Member;
 import com.enation.app.base.core.service.IMemberManager;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.AlipayConstants;
 import com.enation.app.shop.core.goods.model.Product;
 import com.enation.app.shop.core.goods.service.IProductManager;
 import com.enation.app.shop.core.member.model.MemberAddress;
@@ -14,6 +16,8 @@ import com.enation.app.shop.core.order.model.support.CartItem;
 import com.enation.app.shop.core.order.model.support.OrderPrice;
 import com.enation.app.shop.core.order.plugin.cart.CartPluginBundle;
 import com.enation.app.shop.core.order.service.*;
+import com.enation.app.shop.core.other.model.ServerConfig;
+import com.enation.app.shop.core.other.service.IServerConfigManager;
 import com.enation.app.shop.core.payment.model.enums.ClientType;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
 import com.enation.app.shop.core.payment.service.IPaymentPlugin;
@@ -36,12 +40,11 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 
 @Controller
@@ -72,6 +75,8 @@ public class PayOrderApiController {
     private IDaoSupport daoSupport;
     @Autowired
     private ITradingManager tradingManager;
+    @Autowired
+    private IServerConfigManager serverConfigManager;
 
     @ResponseBody
     @RequestMapping(value = "/query",method =   RequestMethod.POST)
@@ -87,6 +92,7 @@ public class PayOrderApiController {
     @ResponseBody
     @RequestMapping(value = "/order",method = RequestMethod.POST)
     public ResultModel payOrder(OrderPay orderPay){
+        logger.info("下单接收请求参数:{}", JSONObject.toJSONString(orderPay));
         this.checkParams(orderPay);
         //查找会员
         Member member = memberManager.getMemberById(orderPay.getMemberId());
@@ -107,7 +113,26 @@ public class PayOrderApiController {
         //进行订单结算
 
         String payhtml = execute(order,orderPay.getReturnUrl(),product.getName());
-        Document doc = Jsoup.parse(payhtml);
+        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        AlipayConstants.aliPayMap.put(uuid,payhtml);
+        ServerConfig config = serverConfigManager.findByState();
+        String payUrl = config.getDomain_name()+"/b2c/api/shop/pay/payorder/"+uuid+".do";
+        return ResultModel.success(payUrl);
+    }
+
+
+    @RequestMapping("/payorder/{uuid}")
+    public ModelAndView payOrder(@PathVariable("uuid")String uuid, ModelAndView modelAndView){
+        String payhtml = AlipayConstants.aliPayMap.get(uuid);
+        modelAndView.setViewName("pay/index");
+        if(payhtml==null){
+            modelAndView.addObject("payform", "<p>该笔支付已完成</p>");
+        }else{
+            modelAndView.addObject("payform", payhtml);
+        }
+        AlipayConstants.aliPayMap.remove(uuid);
+        return modelAndView;
+        /*Document doc = Jsoup.parse(payhtml);
         String action = doc.select("form").attr("action");
         logger.info("支付宝form表单解析参数action:"+action);
         String biz_content = doc.select("input").first().attr("value");
@@ -115,8 +140,8 @@ public class PayOrderApiController {
         Map<String, String> params = new HashMap<>();
         params.put("biz_content", biz_content);
         String payUrl = HttpClientUtil.post(action, params, "UTF-8");
-        logger.info("支付宝from表单请求返回链接:{}"+payUrl);
-        return ResultModel.success(payUrl);
+        logger.info("支付宝from表单请求返回链接:{}"+payUrl);*/
+
     }
 
 

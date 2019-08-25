@@ -1,6 +1,7 @@
 package com.enation.app.base.core.service.solution.impl;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
@@ -25,7 +26,7 @@ import com.enation.framework.util.DateUtil;
  */
 @Service
 public class SolutionInstaller implements ISolutionInstaller {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	
  
 	

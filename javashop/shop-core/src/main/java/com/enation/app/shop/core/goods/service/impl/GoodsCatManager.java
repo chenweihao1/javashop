@@ -7,7 +7,8 @@ import java.util.Map;
 
 import com.enation.app.base.core.model.Adv;
 import com.enation.app.shop.core.goods.model.Goods;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -28,7 +29,7 @@ import com.enation.app.shop.core.goods.model.Brand;
 @Service("goodsCatDbManager")
 public class GoodsCatManager  implements IGoodsCatManager {
  
-	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@Autowired
 	private IDaoSupport daoSupport;

@@ -9,7 +9,8 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.http.MediaType;
@@ -45,6 +46,7 @@ public class MemberAddressApiController extends GridController{
 	@Autowired
 	private IMemberAddressManager memberAddressManager;
 
+	private static Logger logger = LoggerFactory.getLogger(MemberAddressApiController.class);
 	
 
 	
@@ -134,10 +136,7 @@ public class MemberAddressApiController extends GridController{
 
 				}
 			} catch (Exception e) {
-				final Logger logger = Logger.getLogger(getClass());
-				if (logger.isDebugEnabled()) {
-					logger.error(e.getStackTrace());
-				}
+					logger.error("系统异常:{}",e);
 				return JsonResultUtil.getErrorJson("添加失败[" + e.getMessage() + "]");				
 
 			}
@@ -210,10 +209,7 @@ public class MemberAddressApiController extends GridController{
 
 			}
 		} catch (Exception e) {
-			final Logger logger = Logger.getLogger(getClass());
-			if (logger.isDebugEnabled()) {
-				logger.error(e.getStackTrace());
-			}
+			logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson("修改失败[" + e.getMessage() + "]");				
 
 		}
@@ -234,10 +230,7 @@ public class MemberAddressApiController extends GridController{
 
 		}
 		catch (Exception e) {
-			final Logger logger = Logger.getLogger(getClass());
-			if (logger.isDebugEnabled()) {
-				logger.error(e.getStackTrace());
-			}
+			logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson("修改失败[" + e.getMessage() + "]");				
 
 		}
@@ -273,10 +266,7 @@ public class MemberAddressApiController extends GridController{
 			memberAddressManager.deleteAddress(Integer.valueOf(addr_id));
 			return JsonResultUtil.getSuccessJson("删除成功");
 		} catch (Exception e) {
-			final Logger logger = Logger.getLogger(getClass());
-			if (logger.isDebugEnabled()) {
-				logger.error(e.getStackTrace());
-			}
+			logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson("删除失败[" + e.getMessage() + "]");				
 
 		}
@@ -307,8 +297,7 @@ public class MemberAddressApiController extends GridController{
 				return JsonResultUtil.getObjectJson(address);				
 			} catch (Exception e) {
 				TestUtil.print(e);
-				final Logger logger = Logger.getLogger(getClass());
-				logger.error("前台添加地址错误", e);
+				logger.error("系统异常:{}",e);
 			}
 			return JsonResultUtil.getErrorJson("添加失败");
 			
@@ -367,10 +356,7 @@ public class MemberAddressApiController extends GridController{
 
 			}
 		} catch (Exception e) {
-			final Logger logger = Logger.getLogger(getClass());
-			if (logger.isDebugEnabled()) {
-				logger.error(e.getStackTrace());
-			}
+			logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson("修改失败[" + e.getMessage() + "]");				
 		}
 	}
@@ -431,10 +417,7 @@ public class MemberAddressApiController extends GridController{
 			return JsonResultUtil.getSuccessJson("设置成功");
 
 		} catch (Exception e) {
-			final Logger logger = Logger.getLogger(getClass());
-			if (logger.isDebugEnabled()) {
-				logger.error(e.getStackTrace());
-			}
+			logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson("设置失败[" + e.getMessage() + "]");				
 
 		}

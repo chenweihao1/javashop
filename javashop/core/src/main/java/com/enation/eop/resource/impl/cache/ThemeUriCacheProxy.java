@@ -4,7 +4,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,7 @@ import com.enation.framework.cache.ICache;
  */
 @Service("themeUriManager")
 public class ThemeUriCacheProxy implements IThemeUriManager {
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	@Autowired
 	private IThemeUriManager themeUriManager;
 	

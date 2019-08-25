@@ -5,7 +5,8 @@ import java.util.regex.Pattern;
 import javax.servlet.http.HttpServletRequest;
 
 import com.enation.app.shop.core.payment.service.IPaymentPlugin;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,7 +24,7 @@ import com.enation.framework.util.RequestUtil;
 @RequestMapping("/api/shop/*payment-callback")
 public class PaymentCallbackApiController {
 
-	private Logger logger = Logger.getLogger(getClass());
+	private Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@ResponseBody
 	@RequestMapping(value="/execute")

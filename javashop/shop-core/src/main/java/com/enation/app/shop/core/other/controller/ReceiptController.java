@@ -145,7 +145,7 @@ public class ReceiptController extends GridController {
 			return JsonResultUtil.getSuccessJson("修改发票内容成功");
 			} catch (RuntimeException e) {
 				e.printStackTrace();
-				logger.error(e,e.fillInStackTrace());
+				logger.error("系统异常:{}",e);
 				return JsonResultUtil.getErrorJson("修改发票内容失败["+ e.getMessage() + "]");
 				}
 		}
@@ -178,8 +178,7 @@ public class ReceiptController extends GridController {
 	
 	/**
 	 * 跳转至历史发票详情页面
-	 * @param sn 订单编号
-	 * @return 
+	 * @return
 	 */
 	@RequestMapping(value="/view-history")
 	public ModelAndView viewHistory() throws Exception {

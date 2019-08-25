@@ -3,7 +3,8 @@ package com.enation.app.base.core.service.solution.impl;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.w3c.dom.Document;
 
@@ -21,7 +22,7 @@ import com.enation.framework.util.StringUtil;
 @Service
 public class ProfileLoaderImpl implements IProfileLoader {
 
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	public Document load(String productId) {
 		String app_apth = StringUtil.getRootPath();
 
@@ -34,7 +35,7 @@ public class ProfileLoaderImpl implements IProfileLoader {
 		    return document;
 		}
 		catch (Exception e) {
-			logger.error(e);
+			logger.error("系统异常:{}",e);
 			e.printStackTrace();
 			throw new RuntimeException("load ["+productId +"] profile error" );
 		} 	 

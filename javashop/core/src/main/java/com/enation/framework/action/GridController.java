@@ -2,7 +2,8 @@ package com.enation.framework.action;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.enation.eop.SystemSetting;
@@ -22,7 +23,7 @@ import com.enation.framework.util.StringUtil;
  */
 public class GridController {
 	
-	protected final Logger logger = Logger.getLogger(getClass());
+	protected final Logger logger = LoggerFactory.getLogger(getClass());
 	protected Page webpage;
 
 	

@@ -1,7 +1,6 @@
 package com.enation.app.shop.core.payment.service;
 
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.enation.app.shop.core.order.model.OrderType;
 import com.enation.app.shop.core.order.model.PaymentResult;
+import com.enation.app.shop.core.other.model.ServerConfig;
+import com.enation.app.shop.core.other.service.IServerConfigManager;
 import com.enation.framework.plugin.AutoRegisterPlugin;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -19,7 +20,6 @@ import com.enation.app.base.core.model.ConfigItem;
 import com.enation.app.shop.core.payment.model.po.PaymentMethod;
 import com.enation.app.shop.core.payment.model.vo.OrderPayReturnParam;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
-import com.enation.app.shop.core.payment.service.IPaymentBillManager;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.database.IDaoSupport;
 import com.enation.framework.util.StringUtil;
@@ -50,6 +50,9 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 	
 	@Autowired
 	private IPaymentBillManager paymentBillManager;
+
+	@Autowired
+	private IServerConfigManager serverConfigManager;
 	
 	
 	/**
@@ -149,7 +152,9 @@ public abstract class AbstractPaymentPlugin  extends AutoRegisterPlugin {
 //		}
 //		String contextPath = request.getContextPath();
 		//return "http://200b6746.nat123.cc:32611/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
-		return "http://47.92.143.184:8080/b2c/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
+		ServerConfig config = serverConfigManager.findByState();
+		return config.getDomain_name()+"/b2c/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
+		//return AlipayConstants.SERVER_URL +"/b2c/api/shop/order-pay/callback/"+order_type.name()+"/" + this.getPluginId()+".do";
 	}
 	
 	/**

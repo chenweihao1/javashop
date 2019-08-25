@@ -10,7 +10,8 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Service;
@@ -73,7 +74,8 @@ public class GoodsManager  implements IGoodsManager {
 	
 	@Autowired
 	private ICartManager cartManager;
-	
+
+	private static Logger logger = LoggerFactory.getLogger(GoodsManager.class);
 	
 	/*
 	 * (non-Javadoc)
@@ -125,7 +127,6 @@ public class GoodsManager  implements IGoodsManager {
 		}
 	}
 
-
 	/*
 	 * (non-Javadoc)
 	 * @see com.enation.app.shop.core.goods.service.IGoodsManager#edit(com.enation.app.shop.core.goods.model.Goods)
@@ -135,7 +136,6 @@ public class GoodsManager  implements IGoodsManager {
 	@Log(type=LogType.GOODS,detail="修改商品名为${goods.name}的商品信息")
 	public void edit(Goods goods) {
 		goods.setLast_modify(DateUtil.getDateline()); //添加商品更新时间
-		Logger logger = Logger.getLogger(getClass());
 		try {
 			if (logger.isDebugEnabled()) {
 				logger.debug("开始保存商品数据...");
@@ -968,7 +968,7 @@ public class GoodsManager  implements IGoodsManager {
 	 */
 	@Override
 	public void editPreviewGoods(Goods goods) {
-		Logger logger = Logger.getLogger(getClass());
+		Logger logger = LoggerFactory.getLogger(getClass());
 		try {
 			if (logger.isDebugEnabled()) {
 				logger.debug("开始保存商品数据...");
@@ -1024,7 +1024,7 @@ public class GoodsManager  implements IGoodsManager {
 	@Log(type=LogType.GOODS,detail="修改商品名为${goods.name}的商品信息")
 	public void editdraft(Goods goods) {
 		goods.setLast_modify(DateUtil.getDateline()); //添加商品更新时间
-		Logger logger = Logger.getLogger(getClass());
+		Logger logger = LoggerFactory.getLogger(getClass());
 		try {
 			if (logger.isDebugEnabled()) {
 				logger.debug("开始保存商品数据...");

@@ -237,7 +237,7 @@ public class DataController extends GridController{
 			this.dataManager.updateSort(dataids, sorts, catid);
 			return JsonResultUtil.getSuccessJson("修改排序成功");
 		} catch (Exception e) {
-			this.logger.error(e);
+			this.logger.error("系统异常:{}",e);
 			return JsonResultUtil.getErrorJson(e.getMessage());
 		}
 	}
