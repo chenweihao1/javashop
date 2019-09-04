@@ -1,5 +1,6 @@
 package com.enation.app.shop.core.goods.service.impl;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -658,8 +659,14 @@ public class GoodsManager  implements IGoodsManager {
 		List<Goods> goodsList = this.daoSupport.queryForList(sql);
 		return goodsList;
 	}
-	
-	
+
+	@Override
+	public void editGoodsById(int goodsId, BigDecimal price) {
+		this.daoSupport.execute("update es_goods set price = ? where goods_id = ?",price,goodsId);
+		this.daoSupport.execute("update es_product set price = ? where goods_id = ?",price,goodsId);
+	}
+
+
 	public List listGoods(String catid,String tagid,String goodsnum){
 		int num = 10;
 		if(!StringUtil.isEmpty(goodsnum)){

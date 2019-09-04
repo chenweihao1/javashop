@@ -113,11 +113,11 @@ public class PayOrderApiController {
         //进行订单结算
 
         String payhtml = execute(order,orderPay.getReturnUrl(),product.getName());
-        String uuid = UUID.randomUUID().toString().replaceAll("-", "");
-        AlipayConstants.aliPayMap.put(uuid,payhtml);
-        ServerConfig config = serverConfigManager.findByState();
-        String payUrl = config.getDomain_name()+"/b2c/api/shop/pay/payorder/"+uuid+".do";
-        return ResultModel.success(payUrl);
+        //String uuid = UUID.randomUUID().toString().replaceAll("-", "");
+        //AlipayConstants.aliPayMap.put(uuid,payhtml);
+        //ServerConfig config = serverConfigManager.findByState();
+        //String payUrl = config.getDomain_name()+"/b2c/api/shop/pay/payorder/"+uuid+".do";
+        return ResultModel.success(payhtml);
     }
 
 

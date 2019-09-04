@@ -1,25 +1,20 @@
 package com.enation.app.shop.component.payment.plugin.alipay.direct.executor;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.enation.app.shop.core.order.model.OrderItem;
-import com.enation.app.shop.core.order.model.OrderType;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradeWapPayRequest;
+import com.enation.app.shop.component.payment.plugin.alipay.direct.AlipayPluginConfig;
+import com.enation.app.shop.component.payment.plugin.alipay.sdk34.config.AlipayConfig;
 import com.enation.app.shop.core.order.model.PaymentResult;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.enation.app.shop.component.payment.plugin.alipay.JavashopAlipayUtil;
-import com.enation.app.shop.component.payment.plugin.alipay.direct.AlipayPluginConfig;
-import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.AlipayClient;
-import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.DefaultAlipayClient;
-import com.enation.app.shop.component.payment.plugin.alipay.sdk34.api.request.AlipayTradeWapPayRequest;
-import com.enation.app.shop.component.payment.plugin.alipay.sdk34.config.AlipayConfig;
 import com.enation.app.shop.core.payment.model.vo.PayBill;
-import com.enation.eop.resource.model.EopSite;
 import com.enation.framework.context.webcontext.ThreadContextHolder;
 import com.enation.framework.util.StringUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,7 +27,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 2017年10月11日 下午4:22:50
  */
 @Service
-public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
+public class AlipayWapPaymentExecutor extends AlipayPluginConfig {
 
 	
 	/**
@@ -62,7 +57,7 @@ public class AlipayWapPaymentExecutor extends AlipayPluginConfig{
 //			String price = new String(String.valueOf(payMoney).getBytes("ISO-8859-1"), "UTF-8");
 			//String sitename = EopSite.getInstance().getSitename();
 			// 订单名称
-			String subject = bill.getGoods_name() + "订单";
+			String subject = bill.getGoods_name();
 			
 			String body =  bill.getGoods_name()+ "x1";
 			

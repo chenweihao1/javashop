@@ -1,5 +1,6 @@
 package com.enation.app.shop.core.goods.service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 
@@ -36,6 +37,8 @@ public interface IGoodsManager {
 
 
 	public List<Goods> obtainGoodsList();
+
+	public void editGoodsById(int goodsId, BigDecimal price);
 	
 	/**
 	 * 修改时获取数据

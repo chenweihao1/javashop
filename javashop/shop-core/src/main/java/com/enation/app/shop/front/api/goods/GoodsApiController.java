@@ -1,5 +1,6 @@
 package com.enation.app.shop.front.api.goods;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +50,23 @@ public class GoodsApiController  extends GridController {
 	private IGoodsManager goodsManager;
 	@Autowired
 	private IProductSnapshotManager productSnapshotManager;
+
+
+	@ResponseBody
+	@RequestMapping("edit")
+	public ResultModel editGoodsById(int goodsId, BigDecimal price){
+		this.goodsManager.editGoodsById(goodsId,price);
+		return ResultModel.success();
+	}
+
+	@ResponseBody
+	@RequestMapping("query")
+	public ResultModel queryByGoodsId(int goodsId){
+		Goods goods = goodsManager.getGoods(goodsId);
+		return ResultModel.success(goods);
+	}
+
+
 	/**
 	 * 搜索商品
 	 * 输入参数：
@@ -74,7 +92,6 @@ public class GoodsApiController  extends GridController {
 		return JsonMessageUtil.getListJson(goodslist);
 		
 	}
-
 
 	/**
 	 * 获取商品列表

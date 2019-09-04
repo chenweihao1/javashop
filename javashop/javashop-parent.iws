@@ -7,117 +7,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bdcc247d-f072-4a6d-a965-9262f7f0eb4d" name="Default" comment="更新">
-      <change afterPath="$PROJECT_DIR$/b2c/src/main/resources/logback.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/b2c/src/main/webapp/pay/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/server/server_content_add.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/server/server_content_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ServerConfigController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/model/ServerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/IServerConfigManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ServerConfigManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/resources/log4j.properties" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/payment/payment_type.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/webapp/adminthemes/version3/main_page.html" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/src/main/webapp/adminthemes/version3/main_page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/webapp/install/step1.html" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/src/main/webapp/install/step1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/receipt/receipt_content_edit.html" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/server/server_config_edit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/footer.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/reception_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/reception_header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms-core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cms-core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms-core/src/main/java/com/enation/app/cms/core/action/DataController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cms-core/src/main/java/com/enation/app/cms/core/action/DataController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms-core/src/main/java/com/enation/app/cms/core/service/impl/DataCatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/cms-core/src/main/java/com/enation/app/cms/core/service/impl/DataCatManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cms-core/src/main/java/com/enation/app/cms/core/service/impl/DataManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/cms-core/src/main/java/com/enation/app/cms/core/service/impl/DataManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/AdminUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/AdminUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/ExampleDataCleanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/ExampleDataCleanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/MenuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/ShortMsgController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/ShortMsgController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/UploadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/UploadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/UserAdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/UserAdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/api/SmsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/api/SmsApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/api/TagTestCreateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/api/TagTestCreateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/plugin/express/AbstractExpressPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/plugin/express/AbstractExpressPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/plugin/sms/AbstractSmsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/plugin/sms/AbstractSmsPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/impl/SiteMenuManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/impl/SiteMenuManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/impl/cache/RegionsCacheProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/impl/cache/RegionsCacheProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/AdminThemeInstaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/AdminThemeInstaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/AppInstaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/AppInstaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/ExampleDataInstaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/ExampleDataInstaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/ProfileLoaderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/ProfileLoaderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/SolutionInstaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/SolutionInstaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/ThemeInstaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/ThemeInstaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/UriInstaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/solution/impl/UriInstaller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/tag/AdvListTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/tag/AdvListTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/resource/impl/cache/AppCacheProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/resource/impl/cache/AppCacheProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/resource/impl/cache/ThemeUriCacheProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/resource/impl/cache/ThemeUriCacheProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/sdk/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/sdk/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/sdk/listener/EopSessionListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/eop/sdk/listener/EopSessionListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/action/GridController.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/action/GridController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/cache/AbstractCacheProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/cache/AbstractCacheProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/component/impl/ComponentManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/component/impl/ComponentManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/context/webcontext/ThreadContextHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/context/webcontext/ThreadContextHolder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/database/impl/DefaultSqlFileExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/database/impl/DefaultSqlFileExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/database/impl/JdbcDaoSupport.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/database/impl/JdbcDaoSupport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/jms/EmailProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/jms/EmailProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/jms/EopConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/jms/EopConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/plugin/AutoRegisterPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/plugin/AutoRegisterPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/taglib/BaseFreeMarkerTag.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/taglib/BaseFreeMarkerTag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/SerializeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/SerializeUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/ip/IPSeeker.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/ip/IPSeeker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/ip/IpUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/ip/IpUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/ip/LogFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/javashop-parent.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/javashop-parent.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/javashop-parent.iws" beforeDir="false" afterPath="$PROJECT_DIR$/javashop-parent.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/ShopApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/ShopApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/bonus/api/BonusApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/bonus/api/BonusApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/bonus/service/impl/BonusManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/bonus/service/impl/BonusManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/gallery/plugin/GoodsGalleryProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/gallery/plugin/GoodsGalleryProcessor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/api/AlipayConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/api/AlipayConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/executor/WeixinH5PaymentExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/executor/WeixinH5PaymentExecutor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/FloorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/FloorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/IndexPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/IndexPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/ShowCaseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/ShowCaseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/SubjectController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/SubjectController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/TemplateController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/TemplateController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/TemplateShowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/decorate/action/TemplateShowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/action/MemberPriceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/action/MemberPriceController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsDataBatchManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsDataBatchManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsDescImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsDescImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsImageImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsImageImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsPropImporter.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/impl/GoodsPropImporter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/util/GoodsDescReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/util/GoodsDescReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/util/GoodsImageReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/batchimport/util/GoodsImageReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/GoodsCatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/GoodsCatManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/IGoodsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/IGoodsManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/GoodsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/GoodsManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/DlyCenterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/DlyCenterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/OrderPrintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/OrderPrintController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/PaymentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/PaymentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/service/impl/CartManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/service/impl/CartManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/service/impl/OrderFlowManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/service/impl/OrderFlowManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ExpressController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ExpressController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ReceiptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ReceiptController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/B2cThemePathGeter.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/B2cThemePathGeter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/cache/GoodsCatCacheProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/cache/GoodsCatCacheProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ActivityManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ActivityManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ArticleCatManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ArticleCatManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ExpressManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ExpressManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/LimitBuyManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/LimitBuyManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/PromotionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/PromotionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/AbstractPaymentPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/AbstractPaymentPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/statistics/action/FlowStatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/statistics/action/FlowStatisticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/statistics/action/MemberStatisticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/statistics/action/MemberStatisticsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/goods/MemberGnotifyApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/goods/MemberGnotifyApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/CommentApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/CommentApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/FavoriteApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/FavoriteApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/MemberAddressApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/MemberAddressApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/MemberReceiptApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/MemberReceiptApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/goods/GoodsApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/goods/GoodsApiController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PayOrderApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PayOrderApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentCallbackApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentCallbackApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/RefundCallbackApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/RefundCallbackApiController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/publicmethod/CartPublicMethod.java" beforeDir="false" afterPath="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/publicmethod/CartPublicMethod.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/groupbuy/target/" />
     <ignored path="$PROJECT_DIR$/core/target/" />
@@ -154,76 +52,78 @@
     <session id="904554171">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="38" />
+          <entry key="project.closed" value="46" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="6" />
+          <entry key="project.open.time.1" value="7" />
           <entry key="project.open.time.13" value="3" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.2" value="8" />
-          <entry key="project.open.time.3" value="1" />
-          <entry key="project.open.time.34" value="2" />
+          <entry key="project.open.time.2" value="10" />
+          <entry key="project.open.time.3" value="2" />
+          <entry key="project.open.time.34" value="3" />
           <entry key="project.open.time.35" value="2" />
-          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.36" value="2" />
           <entry key="project.open.time.38" value="3" />
           <entry key="project.open.time.39" value="3" />
           <entry key="project.open.time.4" value="4" />
-          <entry key="project.open.time.5" value="2" />
+          <entry key="project.open.time.42" value="1" />
+          <entry key="project.open.time.5" value="3" />
           <entry key="project.open.time.53" value="1" />
+          <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.65" value="1" />
           <entry key="project.open.time.7" value="1" />
           <entry key="project.open.time.9" value="1" />
-          <entry key="project.opened" value="42" />
+          <entry key="project.opened" value="51" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="84" />
+          <entry key="class" value="85" />
           <entry key="css" value="6" />
           <entry key="example" value="1" />
-          <entry key="html" value="72" />
+          <entry key="html" value="76" />
           <entry key="iml" value="5" />
           <entry key="ipr" value="2" />
           <entry key="iws" value="3" />
-          <entry key="java" value="975" />
+          <entry key="java" value="995" />
           <entry key="js" value="5" />
           <entry key="jsp" value="7" />
           <entry key="lock" value="4" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
-          <entry key="properties" value="69" />
+          <entry key="properties" value="70" />
           <entry key="sql" value="1" />
-          <entry key="xml" value="114" />
+          <entry key="xml" value="120" />
           <entry key="xsd" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="84" />
+          <entry key="CLASS" value="85" />
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="72" />
+          <entry key="HTML" value="76" />
           <entry key="IDEA_MODULE" value="5" />
           <entry key="IDEA_PROJECT" value="2" />
           <entry key="IDEA_WORKSPACE" value="3" />
           <entry key="Image" value="1" />
-          <entry key="JAVA" value="975" />
+          <entry key="JAVA" value="995" />
           <entry key="JSP" value="7" />
           <entry key="JavaScript" value="5" />
           <entry key="Markdown" value="1" />
           <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Properties" value="69" />
+          <entry key="Properties" value="70" />
           <entry key="SQL" value="1" />
-          <entry key="XML" value="115" />
+          <entry key="XML" value="121" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="1" />
           <entry key="dummy" value="42" />
-          <entry key="html" value="1134" />
-          <entry key="java" value="21505" />
+          <entry key="html" value="1153" />
+          <entry key="java" value="22076" />
           <entry key="js" value="1" />
-          <entry key="properties" value="532" />
+          <entry key="properties" value="602" />
           <entry key="txt" value="11" />
           <entry key="xml" value="270" />
         </counts>
@@ -231,10 +131,10 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="1135" />
-          <entry key="JAVA" value="21505" />
+          <entry key="HTML" value="1154" />
+          <entry key="JAVA" value="22076" />
           <entry key="PLAIN_TEXT" value="53" />
-          <entry key="Properties" value="532" />
+          <entry key="Properties" value="602" />
           <entry key="XML" value="270" />
         </counts>
       </usages-collector>
@@ -246,46 +146,95 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/css/common.css">
+        <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PayOrderApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9174">
-              <caret line="417" column="17" selection-start-line="417" selection-start-column="17" selection-end-line="417" selection-end-column="17" />
+            <state relative-caret-position="3891">
+              <caret line="244" column="40" selection-start-line="244" selection-start-column="40" selection-end-line="244" selection-end-column="40" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/DispatcherFilter.java">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1452">
-              <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+            <state relative-caret-position="797">
+              <caret line="95" selection-start-line="95" selection-end-line="95" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/IEopProcessor.java">
+        <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/goods/GoodsApiController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+            <state relative-caret-position="277">
+              <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/payment/payment_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="836">
+              <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/payment/payment_type.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="68" column="40" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="40" />
+              <folding>
+                <element signature="e#448#454#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/controller/backend/PaymentMethodController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/IPaymentMethodManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/config/jdbc.properties">
+        <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/impl/PaymentMethodManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="330">
+              <caret line="100" column="15" selection-start-line="100" selection-start-column="12" selection-end-line="100" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/SystemSetting.java">
+        <entry file="file://$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+            <state relative-caret-position="396">
+              <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/GoodsManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13706">
+              <caret line="663" column="62" selection-start-line="663" selection-start-column="62" selection-end-line="663" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -302,17 +251,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>contentid</find>
-      <find>editReceiptContentForm</find>
-      <find>id=&quot;advform&quot;</find>
-      <find>expdata</find>
-      <find>contentdata</find>
-      <find>set-open</find>
-      <find>platform_name</find>
-      <find>save_server_content</find>
-      <find>layedit</find>
-      <find>laydate</find>
-      <find>addReceiptContentForm</find>
       <find>receiptContentList</find>
       <find>getSetting</find>
       <find>wechat</find>
@@ -332,6 +270,17 @@
       <find>.common_menu .menu .</find>
       <find>左侧搜索</find>
       <find>北京</find>
+      <find>../sta</find>
+      <find>countPrice</find>
+      <find>selectListGoods</find>
+      <find>templateLoaderPath</find>
+      <find>freemarker</find>
+      <find>springframework</find>
+      <find>validation</find>
+      <find>editGoodsById</find>
+      <find>启用PC</find>
+      <find>/order-pay/</find>
+      <find>paymentPluginList</find>
     </findStrings>
     <dirStrings>
       <dir>E:\Javashop-B2C\javashop\core\src\main\java\com\enation\eop</dir>
@@ -345,11 +294,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/action/UserAdminController.java" />
-        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/PaymentController.java" />
-        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/member/MemberReceiptApiController.java" />
-        <option value="$PROJECT_DIR$/cms-core/src/main/java/com/enation/app/cms/core/action/DataController.java" />
-        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/OrderController.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/action/DlyCenterController.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/enation/framework/taglib/BaseFreeMarkerTag.java" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/tag/AdvListTag.java" />
@@ -371,12 +315,10 @@
         <option value="$PROJECT_DIR$/b2c/src/main/resources/logback.xml" />
         <option value="$PROJECT_DIR$/core/src/main/java/com/enation/eop/sdk/utils/ValidCodeServlet.java" />
         <option value="$PROJECT_DIR$/cms-core/pom.xml" />
-        <option value="$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/api/AlipayConstants.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ServiceConfigManager.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/model/ServerConfig.java" />
-        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PayOrderApiController.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/AbstractPaymentPlugin.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ReceiptController.java" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/pay/index.html" />
@@ -386,16 +328,23 @@
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ServerConfigManager.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ServerConfigController.java" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/server/server_content_add.html" />
-        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java" />
         <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/executor/WeixinH5PaymentExecutor.java" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/install/step1.html" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/footer.html" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/products/simple/profile.xml" />
-        <option value="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/reception_header.html" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/css/common.css" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/adminthemes/version3/main_page.html" />
+        <option value="$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/reception_header.html" />
         <option value="$PROJECT_DIR$/b2c/src/main/webapp/config/jdbc.properties" />
+        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java" />
+        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/IGoodsManager.java" />
+        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/goods/GoodsApiController.java" />
+        <option value="$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties" />
+        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/GoodsManager.java" />
+        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PayOrderApiController.java" />
+        <option value="$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/payment/payment_type.html" />
+        <option value="$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/impl/PaymentMethodManager.java" />
       </list>
     </option>
   </component>
@@ -460,11 +409,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1932" />
-    <option name="height" value="1045" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="260" />
+    <option name="y" value="20" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -474,7 +423,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -503,53 +452,46 @@
             <path>
               <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
-              <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="b2c" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="b2c" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="b2c" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enation" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="javashop-parent" type="b2602c69:ProjectViewProjectNode" />
               <item name="javashop" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="b2c" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="enation" type="462c0819:PsiDirectoryNode" />
-              <item name="eop" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="shop" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="payment" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -557,18 +499,21 @@
     <property name="SearchEverywhereHistoryKey" value="junit&#9;PSI&#9;JAVA://com.enation.app.shop.core.payment.junit&#10;config&#9;PSI&#9;JAVA://com.enation.app.base.core.model.ConfigItem&#10;AliPayConfig&#9;FILE&#9;file://E:/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/sdk34/config/AlipayConfig.java&#10;OrderPayManager&#9;FILE&#9;file://E:/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/core/payment/service/impl/OrderPayManager.java&#10;IPaymentPlugin&#9;FILE&#9;file://E:/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/core/payment/service/IPaymentPlugin.java&#10;paymentPluginList&#9;PSI&#9;JAVA://com.enation.app.shop.core.payment.service.impl.OrderPayManager#paymentPluginList&#10;jdbc.pr&#9;FILE&#9;file://E:/Javashop-B2C/javashop/b2c/src/main/webapp/config/jdbc.properties.example&#10;address-add-edit.js&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/js/page/address-add-edit.js&#10;order.html&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/member/order.html&#10;RegionSelectDirective&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.other.regions.RegionSelectDirective&#10;address-add&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/kaben/checkout/address-add.html&#10;goodsSearchTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.GoodsSearchTag&#10;searchSelectorTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.search.SearchSelectorTag&#10;footprintTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.member.FootprintTag&#10;footprints&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/member/footprints.html&#10;goodsGalleryBestSellerTag&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/front/tag/goods/GoodsGalleryBestSellerTag.java&#10;memberIsCommentTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.member.MemberIsCommentTag&#10;comment.html&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/comment.html&#10;comment.htm&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/docs/api/comment.html&#10;goodsGalleryNewTag&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/shop-core/src/main/java/com/enation/app/shop/front/tag/goods/GoodsGalleryNewTag.java&#10;checkCmptIsOnTag&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/core/src/main/java/com/enation/app/base/core/tag/CheckCmptIsOnTag.java&#10;goodsCatTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.GoodsCatTag&#10;goodsGalleryTag&#9;PSI&#9;JAVA://com.enation.app.shop.front.tag.goods.GoodsGalleryTag&#10;goods_list.html&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/goods_list.html&#10;search.html&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/search.html&#10;float_footer&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/common/float_footer.html&#10;class&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/classify.html&#10;classify.&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/js/classify.js&#10;cat_edit&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/shop/admin/cat/cat_edit.html&#10;classify.html&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/classify.html&#10;common.js&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/js/common.js&#10;classify&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/themes/wap/js/classify.js&#10;iscroll&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/statics/e_tools/mobile/library/iscroll/iscroll.js&#10;classify.css&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/css/classify.css&#10;classify.h&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/classify.html&#10;category&#9;FILE&#9;file://E:/work4/shop_b2c_weixin/javashop-b2c-weixin-applet/themes/src/main/webapp/themes/yanxuan/category.html&#10;iscroll.js&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/statics/e_tools/mobile/library/iscroll/iscroll.js&#10;goods.html&#9;FILE&#9;file://E:/work4/shopB2CNew/Javashop-B2C/javashop/b2c/src/main/webapp/docs/api/goods.html" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566569834557" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1567587229435" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="E:/hldkj/simulate" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Javashop-B2C\javashop\b2c\src\main\webapp\shop\admin\payment" />
       <recent name="E:\Javashop-B2C\javashop\b2c\src\main\webapp\shop\admin\server" />
-      <recent name="E:\Javashop-B2C\javashop\shop-core\src" />
+      <recent name="E:\Javashop-B2C\javashop\b2c\src\main\resources" />
+      <recent name="E:\Javashop-B2C\javashop\b2c\src\main\webapp\shop\admin\member" />
+      <recent name="E:\Javashop-B2C\javashop\b2c\src\main\webapp" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.enation.app.shop.front.api.order.enums" />
@@ -577,12 +522,9 @@
       <recent name="com.enation.app.shop.core.goods.model" />
       <recent name="com.enation.app.shop.front.tag.goods" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Javashop-B2C\javashop\b2c\src\main\webapp\shop\admin\server" />
-      <recent name="E:\Javashop-B2C\javashop\b2c\src\main\resources" />
-      <recent name="E:\Javashop-B2C\javashop\b2c\src\main\webapp\shop\admin\member" />
-      <recent name="E:\Javashop-B2C\javashop\b2c\src\main\webapp" />
-      <recent name="E:\Javashop-B2C\javashop\b2c\target\b2c-6.3.1" />
+      <recent name="E:\Javashop-B2C\javashop\shop-core\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1007,7 +949,16 @@
       <workItem from="1566288011686" duration="3017000" />
       <workItem from="1566463998439" duration="7226000" />
       <workItem from="1566533074889" duration="10649000" />
-      <workItem from="1566734099863" duration="2407000" />
+      <workItem from="1566734099863" duration="4857000" />
+      <workItem from="1566793309153" duration="6050000" />
+      <workItem from="1566878637750" duration="14918000" />
+      <workItem from="1566991321261" duration="1451000" />
+      <workItem from="1567052423321" duration="2987000" />
+      <workItem from="1567080355638" duration="2882000" />
+      <workItem from="1567137991877" duration="4958000" />
+      <workItem from="1567403243965" duration="10354000" />
+      <workItem from="1567487840340" duration="859000" />
+      <workItem from="1567568481883" duration="9107000" />
     </task>
     <task id="LOCAL-00001" summary="更新">
       <created>1565414435729</created>
@@ -1059,7 +1010,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="608612000" />
+    <option name="totallyTimeSpent" value="664628000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1071,10 +1022,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49118388" visible="true" weight="0.16897655" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49118388" visible="true" weight="0.18976545" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Nl-Palette" order="2" />
       <window_info id="Designer" order="3" />
@@ -1086,21 +1037,21 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.23778501" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4989339" weight="0.5787188" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.49185666" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" visible="true" weight="0.17589577" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32899022" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50159913" side_tool="true" weight="0.29641694" />
-      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4989339" weight="0.28555918" />
+      <window_info anchor="bottom" id="Messages" order="8" sideWeight="0.4989339" weight="0.26275787" />
       <window_info anchor="bottom" id="Java Enterprise" order="9" sideWeight="0.49946696" weight="0.32899022" />
       <window_info anchor="bottom" id="Version Control" order="10" sideWeight="0.49946696" weight="0.32899022" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" visible="true" weight="0.21281216" />
+      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4989339" weight="0.39739415" />
       <window_info anchor="bottom" id="Spring" order="12" weight="0.32899022" />
       <window_info anchor="bottom" id="Application Servers" order="13" sideWeight="0.4989339" weight="0.33224756" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24946696" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.20628998" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" visible="true" weight="0.1609808" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Properties" order="4" />
       <window_info anchor="right" id="Database" order="5" weight="0.32980332" />
@@ -1187,18 +1138,6 @@
           <properties />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java</url>
-          <line>101</line>
-          <properties />
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java</url>
-          <line>114</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderPayController.java</url>
           <line>48</line>
@@ -1215,212 +1154,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/server/server_config_edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/server/server_content_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2662">
-          <caret line="121" column="31" selection-start-line="121" selection-start-column="31" selection-end-line="121" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/receipt/receipt_content_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1254">
-          <caret line="57" column="7" selection-start-line="57" selection-start-column="7" selection-end-line="57" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/server/server_content_add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="45" selection-start-line="24" selection-start-column="45" selection-end-line="24" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/IServerConfigManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ServerConfigController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="102" column="57" selection-start-line="102" selection-start-column="57" selection-end-line="102" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/receipt/service/ReceiptManager.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/controller/ReceiptController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="173" column="46" selection-start-line="173" selection-start-column="46" selection-end-line="173" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ServerConfigManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="62" column="50" selection-start-line="62" selection-start-column="50" selection-end-line="62" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/resource/model/EopSite.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="84" column="44" lean-forward="true" selection-start-line="84" selection-start-column="44" selection-end-line="84" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/ISettingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="76" column="43" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/IReceiptContentManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="50" column="16" selection-start-line="50" selection-start-column="16" selection-end-line="50" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/HttpClientUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="58" column="14" lean-forward="true" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JAVA/jdk/jdk1.8/src.zip!/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="49">
-          <caret line="110" column="19" selection-start-line="110" selection-start-column="19" selection-end-line="110" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/WeixinPayPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-854">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/app/WeixinAppPayPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="27" column="51" selection-start-line="27" selection-start-column="51" selection-end-line="27" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/AlipayDirectPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/other/service/impl/ReceiptContentManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="35" column="35" selection-start-line="35" selection-start-column="35" selection-end-line="35" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-836">
-          <caret line="77" column="84" lean-forward="true" selection-start-line="77" selection-start-column="84" selection-end-line="77" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/app/base/core/service/impl/SettingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="698">
-          <caret line="116" column="50" selection-start-line="116" selection-start-column="50" selection-end-line="116" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/OrderPayController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="752">
-          <caret line="57" column="43" selection-start-line="57" selection-start-column="43" selection-end-line="57" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/IPaymentPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/app/WeixinH5PayPlugin.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1606">
-          <caret line="114" column="41" selection-start-line="114" selection-start-column="41" selection-end-line="114" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.4.RELEASE/spring-web-4.2.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2640">
-          <caret line="137" selection-start-line="137" selection-end-line="137" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/order_pay_desk.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5742">
-          <caret line="261" column="103" selection-start-line="261" selection-start-column="86" selection-end-line="261" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/WeixinQrControllor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2354">
-          <caret line="126" selection-start-line="126" selection-end-line="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/IOrderPayManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="11" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/impl/OrderPayManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1342">
-          <caret line="80" column="48" selection-start-line="80" selection-start-column="48" selection-end-line="80" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PayOrderApiController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3102">
-          <caret line="184" column="42" selection-start-line="184" selection-start-column="42" selection-end-line="184" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/weixin/executor/WeixinH5PaymentExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1487,13 +1220,6 @@
     <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/products/simple/setup.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/reception_header.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/adminthemes/version3/main_page.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1078">
@@ -1511,17 +1237,10 @@
         <state relative-caret-position="-869" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/css/common.css">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/IEopProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9174">
-          <caret line="417" column="17" selection-start-line="417" selection-start-column="17" selection-end-line="417" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/DispatcherFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1452">
-          <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+        <state relative-caret-position="308">
+          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -1532,17 +1251,243 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/IEopProcessor.java">
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/DispatcherFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+        <state relative-caret-position="668">
+          <caret line="91" column="42" selection-start-line="91" selection-start-column="42" selection-end-line="91" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/4.2.4.RELEASE/spring-aop-4.2.4.RELEASE.jar!/org/springframework/aop/framework/CglibAopProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="474" selection-start-line="474" selection-end-line="474" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/service/impl/CartManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-789">
+          <caret line="464" selection-start-line="464" selection-end-line="464" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/order/service/ICartManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="169">
+          <caret line="83" column="38" lean-forward="true" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8734">
+          <caret line="397" column="37" selection-start-line="397" selection-start-column="37" selection-end-line="397" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/framework/util/CurrencyUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="25" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/member/model/MemberAddress.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1628">
+          <caret line="110" selection-start-line="110" selection-end-line="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/model/OrderPay.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2596">
+          <caret line="170" selection-start-line="170" selection-end-line="170" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/model/Goods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="28" selection-start-line="27" selection-start-column="28" selection-end-line="27" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/themes/kaben/common/reception_header.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/IPaymentPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/AlipayDirectPlugin.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="38" column="29" selection-start-line="38" selection-start-column="29" selection-end-line="38" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/pay/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="20" selection-start-line="13" selection-start-column="4" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/component/payment/plugin/alipay/direct/executor/AlipayWapPaymentExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="968">
+          <caret line="61" column="54" selection-start-line="61" selection-start-column="54" selection-end-line="61" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/config/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PaymentApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="758">
+          <caret line="113" column="43" selection-start-line="113" selection-start-column="43" selection-end-line="113" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/model/ResultModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="45" column="48" selection-start-line="45" selection-start-column="48" selection-end-line="45" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/enums/RespCodeEnum.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="24" column="33" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/main/java/com/enation/eop/processor/core/HttpEntityFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1628">
+          <caret line="97" column="41" selection-start-line="97" selection-start-column="41" selection-end-line="97" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/IGoodsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="24" column="7" selection-start-line="24" selection-start-column="7" selection-end-line="24" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/goods/service/impl/GoodsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13706">
+          <caret line="663" column="62" selection-start-line="663" selection-start-column="62" selection-end-line="663" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider editor-type-id="MavenHelperPluginDependencyAnalyzer" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="797">
+          <caret line="95" selection-start-line="95" selection-end-line="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/order/PayOrderApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3891">
+          <caret line="244" column="40" selection-start-line="244" selection-start-column="40" selection-end-line="244" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/resources/spring_cfg/filter-chain-definitions.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/front/api/goods/GoodsApiController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="154" column="8" selection-start-line="154" selection-start-column="8" selection-end-line="154" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/payment/payment_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="38" column="25" selection-start-line="38" selection-start-column="25" selection-end-line="38" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/b2c/src/main/webapp/shop/admin/payment/payment_type.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="68" column="40" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="40" />
+          <folding>
+            <element signature="e#448#454#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/controller/backend/PaymentMethodController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="26" column="66" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/IPaymentMethodManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shop-core/src/main/java/com/enation/app/shop/core/payment/service/impl/PaymentMethodManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="100" column="15" selection-start-line="100" selection-start-column="12" selection-end-line="100" selection-end-column="15" />
         </state>
       </provider>
     </entry>
